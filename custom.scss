@@ -1,0 +1,15 @@
+/* Make headings more polished */
+h1, h2, h3 {
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Figure captions centered */
+.figure-caption {
+  text-align: center;
+}
+
+/* Slightly wider pages */
+main.content {
+  max-width: 900px;
+  margin: auto;
+}

@@ -1,0 +1,8 @@
+mean(mpg$cty)
+mpg |> 
+  model_train(cty ~ 1) |> 
+  conf_interval()
+
+mpg |> 
+  mutate(modval = model_values(cty ~ displ)) |> 
+  summarize(avg_cty = mean(modval))

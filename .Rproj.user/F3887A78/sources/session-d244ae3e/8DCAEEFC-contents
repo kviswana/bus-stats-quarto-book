@@ -1,0 +1,44 @@
+---
+title: 'BQUA 2811 Worksheet 17: Model Patterns'
+output:
+  pdf_document: 
+    latex_engine: pdflatex
+  word_document: default
+  html_document:
+    df_print: paged
+fontsize: 12pt
+header-includes:
+  - \usepackage{hyperref}
+  - \usepackage{enumitem}
+  - \hypersetup{pdfborder={0 0 0}, pdfhighlight=/N}
+---
+\begin{Form}
+\TextField[width=40em]{Name: \newline \newline}
+\end{Form}
+
+
+\begin{Form}
+
+  \begin{enumerate}
+
+\item \TextField[multiline=true, width=40em, height=2cm]{What two things do we need to specify at a minimum to build a model using the point\_plot function?\newline \newline }
+
+'\item \TextField[multiline=true, width=40em, height=2cm]{While writing a tilde or formula expression, we place the \underline{\hspace{3cm}} variable on the y-axis and the \underline{\hspace{3cm}} variable(s) on the x-axis. \newline\newline}
+
+\item \TextField[multiline=true, width=40em, height=2cm]{In this course we only deal with numerical outcome variables. However, the explanatory variable(s) can be categorical or numerical. For a model with a categorical explanatory variable, what does the plot of the statistical model look like? Write code to demonstrate this using the mpg dataset or the Penguins dataset.\newline\newline}
+
+\item \TextField[multiline=true, width=40em, height=2cm]{In this course we only deal with numerical outcome variables. However, the explanatory variable(s) can be categorical or numerical. For a model with a numerical explanatory variable, what does the plot of the statistical model look like? Write code to demonstrate this using the mpg dataset or the Penguins dataset.\newline\newline }
+
+\item \TextField[multiline=true, width=40em, height=2cm]{Use the Galton data frame to develop three different models of the form \newline\newline 
+y ~ x + z
+\newline\newline 
+Use height as the outcome and use the following three combinations for the explanatory variables: \newline\newline
+x: categorical, z: numeric\newline
+x: quantitative, z: quantitative \newline\newline
+}
+
+
+
+  \end{enumerate}
+
+\end{Form}

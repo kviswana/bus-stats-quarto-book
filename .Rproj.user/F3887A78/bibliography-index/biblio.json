@@ -1,0 +1,57 @@
+{
+    "sources": [
+        {
+            "URL": "https://www.lstbook.org",
+            "author": [
+                {
+                    "family": "Kaplan",
+                    "given": "Daniel"
+                }
+            ],
+            "id": "kaplanLST",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "title": "Lessons in statistical thinking",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "James",
+                    "given": "Gareth"
+                },
+                {
+                    "family": "Witten",
+                    "given": "Daniela"
+                },
+                {
+                    "family": "Hastie",
+                    "given": "Trevor"
+                },
+                {
+                    "family": "Tibshirani",
+                    "given": "Robert"
+                }
+            ],
+            "id": "islr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "publisher": "Springer",
+            "title": "An introduction to statistical learning",
+            "type": "book"
+        }
+    ],
+    "project_biblios": [
+        "references.bib"
+    ]
+}

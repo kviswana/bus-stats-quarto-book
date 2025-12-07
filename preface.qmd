@@ -1,0 +1,11 @@
+# Preface {.unnumbered}
+
+This book accompanies the course *Introduction to Business Statistics* at
+Stillman School of Business. It takes inspiration from *Lessons in Statistical
+Thinking* and builds on two core teaching principles:
+
+1. **Students understand structure before uncertainty.**
+2. **Regression is the central statistical tool for business.**
+
+The book is organized into 12 modules reflecting this storyline.
+

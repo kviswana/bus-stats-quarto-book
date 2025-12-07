@@ -1,0 +1,121 @@
+project:
+  type: book
+
+book:
+  title: "Introduction to Business Statistics: A Modeling Approach"
+  author: "Viswa Viswanathan"
+  date: "12/4/2025"
+  chapters:
+    - index.qmd
+    - preface.qmd
+
+    - part: "Module 1: Data, Visualization, and Patterns"
+      chapters:
+        - modules/01-data-visualization/01-overview.qmd
+        - modules/01-data-visualization/data-frames.qmd
+        - modules/01-data-visualization/point-plots.qmd
+        - modules/01-data-visualization/relationships.qmd
+
+    - part: "Module 2: Best Guess and Means"
+      chapters:
+        - modules/02-best-guess/01-overview.qmd
+        - modules/02-best-guess/means.qmd
+        - modules/02-best-guess/category-means.qmd
+        - modules/02-best-guess/residuals.qmd
+
+    - part: "Module 3: What Is a Model?"
+      chapters:
+        - modules/03-what-is-a-model/01-overview.qmd
+        - modules/03-what-is-a-model/model-concept.qmd
+
+    - part: "Module 4: Regression Without Confidence Bands"
+      chapters:
+        - modules/04-regression-no-ci/01-overview.qmd
+        - modules/04-regression-no-ci/line-model.qmd
+        - modules/04-regression-no-ci/interpreting-coefficients.qmd
+
+    - part: "Module 5: Populations and Samples"
+      chapters:
+        - modules/05-populations-samples/01-overview.qmd
+        - modules/05-populations-samples/pop-vs-sample.qmd
+        - modules/05-populations-samples/sampling-variability.qmd
+
+    - part: "Module 6: Probability as Variation"
+      chapters:
+        - modules/06-probability-variation/01-overview.qmd
+        - modules/06-probability-variation/randomness.qmd
+        - modules/06-probability-variation/variability.qmd
+        - modules/06-probability-variation/distributions.qmd
+
+    - part: "Module 7: Sampling Variation and Estimators"
+      chapters:
+        - modules/07-sampling-variation/01-overview.qmd
+        - modules/07-sampling-variation/se-estimators.qmd
+        - modules/07-sampling-variation/sampling-dist-slopes.qmd
+
+    - part: "Module 8: Confidence Intervals and Bands"
+      chapters:
+        - modules/08-confidence-bands/01-overview.qmd
+        - modules/08-confidence-bands/ci-slope.qmd
+        - modules/08-confidence-bands/ci-bands.qmd
+
+    - part: "Module 9: Signal, Noise, and R-Squared"
+      chapters:
+        - modules/09-signal-noise/01-overview.qmd
+        - modules/09-signal-noise/variance-decomposition.qmd
+        - modules/09-signal-noise/r-squared.qmd
+
+    - part: "Module 10: Hypothesis Testing via Regression"
+      chapters:
+        - modules/10-hypothesis-testing/01-overview.qmd
+        - modules/10-hypothesis-testing/t-tests-regression.qmd
+        - modules/10-hypothesis-testing/interpretation.qmd
+
+    - part: "Module 11: Business Applications of Regression"
+      chapters:
+        - modules/11-business-applications/01-overview.qmd
+        - modules/11-business-applications/marketing.qmd
+        - modules/11-business-applications/finance.qmd
+        - modules/11-business-applications/hr.qmd
+        - modules/11-business-applications/operations.qmd
+
+    - part: "Module 12: Projects and Datasets"
+      chapters:
+        - modules/12-projects/01-overview.qmd
+        - modules/12-projects/project-guidelines.qmd
+        - modules/12-projects/datasets.qmd
+
+  sidebar:
+    style: docked
+    background: light
+
+  search: true
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    css: custom.scss
+    number-sections: true
+    code-tools: true
+    df-print: paged
+
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    geometry: "margin=1in"
+    include-in-header:
+      text: |
+        \usepackage{enumitem}
+
+# bibliography: references.bib
+# csl: apa.csl
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto

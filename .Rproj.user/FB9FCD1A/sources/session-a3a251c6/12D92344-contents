@@ -1,0 +1,55 @@
+Banking |> 
+  head()
+
+Banking |> 
+  point_plot(account_balance ~ 1, 
+             annot = "violin", 
+             point_ink = 0.2)
+
+Banking |> 
+  point_plot(customer_age ~ 1, 
+             annot = "violin", 
+             point_ink = 0.2)
+
+Banking |> 
+  point_plot(account_balance ~ customer_age, 
+             annot = "model", point_ink = 0.2)
+
+Banking |> 
+  point_plot(account_balance ~ account_type, 
+             annot = "model", point_ink = 0.01,
+             model_ink = 1)
+
+Banking |> 
+  point_plot(account_balance ~ customer_age + risk_segment, 
+             annot = "model", point_ink = 0.01,
+             model_ink = 1)
+
+Banking |> 
+  point_plot(account_balance ~ customer_age + account_type, 
+             annot = "model", point_ink = 0.01,
+             model_ink = 1)
+
+Banking |> 
+  mutate(modval = model_values(account_balance ~ customer_age ),
+         resid = account_balance - modval) |>
+  summarize(tot_var = var(account_balance),
+            mod_var = var(modval),
+            resid_var = var(resid),
+            perc_explained = mod_var/tot_var * 100)
+
+Banking |> 
+  mutate(modval = model_values(account_balance ~ customer_age +  account_type),
+         resid = account_balance - modval) |>
+  summarize(tot_var = var(account_balance),
+            mod_var = var(modval),
+            resid_var = var(resid),
+            perc_explained = mod_var/tot_var * 100)
+
+Banking |> 
+  model_train(account_balance ~ customer_age) %>% 
+  R2()
+
+Banking |> 
+  model_train(account_balance ~ customer_age + account_type) %>% 
+  R2()

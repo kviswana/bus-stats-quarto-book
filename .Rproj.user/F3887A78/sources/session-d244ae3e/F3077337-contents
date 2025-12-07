@@ -1,0 +1,220 @@
+---
+title: "BQUA 2811 Second Test Review Fall 2025"
+output: pdf_document
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{flushleft}\LARGE\bfseries}
+  - \posttitle{\end{flushleft}}
+         
+---
+## Structure of datasets used (showing only the initial few rows)
+
+### mpg (inbuilt into LSTbook package)
+
+```
+|manufacturer |model | displ| year| cyl|trans      |drv | cty| hwy|fl |class   |
+|:------------|:-----|-----:|----:|---:|:----------|:---|---:|---:|:--|:-------|
+|audi         |a4    |   1.8| 1999|   4|auto(l5)   |f   |  18|  29|p  |compact |
+|audi         |a4    |   1.8| 1999|   4|manual(m5) |f   |  21|  29|p  |compact |
+|audi         |a4    |   2.0| 2008|   4|manual(m6) |f   |  20|  31|p  |compact |
+|audi         |a4    |   2.0| 2008|   4|auto(av)   |f   |  21|  30|p  |compact |
+|audi         |a4    |   2.8| 1999|   6|auto(l5)   |f   |  16|  26|p  |compact |
+|audi         |a4    |   2.8| 1999|   6|manual(m5) |f   |  18|  26|p  |compact |
+```
+
+### Penguins (inbuilt into LSTbook package)
+```
+|species |island    | bill_length| bill_depth| flipper| mass|sex    | year|
+|:-------|:---------|-----------:|----------:|-------:|----:|:------|----:|
+|Adelie  |Torgersen |        39.1|       18.7|     181| 3750|male   | 2007|
+|Adelie  |Torgersen |        39.5|       17.4|     186| 3800|female | 2007|
+|Adelie  |Torgersen |        40.3|       18.0|     195| 3250|female | 2007|
+|Adelie  |Torgersen |        36.7|       19.3|     193| 3450|female | 2007|
+|Adelie  |Torgersen |        39.3|       20.6|     190| 3650|male   | 2007|
+|Adelie  |Torgersen |        38.9|       17.8|     181| 3625|female | 2007|
+```
+### Hill_racing (inbuilt into LSTbook package)
+```
+| year|sex |name           | time|race                  | distance| climb|
+|----:|:---|:--------------|----:|:---------------------|--------:|-----:|
+| 2013|M   |Brian Marshall | 1630|Aberfeldy Games Race  |        6|   240|
+| 2012|M   |Harry Smith    | 1655|Aberfeldy Games Race  |        6|   240|
+| 2013|W   |Audrey Judge   | 2391|Aberfeldy Games Race  |        6|   240|
+| 2012|W   |Debz Hay       | 2351|Aberfeldy Games Race  |        6|   240|
+| 2017|M   |David Wilby    | 4151|Alex Brett Cioch Mhor |       14|   660|
+| 2016|M   |Sam Hesling    | 3975|Alex Brett Cioch Mhor |       14|   660|
+```
+### sales_data (sales-data-2811-first-test.csv)
+```
+|product  |city          |  price| advertising| sales_qty|
+|:--------|:-------------|------:|-----------:|---------:|
+|ProductA |Austin        |  82.82|        7716|       535|
+|ProductC |Boston        | 194.62|        3237|       199|
+|ProductB |San Francisco | 138.85|        5203|       265|
+|ProductC |NYC           | 191.72|        1399|        98|
+|ProductC |Austin        | 181.42|        1884|       155|
+|ProductA |San Francisco | 108.29|        9074|       859|
+```
+### buy (buy.csv)
+```
+| age| income|gender |buy_status |
+|---:|------:|:------|:----------|
+|  26| 111203|F      |Buy        |
+|  28|  99886|M      |No buy     |
+|  42|  80287|M      |No buy     |
+|  31|  41072|M      |No buy     |
+|  31|  70652|F      |Buy        |
+|  44|  59105|M      |No buy     |
+```
+
+
+### simpson_expenditure_demand (simpsons-paradox-expenditure-demand.csv)
+```
+|Product | Expenditure|   Demand|
+|:-------|-----------:|--------:|
+|Y       |    376.1262| 475.0654|
+|Y       |    411.6232| 588.7754|
+|X       |    143.5074| 531.7550|
+|X       |    219.8704| 520.8550|
+|X       |    165.7087| 591.2131|
+|Y       |    369.4545| 515.4690|
+```
+### store_data
+```
+| store_id| revenue_dollars|
+|--------:|---------------:|
+|        1|           90033|
+|        2|           81399|
+|        3|           48245|
+|        4|           36848|
+|        5|           74744|
+|        6|           67219|
+```
+### athlete_data
+```
+
+|athlete   | total_points|
+|:---------|------------:|
+|Athlete 1 |          171|
+|Athlete 2 |         1071|
+|Athlete 3 |         1086|
+|Athlete 4 |         1142|
+|Athlete 5 |          225|
+|Athlete 6 |          264|
+```
+
+## New questions from topics covered after the first test
+
+\begin{Form}
+  \begin{enumerate}
+    \item \TextField[width=40em]{What kind of models are we building in this course? \newline \newline}
+     \item \TextField[multiline=true, width=40em, height=3cm]{Look at the data from store\_data. We would like to compare the efficiency of stores. Can we use the column revenue\_dollalrs to compare the stores for their efficiency? Comment. \newline \newline}
+     \item \TextField[multiline=true, width=40em, height=3cm]{What does variance measure? What are the units of variance? What is standard deviation and what are its units? \newline \newline}
+     \item \TextField[multiline=true, width=40em, height=3cm]{What is a model -- in the sense in which we are using it in this course? \newline \newline}
+     \item \TextField[multiline=true, width=40em, height=3cm]{What is the difference between a model function and a statistical model? \newline \newline}
+      \item \TextField[multiline=true, width=40em, height=3cm]{Write R code to compute the average highway mileage (variable hwy) in the mpg dataset. \newline \newline}
+      \item \TextField[multiline=true, width=40em, height=5cm]{The figure below shows a statistical model as a band and a model function in the form of a straight line. What does this 95\% confidence interval mean?\newline\newline $`r knitr::include_graphics("mpg-cty-displ-model.png")`$\newline \newline}
+      \item \TextField[multiline=true, width=40em, height=3cm]{The figure below shows a statistical model of a numeric response variable with a categorical predictor. The model appears as three bands, each representing a 95\% confidence interval. What do these 95\% confidence intervals mean?\newline\newline $`r knitr::include_graphics("mpg-hwy-drv-model.png")`$\newline \newline}
+      \item \TextField[multiline=true, width=40em, height=7cm]{We built a model on the mpg dataset with cty as the response variable and fl (fuel type) as the explanatory variable. The various fuel types in the dataset are\: p, r, e, d, and c. The model is shown below. What is the model function? \newline\newline $`r knitr::include_graphics("mpg-cty-fl-model.png")`$ \newline \newline }
+      \item \TextField[multiline=true, width=40em, height=6cm]{Suppose we built a model on the txhousing dataset with sales as the response variable and no explanatory variable and get the following confidence interval for the model coefficient, write the model function. \newline \newline $`r knitr::include_graphics("txhousing-sales-model-with-no-expl.png")`$ \newline \newline  }
+      \item \TextField[multiline=true, width=40em, height=6cm]{Write R code to build a model on the txhousing dataset with sales as the response variable and listings as the explanatory variable and print the  confidence interval for the model coefficients. Based on the output, write the model function. \newline \newline  }
+              \item \TextField[multiline=true, width=40em, height=3cm]{How did the system find the model function this time?\newline \newline  }
+
+      \item \TextField[multiline=true, width=40em, height=7cm]{Write R code using the function model\_train to use the mpg dataset and build a model with cty as the response variable and displ and fl as explanatory variables and print the confidence interval. Based on the output you see, write the model function. \newline \newline  }
+      \item \TextField[multiline=true, width=40em, height=7cm]{How do we compute the proportian of variability that a model explains? \newline \newline  }
+
+     \item \TextField[multiline=true, width=40em, height=1cm]{The figure below shows the continuous probability density function of the daily sales per customer at a store. I have labeled four points with the sales level and the function value. Based on the function, which is more likely -- a purchase of close to \$20 or \$60? \newline  $`r knitr::include_graphics("cust-sales-lognormal-labeled.png")`$ \newline \newline }
+     
+ 
+   \item \TextField[multiline=true, width=40em, height=1cm]{Continuing from the previous question, how much more liklely is the higher likelihood outcome? \newline \newline }
+   \item \TextField[multiline=true, width=40em, height=1cm]{In any PDF, the total area under the curve is always 1. Therefore the probability of a range of values is just the area under the curve for that range. The figure below has shaded the area corresponding to sales of 20 or more. Based on this, what is the probability that a sale is less than 20?\newline $`r knitr::include_graphics("cust-sales-gt-20-shaded.png")`$ \newline \newline }
+   \item \TextField[multiline=true, width=40em, height=1cm]{In the figure below, what does the area of the shaded region represent?\newline $`r knitr::include_graphics("cust-sales-30-40-shaded.png")`$ \newline \newline }
+   
+   \item \TextField[multiline=true, width=40em, height=3cm]{The figures below show a probability density function (slightly different from the ones from the previous questions).\newline  $`r knitr::include_graphics("lognormal-full-shaded-area-1.png")`$ \newline 
+   $`r knitr::include_graphics("lognormal-x-gt-40.png")`$ \newline 
+   $`r knitr::include_graphics("lognormal-x-gt-25-shaded.png")`$ \newline 
+   Given the above graphs, what is the probability that a daily sale is 40 or more? 25 or more? Between 25 and 40 ? Less than 25? Less than 40? \newline \newline}
+      
+      
+      
+      
+     
+    
+    
+
+  \end{enumerate}
+
+\end{Form}
+
+## Questions from first test review
+
+\begin{Form}
+
+
+  \begin{enumerate}
+    \item \TextField[multiline=true, width=40em, height=1cm]{In this course, we store data in (write the name of the R object in which we store data) \newline \newline  }
+    \item \TextField[width=40em]{A row of a data frame represents\newline \newline }
+    \item \TextField[width=40em]{A column of a data frame represents\newline \newline }
+    \item \TextField[multiline=true, width=40em, height=3cm]{The term "Unit of observation" refers to \newline \newline}
+     \item \TextField[multiline=true, width=40em, height=3cm]{Write R code to compute the number of rows in the data frame Births2022\newline \newline  }
+          \item \TextField[multiline=true, width=40em, height=3cm]{Write R code to list the names of the variables in the data frame Births2022\newline \newline  }
+         \item \TextField[width=30em]{The two types of variables we use in this course are\newline \newline  }
+         \item \TextField[multiline=true, width=40em, height=3cm]{Write R code to list the first several rows of the mpg data frame\newline \newline  }
+          \item \TextField[multiline=true, width=40em, height=3cm]{Write R code to show the counts of cars of each class in the mpg data frame. The output should look like this:\newline \newline $`r knitr::include_graphics("mpg-class-counts.png")`$ \newline \newline  }
+\item \TextField[width=40em]{Write the R command to see the codebook for the Galton data frame\newline \newline  }   
+
+\item \TextField[multiline=true, width=40em, height=3cm]{Write the R code to use the Galton data frame and plot the child's height as a function of the father's height. \newline \newline  } 
+\item \TextField[multiline=true, width=40em, height=3cm]{In the previous question, which is the response variable and which is the explanatory variable? \newline \newline  } 
+
+\item \TextField[multiline=true, width=40em, height=3cm]{Write the R code to use the Galton data frame and plot the child's height with the child's sex as the explanatory variable. \newline \newline  } 
+
+\item \TextField[multiline=true, width=40em, height=3cm]{In the previous plot, there are only two possible values for the x-axis, but the points are spread out along each of those values. Why? What is the name given to this? \newline \newline  } 
+
+\item \TextField[multiline=true, width=40em, height=3cm]{Write R code to use the Galton dataset and generate a point plot of the effect of the mother's height on the child's height. Color each point based on the sex of the child. What pattern do you see? \newline \newline  } 
+
+\item \TextField[multiline=true, width=40em, height=3cm]{Write R code to use the mpg dataset and generate a point plot of the effect of displacement on city mileage. Color each point based on the fuel type and place cars of each transmission on a different facet. \newline \newline  } 
+          \item \TextField[multiline=true, width=40em, height=5cm]{Look at the plot below. Assuming that the labels on the axes represent the variable names in the data frame, what tilde expression was used? \newline \newline $`r knitr::include_graphics("formula-expression-question-2.png")`$  \newline \newline  } 
+
+\item \TextField[multiline=true, width=40em, height=5cm]{Write R code to use the mpg dataset and generate a violin plot of the highway mileages. What does the width of the violin represent at each point of the y-axis? IS this data skewed? If so, on which side? Which value of hwy has the highest density? \newline \newline  } 
+
+     \item \TextField[multiline=true, width=40em, height=5cm]{Look at the plot below. Assuming that the labels on the axes represent the variable names in the data frame, what tilde expression was used? \newline \newline $`r knitr::include_graphics("formula-expression-question-1.png")`$  \newline \newline  } 
+     
+
+  \item \TextField[multiline=true, width=40em, height=5cm]{Write R code to use the mpg dataset and generate a violin plot of the highway mileages with a separate violin for each type of drive. Which drive has the most uniform distribution? Which has the most skew? Cars using which fuel type seem to have the highest average highway mileage? Do all cars of one fuel type have higher highway miles than cars of any other fuel type? \newline \newline  } 
+  
+  
+  \item \TextField[multiline=true, width=40em, height=5cm]{Look at the plot below.  \newline \newline  $`r knitr::include_graphics("violin-interpretation-1.png")`$ \newline \newline 
+For each group, judge by eye what fraction of the data points have a value of 2 or below. \newline \newline  Which of the three groups has multiple peaks in its density? \newline \newline Which group has the lowest median?  \newline \newline  } 
+
+  \item \TextField[multiline=true, width=40em, height=5cm]{Using the Penguins dataset, we build a model with mass as the response variable and no explanatory variable. If we take a penguin with bill length 39 and another with bill length 42, whcih one would have greater model value, or would they both have the same model value? Explain. \newline } 
+  
+  \item \TextField[multiline=true, width=40em, height=5cm]{Using the Penguins dataset, we build a model with mass as the response variable and sex as the explanatory variable. In this model how are the model values determined? \newline } 
+  
+  
+   \item \TextField[multiline=true, width=40em, height=5cm]{Using the Penguins dataset, build a model with mass as the response variable and sex as the explanatory variable. Add a model annotation and change the point ink value to 0.1 to see the model better. What is the apporximate model value range for female penguins. \newline \newline }
+   
+      \item \TextField[multiline=true, width=40em, height=5cm]{In the above plot, the model appears as a 95 percent confidence band. What exactly does the 95 percent mean?  \newline \newline}
+      
+      \item \TextField[multiline=true, width=40em, height=5cm]{Generate a point plot with model annotation for mass as the response and bill depth as the explanatory. The model appears as a 95 percent confidence band. What exactly does the 95 percent mean here?  \newline \newline}
+      
+      \item \TextField[multiline=true, width=40em, height=5cm]{In the model of mass against sex that you plotted earlier, do you trust the model? Why?  \newline \newline}
+      
+      \item \TextField[multiline=true, width=40em, height=5cm]{In the model mass against bill depth that you plotted earlier, do you trust the model? Why?  \newline \newline}
+      
+      \item \TextField[multiline=true, width=40em, height=5cm]{Write R code to use the Penguins dataset and compute the variance of mass.  \newline \newline}
+      
+      \item \TextField[multiline=true, width=40em, height=5cm]{Write R code to use the Penguins dataset and compute the variance of mass separately for each sex. Which sex shows greater variance? \newline \newline}
+      
+      \item \TextField[multiline=true, width=40em, height=5cm]{What is the relationship between variance and standard deviation? \newline \newline}
+      
+       \item \TextField[multiline=true, width=40em, height=5cm]{In statistics we talk about explaining variation. What exactly does it mean? Which variation are we trying to explain and how? \newline \newline}
+       
+        \item \TextField[multiline=true, width=40em, height=5cm]{Use the data frame Clock\_auction. It has three columns age (age of clock), bidders (number of bidders) and price (the price at which the clock was sold. Develop a model with price as the response variable and age as the explanatory variable. SHow the variances of the model values, residuals and the response variable. See if the basic variance accounting equation is satisfied. How much of the variation in the response variable does the model account for?) \newline \newline}
+       
+        \item \TextField[multiline=true, width=40em, height=5cm]{Extend the above model to use age and bidders as explanatory variables and show the three variances as above. See if the basic variance accounting equation is satisfied. How much of the variation in the response variable does the model account for?) \newline \newline}
+
+  \end{enumerate}
+
+\end{Form}
+
+

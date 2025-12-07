@@ -1,0 +1,44 @@
+---
+title: "BQUA 2811 Model functions worksheet 1"
+output: pdf_document
+         
+---
+
+\begin{Form}
+
+\TextField[width=40em]{Name: \newline \newline}
+
+  \begin{enumerate}
+      \item \TextField[multiline=true, width=40em, height=3cm]{Explain why statistical models give a range of values (band) instead of a single value as their model value?  \newline \newline}
+      
+    \item \TextField[multiline=true, width=40em, height=3cm] {What is the difference between a mathematical function and a statistical model? \newline \newline  }
+    
+        \item \TextField[multiline=true, width=40em, height=3cm]{If I have a mathematical function hwy = 35.7 - 3.53*displ what is the function value for displ = 1.5? \newline \newline  }
+          \item \TextField[multiline=true, width=40em, height=3cm]{What is the relationship of statistical model to a model function? \newline \newline  }
+        
+           \item \TextField[multiline=true, width=40em, height=3cm]{If I build a model and get the following results from the conf\_interval function, what would the model function be? \newline \newline  
+$`r knitr::include_graphics("model-output-1.png")`$ \newline \newline
+}     
+
+\item \TextField[multiline=true, width=40em, height=3cm]{Use the data from the file "sales\_advertising\_dataset.csv" and build a model with sales as the response variable and advertising as the explanatory variable. Also include code to print the confidence interval for the model. \newline \newline}
+
+
+
+\item \TextField[multiline=true, width=40em, height=3cm]{What is the model function for the above? \newline \newline }
+
+
+\item \TextField[multiline=true, width=40em, height=3cm]{Enhance the previous model by including the product as an explanatory variable as well. Show the R code \newline \newline }
+
+\item \TextField[multiline=true, width=40em, height=3cm]{What is the model function for the new model? \newline \newline }
+
+\item \TextField[multiline=true, width=40em, height=4cm]{In the mpg dataset, the different values for class are: compact, midsize, suv, 2seater, minivan, pickup, and subcompact. Build a model to explain highway mileage (hwy) with class as the explanatory variable and print the confidence intervals for the coefficients. \newline \newline }
+
+\item \TextField[multiline=true, width=40em, height=4cm]{Note that this model only has a categorical explanatory variable. What is the model function for the previous model? What does the intercept represent? What do the other coefficients represent?  \newline \newline }
+
+\item \TextField[multiline=true, width=40em, height=4cm]{What is the model function for the previous model?Write R code to compute the mean highway mileage for cars of each class and cross check the results with the model function. \newline \newline }
+
+  
+  
+  \end{enumerate}
+
+\end{Form}

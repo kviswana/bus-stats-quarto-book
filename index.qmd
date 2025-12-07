@@ -1,0 +1,18 @@
+# Introduction to Business Statistics {.unnumbered}
+
+*A Modeling and Regression-Based Approach*
+
+This text presents a modern, modeling-first approach to business statistics.
+Rather than a traditional probability-first sequence, we begin with data,
+relationships, patterns, models, and regression — the tools most relevant to
+business decision-making in marketing, finance, economics, HR, and analytics.
+
+You will learn:
+
+- how to visualize data  
+- how to describe relationships  
+- how to build regression models  
+- how to interpret uncertainty  
+- how to make data-driven decisions  
+
+Let’s get started.

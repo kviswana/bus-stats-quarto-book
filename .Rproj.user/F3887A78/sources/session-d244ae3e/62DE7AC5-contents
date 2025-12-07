@@ -1,0 +1,7 @@
+
+Penguins |> 
+  point_plot(mass ~ sex, annot = "model", point_ink = 0.1)
+  
+
+mpg |> 
+  point_plot(hwy ~ drv, annot = "violin")
