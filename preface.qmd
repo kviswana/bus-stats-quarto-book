@@ -1,11 +1,12 @@
 # Preface {.unnumbered}
 
-This book accompanies the course *Introduction to Business Statistics* at
+This book accompanies the course *Introduction to Business Statistics (BQUA2811)* at
 Stillman School of Business. It takes inspiration from *Lessons in Statistical
 Thinking* and builds on two core teaching principles:
 
-1. **Students understand structure before uncertainty.**
-2. **Regression is the central statistical tool for business.**
+1. **Students benefit from understanding structure before encountering uncertainty.**
+2. **A modeling-centric approach helps to provide an overarchinthe courseg focus for **
+3. **Courses that depend on BQUA2811 expect students to come in with competency in linear regression.**
 
 The book is organized into 12 modules reflecting this storyline.
 

@@ -1,6 +1,0 @@
-"0","mpg |> "
-"0","  mutate (modval = model_values(hwy ~ displ),"
-"0","          resid = hwy - modval) |> "
-"0","  summarize(tot_var = var(hwy),"
-"0","            mod_var = var(modval),"
-"0","            rewsid_var = var(resid))"

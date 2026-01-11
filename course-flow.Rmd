@@ -1,0 +1,28 @@
+---
+title: "2811 Course flow"
+author: "Viswa Viswanathan"
+date: "2025-12-17"
+output: pdf_document
+---
+
+## Flow of course
+
+- Data frames, intro to R for data frame manipulation
+- point plots,model expressions as tilde expressions for plotting
+- Variance and violin plots
+- mean as *best* model for no explanatory and categorical explanatory 
+- least squares critereon for numerical explanatory
+- basic regression models and getting the model function from regression output
+- "adjusting for"
+- "explaining variability" and R-squared, signal and noise
+- Population and sample: parameters and estimates. Inference based on samples
+- probability distributions
+- sampling variation
+- confidence bands for means
+- confidence bands for linear models
+- Hypothesis testing
+- business applications
+- Projects
+- 
+- 
+

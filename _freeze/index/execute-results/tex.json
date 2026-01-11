@@ -1,0 +1,21 @@
+{
+  "hash": "c8b3957034a07d2f67e2d6d27bcf6c35",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Introduction to Business Statistics {.unnumbered}\n\n*A Modeling and Regression-Based Approach*\n\n\n\n\nThis text presents a modren, modeling-first approach to business statistics.\nRather than a traditional probability-first sequence, we begin with data,\nrelationships, patterns, models, and regression — the tools most relevant to\nbusiness decision-making in marketing, finance, economics, HR, and analytics.\n\nYou will learn:\n\n- how to visualize data  \n- how to describe relationships  \n- how to build regression models  \n- how to interpret uncertainty  \n- how to make data-driven decisions  \n\nLet’s get started.\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

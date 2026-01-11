@@ -1,0 +1,11 @@
+---
+title: "repro"
+format: html
+---
+
+```{r}
+library(LSTbook)
+library(ggplot2)
+
+mtcars |> LSTbook::point_plot(mpg ~ wt + cyl)
+```

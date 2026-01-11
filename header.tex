@@ -1,0 +1,29 @@
+% header.tex
+\usepackage{fvextra}
+\usepackage{etoolbox}
+\usepackage{enumitem}
+\usepackage{inconsolata}
+\renewcommand{\partname}{Module}
+\usepackage{float}
+\renewcommand*{\partformat}{\partname~\thepart\autodot}
+\usepackage[T1]{fontenc}        % <-- add this
+\usepackage{textcomp}           % good companion to T1 (optional but helpful)
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\providecommand{\FunctionTok}[1]{#1}
+\renewcommand{\FunctionTok}[1]{#1}
+% 1) Make Pandoc/Quarto code blocks NOT wrap
+%    (Pandoc uses a Verbatim-based env called "Highlighting")
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  commandchars=\\\{\},
+  breaklines=false,
+  breakanywhere=false,
+  fontsize=\footnotesize
+}
+
+% 2) Output blocks are typically inside a "Shaded" environment
+%    (make them smaller too)
+\AtBeginEnvironment{Shaded}{\footnotesize}
+
+% 3) Extra safety: tell fancyvrb/fvextra never to break lines
+\fvset{breaklines=false, breakanywhere=false}

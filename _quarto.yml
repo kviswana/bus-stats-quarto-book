@@ -9,82 +9,93 @@ book:
     - index.qmd
     - preface.qmd
 
-    - part: "Module 1: Data, Visualization, and Patterns"
+    - part: "Data, Visualization, and Patterns"
       chapters:
         - modules/01-data-visualization/01-overview.qmd
         - modules/01-data-visualization/data-frames.qmd
         - modules/01-data-visualization/point-plots.qmd
-        - modules/01-data-visualization/relationships.qmd
+        
 
-    - part: "Module 2: Best Guess and Means"
+    - part: "Variation"
       chapters:
-        - modules/02-best-guess/01-overview.qmd
-        - modules/02-best-guess/means.qmd
-        - modules/02-best-guess/category-means.qmd
-        - modules/02-best-guess/residuals.qmd
-
-    - part: "Module 3: What Is a Model?"
+        - modules/02-variability/02-overview.qmd
+        - modules/02-variability/violin-plots.qmd
+        - modules/02-variability/variance-and-sd.qmd
+        
+    - part: "Introduction to models"
       chapters:
-        - modules/03-what-is-a-model/01-overview.qmd
-        - modules/03-what-is-a-model/model-concept.qmd
+        - modules/03-introduction-to-models/03-overview.qmd
+        - modules/03-introduction-to-models/means.qmd
+        - modules/03-introduction-to-models/category-means.qmd
+        - modules/03-introduction-to-models/residuals.qmd
 
-    - part: "Module 4: Regression Without Confidence Bands"
+    - part: "More on models -- least squares"
       chapters:
-        - modules/04-regression-no-ci/01-overview.qmd
-        - modules/04-regression-no-ci/line-model.qmd
-        - modules/04-regression-no-ci/interpreting-coefficients.qmd
+        - modules/04-more-on-models/04-overview.qmd
+        - modules/04-more-on-models/model-concept.qmd
 
-    - part: "Module 5: Populations and Samples"
+    - part: "Linear Regression Models"
       chapters:
-        - modules/05-populations-samples/01-overview.qmd
-        - modules/05-populations-samples/pop-vs-sample.qmd
-        - modules/05-populations-samples/sampling-variability.qmd
-
-    - part: "Module 6: Probability as Variation"
+        - modules/05-regression-no-ci/05-overview.qmd
+        - modules/05-regression-no-ci/line-model.qmd
+        - modules/05-regression-no-ci/interpreting-coefficients.qmd
+    - part: "Explanatory Power of a Model"
+      chapters: 
+        - modules/06-variance-analysis/06-overview.qmd
+    - part: "Populations, Samples and Inference"
       chapters:
-        - modules/06-probability-variation/01-overview.qmd
-        - modules/06-probability-variation/randomness.qmd
-        - modules/06-probability-variation/variability.qmd
-        - modules/06-probability-variation/distributions.qmd
+        - modules/07-populations-samples/07-overview.qmd
+        - modules/07-populations-samples/pop-vs-sample.qmd
+        - modules/07-populations-samples/sampling-variability.qmd
 
-    - part: "Module 7: Sampling Variation and Estimators"
+    - part: "Probability as Variation"
       chapters:
-        - modules/07-sampling-variation/01-overview.qmd
-        - modules/07-sampling-variation/se-estimators.qmd
-        - modules/07-sampling-variation/sampling-dist-slopes.qmd
+        - modules/08-probability-variation/08-overview.qmd
+        - modules/08-probability-variation/randomness.qmd
+        - modules/08-probability-variation/variability.qmd
+        - modules/08-probability-variation/distributions.qmd
 
-    - part: "Module 8: Confidence Intervals and Bands"
+    - part: "Sampling Variation and Estimators"
       chapters:
-        - modules/08-confidence-bands/01-overview.qmd
-        - modules/08-confidence-bands/ci-slope.qmd
-        - modules/08-confidence-bands/ci-bands.qmd
+        - modules/09-sampling-variation/09-overview.qmd
+        - modules/09-sampling-variation/se-estimators.qmd
+        - modules/09-sampling-variation/sampling-dist-slopes.qmd
 
-    - part: "Module 9: Signal, Noise, and R-Squared"
+    - part: "Confidence Intervals and Bands"
       chapters:
-        - modules/09-signal-noise/01-overview.qmd
-        - modules/09-signal-noise/variance-decomposition.qmd
-        - modules/09-signal-noise/r-squared.qmd
+        - modules/10-confidence-bands/10-overview.qmd
+        - modules/10-confidence-bands/ci-slope.qmd
+        - modules/10-confidence-bands/ci-bands.qmd
 
-    - part: "Module 10: Hypothesis Testing via Regression"
+    - part: "Signal, Noise, and R-Squared"
       chapters:
-        - modules/10-hypothesis-testing/01-overview.qmd
-        - modules/10-hypothesis-testing/t-tests-regression.qmd
-        - modules/10-hypothesis-testing/interpretation.qmd
+        - modules/11-signal-noise/11-overview.qmd
+        - modules/11-signal-noise/variance-decomposition.qmd
+        - modules/11-signal-noise/r-squared.qmd
 
-    - part: "Module 11: Business Applications of Regression"
+    - part: "Hypothesis Testing via Regression"
       chapters:
-        - modules/11-business-applications/01-overview.qmd
-        - modules/11-business-applications/marketing.qmd
-        - modules/11-business-applications/finance.qmd
-        - modules/11-business-applications/hr.qmd
-        - modules/11-business-applications/operations.qmd
+        - modules/12-hypothesis-testing/12-overview.qmd
+        - modules/12-hypothesis-testing/t-tests-regression.qmd
+        - modules/12-hypothesis-testing/interpretation.qmd
 
-    - part: "Module 12: Projects and Datasets"
+    - part: "Business Applications of Regression"
       chapters:
-        - modules/12-projects/01-overview.qmd
-        - modules/12-projects/project-guidelines.qmd
-        - modules/12-projects/datasets.qmd
+        - modules/13-business-applications/13-overview.qmd
+        - modules/13-business-applications/marketing.qmd
+        - modules/13-business-applications/finance.qmd
+        - modules/13-business-applications/hr.qmd
+        - modules/13-business-applications/operations.qmd
 
+    - part: "Projects and Datasets"
+      chapters:
+        - modules/14-projects/14-overview.qmd
+        - modules/14-projects/project-guidelines.qmd
+        - modules/14-projects/datasets.qmd
+        
+    - part: "Appendices"
+      chapters:
+        - modules/Appendices/01-overview.qmd
   sidebar:
     style: docked
     background: light
@@ -100,16 +111,19 @@ format:
     number-sections: true
     code-tools: true
     df-print: paged
+    
 
   pdf:
+    listings: true
     documentclass: scrreprt
+    include-in-header: header.tex
     toc: true
     toc-depth: 3
     number-sections: true
     geometry: "margin=1in"
-    include-in-header:
-      text: |
-        \usepackage{enumitem}
+    callout-appearance: boxed
+    fontsize: 12pt
+    highlight-style: pygments
 
 # bibliography: references.bib
 # csl: apa.csl

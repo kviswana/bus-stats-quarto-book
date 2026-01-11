@@ -124,5 +124,128 @@
   },
   "modules/12-projects/datasets.qmd": {
     "datasets.html": "c28da8d0"
+  },
+  "modules/Appendices/01-overview.qmd": {
+    "01-overview.html": "38642492"
+  },
+  "modules/02-variability/02-overview.qmd": {
+    "02-overview.html": "3943ff0d"
+  },
+  "modules/02-variability/violin-plots.qmd": {
+    "violin-plots.html": "33a14eff"
+  },
+  "modules/02-variability/variance-and-sd.qmd": {
+    "variance-and-sd.html": "dfa374a5"
+  },
+  "modules/03-introduction-to-models/03-overview.qmd": {
+    "03-overview.html": "e16f59fd"
+  },
+  "modules/03-introduction-to-models/means.qmd": {
+    "means.html": "b5d35464"
+  },
+  "modules/03-introduction-to-models/category-means.qmd": {
+    "category-means.html": "4fbdab13"
+  },
+  "modules/03-introduction-to-models/residuals.qmd": {
+    "residuals.html": "744180a8"
+  },
+  "modules/04-more-on-models/04-overview.qmd": {
+    "04-overview.html": "980dccfb"
+  },
+  "modules/04-more-on-models/model-concept.qmd": {
+    "model-concept.html": "cb78a47d"
+  },
+  "modules/05-regression-no-ci/05-overview.qmd": {
+    "05-overview.html": "50bc7997"
+  },
+  "modules/05-regression-no-ci/line-model.qmd": {
+    "line-model.html": "3b4fd538"
+  },
+  "modules/05-regression-no-ci/interpreting-coefficients.qmd": {
+    "interpreting-coefficients.html": "292fa526"
+  },
+  "modules/06-variance-analysis/06-overview.qmd": {
+    "06-overview.html": "007ad0bb"
+  },
+  "modules/07-populations-samples/07-overview.qmd": {
+    "07-overview.html": "42d8cd6a"
+  },
+  "modules/07-populations-samples/pop-vs-sample.qmd": {
+    "pop-vs-sample.html": "280d8d24"
+  },
+  "modules/07-populations-samples/sampling-variability.qmd": {
+    "sampling-variability.html": "1c5f089b"
+  },
+  "modules/08-probability-variation/08-overview.qmd": {
+    "08-overview.html": "6ce98509"
+  },
+  "modules/08-probability-variation/randomness.qmd": {
+    "randomness.html": "3b66f8f3"
+  },
+  "modules/08-probability-variation/variability.qmd": {
+    "variability.html": "31a24a2c"
+  },
+  "modules/08-probability-variation/distributions.qmd": {
+    "distributions.html": "f4d54385"
+  },
+  "modules/09-sampling-variation/09-overview.qmd": {
+    "09-overview.html": "505887a1"
+  },
+  "modules/09-sampling-variation/se-estimators.qmd": {
+    "se-estimators.html": "7c06602a"
+  },
+  "modules/09-sampling-variation/sampling-dist-slopes.qmd": {
+    "sampling-dist-slopes.html": "cd9b4a34"
+  },
+  "modules/10-confidence-bands/10-overview.qmd": {
+    "10-overview.html": "7093a1ca"
+  },
+  "modules/10-confidence-bands/ci-slope.qmd": {
+    "ci-slope.html": "d7a9485e"
+  },
+  "modules/10-confidence-bands/ci-bands.qmd": {
+    "ci-bands.html": "97f05186"
+  },
+  "modules/11-signal-noise/11-overview.qmd": {
+    "11-overview.html": "64c13c3f"
+  },
+  "modules/11-signal-noise/variance-decomposition.qmd": {
+    "variance-decomposition.html": "5e42b862"
+  },
+  "modules/11-signal-noise/r-squared.qmd": {
+    "r-squared.html": "e1cbd8c3"
+  },
+  "modules/12-hypothesis-testing/12-overview.qmd": {
+    "12-overview.html": "7711aee8"
+  },
+  "modules/12-hypothesis-testing/t-tests-regression.qmd": {
+    "t-tests-regression.html": "e8a36130"
+  },
+  "modules/12-hypothesis-testing/interpretation.qmd": {
+    "interpretation.html": "65bc759d"
+  },
+  "modules/13-business-applications/13-overview.qmd": {
+    "13-overview.html": "4dc1ba2e"
+  },
+  "modules/13-business-applications/marketing.qmd": {
+    "marketing.html": "f36434bf"
+  },
+  "modules/13-business-applications/finance.qmd": {
+    "finance.html": "86182c00"
+  },
+  "modules/13-business-applications/hr.qmd": {
+    "hr.html": "68810c76"
+  },
+  "modules/13-business-applications/operations.qmd": {
+    "operations.html": "f9336ecf"
+  },
+  "modules/14-projects/14-overview.qmd": {
+    "14-overview.html": "98458302"
+  },
+  "modules/14-projects/project-guidelines.qmd": {
+    "project-guidelines.html": "4b0b5e1c"
+  },
+  "modules/14-projects/datasets.qmd": {
+    "datasets.html": "c799e628"
   }
 }

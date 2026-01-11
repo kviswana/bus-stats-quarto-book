@@ -1,0 +1,18 @@
+# Module 7: Population, Samples and Inference {.unnumbered}
+
+At this point, we have learned about models in general, and linear regression models in particular. In addition, we can also now use R to build linear models and to construct the model function based on the output of the R code. We have also looked at the quality of a model based on its R-squared.
+
+Until now we have looked at a mdoel as a mathematical function into which we can plug in the value of explanatory variable(s) and get an estimated value for the response variable. 
+
+We now transition from mathematical functions to *statistical models*. We first define the terms between *population* and *sample* and reveal that much of statistics deals with *inference*, that is, learning something about the population based on just a sample.
+
+## Learning Goals
+
+- a
+- b
+- c
+
+## Structure of This Module
+
+- Population and sample
+- Statistc

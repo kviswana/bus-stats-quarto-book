@@ -1,13 +1,13 @@
 # Module 1: Data, Visualization & Patterns {.unnumbered}
 
 This module introduces the basic building blocks of statistical thinking:
-data frames, variables, and point plots. We begin with visualization because
+data frames, variables, point plots and relationships. We begin with visualization because
 patterns reveal what models will later formalize.
 
-## Learning Goals
+## Learning Outcomes
 
-- Understand data frames, variables, and instances  
-- Create and interpret point plots  
+- Describe data frames, variables, and instances  
+- Create and interpret point plots
 - Recognize patterns: direction, form, strength  
 
 ## Structure of This Module

@@ -1,8 +1,0 @@
-mpg |> 
-  mutate(modval = model_values(cty ~ displ + drv),
-         resid = cty - modval) |> 
-  summarize(tot_var = var(cty),
-            mod_var = var(modval),
-            resid_var = var(resid))
-  
-

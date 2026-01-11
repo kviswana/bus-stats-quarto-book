@@ -1,0 +1,21 @@
+# Module 3: Introduction to models
+
+This module gently introduces the idea of a model starting with the idea that the average a variable is a simple and in some sense the *best model* of the variable in the absence of the values of any related variables.
+
+The module introduces the concepts of outcome and explanatory variables.
+
+It then goes on to consider more involved models when the values of other variables are given. Specifically it considers the idea of the *best model* for a variable if we know the value of a related categorical variable.
+
+## Learning Goals
+
+-   a
+-   b
+-   c
+
+## Structure of This Module
+
+-   Average or mean as the *best model*
+-   What does it mean for one variable to *explain* another?
+-   Response and explanatory variables (in this course we consider only numerical response variables)
+-   Mean as the model with no explanatory variables
+-   Best model with one categorical explanatory variable

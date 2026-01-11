@@ -1,0 +1,21 @@
+# Module 2: Variation {.unnumbered}
+
+Variation plays a very important role in statistics. Some even go to the extent of viewing the discipline of statistics itself as the study of variation.
+
+This module discusses variation generally by visualizing it through *violin* plots. It then introduces the key statistical concepts of *variance* and *standard deviation* and how to compute these using R.
+
+## Learning Goals
+
+- a
+- b
+- c
+
+## Structure of This Module
+
+- variation
+- high and low variation
+- visualizing variation using the violin plot
+- measuring variation precisely using variance and standard deviation
+
+
+

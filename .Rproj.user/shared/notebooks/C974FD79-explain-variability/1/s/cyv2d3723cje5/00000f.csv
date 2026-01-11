@@ -1,3 +1,0 @@
-"0","mpg |> "
-"0","  model_train(hwy ~ displ + drv) |> "
-"0","  R2()"

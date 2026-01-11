@@ -1,0 +1,19 @@
+# Module 4: More on Models -- Least Squares {.unnumbered}
+
+This module completes what the previous one began. It enhances the idea of the mean as the *best model* to the case when the response variable is numeric as is the explanatory variable. It introduces the idea of the line of best fit based on the least squares critereon as the *best linear model*.
+
+## Learning Goals
+
+- a
+- b
+- c
+## Structure of This Module
+
+- Line that goes *closest* to all points
+- Line as model
+- Residual
+- Least-squares line
+- The sense in which the least-squares line the *best line*
+
+
+- 

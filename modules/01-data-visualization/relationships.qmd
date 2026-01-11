@@ -1,9 +1,12 @@
 # Relationships
 
-The mean of a numerical variable is the "best guess" of its value when no other
-information is available — in the specific sense that it minimizes the sum of
-squared errors.
+This chapter talks about relationships between variables as revealed by point plots.
 
-```{r}
-library(ggplot2)
-mean(mtcars$mpg)
+## Learning outcomes
+
+After working though this chapter, you will be able to:
+
+- given a scatterplot of two numeric variables, determine if the two variables are related
+- given a scatterplot of two numeric variables that are related, identify if there is a positive or negative relationship
+- given a scatterplot of a numeric variable againbst a categorical variable, identify if there is a relationship between the variables
+- explain why the terms *positive* and *negative* do not apply when a categorical variable is involved in the relationship
