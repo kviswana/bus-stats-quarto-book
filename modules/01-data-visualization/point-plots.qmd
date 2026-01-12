@@ -1,36 +1,39 @@
 # Exploring Relationships through Scatterplots
 
+This chapter covers the basics of generating and interpreting scatterplots. charts and interpreting
+
 The term *statistics* often conjures up thoughts of numerical computations. However, before we perform various co mputations, we often get a feel for the data and the underlying patterns by first visualizing the data. In this course we will use only a few standard plots to communicate essential statistical ideas. 
 
 In fact, use a single function -- *point_plot* -- to generate all of our plots. Although R offers numerous, sophisticated plotting features to plot almost anything we can imagine, we will keep things simple and focus only on what we need to support the concepts that our course covers.
 
-## Learning outcomes
+## Learning outcomes {.unnumbered}
 
-After working though this chapter, you will be able to:
+### After working though this chapter, you will be able to: {.unnumbered}
 
-- given a scatterplot of two numeric variables with the plot's axes labeled explain precisely what determines the location of a given point
-- given a scatterplot of two numeric variables, the data frame on which it is based, and a specific point on the plot, identify the corresponding row in the data frame
-- given a scatterplot of two numeric variables, the data frame on which it is based, and a specific row in the data frame,  identify the corresponding point on the plot
+**Demonstrate these outcomnes related to interpreting scatterplots:**
 
-- given a scatterplot one numeric variable on the y-axis against a categorical variable on the x-axis, explain how many different values exist for the x-axis
+  - given a scatterplot of two numeric variables with the plot's axes labeled, explain precisely what determines the location of a given point
+  - given a scatterplot of two numeric variables, the data frame on which it is based, and a specific point on the plot, identify the corresponding row in the data frame
+  - given a scatterplot of two numeric variables, the data frame on which it is based, and a specific row in the data frame,  identify the corresponding point on the plot
+  - given a scatterplot of one numeric variable on the y-axis against a categorical variable on the x-axis, explain how many distinct possible values exist for the x-axis
+  - given a scatterplot one numeric variable on the y-axis against a categorical variable on the x-axis, explain the speific appearance of the points along the x-axis for each of the category levels
+  - explain why the points are jittered along the x-axis when the x-axis has a categorical variable
+  - Given a scatterplot of a numeric variable on the y-axis and a caregorical variable on the x-axis, identify a pair of points that would have overlapped if not for jittering
+   
+**Demonstrate these outcomnes related to generating scatterplots using R data frames:**
 
-- given a scatterplot one numeric variable on the y-axis against a categorical variable on the x-axis, explain the speific appearance of the points along the x-axis for each of the category levels
+  - use the point_plot function to
+    - generate a scatterplot of two numeric variables
+    - generate a scatterplot of one numerical variable on the y-axis against a categorical variable on the x-axis
+    - generate a scatterplot of numeric variables on both axes with the points colored based on a third variable
+    - describe a tilde-expression (a model expression)
+    - given a tilde-expression with one variable on either side of the tilde, state how they relate to the plot axes
+    - given a tilde expression with two variables on the right of the tilde, explain the mappings of the elements of the tidle expression to the elements of the plot
 
-- describe a tilde-expression (a model expression)
-- given a tilde-expression with one variable on eithert side of the tilde, state how they relate to the plot axes
+**Demonstrate these outconmes related to relationships between variables:**
 
-- given a tidle expression with two variables on the right of the tilde, expalin the mnappings of the elements of the tidle expression to the elements of the plot
-
-- given a tidle expression with two variablkes on the right of the tilde, expalin the mnappings of the elements of the tidle expression to the elements of the plot
-- explain why the points are jittered along the x-axis when the x-axis has a categorical variable
-- Given a scatterplot of a num eric variable on the y-axis and a caregorical variable on the y-axis, identify a pair of points that would have overlapped if not for jittering
-
-- use the point_plot function to
-  - generate a scatterplot of two numeric variables
-  - generate a scatterplot of one numeric variable on the y-axis against a categorical variable on the x-axis
-  - generate ascatterplot of numeric variables on both axes with the points colored based on a third variable
-  
-  - generate ascatterplot of numeric variables on both axes with the points colored based on a third variable and the plots split into facets based on a fourth variable
+  - Given a scatterplot of two variables, determine if they have a positive or negative relationship or if they are unrelated.
+  - Clearly explain a visual procedure you would adopt to determine the type of relationship between two numerical variables 
   
 ## Plotting the relationship between two numerical variables
 

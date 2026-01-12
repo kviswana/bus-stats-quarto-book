@@ -6,16 +6,17 @@ This module discusses variation generally by visualizing it through *violin* plo
 
 ## Learning Goals
 
-- a
-- b
-- c
+- Explain what variability in a variable represents
+- Plot and interpret violin plots
+- Identify broad characteristics of distribution shapes
+- Compute variance and standard deviation of a small set of numbers by hand
+- Use R to compute the variance and standard deviation of variables in a data frame
+- 
 
 ## Structure of This Module
 
-- variation
-- high and low variation
-- visualizing variation using the violin plot
-- measuring variation precisely using variance and standard deviation
+  - Violin plots
+  - Variance and standard deviation
 
 
 

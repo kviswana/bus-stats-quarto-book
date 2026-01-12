@@ -1,6 +1,23 @@
 # The Simplest Model
 
-We will play a simple game to understand the main poiint of this chapter.
+
+This chapter helps you to dip your toes into the vast and important topic of models.
+
+## Learning outcomes  {.unnumbered}
+
+### After completing this chapter you will be able to:  {.unnumbered}
+
+  - Explain the term model from a general perspective, and from the perspective of statistics
+  - Explain why, given the values of only one variable and in the absence of any other information, the mean is the best model
+  - Explain in what sense the mean is the *best* model
+  - Given a model equation, identify the *outcome* variable and the *explanatory* variable(s)
+  - Describe the terms *outcome* variable and **explanatory* variable
+  - Match the terminology between the two pairs (*outcome* variable, *explanatory* variable) and (*independent*variable, *dependent* variable) 
+  - Given a model with a single numerical *explanatory* variable and a value for the *explanatory* variable, compute the model value.
+  - Explain why we place a *hat* on the *outcome* variable in a model expression
+  - Explain why we call a model's output an *estimate*
+  - List and describe the two uses of models covered in this chapter
+
 
 ## Let's play *What's your best guess?*{#sec-mean-game}
 
@@ -15,7 +32,7 @@ Here are the steps in the game:
 3.  I reveal my choice.
 4.  We compute the difference between your guess and my chosen number (error) and square it
 
-We will repeat this process 10 times and compute your score as the sum of all the 10 results (squared-differences) from the last step. Your goal is to keep this sum as small as possible.
+We will repeat this process 10 times and compute your score as the sum of all the 20 results (squared-differences) from the last step. Your goal is to keep this sum as small as possible.
 
 Let us look at one play:
 

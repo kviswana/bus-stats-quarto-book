@@ -2,11 +2,21 @@
 
 This book accompanies the course *Introduction to Business Statistics (BQUA2811)* at
 Stillman School of Business. It takes inspiration from *Lessons in Statistical
-Thinking* and builds on two core teaching principles:
+Thinking* by Daniel Kaplan (*LST*). *LST* takes a modeling centric approach and changes the ordering of topics significantly from traditional introductory statistics courses. *LST* uses almost no matheatics and only provides intuitive explanation for most concepts -- which serves a first statistics course for undergraduate business students very well.
 
-1. **Students benefit from understanding structure before encountering uncertainty.**
-2. **A modeling-centric approach helps to provide an overarchinthe courseg focus for **
-3. **Courses that depend on BQUA2811 expect students to come in with competency in linear regression.**
+After teaching the course for two semesters broadly using the *LST* approach, I found some need for changes. The following main drivers shaped the changes:
 
-The book is organized into 12 modules reflecting this storyline.
+- Students benefit from understanding structure before encountering uncertainty
+- A modeling-centric approach helps to provide an overarching course focus
+- Courses that depend on BQUA2811 primiraly expect students to be competent in linear regression and related statistics concepts.
+
+I wanted to provide more of a business focus and use more business-related datasets than *LST* does. More imoortantly, I felt that *LST* introduces *statistical models* very early.Even the very first plots -- lines and point estimates -- that students encounter show confidence bands. Despite enphasizing the difference between *mathematical models* and *statistical models* and providing many examples and illustrations from daily life, I found that students had a very hard time understanding the idea of a *statistical model*.
+
+I surmised that teaching the idea of models and conceopts relating to uncertainty made it very chalenging for students. Therefore I decided to make a big change and restrict the initial discussion of models to just the data set used for modeling without bringing up the idea of inference from the model. Once students grasp the idea of a least squares model independent of uncertainty, learn wnat it means to *explain* variation, and eventually grasp R-squared, we can then layer on uncertainty that arises when we use a model in broader contexts.
+
+I also learned that even in developing the notion of a model, it is pedagogically very useful to ramp it up gradually starting from mean as the simpest model (when we have no explanatory variables), category means as models when we have a categorical explanatory variable, and finally extending to full-blown least-square models when the explanatory variable is also numerical. Once students grasp the idea of model, it them becomes easier to introduce uncertainty, probability and confidence intervals.
+
+Because of this change, I needed the initial plots to only plot lines instead of confidence bandds. However the plotting function from the *LSTbook* package that accompanies *LST* only provides bands. I therefore created a package named *LSTextras* to extend the functionality of *LSTbook* package in a very small way to enable plotting of point estimates and linear models without confidence bands. I also included several business-related datasets in the package. Combined with the datasets already available in *LSTbook* and the other packages like *ggplot2* that it depends on, students using *LSTextras* will ave no dearth of data to play with and experiment with the concepts that they learn.
+
+The book is organized into 14 modules reflecting this storyline.
 

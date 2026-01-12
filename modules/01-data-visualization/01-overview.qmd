@@ -4,14 +4,15 @@ This module introduces the basic building blocks of statistical thinking:
 data frames, variables, point plots and relationships. We begin with visualization because
 patterns reveal what models will later formalize.
 
-## Learning Outcomes
+## Learning Goals
 
 - Describe data frames, variables, and instances  
-- Create and interpret point plots
+- Perform simple manipulations of data frames using R
+- Create and interpret scatterplots using the *point_plot* function
 - Recognize patterns: direction, form, strength  
 
 ## Structure of This Module
 
 - Data frames  
-- Point plots  
+- Scatterplots 
 - Relationships between variables  

@@ -1,6 +1,19 @@
 # Variance and standard deviation
 
-This chapter discusses the key statistical concept of \textit{variance}.
+This chapter discusses the key statistical concepts of \textit{variance} and *standard deviation*.
+
+
+## Learning outcomes  {.unnumbered}
+
+### After completing this chapter you will be able to:  {.unnumbered}
+
+  - Given two sets of numbers with 10 or less nymbers, identify which has higher variance and eplain why
+  - Generate a set of numbers with zero variance
+  - Given a set of no more than five numbers (at most two digits) compute their variance by hand
+  - Explain the units of measurement for variance
+  - Explain the relationship between variance and standard deviation
+  - Explain the units of measurement for standard deviation
+  - Use R to compute the variance and standard deviation of a numerical variable of a data frame
 
 ## Variable
 
@@ -133,7 +146,7 @@ We generally have a clear mental notion of units like USD and meters, but not un
 
 ## Another measure of spread: *Standard Deviation*
 
-We have een that *variance* has squared units and we cannot easily relate to these. Statisticians have therefore given us another measure of variability that has the same units as the original variable. This is the *standard deviation* and we compute it as the square-root of the variance.
+We have seen that *variance* has squared units and we cannot easily relate to these. Statisticians have therefore given us another measure of variability that has the same units as the original variable. This is the *standard deviation* and we compute it as the square-root of the variance.
 
 If a variable is measured in inches, its variance has inches-squared as its unit. However, when we compute its square root, we get the *standard deviation* with inches as units.
 

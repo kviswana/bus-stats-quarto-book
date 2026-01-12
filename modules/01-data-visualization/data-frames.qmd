@@ -2,28 +2,28 @@
 
 This chapter introduces **data frame** the type of R object in which we store data. 
 
-## Learning outcomes
+## Learning outcomes  {.unnumbered}
 
-After working though this chapter, you will be able to:
+### After working though this chapter, you will be able to:  {.unnumbered}
 
 - explain what a data frame is
 - explain what a column and row of a data frame represent
-- name the two types of variables that we will deal wigth in this course
+- name the two types of variables that we will deal with in this course
 - distinguish between numeric and categorical variables and provide examples of each
 - explain what the term *level* of a categorical variable represents and provide examples
 - explain why a column is also called a *variable*
 - explain why a row is called an *instance* or *specimen*
 - use R to do the following:
   - load a data frame from a loaded package
-  - load a data frame from a Rdata file (later section)
-  - load a data frame from a csv file (later section)
+  - explain what the *pipe* operator does
   - look at the first few rows in a data frame
   - look at the last few rows in a data frame
   - retrieve only the rows that satisfy certain conditions
   - retrieve a subset of the columns of a data frame
   - find the number of rows and columns in a data frame
   - compute the average of a numeric column in a data frame
-  - find out how many rows are there in a data frame for each level of a categorical variable
+  - use the *count* function to compute the number of rows in a data frame for each level of a categorical variable
+  
   
 ## The R Software Package for Statistics
 

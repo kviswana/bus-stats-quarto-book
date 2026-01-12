@@ -1,5 +1,31 @@
 # Using Violin Plots to Visualize Distribution
 
+This chapter talks about visualizing variability.
+
+## Learning outcomes  {.unnumbered}
+
+### After completing this chapter you will be able to:  {.unnumbered}
+
+**Demonstrate these outcomes related to shapes of distributions:**
+
+  - Given a distribution as histogram, explain what the height of a bar represents
+  - Given a distribution as a violin plot, explain what the width of a violin at any point represents
+  - Given a violin plot, identify the point(s) having the highest and lowest densities
+  - Identify whether a given distribution shown either as a histogram or as a violin plot or as a density plot is
+    - uniform
+    - symmaetric bell shaped
+    - multi-modal
+    - skewed and in which way
+
+**Demonstrate these outcomes related to generating violin plots using R:**
+
+  - Given a data frame and a numerical variable, write R code to generate a violin plot to study the distribution of the variable
+  - Explain the two important parts of the plot area in a violin plot
+  - In the plot, identify which part represents the data and whih part represents the *annotation*
+  - Explain the tilde espression used to generate violin plots of single variables
+  - Generate a violin plot to comnpare the distributions of a single numerical variable corresponding to a categorical variable
+
+
 We have already looks at the concept of *variable*. We have used the term to refer to a column of a data frame. We  explained the rationale for the name from the fact that the values in a single column of a data frame *vary*. That is, not all the rows of a column have the same value. For example, we see in @tbl-boston-marathon-2 that the values in the column *minutes* vary -- that is, not all the values in the column are the same. The same is true of every column. 
 
 ```{r}
@@ -150,7 +176,7 @@ If we look at only the left or right half of @fig-price-violin-from-price-demand
 ![Violin from @fig-price-violin-from-price-demand-dataframe split and rotated 90 degrees right to reveal the distribution in the form we had seen before](../../images/fig-sliced-rotated-violin.png){#fig-sliced-rotated-violin width=70% fig-align="center"}
 
 
-@fig-violin-balance-from-acct-type-balance-df shows a violin plot of the *balance* variable from the *acct_type_balance* data frame.
+@fig-balance-violin-from-acct-type-balance-dataframe shows a violin plot of the *balance* variable from the *acct_type_balance* data frame.
 
 
 ```{r}
@@ -160,6 +186,7 @@ If we look at only the left or right half of @fig-price-violin-from-price-demand
 acct_type_balance |> 
   point_plot(balance ~ 1, annot = "violin")
 ```
+
 
 We can see from @fig-price-violin-from-price-demand-dataframe that *price* is bell-spaped and unimoda,but not symmetric. It is skewed towards the lower values because the tail is at the bottom. If we slice and rotate it as before then we would say that it is skewed left.
 
