@@ -1,0 +1,380 @@
+# Finding the Model Function {#sec-model-functions}
+
+Our journey so far has introduced the idea of models and shown us the intuition, and rationale behind models. We have also seen how to visualize the models. However, we have not lingered too much on systematically building models and reconstructing the model function from what R shows us about the models.
+
+This chapter closes the loop.
+
+## Finding the model function for models with no explanatory variables
+
+When we have a numerical outcome variable and no explanatory variable, @sec-mean-model showed us that the *best* model would be to predict the mean or average. We look at two ways of building such models:
+
+- building the model by explicitly computing the mean
+- using the model_train function (our go to method from now on)
+
+### Building mean models by explicitly computing the mean
+
+Do you remember how to compute the mean oif a variable?
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+Given a hypothetical data frame named *dat* do you recall how to compute the mean of one of its variables named *col* using R?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+dat |> 
+    summarize(avg_col = mean(col))
+:::
+
+Using the *txhousing* data frame, we can build a model for the number of listings as follows:
+
+```{r}
+txhousing |>
+    summarize(avg_listings = mean(listings))
+```
+
+Why is the result not a number? Why did we get *NA*?
+
+You might recall from @sec-missing-values that *NA* means missing value. Why is the mean of *listings* a missing value? The *txhousing* data frame has some missing values in the column *listings*. As a result, our code is unable to compute the average. Suppose I asked you what is 2 + 3, you can say "5." since you have both the numbers that you want to add up. 
+
+However, if I asked you what is *NA* + 5? You cannot say what it is because you do not know the values of the two numbers you are trying to sum. In general, whenever *NA* is involved in an operation, the result is always *NA*.
+
+This is very inconvenient. Wht does the system simply not ignore the *NA*s and compute the average of the remaining numbers? By default it does not do that, but we can make the system do that in the following way.
+
+```{r}
+txhousing |>
+    summarize(avg_listings = mean(listings, na.rm = TRUE))
+```
+
+When you add "na.rm = TRUE", R leaves out the missing values and computes the average of the rest. Remember, R is case sensitive and so you have to type "na.rm" in lowercase and "TRUE" in uppercase. Otherwise you will get an error.
+
+So we saw that the mean of *listings* is 3217 and that is our model value.
+
+We can write the model function as @eq-txhousing-listings-mean-model
+
+$$
+\widehat{\text{listings}} = 3217
+$$ {#eq-txhousing-listings-mean-model}
+
+We have built the mean model by explicitly writing code to compute the average. 
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+In @sec-mean-model, we saw a situation where the interns had to find a single fixed number to represent the number of customers who will show up at a kiosk on any day. What could be a business analogue of that in the *listings* example from the *txhousing* data frame?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+The analogue would be: We need to build a model for the number of listings in a typical month, and we were allowed to give just a single fixed number for it. Also, like before, bigger errors are penalized more strongly through squaring prediction errors.
+:::
+
+### Building the mean model using *model_train*
+
+The *model_train* function greatly simplifies the process of building models irrespective of the form of the model. We do not need to worry about what types of explanatory variables and how many of them are involved.
+
+Let us see how to use it to build the model for *listings* with no explanatory variables.
+
+```{r}
+txhousing |>
+    model_train(listings ~ 1)
+```
+
+We have built the model, but the output does not give us any details about the model to enable us to reconstruct the model function.
+
+We can fix that easily by calling another function -- *coef* -- to get the model *coefficients*.
+
+```{r}
+txhousing |>
+    model_train(listings ~ 1) |>
+    coef()
+```
+
+The output says that the *intercept* is 3217 (rounded). The model output does not show any other coefficients because we do not have any explanatory variables. From this, we can reconstruct the model function as @eq-txhousing-listings-mean-model-copy (same as @fig-txhousing-listings-mean-model). We explain below exactly how we went from the coefficients in the output to @eq-txhousing-listings-mean-model-copy.
+
+$$
+\widehat{\text{listings}} = 3217
+$$ {#eq-txhousing-listings-mean-model-copy}
+
+You night recall from @sec-best-fit-line that in general when we have a single explanatory variable, we are trying to find the best values for *a* and *b* in an equation of the from that @eq-generic provides to compute an estimated value for the outcome variable (hence the *hat*)
+
+$$
+\widehat{\text{outcome}} = a + b\,\,\text{explanatory\_var}
+$$ {#eq-generic}
+
+The *intercept* in the model coefficients output by the *coef* function corresponds to *a*. If there is another coefficient in the output that corresponds to *b*. In the current example we have only the *intercept* and no other coefficient and so we use only *a* in reconstructing the model function as @eq-txhousing-listings-mean-model-copy.
+
+Let us consider another example using the *mpg* data frame. We will now build a model for *cty* with no explanatory variables.
+
+```{r}
+mpg |> 
+  model_train(cty ~ 1) |> 
+  coef()
+```
+We see that the *intercept* is 16.86 (rounded). This is, of course, the mean of *cty*. @eq-mpg-cty-mean-model shows the model function.
+
+$$
+\widehat{\text{cty}} = 16.9
+$$ {#eq-mpg-cty-mean-model}
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+Can you think of a business scenario where this sort of model might be used?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+If a company had a fleet of cars and needed to estimate something based on the city mileage of the fleet as a whole and we had to settle on juse a single representative number for the whole fleet, then the average would be the best -- assuming again that bigger errors are more heavily penalized.
+:::
+
+
+Let us close out with another example from the *Anthro_F* data frame to predict body fat (variable *BFat) with no explanatory variables. 
+
+```{r}
+Anthro_F |> 
+  model_train(BFat ~ 1) |> 
+  coef()
+```
+
+This shows an *intercept* of 21.8 (rounded). @eq-anthro-f-bfat-model shows the model function.
+
+$$
+\widehat{\text{BFat}} = 21.8
+$$ {#eq-anthro-f-bfat-model}
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+As before, what might be a usage scenario for this model?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+If, for some reason we needed a representative number -- a single number -- for the body fat of a group of college age females in the age range 18-25 (as the data set on which we based the model), then this model would work.
+:::
+
+::: callout-tip
+## Steps to build the model function for models with no explanatory variable
+
+1. Determine the tilde expression for your model (like listings ~ 1, or some such)
+1. Pipe the data frame to the *model_train* function and pass the tilde expression as well
+1. Pipe the output of the *model_train* function to the *coef()* function
+1. Look at the results and map the *intercept* to *a* 
+1. Construct the model function by substituting the name of the outcome variable and the value of *a* in the equation with the intercept: 
+$$
+\widehat{\text{outcome\_var}} = \text{a}
+$$ 
+:::
+
+## Finding the model function for models with one explanatory variable alone
+
+Mirroring the process from the previous section, we have two ways of building these models:
+
+- building the model by explicitly computing the category means
+- using the model_train function (our go to method from now on)
+
+### Building category mean models by explicitly computing category means
+
+Let us use the *Boston_marathon* data frame to build a model for *minutes* with *sex* as the explanatory variable.
+
+```{r}
+Boston_marathon |> 
+  summarize(avg_minutes = mean(minutes), .by = sex)
+```
+
+In the above code, if we had not used ".by = sex", we would have got the overall mean. But using ".by = sex" computes a separate mean for each value of *sex*.
+
+We now have the mean of *minutes* for each sex and can build the model function as:
+
+$$
+\widehat{\text{minutes}} =
+\begin{cases}
+142 & \text{if } \text{sex} = \text{"male"} \\
+150 & \text{if } \text{sex} = \text{"female"}
+\end{cases}
+$$ {#eq-boston-marathon-minutes-sex-model}
+
+As before, this is needlessly cumbersome. We can do this using the *model_train* function like before.
+
+```{r}
+Boston_marathon |> 
+  model_train(minutes ~ sex) |> 
+  coef()
+```
+
+The output looks a bit different now. We have the *intercept* as before. But we have a single coefficient named *sexmale*.
+
+When we have categorical explanatory variables, the *model_train* function reports coefficients a bit differently than what we did earlier.
+
+Our explanatory variable has two possible values, *female* and *male*. The intercept represents the model value for one of these -- typically, the alphabetically lowest one -- in this case *female* as *f* comes alphabetically before *m*.
+
+So the coefficient 149.86, which we wil round to 10 is the model value for *female* as our earlier computations also showed. This is the base value. The coefficient for *sexmale* shows the coefficient value for *male* relative to that for the base. This means that the coefficient for *male* is *less* (because it is negative) than that for female by 8.33. The coefficient for *male* is approximately 142.
+
+So we can construct the model function as:
+
+$$
+\widehat{\text{minutes}} =
+\begin{cases}
+142 & \text{if } \text{sex} = \text{"female"} \\
+142 & - 8\,\, \text{if } \text{sex} = \text{"male"}
+\end{cases}
+$$ {#eq-boston-marathon-minutes-sex-model-1}
+
+
+@eq-boston-marathon-minutes-sex-model-1 is effectively the same as @eq-boston-marathon-minutes-sex-model, but written slightly differently.
+
+You should read it as, if *sex* is "female" then the model value is 150. If *sex* is "male" then the model value is 8 minutes lower (negative sign). 
+
+Does this make sense? It does, because we know that males run slightly faster than females and so their finishing time will be lower.
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+What would be the use case scenario for this model?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+If the race organizers are planning to do something based on the typical race completion time and can do something different for male and female participants, then the average finishing times for each gender would be a good model.
+:::
+
+Let us consider one more example using the *acct_type_balance* data frame with *balance* as the outcome variable and *bank_account_type* as the explanatory variable.
+
+```{r}
+acct_type_balance |> 
+  model_train(balance ~ bank_account_type) |> 
+  coef()
+```
+
+The output shows the intercept as 4901. Our explanatory variable *bank_account_type* has two possible values *Savings* and *Checking*. From the previous example, we know that the *coef()* function will treat one of these as the base.
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+WHich account tyoe will it treat as the base? *Checking* or *Savings*?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+*Checking** because "C" is alphabetically before "S".
+:::
+
+*Checking* is the base and its average is reported as the *intercept* and the model value for *Savings* is reported relative to the model value for *Checking*.
+
+The model function therefore becomes:
+
+$$
+\widehat{\text{balance}} =
+\begin{cases}
+4901 & \text{if } \text{bank\_account\_type} = \text{"Checking"} \\
+4901 & + 1016\,\, \text{if } \text{bank\_account\_type} = \text{"Savings"}
+\end{cases}
+$$ {#eq-bank-acct-type-bal-model}
+
+The model says that 
+savings accounts generally have a higher account balance than checking accounts. Makes sense.
+
+::: callout-tip
+## Steps to build the model function for models with one categorical explanatory variable
+
+1. Determine the tilde expression for your model (like balance ~ bank_account_type, or some such)
+1. Pipe the data frame to the *model_train* function and pass the tilde expression as well
+1. Pipe the output of the *model_train* function to the *coef()* function
+1. Find which category has been used as the base and note the intercept
+1. Note the coefficients for each of the other categories
+1. Construct the model function by substituting the name of the outcome variable, and the value of the intercept in the following equation.
+1. Then add conditions for each additional category suitably substituting the appropriate category names.
+$$
+\widehat{\text{outcome}} =
+\begin{cases}
+intercept & \text{if } \text{explanatory variable} = \text{base category} \\
+intercept & + \,\text{coef1} \, \text{if } \text{explanatory variable} = \text{"category 1"} \\
+intercept & +\, \text{coef2} \, \text{if } \text{explanatory variable} = \text{"category 2"} \\
+intercept & +\, \text{coef3} \, \text{if } \text{explanatory variable} = \text{"category 3"}
+\end{cases}
+$$ 
+
+:::
+
+## Finding the model function for models with a single numerical explanatory variable
+
+Unlike the two mean models, we have no direct computation approach. We will just use the *model_train* function.
+
+We will build a model using the *mpg* data frame with the highway mileage (variable *hwy*) as the outcome variable and the engine displacement (*displ*) as the explanatory variable.
+
+```{r}
+mpg |> 
+  model_train(hwy ~ displ) |> 
+  coef()
+```
+
+As before, we substitute the "intercept* for *a* and in the case of a numerical explanatory variable, we substitute the other coefficient for *b*.
+
+@eq-mpg-hwy-displ-model shows the model function.
+
+$$
+\widehat{\text{hwy}} = 36 - 3.5\, \text{displ}
+$$ {#eq-mpg-hwy-displ-model}
+
+Let us see another example. We use the *Hill_racing* data frame to build a model with *time* (finishing time measured in seconds) as the outcome variable, and)*distance* (measured in km) as the explanatory variable.
+
+```{r}
+Hill_racing |> 
+  model_train(time ~ distance) |> 
+  coef()
+```
+
+We see that the *intercept* is -211. The coefficient for *distance* is 381.
+
+Let us build the model function before talking about the crazy-seeming negative *intercept*.
+
+$$
+\widehat{\text{time}} = -211 + 381\, \text{distance}
+$$ {#eq-hill-racing-time-distance-model}
+
+Does it make sense that the coefficient for *distance* is positive? Per @eq-hill-racing-time-distance-model, as *distance* increases, the estimated *time* will increase. This makes sense.
+
+What about the *intercept* of -211? 
+
+From @eq-hill-racing-time-distance-model, we see that if there is a hypothetical race with distance of 0 km, then the model says that people will finish the race 211 seconds before the race starts!  
+
+Obviously that makes no sense as time works in the normal world. SO what is going on?
+
+Models are approximate and we can only expect reasonable results within the range of data on which they were built. We need to be wary of interpreting models very outside of their scope. In our dataset, the shortest race is 1.1 km and the average is 10.7 km.
+
+For the 1.,1 km race, the model predicts a time of 208 seconds or around 3.5 minutes, which seems reasonable -- given that these are "hill" races.
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+What would be a scenario where this model can help?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+The organizers are getting ready to conduct the races again. Now, they want to give an estimated completion time (one single number) for each race. They can use this model to find this time based on the distance of each race.
+:::
+
+::: callout-tip
+## Steps to build the model function for models with one numerical explanatory variable
+
+1. Determine the tilde expression for your model (like hwy ~ displ, or some such)
+1. Pipe the data frame to the *model_train* function and pass the tilde expression as well
+1. Pipe the output of the *model_train* function to the *coef()* function
+1. Note the *intercept* and the *coefficient* for the explanatory variable (expl_coeff)
+1. Construct the model function by substituting the name of the outcome variable, and the value of the intercept in the following equation.
+1. Then add conditions for each additional category suitably substituting the appropriate category names.
+$$
+\widehat{\text{outcome}} = \text{intercept} + \text{expl\_var\_coeff}\,\,\text{explanatory variable}
+$$ 
+:::
+

@@ -1,51 +1,62 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # Exploring Relationships through Scatterplots
 
-This chapter covers the basics of generating and interpreting scatterplots. charts and interpreting
+This chapter covers the basics of generating and interpreting
+scatterplots.
 
-The term *statistics* often conjures up thoughts of numerical computations. However, before we perform various co mputations, we often get a feel for the data and the underlying patterns by first visualizing the data. In this course we will use only a few standard plots to communicate essential statistical ideas. 
+The term *statistics* often conjures up thoughts of numerical
+computations. However, before we perform various computations, we often
+get a feel for the data and the underlying patterns by first visualizing
+the data. In this course we will use only a few standard plots to
+communicate essential statistical ideas.
 
-In fact, use a single function -- *point_plot* -- to generate all of our plots. Although R offers numerous, sophisticated plotting features to plot almost anything we can imagine, we will keep things simple and focus only on what we need to support the concepts that our course covers.
+In fact, use a single function -- *point_plot* -- to generate all of our
+plots. Although R offers numerous, sophisticated plotting features to
+plot almost anything we can imagine, we will keep things simple and
+focus only on what we need to support the concepts that our course
+covers.
 
 ## Learning outcomes {.unnumbered}
 
-### After working though this chapter, you will be able to: {.unnumbered}
+**Interpret point plots** - Explain what a point means (x value and y
+value). - Map between plot ↔ row in a data frame. - Describe
+direction/strength/absence of relationship.
 
-**Demonstrate these outcomnes related to interpreting scatterplots:**
+**Use R to generate point plots**
 
-  - given a scatterplot of two numeric variables with the plot's axes labeled, explain precisely what determines the location of a given point
-  - given a scatterplot of two numeric variables, the data frame on which it is based, and a specific point on the plot, identify the corresponding row in the data frame
-  - given a scatterplot of two numeric variables, the data frame on which it is based, and a specific row in the data frame,  identify the corresponding point on the plot
-  - given a scatterplot of one numeric variable on the y-axis against a categorical variable on the x-axis, explain how many distinct possible values exist for the x-axis
-  - given a scatterplot one numeric variable on the y-axis against a categorical variable on the x-axis, explain the speific appearance of the points along the x-axis for each of the category levels
-  - explain why the points are jittered along the x-axis when the x-axis has a categorical variable
-  - Given a scatterplot of a numeric variable on the y-axis and a caregorical variable on the x-axis, identify a pair of points that would have overlapped if not for jittering
-   
-**Demonstrate these outcomnes related to generating scatterplots using R data frames:**
+- Use point_plot(y \~ x) for numeric–numeric and point_plot(y \~
+    x_cat) for numeric–categorical.
+- Use + color_var and + facet_var in the formula.
 
-  - use the point_plot function to
-    - generate a scatterplot of two numeric variables
-    - generate a scatterplot of one numerical variable on the y-axis against a categorical variable on the x-axis
-    - generate a scatterplot of numeric variables on both axes with the points colored based on a third variable
-    - describe a tilde-expression (a model expression)
-    - given a tilde-expression with one variable on either side of the tilde, state how they relate to the plot axes
-    - given a tilde expression with two variables on the right of the tilde, explain the mappings of the elements of the tidle expression to the elements of the plot
+**Explain and interpret correlation** - Explain what correlation
+measures (direction + strength of linear association) and interpret
+sign/magnitude.
 
-**Demonstrate these outconmes related to relationships between variables:**
-
-  - Given a scatterplot of two variables, determine if they have a positive or negative relationship or if they are unrelated.
-  - Clearly explain a visual procedure you would adopt to determine the type of relationship between two numerical variables 
-  
 ## Plotting the relationship between two numerical variables
 
-The *point_plot()* function that we will rely on for plots in this course lives in the *LSTbook* package. We will be using the *LSTextra*s package. Once we load the *LSTextras* package (which in turn loads the *LSTbook* package and all its dependencies), the *point_plot()* function becomes available for us to use. 
+We will rely extensively on a single plotting function named
+*point_plot()*. It lives in the *LSTbook* package. We will be loading
+both the *LSTbook* package and the *LSTextra*s package. Once we load
+these packages the *point_plot()* function becomes available for us to
+use.
 
-Let us first look at the *price_demand* data frame that is built into the *LSTbook* package.
+Let us first look at the *price_demand* data frame that is built into
+the *LSTextras* package and is therefore available as soon as you load
+the package.
 
-A hypothetical company has gathered data for a single product. Over time, and across very similar sales areas, the company has charged different prices for the same product, It has recorded the monthly sales for each price. The dataset *price_demand* contains the price and the corresponding sales quantities. We would like to study if the two variables *price* and *sales_qty* are related in any way. 
+A hypothetical company has gathered data for a single product. Over
+time, and across very similar sales areas, the company has charged
+different prices for the same product, It has recorded the monthly sales
+for each price. The data frame *price_demand* contains the price and the
+corresponding sales quantities. We would like to study if the two
+variables *price* and *sales_qty* are related in any way.
 
-First let us see some rows from the dataset.
-
-
+First let us see some rows from the data frame.
 
 ```{r}
 #| echo: false
@@ -55,13 +66,58 @@ First let us see some rows from the dataset.
 knitr::kable(head(price_demand, 15), booktabs = TRUE) |> kableExtra::kable_styling(latex_options = "hold_position")
 ```
 
-The full dataset has 500 rows. With so many rows, we cannot easily get a handle on the overall pattern by looking at the data directly. Visualizing the data might help us. We will do several things in this section:
-- generate the plot using R code
-- understand how each element of the plot is related to the original dataset
-- understand the various elements of the code so that you can use similar code to generate plots that you many need
-- interpret the plot
+The full data frame has 500 rows. With so many rows, we cannot easily
+get a handle on the overall pattern by looking at the data directly.
+Visualizing the data might help us. We will do several things in this
+section:
 
-The code and the plot appear below. For now, ignore the code. We will discuss it in detail after analyzing the plot itself.
+-   generate the plot using R code
+-   understand how each element of the plot is related to the original
+    data frame
+-   understand the various elements of the code so that you can use
+    similar code to generate plots that you many need
+-   interpret the plot
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In the *price_demand* data frame, what does one row represent?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The price charged during a particular month and the corresponding sales quantity..
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In the *price_demand* data frame, which variable does a company have
+control over or that it can set and which one is the outcome variable?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+*price* is the input/explanatory variable; *sales quantity* is the
+outcome/response
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If the data frame has 500 rows, how many (price, sales_qty) pairs exist?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+500
+:::
+
+The code and the plot appear below. For now, ignore the code. We will
+discuss it in detail after analyzing the plot itself.
 
 ```{r}
 #| echo: true
@@ -71,47 +127,237 @@ price_demand |>
   point_plot(sales_qty ~ price)
 ```
 
-@fig-price-demand shows the relationship between *price* and *sales_qty* -- the two variables in the data frame. Note the following about the plot:
+@fig-price-demand shows the relationship between *price* and
+*sales_qty*.
 
-- The plot has two axes -- the x-axis along the width and the y-axis along tbe height. 
-- The plot shows thge values of price on the x-axis and the values of sales_qty on the y-axis.
-- If you take any single point on the plot, you can drop a vertical line from the point to the x-axis and the point where it intersects the x-axis is the *price* corresponding to the point.
-- Similarly, if you draw a horizontal line from the point to intersect the y-axis, you get the *sales_qty* corresponding to that point.
-- Each point of the plot corresponds to one row of the dataset. So how many points are on the plot? 500, since the dataset has 500 rows. 
-- Thus given a point on the plot, we should be able to identify a corresponding row of the data frame
-- Given a row of the data frame, we should be able to identify a corresponding point on the plot.
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+@fig-price-demand which variable appears on the x-axis and which one on
+the y-axis?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+x-axis: *price* y-axis: *sales_qty*
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What two numbers determine the location of a point in @fig-price-demand?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Its x-value (*price*) and its y-value (*sales_qty*)
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If a point is at x = 14 and y = 1100, what does it mean in context?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+There was an observation (row in the *price_demand* data frame) where
+the price was about 14 and the monthly sales quantity was about 1100.
+:::
+
+Note the following about the plot:
+
+-   The plot has two axes -- the x-axis along the width and the y-axis
+    along the height.
+-   The plot shows the values of price on the x-axis and the values of
+    sales_qty on the y-axis.
+-   If you take any single point on the plot, you can drop a vertical
+    line from the point to the x-axis and the point where it intersects
+    the x-axis is the *price* corresponding to the point.
+-   Similarly, if you draw a horizontal line from the point to intersect
+    the y-axis, you get the *sales_qty* corresponding to that point.
+-   Each point of the plot corresponds to one row of the data frame. So
+    how many points are on the plot? 500, since the data frame has 500
+    rows.
+-   Thus given a point on the plot, we should be able to identify a
+    corresponding row of the data frame
+-   Given a row of the data frame, we should be able to identify a
+    corresponding point on the plot.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+True or False: Two different rows can produce the exact same point.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+True. If two rows have identical price and sales_qty, they would overlap
+at the same location.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If you see an extreme point far above the rest, what does that imply
+about its row in the data frame?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The row on which the point is based has an unusually high sales_qty
+value relative to the others (for its price).
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why might it be hard to identify the exact row for a point just from the
+plot?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Many points can be close together or overlapping, and the plot shows
+approximate positions rather than exact values.
+:::
 
 ### Finding the point corresponding to a row of the data frame
 
-Let us now try to find the point on the plot corrresponding to the first row in @fig-price-demand.
+Let us now try to find the point on the plot corresponding to the first
+row in @fig-price-demand.
 
-The first row of the data frame has *price = 11.8* and *sales_qty = 1260*. Therefore, we can find the point by drawing a vertical line from 11.8 on the x-axis to intersect a horizontal line from 1260 on the y-axis. @fig-first-row-price-demand-on-plot illustrates this. We have highlighted the point by enlarging it.
+The first row of the data frame has *price = 11.8* and *sales_qty =
+1260*. Therefore, we can find the point by drawing a vertical line from
+11.8 on the x-axis to intersect a horizontal line from 1260 on the
+y-axis. @fig-first-row-price-demand-on-plot illustrates this. We have
+highlighted the point by enlarging it.
 
-![Finding the first row of the *price_demand* data frame on the plot: *price = 11.8*, *sales_qty =  1260*](../../images/fig-first-row-price-demand-on-plot.png){#fig-first-row-price-demand-on-plot width=70% fig-align="center"}
+![Finding the first row of the *price_demand* data frame on the plot:
+*price = 11.8*, *sales_qty =
+1260*](../../images/fig-first-row-price-demand-on-plot.png){#fig-first-row-price-demand-on-plot
+width="70%" fig-align="center"}
 
-Similarly, let us locate the point corresponding to row 11 (*price = 13.3*, *sales_qty = 1170*).
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
 
-following the same approach we arrive at @fig-eleventh-row-price-demand-on-plot.
+Suppose a row has *price = 12.5* and *sales_qty* = 1200. Describe how to
+locate its point on the plot.
+:::
 
-![Finding the eleventh row of the *price_demand* data frame on the plot: *price = 13.3*, *sales_qty = 1170*](../../images/fig-eleventh-row-price-demand-on-plot.png){#fig-eleventh-row-price-demand-on-plot width=70% fig-align="center"}
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Find 12.5 on the x-axis, move up to where y is 1200, and mark the
+intersection.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If you draw a vertical line at *price* = 13, you will cut through
+several points. What is common to all of these?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+They all correspond to rows that have *price* = 13.
+:::
+
+Similarly, let us locate the point corresponding to row 11 (*price =
+13.3*, *sales_qty = 1170*).
+
+following the same approach we arrive at
+@fig-eleventh-row-price-demand-on-plot.
+
+![Finding the eleventh row of the *price_demand* data frame on the plot:
+*price = 13.3*, *sales_qty =
+1170*](../../images/fig-eleventh-row-price-demand-on-plot.png){#fig-eleventh-row-price-demand-on-plot
+width="70%" fig-align="center"}
 
 ### Finding the *price* and *sales_qty* corresponding to a point on the plot
 
-We can reverse the above process to find the variable values (and hence the actual row) corresponding to a point on the plot. We will simply drop a vertical line from the point down to the x-axis to get the *price* and draw a horizontal line from the point to the y-axis to determine the *sales_qty*. The figure will look similar to the prior two figures.
+We can reverse the above process to find the variable values (and hence
+the actual row) corresponding to a point on the plot. We will simply
+drop a vertical line from the point down to the x-axis to get the
+*price* and draw a horizontal line from the point to the y-axis to
+determine the *sales_qty*. The figure will look similar to the prior two
+figures.
 
 ### Dissecting the code
 
-@fig-first-point-plot-code decodes the various elements of the code that we used to generate out first point plot in @fig-price-demand. We see that we pass the data frame *price_demand* to the *point_plot* function through the *pipe* operator. We add the tilde expression for the plot as an additional argument.
+@fig-first-point-plot-code decodes the various elements of the code that
+we used to generate out first point plot in @fig-price-demand. We see
+that we pass the data frame *price_demand* to the *point_plot* function
+through the *pipe* operator. We add the tilde expression for the plot as
+an additional argument.
 
-@fig-basic-tilde-expression shows us that the *point_plot* function maps the variable on the left of the tilde operator to the y-axis of the plot and maps the variable to the right of the tilde expression to the x-axis of the plot.
+@fig-basic-tilde-expression shows us that the *point_plot* function maps
+the variable on the left of the tilde operator to the y-axis of the plot
+and maps the variable to the right of the tilde expression to the x-axis
+of the plot.
 
-![Passing the *price_demand* data frame as argument to the *point_plot* function through the pipe operator](../../images/fig-first-point-plot-code.png){#fig-first-point-plot-code width=70% fig-align="center"}
+![Passing the *price_demand* data frame as argument to the *point_plot*
+function through the pipe
+operator](../../images/fig-first-point-plot-code.png){#fig-first-point-plot-code
+width="70%" fig-align="center"}
 
-![Using a tilde expression to map variables to the axes](../../images/fig-basic-tilde-expression.png){#fig-basic-tilde-expression width=70% fig-align="center"}
+![Using a tilde expression to map variables to the
+axes](../../images/fig-basic-tilde-expression.png){#fig-basic-tilde-expression
+width="70%" fig-align="center"}
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In a y \~ x formula for point_plot, what does the tilde mean
+operationally?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+It separates the y-variable (left) from the x-variable (right), mapping
+them to the plot axes.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Write the formula you would use to plot weekly_sales_k on the y-axis
+against advertising_spend_k on the x-axis. Write only the tilde
+expression.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+weekly_sales_k \~ advertising_spend_k
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If you accidentally write price \~ sales_qty, what changes in the
+appearance of the plot?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The axes swap: price becomes the y-axis and sales quantity becomes the
+x-axis.
+:::
 
 ### Interpreting the plot
 
-@fig-price-demand-2 repeats the plot of *price* versus *sales_qty*. 
+@fig-price-demand-2 repeats the plot of *price* versus *sales_qty*.
 
 ```{r}
 #| echo: true
@@ -121,24 +367,84 @@ price_demand |>
   point_plot(sales_qty ~ price)
 ```
 
-We can see a clear trend showing that, in general, higher prices correspond to lower values of sales quantity. 
+We can see a clear trend showing that, in general, higher prices
+correspond to lower values of sales quantity.
 
-To be sure, this is only a trend and not a strict rule. That is, given any two points, we do not have a guarantee that the point with the higher price will always have a lower sales quantity. However, this will be true for most of the pairs of points. @fig-scatter-with-line-segments-1 illustrates this with some randomly selected pairs of points. We see that most of the lines point down and to the right -- meaning that for most pairs of points, the one with higher *price* has a lower *sales_qty*. However, we also see a few examples where the opposite is true. 
+To be sure, this is only a trend and not a strict rule. That is, given
+any two points, we do not have a guarantee that the point with the
+higher price will always have a lower sales quantity. However, this will
+be true for most of the pairs of points.
+@fig-scatter-with-line-segments-1 illustrates this with some randomly
+selected pairs of points. We see that most of the lines point down and
+to the right -- meaning that for most pairs of points, the one with
+higher *price* has a lower *sales_qty*. However, we also see a few
+examples where the opposite is true.
 
-This is why we only calls this a *trend* and not a strict rule about the relationship between price and sales_qty.
+This is why we only calls this a *trend* and not a strict rule about the
+relationship between price and sales_qty.
 
-![Line segments connecting some pairs of points showing that for most pairs of points the point with higher price has lower sales_qty](../../images/fig-scatter-with-line-segments-1.png){#fig-scatter-with-line-segments-1 width=70% fig-align="center"}
+![Line segments connecting some pairs of points showing that for most
+pairs of points the point with higher price has lower
+sales_qty](../../images/fig-scatter-with-line-segments-1.png){#fig-scatter-with-line-segments-1
+width="70%" fig-align="center"}
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Describe a quick visual procedure to decide if the relationship is
+positive, negative, or neither.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Look at the overall slope of the cloud from left to right: up =
+positive, down = negative, no slope = neither.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In the price vs sales plot, why do we call it a trend and not a rule?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Because points vary; higher price usually means lower sales, but not for
+every single pair of observations.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What would a “no linear relationship” scatterplot look like?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+A roughly pattern less cloud with no clear upward or downward slope.
+:::
 
 ### Positive and negative relationships
 
-In general, when we discuss the relationship between two numerical variables, if the general trend is that higher values of one correspond to higher values of the other, then we have a positive relationship. On the other hand, is higher values of one variable correspond to lower values of the other then we have a negative relationship.
+In general, when we discuss the relationship between two numerical
+variables, if the general trend is that higher values of one correspond
+to higher values of the other, then we have a positive relationship. On
+the other hand, is higher values of one variable correspond to lower
+values of the other then we have a negative relationship.
 
-What kind of relationship does @fig-price-demand-2 show -- positive or negative?
+What kind of relationship does @fig-price-demand-2 show -- positive or
+negative?
 
-You got it right if you said *negative* -- higher values of *price* correspond to lower values of *sales_qty*.
+You got it right if you said *negative* -- higher values of *price*
+correspond to lower values of *sales_qty*.
 
-@fig-advertising-sales-channel-1 shows two positively correlated variables. Here, higher values of one variable are generally related to higher values of the other. We used the *advertising_sales_channel* data frame for this plot.
-
+@fig-advertising-sales-channel-1 shows two positively correlated
+variables. Here, higher values of one variable are generally related to
+higher values of the other. We used the *advertising_sales_channel* data
+frame for this plot.
 
 ```{r}
 #| echo: true
@@ -148,7 +454,12 @@ advertising_sales_channel |>
   point_plot(weekly_sales_k ~ advertising_spend_k)
 ```
 
-The data frame *returns_dpo* contains hypothetical data on various firms' daily stock returns and the number of days they take to pay their suppliers. @fig-returns-dpo-1 shows the relationship between these variables. We cannot spot any trend. Higher or lower values of one variable do not indicate higher or lower values of the other. Hence there is neither a positive relationship nor a negative one.
+The data frame *returns_dpo* contains hypothetical data on various
+firms' daily stock returns and the number of days they take to pay their
+suppliers. @fig-returns-dpo-1 shows the relationship between these
+variables. We cannot spot any trend. Higher or lower values of one
+variable do not indicate higher or lower values of the other. Hence
+there is neither a positive relationship nor a negative one.
 
 ```{r}
 #| echo: true
@@ -158,24 +469,146 @@ returns_dpo |>
   point_plot(daily_return ~ dpo)
 ```
 
-### Putting a number on the relationship: The correlation coefficient 
+**How to decide visually if there’s a relationship**
 
-Thus far, we have been talking about relationships between variables. Exact sciences like mathematics and statistics like to be precise and assign numbers where possible. Statistics commonly uses the *correlation coefficient* to quantify the relationship between two numerical variables. This section just introduces the *correlation coefficient* and shows you how to compute it using R. We will get into the mechanics of the actual computation later in the book.
+Imagine the point cloud as a blob
 
-The correlation coefficient can take a value between -1 and +1. A value of 0 signifies a complete absence of relationship. -1 signifies a perfect negative correlation and +1 signifies a perfact positive correlation. We discuss these ideas below.
+*Ask:* does it slope up, slope down, or neither? *Ask:* tight blob or
+wide blob?
 
-We look at some examples now. Revisiting the *price_demand* data frame, let us use R to compute the correlation coefficient between the variables *price* and *sales_qty*. 
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Label each plot as positive, negative, or no clear relationship: (a)
+price vs sales_qty, (b) advertising vs weekly sales, (c) dpo vs daily
+return.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+(a) negative, (b) positive, (c) no clear relationship.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If a scatterplot has a positive relationship, what do you expect most
+left-to-right line segments between random pairs of points to do?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Point up and to the right.
+:::
+
+### Putting a number on the relationship: The correlation coefficient
+
+Thus far, we have been talking about relationships between variables.
+Exact sciences like mathematics and statistics like to be precise and
+assign numbers where possible. Statistics commonly uses the *correlation
+coefficient* to quantify the relationship between two numerical
+variables. This section just introduces the *correlation coefficient*
+and shows you how to compute it using R. We will get into the mechanics
+of the actual computation later in the book.
+
+The correlation coefficient can take a value between -1 and +1. A value
+of 0 signifies *no linear relationship*. -1 signifies a perfect negative
+correlation and +1 signifies a perfect positive correlation. We discuss
+these ideas below.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What does the sign of the correlation coefficient tell you?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Direction: positive means upward trend (as we go to the right); negative
+means downward trend (as we go to the right).
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What does the magnitude (absolute value, that is, value without the
+sign) tell you?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Strength of the linear pattern: closer to 1 means points lie closer to a
+straight line.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+True or False: r = 0 proves there is no relationship of any kind.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+False. It indicates no *linear relationship*; there could still be a
+curved or other non-linear relationship. We show an example later.
+:::
+
+We look at some examples now. Revisiting the *price_demand* data frame,
+let us use R to compute the correlation coefficient between the
+variables *price* and *sales_qty*.
 
 ```{r}
 price_demand |> 
   summarize(price_sales_qty_correlation = cor(price, sales_qty))
 ```
 
-We are computing a summary and hence use the *summarize* function (see @sec-summarize-function). Since the summary we are computing now is the correlation coefficient, we use the *cor* function within the *summarize* function. We have chosen to call the comoputed result *price_sales_qty_correlation*. We could have named it anything we wanted, but chose the sensible approach of giving it a meaningul name.
+We are computing a summary and hence use the *summarize* function (see
+@sec-summarize-function). Since the summary we are computing now is the
+correlation coefficient, we use the *cor* function within the
+*summarize* function. We have chosen to call the computed result
+*price_sales_qty_correlation*. We could have named it anything we
+wanted, but chose the sensible approach of giving it a meaningful name.
 
-@fig-price-demand had already shown us the negative relationship between  *price* and *sales_qty*. The correlation confirms it, ... and makes it more precise.
+@fig-price-demand had already shown us the negative relationship between
+*price* and *sales_qty*. The correlation confirms it, ... and makes it
+more precise.
 
-Let us compute the correlation coefficient between advertising spend and the weekly sales from the *advertising_sales_channel* data frame. From @fig-advertising-sales-channel-1 we saw that these two variables are positively related. Let us see what the correlation coefficient says.
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If the scatterplot slopes down and the correlation is -0.75, do these
+agree?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Yes. Negative sign matches the downward trend; 0.75 magnitude suggests a
+fairly strong linear relationship.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If two variables have correlation coefficient close to +1, what will the
+scatterplot look like?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Points clustered tightly around a line sloping upward.
+:::
+
+Let us compute the correlation coefficient between advertising spend and
+the weekly sales from the *advertising_sales_channel* data frame. From
+@fig-advertising-sales-channel-1 we saw that these two variables are
+positively related. Let us see what the correlation coefficient says.
 
 ```{r}
 advertising_sales_channel |> 
@@ -196,51 +629,204 @@ price_demand |>
   point_plot(sales_qty ~ price)
 ```
 
-We have already established that *price* and *sales_qty* are negatively related. That is, there is a general pattern that higher values of *price* have lower values of *sales_qty*.
+We have already established that *price* and *sales_qty* are negatively
+related. That is, there is a general pattern that higher values of
+*price* have lower values of *sales_qty*.
 
-In @fig-price-demand-3, if we look only at the points corresponding to a particular value of *price*, say 13, the points along this vertical line range from approximately 1100 to 1320. That is, given a value of *price*, we cannot be sure about the exact value of the corresponding value of *sales_qty*. However, knowing  *price* does give us some idea about *sale_qty*. This shows relationship, but not perfect correlation.
+In @fig-price-demand-3, if we look only at the points corresponding to a
+particular value of *price*, say 13, the points along this vertical line
+range from approximately 1100 to 1320. That is, given a value of
+*price*, we cannot be sure about the exact value of the corresponding
+value of *sales_qty*. However, knowing *price* does give us some idea
+about *sale_qty*. This shows relationship, but not perfect correlation.
 
-When the correlation coefficient is +1 or -1, we have perfect correlation. In this case, knowing the value of one variable enables us to precisely know the value of the other variable as well. This happens when all the points lie on a straight line instead of being dispersed as a cloud as in @fig-price-demand-3.
+When the correlation coefficient is +1 or -1, we have perfect
+correlation. In this case, knowing the value of one variable enables us
+to precisely know the value of the other variable as well. This happens
+when all the points lie on a straight line instead of being dispersed as
+a cloud as in @fig-price-demand-3.
 
-![Perfect correlation arises when all the points lie perfectly on a straight line -- the variables in this plot have a corelation coefficient of +1](../../images/fig-production-cost-units-produced.png){#fig-production-cost-units-produced width=70% fig-align="center"}
+![Perfect correlation arises when all the points lie perfectly on a
+straight line -- the variables in this plot have a correlation
+coefficient of
++1](../../images/fig-production-cost-units-produced.png){#fig-production-cost-units-produced
+width="70%" fig-align="center"}
 
-@fig-production-cost-units-produced shows a situation when all points lie on a perfect straight line. In this case, given a value for one variable, we can determine exactly the value of the other. We can determine it visually or by plugging the value of the known variable into the following equation and calculating the value of the other variable.
+@fig-production-cost-units-produced shows a situation when all points
+lie on a perfect straight line. In this case, given a value for one
+variable, we can determine exactly the value of the other. We can
+determine it visually or by plugging the value of the known variable
+into the following equation and calculating the value of the other
+variable.
 
 ```{r}
 #| eval: FALSE
 total_cost = 10000 + 45*units_produced
 ```
 
-In @fig-production-cost-units-produced the line slopes upward as it goes from left to right. WHen the line on which all points fall slopes down as it goes right, the correlation is still perfect, but the line slopes down as it goes to the right and so we have a correlation coefficien of -1.
+In @fig-production-cost-units-produced the line slopes upward as it goes
+from left to right. When the line on which all points fall slopes down
+as it goes right, the correlation is still perfect, but the line slopes
+down as it goes to the right and so we have a correlation coefficient of
+-1.
 
 ### How the point cloud looks for various correlation coefficients
 
-@fig-various-corr-coeffs shows the point plots for various values of correlation coefficients between -1 and +1. 
+@fig-various-corr-coeffs shows the point plots for various values of
+correlation coefficients between -1 and +1.
 
-![Point plots for various correlation-coefficients (r)](../../images/fig-various-corr-coeffs.png){#fig-various-corr-coeffs width=70% fig-align="center"}
+![Point plots for various correlation-coefficients
+(r)](../../images/fig-various-corr-coeffs.png){#fig-various-corr-coeffs
+width="70%" fig-align="center"}
 
-You can see the following:
-- in the plot wigth correlation coefficient = -1 (r = -1), the points align perfectly on a straight line *sloping downwards* as the x values increase 
-- at +1 they align perfactly on a line *sloping upwards* as the x values increase
-- as the coefficient goes from -1 to 0, the points get more scattered away from perfect alignment on a straightline until at 0 there is no pattern whatsoever
-- as the correlation coefficient increases from 0 to +1, we see that the tendency to align on a straight line increases until perfect alignment at r = 1.
+You can see the following: - in the plot with correlation coefficient =
+-1 (r = -1), the points align perfectly on a straight line *sloping
+downwards* as the x values increase - at +1 they align perfectly on a
+line *sloping upwards* as the x values increase - as the coefficient
+goes from -1 to 0, the points get more scattered away from perfect
+alignment on a straight line until at 0 there is no pattern whatsoever -
+as the correlation coefficient increases from 0 to +1, we see that the
+tendency to align on a straight line increases until perfect alignment
+at r = 1.
+
+::: callout-important
+## Magnitude and sign of the correlation coefficient
+
+**Sign:** Direction (positive/negative)
+
+**Magnitude:** Tightness around a line (near 0 = no linear pattern; near
+±1 = points nearly on a line)
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What does “perfect correlation” mean visually?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+All points lie exactly on a straight line.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If correlation is -1, does that mean the variables are weakly related?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+No. It means perfectly related but in a negative (downward) direction.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+As r moves from 0 toward 1, what changes visually?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The point cloud becomes more tightly aligned around an upward-sloping
+line.
+:::
+
+::: callout-important
+## Correlation vs. *Causation*
+ In @fig-price-demand-3, we can see that as *price* increases, *sales_qty* decreases. We have said that these two variables are *correlated*. From this alone, can we infer that higher *price* **caused** lower *sales_qty*?
+ 
+ We need to be very careful here.  @fig-price-demand-3 only shows the *correlation*. From that correlation alone we should infer anything more. Specifically, we cannot infer that the *price* changes **cause** changes in *sales*.
+ 
+ Of course, in the real world, we know that price increases generally lead to drops in sales. But that knowledge lies outside of this data. It is quite possible that, in this situation something else might be playing a role. We just don't know from the data we are seeing. 
+ 
+ Establishing **causation** is part of *causal inference* which uses other rigorous techniques to establish that something actually caused something else. We do not go into causal inference in this course.
+
+:::
 
 ## Plotting a numerical variable against a categorical one
 
-In this course, we will only assign a numerical variable to the y-axis. Thus, if a plot has a categorical variable, it will only occupy the x-axis.
+In this course, we will only assign a numerical variable to the y-axis.
+Thus, if a plot has a categorical variable, it will only occupy the
+x-axis.
 
-Numerical and categorical variables differ in how they behave in plots. In @fig-advertising-sales-channel-1 we have the variable *advertising_spend_k* on the x-axis. Being a numerical variable, it can potentially take on any value on the x-axis. On the other hand, look at @fig-bank-account-type-balance. 
+Numerical and categorical variables differ in how they behave in plots.
+In @fig-advertising-sales-channel-1 we have the variable
+*advertising_spend_k* on the x-axis. Being a numerical variable, it can
+potentially take on any value on the x-axis. On the other hand, look at
+@fig-bank-account-type-balance.
 
-![Plotting a categorical variable against a numerical one -- using the data frame *acct_type_balance* (not plotted using the *point_plot* function)](../../images/fig-bank-account-type-balance.png){#fig-bank-account-type-balance width=70% fig-align="center"}
+![Plotting a categorical variable against a numerical one -- using the
+data frame *acct_type_balance* (not plotted using the *point_plot*
+function)](../../images/fig-bank-account-type-balance.png){#fig-bank-account-type-balance
+width="70%" fig-align="center"}
 
+Here we have the variable *bank_account_type* on the x-axis and it can
+take on only one of two values *"Checking"* and *"Savings"*. This is why
+each row falls at only one of two x positions: one for *Checking*, and
+one for *Savings*. So points stack vertically. If the row corresponds to
+a "Checking" account, it falls on the left stack of points and on the
+right stack otherwise.
 
-Here we have the variable *bank_account_type* on the x-axis and it can take on only one of two values *"Checking"* and *"Savings"*. Thios is why each of the rows in the data frame falls along one of two perfectly vertical assortment of points If the row corresponds to a "Checking" account, it falls on the left set of points and on the right set otherwise. 
+### A Caveat
+
+Correlation measures the strength of a *linear relationship*; a curved
+pattern can have low correlation coefficient even if there is a strong
+relationship.
+
+@fig-non-linear-strong-but-weak-corr-coeff shows a strong non-linear
+(loosely means "not a **straight** line") relationship. The points align
+very close to a curved line. This has a low correlation coefficient
+because if you try to run a straight line through these points, no
+matter how hard you try, you cannot draw a line that is even reasonably
+close to all points. The correlation coefficient is -0.125 -- close to
+zero!
+
+![Strong non-linear relationship, but weak correlation
+coefficient](../../images/fig-non-linear-strong-but-weak-corr-coeff.png){#fig-non-linear-strong-but-weak-corr-coeff
+width="70%" fig-align="center"}
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If *bank_account_type* has two categories, how many distinct x positions
+exist conceptually?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Two: one for *Checking* and one for *Savings*.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why do points form vertical “stacks” for each category?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Because many rows share the same category (same x position) but differ
+in balance (y).
+:::
 
 ### *point_plot* and "jittering"
 
-If we have two *Checking* accounts with the same or very similar balance, their points will overlap. Because of this overplotting, the plot in @fig-bank-account-type-balance does not enable us to look at all the points.
+If we have two *Checking* accounts with the same or very similar
+balance, their points will overlap. Because of this over plotting, the
+plot in @fig-bank-account-type-balance does not enable us to look at all
+the points.
 
-To overcome this problem, the *point_plot* function plots this chart a bit differently. See @fig-account-type-balance-point-plot.
+To overcome this problem, the *point_plot* function plots this chart a
+bit differently. See @fig-account-type-balance-point-plot.
+
+**Important:** Jittering changes only the display position of points to
+reduce overlap; it does not change the underlying data values
 
 ```{r}
 #| echo: true
@@ -250,43 +836,296 @@ acct_type_balance |>
   point_plot(balance ~ bank_account_type)
 ```
 
-To enable us to see the points more clearly, the *point_plot* function randomly "jitters" the points along the x-axis to more clearly separate points that might be overplotted or close together.
+To enable us to see the points more clearly, the *point_plot* function
+randomly "jitters" the points along the x-axis to more clearly separate
+points that might be over plotted or close together.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What problem does jittering solve?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Over plotting. Points hiding under other points.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Does jittering change the data?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+No. It only changes where points are drawn to make overlap visible.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In a jittered plot, if we see two points with the same y-value and the
+same x-category, what would have happened to them on an un-jittered
+plot??
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+They would have overlapped and we would only have a single point
+visible.
+:::
 
 ## Bringing a third variable into the plot
 
-Two-dimensional plots can normally accommodate only two variables -- one on each axis. However, we can often get more insights if we manage to get more variables into our plots. The *point_plot* functions allows us to bring one more dimension to our plots through color.  
+Two-dimensional plots can normally accommodate only two variables -- one
+on each axis. However, we can often get more insights if we manage to
+get more variables into our plots. The *point_plot* functions allows us
+to bring one more dimension to our plots through color.
 
-In @fig-advertising-sales-channel-1, we saw the positive relationship between *weekly_sales_k* and *advertising_spend_k* in the *advertising_sales_channel* data frame. That data frame has another variable *channel*. Each row corresponds to one of two sales channels -- *Search Ads* and *Retail Promo*. We might want to study separately for each channel the relationship between advertising spend and the weekly sales. 
-
+In @fig-advertising-sales-channel-1, we saw the positive relationship
+between *weekly_sales_k* and *advertising_spend_k* in the
+*advertising_sales_channel* data frame. That data frame has another
+variable *channel*. Each row corresponds to one of two sales channels --
+*Search Ads* and *Retail Promo*. We might want to study separately for
+each channel the relationship between advertising spend and the weekly
+sales.
 
 ```{r}
-#| echo: true
-#| error: true
-#| label: fig-advertising-sales-channel-color
-#| fig-cap: "We bring in  *channel* through color in the plot of *weekly_sales_k* against *advertising_spend_k* from the *advertising_sales_channel* data frame"
-
+#| eval: false
 advertising_sales_channel |> 
   point_plot(weekly_sales_k ~ advertising_spend_k + channel)
 ```
 
-@fig-advertising-sales-channel-color inserts, through color, the variable *channel* into the plot of *weekly_sales_k* against *advertising_spend_k* from the *advertising_sales_channel* data frame. From it we can clearly see that the points corresponding to each sales channel clearly shows the positive relationship that we saw earlier. But this plot also shows that for a given value of *advertising_spend_k* the *Retail Promo* channel generally has a comparatively higher *weekly_sales_k* value. Adding the variable *channel* through color enabled us to see more into the data than before.
+![Determining the color of points based on a third variable -- the last
+variable in the tilde expression for the plot achieves
+this](../../images/fig-advertising-sales-channel-color.png){#fig-advertising-sales-channel-color
+width="70%" fig-align="center"}
+
+@fig-advertising-sales-channel-color inserts, through color, the
+variable *channel* into the plot of *weekly_sales_k* against
+*advertising_spend_k* from the *advertising_sales_channel* data frame.
+From it we can clearly see that the points corresponding to each sales
+channel clearly shows the positive relationship that we saw earlier. But
+this plot also shows that for a given value of *advertising_spend_k* the
+*Retail Promo* channel generally has a comparatively higher
+*weekly_sales_k* value. Adding the variable *channel* through color
+enabled us to see more into the data than before.
 
 ### Understanding the tilde expression to add a third variable
 
-@fig-color-tilde-expression shows the tilde expression we used in a point plot of two variables to color the points based on a third variable.
+@fig-color-tilde-expression shows the tilde expression we used in a
+point plot of two variables to color the points based on a third
+variable.
 
-![To color the points based on the value of a third variable, we just *add* it to the end of the tilde-expression after a plus sign ](../../images/fig-color-tilde-expression.png){#fig-color-tilde-expression width=70% fig-align="center"}
+![To color the points based on the value of a third variable, we just
+*add* it to the end of the tilde-expression after a plus
+sign](../../images/fig-color-tilde-expression.png){#fig-color-tilde-expression
+width="70%" fig-align="center"}
 
-@fig-color-tilde-expression-2 shows another example. In this, we use the *mpg* data frame which contains data on cars. We plot the city mileage of cars (variable *cty*) against their engine displacement (variable *displ*). We color each point based on the class of the vehicle (variable *class*).
+@fig-color-tilde-expression-2 shows another example. In this, we use the
+*mpg* data frame which contains data on cars. We plot the city mileage
+of cars (variable *cty*) against their engine displacement (variable
+*displ*). We color each point based on the class of the vehicle
+(variable *class*).
 
 ```{r}
-#| echo: true
-#| error: true
-#| label: fig-color-tilde-expression-2
-#| fig-cap: "Using the *mpg* data frame: plotting the city mileage against displacement and coloring the points based on the class of a car"
-
+#| eval: false
 mpg |> 
   point_plot(cty ~ displ + class)
 ```
 
+![The scatterplot shows the relationship between *displ* and *cty* from
+the *mpg* data frame -- the variable *class* in the tilde expression
+determines the color of the
+points](../../images/fig-color-tilde-expression-2.png){#fig-color-tilde-expression-2
+width="70%" fig-align="center"}
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In weekly_sales_k \~ advertising_spend_k + channel, what does channel
+control?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The color of points.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What new insight can color reveal that the two-variable plot cannot?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Differences in level or pattern between groups (e.g., Retail Promo tends
+to have higher sales at the same ad spend).
+:::
+
+## Bringing a fourth variable into play
+
+We can bring a fourth variable into play as well through *facets*.
+Replacing the tilde expression above with:
+
+```         
+hwy ~ displ + class + drv
+```
+
+generates @fig-facet-example-1.
+
+![The scatterplot shows the relationship between *displ* and *cty* from
+the *mpg* data frame -- the variable *class* in the tilde expression
+determines the color of the points and the variable *drv* divides the
+plot into
+*facets*](../../images/fig-facet-example-1.png){#fig-facet-example-1
+width="70%" fig-align="center"}
+
+In this figure, we use the *mpg* data frame and generate a basic
+scatterplot of the relationship between the highway mileage (variable
+*hwy*) and the engine displacement (variable*displ*). The third variable
+*class* determines the color of the points. The fourth variable *drv*
+segments the plots into *facets* -- one for each possible value of
+*drv*.
+
+::: callout-important
+**Tilde expression summary**
+
+y \~ x → y on vertical axis, x on horizontal axis
+
+y \~ x + color → color encodes the third variable
+
+y \~ x + color + facet → facet splits into panels by the fourth variable
+:::
+
+## Mini-Review: Scatterplots and Relationships {.unnumbered}
+
+::: {.callout-note}
+Answer the questions below to check your understanding of how scatterplots
+represent data and relationships between variables.
+:::
+
+### Question 1 {.unnumbered}
+In a scatterplot of `sales_qty ~ price`, what does the x-coordinate of a point represent?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+The x-coordinate represents the value of `price` for that observation.
+:::
+
+---
+
+### Question 2 {.unnumbered}
+In the same scatterplot, what does the y-coordinate of a point represent?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+The y-coordinate represents the value of `sales_qty` for that observation.
+:::
+
+---
+
+### Question 3 {.unnumbered}
+If a scatterplot is based on a data frame with 500 rows, how many points appear in the plot?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+500 points — one for each row of the data frame.
+:::
+
+---
+
+### Question 4 {.unnumbered}
+Describe how you would locate on the plot the point corresponding to a row with  
+`price = 12.5` and `sales_qty = 1200`.
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+Locate 12.5 on the x-axis, move vertically until reaching 1200 on the y-axis,
+and mark the intersection.
+:::
+
+---
+
+### Question 5 {.unnumbered}
+What visual pattern indicates a **negative relationship** between two numerical variables?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+A downward-sloping cloud of points: as x increases, y generally decreases.
+:::
+
+---
+
+### Question 6 {.unnumbered}
+What does it mean if a scatterplot shows **no clear trend**?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+There is no apparent linear relationship — higher or lower values of one variable
+do not predict higher or lower values of the other.
+:::
+
+---
+
+### Question 7 {.unnumbered}
+What does the **sign** of the correlation coefficient tell you?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+It tells you the direction of the linear relationship:
+positive for upward trends and negative for downward trends.
+:::
+
+---
+
+### Question 8 {.unnumbered}
+A correlation coefficient close to 0 means what?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+There is little or no **linear** relationship between the variables, even though
+a nonlinear relationship may still exist.
+:::
+
+---
+
+### Question 9 {.unnumbered}
+Why does `point_plot()` jitter points when the x-axis variable is categorical?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+To reduce over plotting so that points with the same category and similar
+values do not overlap visually.
+:::
+
+---
+
+### Question 10 {.unnumbered}
+In the formula  
+`weekly_sales_k ~ advertising_spend_k + channel`,  
+what role does `channel` play in the plot?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+It determines the color of the points, allowing different groups to be distinguished visually.
+:::
+
+---
+
+### Question 11 {.unnumbered}
+What additional role does a fourth variable play when added as  
+`y ~ x + color_var + z`?
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer
+It divides the plot into separate panels (facets), one for each value of the fourth variable.
+:::
 

@@ -1,19 +1,17 @@
-# Module 4: More on Models -- Least Squares {.unnumbered}
+# Module 4: Linear Regression Models {.unnumbered}
 
-This module completes what the previous one began. It enhances the idea of the mean as the *best model* to the case when the response variable is numeric as is the explanatory variable. It introduces the idea of the line of best fit based on the least squares critereon as the *best linear model*.
+This module fills in the details on top of the intuitive foundation for a linear model that the previous module laid.It introduces the idea of the least squares best fit line and its corresponding model.  The module covers R code for building linear models for the case of a single numerical explanatory variable, a single categorical variable and a combination of one numerical and one categorical explanatory variable.It shows how to distill the model function based on the regression output.
 
 ## Learning Goals
 
 - a
 - b
 - c
+
 ## Structure of This Module
 
-- Line that goes *closest* to all points
-- Line as model
-- Residual
-- Least-squares line
-- The sense in which the least-squares line the *best line*
 
-
-- 
+- mention that the model gives an estimated value, but defer detailed discussion until later
+- R code for building model with no explanatory variable and reconstructing the model function
+- R code for building model with one numeric explanatory variable and reconstructing the model function
+- R code for building model with one numeric explanatory variable and one categorical explanatory variable and reconstructing the model function

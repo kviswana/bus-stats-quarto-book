@@ -4,7 +4,7 @@ project:
 book:
   title: "Introduction to Business Statistics: A Modeling Approach"
   author: "Viswa Viswanathan"
-  date: "12/4/2025"
+  date: "1/15/2026"
   chapters:
     - index.qmd
     - preface.qmd
@@ -25,20 +25,18 @@ book:
     - part: "Introduction to models"
       chapters:
         - modules/03-introduction-to-models/03-overview.qmd
-        - modules/03-introduction-to-models/means.qmd
-        - modules/03-introduction-to-models/category-means.qmd
-        - modules/03-introduction-to-models/residuals.qmd
+        - modules/03-introduction-to-models/path-to-models-story.qmd
+        - modules/03-introduction-to-models/category-means-story.qmd
+        - modules/03-introduction-to-models/intro-to-models.qmd
+        - modules/03-introduction-to-models/visualizing-simple-models.qmd
 
     - part: "More on models -- least squares"
       chapters:
         - modules/04-more-on-models/04-overview.qmd
-        - modules/04-more-on-models/model-concept.qmd
-
-    - part: "Linear Regression Models"
-      chapters:
-        - modules/05-regression-no-ci/05-overview.qmd
-        - modules/05-regression-no-ci/line-model.qmd
-        - modules/05-regression-no-ci/interpreting-coefficients.qmd
+        - modules/04-more-on-models/line-of-best-fit-story.qmd
+        - modules/04-more-on-models/visualizing-models.qmd
+        - modules/04-more-on-models/finding-the-model-function.qmd
+        - modules/04-more-on-models/model-with-cat-and-num-explanatories-story.qmd
     - part: "Explanatory Power of a Model"
       chapters: 
         - modules/06-variance-analysis/06-overview.qmd
@@ -48,7 +46,7 @@ book:
         - modules/07-populations-samples/pop-vs-sample.qmd
         - modules/07-populations-samples/sampling-variability.qmd
 
-    - part: "Probability as Variation"
+    - part: "Probability"
       chapters:
         - modules/08-probability-variation/08-overview.qmd
         - modules/08-probability-variation/randomness.qmd
@@ -99,17 +97,20 @@ book:
   sidebar:
     style: docked
     background: light
+    logo: images/logo-dark.png
 
   search: true
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      - flatly
+      - custom.scss
     toc: true
     toc-depth: 3
-    css: custom.scss
+    
     number-sections: true
-    code-tools: true
+    code-tools: false
     df-print: paged
     
 

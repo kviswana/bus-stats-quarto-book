@@ -1,6 +1,6 @@
 # Module 3: Introduction to models {.unnumbered}
 
-This module gently introduces the idea of a model, and then discusses the simplest possible model -- the mean. It also introduces the concepts of outcome and explanatory variables. It extends the idea of tne mean as the model with no explanatory variable to cover the case of a model with one categorical explanatory variable and shows that in this case the model is the category mean.
+This module gently introduces the idea of a model, and then discusses the simplest possible model -- the mean. It also introduces the concepts of outcome and explanatory variables. It extends the idea of the mean as the model with no explanatory variable to cover the case of a model with one categorical explanatory variable and shows that in this case the model is the category mean.
 
 
 ## Learning Goals 

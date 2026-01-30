@@ -1,0 +1,590 @@
+# The Simplest Model {#sec-mean-model}
+
+This chapter helps you to dip your toes into the vast and important topic of models.
+
+## Learning outcomes {.unnumbered}
+
+### After completing this chapter you will be able to: {.unnumbered}
+
+-   Explain the term model from a general perspective, and from the perspective of statistics
+-   Explain why, given the values of only one variable and in the absence of any other information, the mean is the best model
+-   Explain in what sense the mean is the *best* model
+-   Given a model equation, identify the *outcome* variable and the *explanatory* variable(s)
+-   Describe the terms *outcome* variable and \*\*explanatory\* variable
+-   Match the terminology between the two pairs (*outcome* variable, *explanatory* variable) and (independent variable, *dependent* variable)
+-   Given a model with a single numerical *explanatory* variable and a value for the *explanatory* variable, compute the model value.
+-   Explain why we place a *hat* on the *outcome* variable in a model expression
+-   Explain why we call a model's output an *estimate*
+-   List and describe the two uses of models covered in this chapter
+
+## Companies *commit* when they make decisions
+
+Good decision-making lies at the heart of effective business management.
+
+In practice, companies must commit to decisions before they know how it will play out in the real-world. Many important business decisions cannot be revised freely once they are made. Examples include setting prices, determining how much inventory to stock, choosing staffing levels, or deciding where to locate a factory.
+
+Once a decision is made, it influences many individual events that unfold over time.
+
+Consider pricing. A company sets a single price for a product, and then thousands of customers independently decide whether or not to buy at that price. One decision by the firm affects many separate outcomes.
+
+This has an important implication: *we cannot judge the quality of a decision based on a single outcome*.
+
+Suppose a company sets a price of \$10 and the first customer who walks in buys the product. Was \$10 the right price? We cannot really say. That single outcome may simply be good luck. If we observe the decisions of 1,000 customers, however, a clearer picture begins to emerge. Over many independent events, good decisions tend to perform well *on average*.
+
+In business, then, decisions must be made in advance, under uncertainty, and their quality must be judged by how well they balance out across many realizations and not by whether they happen to succeed in one particular instance.
+
+This perspective will guide how we think about models in this chapter. A good model is not one that gets lucky once. It is one that performs reliably across many possible outcomes.
+
+::: callout-important
+## Definition of model for our present purposes
+
+A model is a simple rule or equation that uses data to produce predictions or explanations, while deliberately ignoring some details of reality.
+:::
+
+## Staffing kiosks with incomplete data: Deciding under uncertainty {#sec-mean-game}
+
+Amanda, the owner of *Random Treats* walks into a conference room with a small group of business school interns.
+
+“I run two small sales kiosks,” she says. “One at the *Beach*. One at the *Mall*. I need to set staffing levels for the next month.”
+
+Amanda holds up a messy spreadsheet printout.
+
+“Customer counts from the last 20 days,” she says. “But the person who collected the data forgot to record *which kiosk* each number came from. My problem is that I have to set the staffing level for the next month at my kiosks and I have to base that on the expected number of customers who will show up at the kiosks."
+
+Someone laughs nervously. Amanda does not.
+
+“I don’t have time to redo data collection,” she says. “So we work with what we have. But first, I want to see how you think.
+
+Based on the data we have, I want to settle on a single number for how many customers will show up at the kiosks each day. I will use that number to set the staffing level for the kiosks – same for both kiosks."
+
+She grabs a marker.
+
+“Here’s a tiny practice version of the problem, with small numbers that you can wrap your head around. Instead of the messy numbers on the spreadhseet, assume that these small numbers were the number of customers who showed up over the past several days at a kiosk (beach or mall). Now tell me what single number I should use as the representative demand at a kiosk?"
+
+She writes the following set of 10 numbers on the board:
+
+4, 2, 6, 1, 8, 1, 3, 9, 2, 4
+
+You should think of this set as representing possible outcomes—number of customers who show up at a kiosk. I am keeping the numbers small so that we can first arrive at a method. We can then apply the chosen method to the messy real-world numbers. You do not know which value will actually occur on any given day, but you have reason to believe that the overall pattern will be similar to these numbers."
+
+Angela asks "But why should you keep the same number each day? Can we not adjust staffing day by day?"
+
+Amanda says "Good thinking, Angela. I would love to be efficient, but I cannot do that. Firstly, I want to give some stability to the staff so that they can rest asusred that they have guaranteed employment for the whole month. Secondly, I run many businesses and I can only commit a few hours to this business. So today is the day I make the staffing decision for the next month for this business. I can revisit this decision only next month."
+
+"Got it" says Angela.
+
+Amanda ... "OK, guys, put on your thinking hats.".
+
+"Here are the rules of the game:
+
+1.  You as a team commit to a single number for expected sales on any given day at either kiosk. This is your guess, and you must choose it before any outcomes – actual sales – are revealed over the month. You can assume that the pattern will be similar to the data I have given you.
+
+2.  I then pretend to be the real-world, and determine the first day's demand by randomly selecting one number (customer demand) from our set. This number I pick might be the same as, lower than, or higher than your committed number. The closer it is to the number I pick randomly, the better. I will compute the difference between what you committed to and the real-world -- what I picked randomly.
+
+3.  Now comes the twist. I square the difference to obtain the *penalty* for that round.
+
+4.  We repeat steps 2 and 3, twenty times just to get a reasonable number of trials, and add up all the *penalties*.
+
+The result of step 4 is your *total penalty*.
+
+Obviously, your goal is to keep this total penalty as small as possible to keep the number you committed to close to the actual number of customers (the numbers I picked randomly from our representative data) .
+
+So, remember, you commit once and the real world plays out day after day. At the end of 20 days, we want to see the overall penalty. It is no good doing really well on a few days and being way off on others. Consistency is key."
+
+Steve seemed perplexed. "But Amanda, why not just add the differences? Why square them and then add?"
+
+"I like that Steve. You are thinking well about this already" said Amanda. In our business we can afford small deviations from reality, but the farther our decisions are from reality, we pay a far heftier price. So I want to really avoid large deviations from reality and squaring the differences and choosing the solution that produces the lowest penalty take care of this aspect. For instance, if we do not square the differences, then an error of 10 is only twice as bad as an error of 5. Whereas qith squaring, an error of 10 is 4 times as bad as an error of 5. I really want to minimize big errors."
+
+"Oh, I get it." Steve said. " We did something similar when we calculated variances in our statistics class."
+
+Amanda: "Nice connection Steve!"
+
+"OK team. Why don't you discuss for 10 minutes and give me a number while I grab a coffee?"
+
+10 minutes later Dave announces "Amanda, we have discussed. Our number is 6".
+
+"Thanks, Dave. I will now randomly generate the number of customers for 20 days based on our data  and we can jointly compute the total penalty."
+
+@tbl-decision-penalty-6 shows the computation and the results. The total penalty was 219.
+
+```{=html}
+<table id="tbl-decision-penalty-6" style="border-collapse:collapse;">
+  <caption>Decision, random choices, and resulting penalties (Decision = 6)</caption>
+
+  <thead>
+    <!-- Decision row ABOVE headers -->
+    <tr>
+      <td colspan="2"
+          style="text-align:right; padding:2px 6px; font-weight:600;">
+        Decision =
+      </td>
+      <td style="text-align:right; padding:2px 6px;">
+        6
+      </td>
+    </tr>
+
+    <tr>
+      <th style="text-align:right; padding:2px 6px;">random_choice</th>
+      <th style="text-align:right; padding:2px 6px;">diff</th>
+      <th style="text-align:right; padding:2px 6px;">penalty</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr><td style="text-align:right; padding:2px 6px;">9</td><td style="text-align:right; padding:2px 6px;">-3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">9</td><td style="text-align:right; padding:2px 6px;">-3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">6</td><td style="text-align:right; padding:2px 6px;">0</td><td style="text-align:right; padding:2px 6px;">0</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">1</td><td style="text-align:right; padding:2px 6px;">5</td><td style="text-align:right; padding:2px 6px;">25</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">9</td><td style="text-align:right; padding:2px 6px;">-3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">6</td><td style="text-align:right; padding:2px 6px;">0</td><td style="text-align:right; padding:2px 6px;">0</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">9</td><td style="text-align:right; padding:2px 6px;">-3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+
+    <!-- Total row -->
+    <tr>
+      <td colspan="2"
+          style="text-align:right; padding:2px 6px; font-weight:600;">
+        Total penalty =
+      </td>
+      <td style="text-align:right; padding:2px 6px; font-weight:600;">
+        219
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Explain how the penalty of 9 was computed for the first row of @tbl-decision-penalty-6.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The decision is 6. The random choice selected 9 customers. The difference is -3 (or 3 depending on what you placed first in computing the difference. Since we are squaring, this does not matter.) The squares of -3 and 3 are both 9.
+:::
+
+Amanda: "The total penalty was 219. Can you reduce the penalty?"
+
+Paul: "Let's try 7."
+
+@tbl-decision-penalty-7 shows the results. The total penalty this time is slightly higher at 230.
+
+```{=html}
+<table id="tbl-decision-penalty-7" style="border-collapse:collapse;">
+  <caption>Decision, random choices, and resulting penalties (Decision = 7)</caption>
+
+  <thead>
+    <!-- Decision row ABOVE headers -->
+    <tr>
+      <td colspan="2"
+          style="text-align:right; padding:2px 6px; font-weight:600;">
+        Decision =
+      </td>
+      <td style="text-align:right; padding:2px 6px;">
+        7
+      </td>
+    </tr>
+
+    <tr>
+      <th style="text-align:right; padding:2px 6px;">random_choice</th>
+      <th style="text-align:right; padding:2px 6px;">diff</th>
+      <th style="text-align:right; padding:2px 6px;">penalty</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-1</td><td style="text-align:right; padding:2px 6px;">1</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-1</td><td style="text-align:right; padding:2px 6px;">1</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">9</td><td style="text-align:right; padding:2px 6px;">-2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">5</td><td style="text-align:right; padding:2px 6px;">25</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">5</td><td style="text-align:right; padding:2px 6px;">25</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-1</td><td style="text-align:right; padding:2px 6px;">1</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-1</td><td style="text-align:right; padding:2px 6px;">1</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">1</td><td style="text-align:right; padding:2px 6px;">6</td><td style="text-align:right; padding:2px 6px;">36</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+
+    <!-- Total row -->
+    <tr>
+      <td colspan="2"
+          style="text-align:right; padding:2px 6px; font-weight:600;">
+        Total penalty =
+      </td>
+      <td style="text-align:right; padding:2px 6px; font-weight:600;">
+        230
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+Amanda: "Well that raised the penalty slightly. Any ideas how to proceed further? If we keep trying different numbers, we could be here all night and still not know if we have the best solution!
+
+What number will produce the lowest penalty? Honestly, I do not know and I need your bright minds to help me with this.
+
+I am going to leave you all to work through this as a team for an hour while I attend another meeting. When I come back, I hope you will be able to give me a good solution and convince me that it is indeed good!."
+
+Igor had been silent all along and finally spoke up tentatively.
+
+"I think we should try many numbers from 1 to 9 -- the range of this data -- in steps of 0.25 or something small. For each number, we should compute the total penalty by doing something like what Amanda had us do earlier. But trying just 20 times for each number leaves us at the mercy the random selection process giving freak results. Instead we should aim for a large number of trials -- like 1000. Then the chance factor will be considerably reduced.
+
+We can then plot a chart showing the total penalty for each decision and directly see the decision for which total penalty is the lowest."
+
+Dave wanted to clarify. "Are you saying, Igor, that you will first pick 1 as the choice and then generate 1000 random choices from the data set. For each random choice you will compute the difference from the random choice and 1 and square it and add them all up to get the total penalty. That would be the total penalty for the choice 1.
+
+You wll then repeat the procedure for 1.25 and get its total penalty. And then 1.5, and so on until 9 (which is the largest number in our data). You will then have a table with two columns: *choice* and *total_penalty*. You will then plot this."
+
+"Exactly" said Igor and sketched a rough plot (@fig-igor-sketch) on the back of an envelope. "This is what it will look like. Of course, I have not done the computations and so my sketch is just an idea now. I suspect that the total penalty will be lowest at some decision and increase on either side of it. Once we have the plot, we can then find the decision at which the total penalty is the smallest."
+
+![Igor's back of the envelope sketch of the plot that he thought would help them identify the best decision](../../images/fig-igor-sketch.png){#fig-igor-sketch width="70%" fig-align="center"}
+
+"If we can generate this plot, we might be able to sell the idea to Amanda" Steve said.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+How do you think Igor's sketch in @fig-igor-sketch might be useful in finding the best decision?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+If the plot does in fact come out to have this shape, then the decision where the total penalty is lowest would be good. The plot once actually generated can help us to find the best decision.
+:::
+
+"But Igor, this is easier said than done. How can we complete all these computations in an hour? In fact we might not finish in a week!" bemoaned Angela. Igor agreed. Perhaps he was being too much in the clouds.
+
+Suzie joined the fray. "Angela, If what I am thinking of is correct, this might not be as hard as it seems. I learned R in a class. I think I can do this in R quickly and get a nice plot that Igor is talking about. We can have something ready for Amanda by the time she comes back from her meeting."
+
+Everyone exulted "You can do that? Wow!" and Suzie and Igor got to work.
+
+They defined the problem clearly to an AI chatbot and asked it to generate a program in the R language that could generate the plot. They described precisely what they wanted the program to do. This part took some time as they wanted to be very sure that the chatbot had the right information.
+
+Once they were done, the chatbot then gave them the code in less than a minute. She looked over it carefully, fixed a few things and then ran it.
+
+Soon Suzie had a nice plot of the total errors for every possible value of the decision from 1 through 9 in intervals of 0.2. In fact she had made 10,000 trials for each value instead of just 1,000 as Igor had suggested. It looks like a guess of 4 would produce the smallest total penalty. The team had its answer for Amanda! @fig-amanda-simulation shows the plot. The plot shows that a decision of 4 generates the lowest total penalty.
+
+![Results of Suzie's program showing the various possible decisions and their total penalties: the lowest total penalty occurs at a decision of 4](../../images/fig-amanda-simulation.png){#fig-amanda-simulation width="70%" fig-align="center"}
+
+High-fives all round.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+How many values of decision did Suzie's program try out?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+She tried the values 1, 1.2, 1.4, 1.6, 1.8, or 5 values between 1 and 2. Similarly 5 between 2 and 3 and so on That would be 8 times 5 or 40 up to 8.75. and then there is 9. So she tried a total of 41 different decision values.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+How many individual differences did her program compute?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+For each decision her program tried 10,000 trials and hence computed 10,000 differences for a total of 10,000\*41, or 410,000 differences.
+:::
+
+"Wait a minute" said Angela. With Amanda's trials, the total penalty was close to 200. Now it looks like our lowest is close to 70,000. What is going on? Have me done something wrong here? I have heard that AI chatbots can hallucinate. Have wee been hit with a major hallucination?"
+
+Doom spread in the room. Amanda would be in the room shortly. Have they let her down badly?
+
+Silent Igor came to their rescue again. "The total penalty in Amanda's case was computed over 20 trials. Suzie's total penalties are based on 10,000 trials. Naturally they will be higher. This is an apples to oranges comparison.
+
+To make these comparable, we should be comparing the average penalty **per trial** to remove the direct effect of the number of trials on the total penalty. So we should divide Amanda's total penalty by 20 and Suzie's by 10,000 to get the average penalty per trial for each of them. Then we can compare them."
+
+David immediately did some mental math and came back with "Well, for the numbers we tried with Amanda, the average penalty per trial was approximately 220/20, or 11. For Suzie's numbers, the plot says that the total penalty for the best decision of 4 is around 70,000. We divide that by 10,000 trials and get a penalty per trial of 7. So we did improve significantly on what we initially came up with."
+
+The group heaved collective sign of relief.
+
+Igor said "Since Suzie did 10,000 trials for each number, we can be almost certain that 4 is in fact *the best solution*.
+
+The team had finished with 10 minutes to spare. They spent the remaining time preparing a neat presentation for Amanda describing exactly what they had done. They also explained how they had used AI to help in this process.
+
+When she returned, Amanda took one look at the chart and asked a few questions about how they had generated it. She was convinced that these young interns had found the best solution to her kisok staffing problem.
+
+Amanda said "Thank you all very much. You have done a great job! You accomplished a lot in a short amount of time. Do you know why that happened?
+
+You worked as a team. Your ideas built upon each other and you were able to achieve a lot.
+
+How do I know even though I was not in the room? Well, I have seen this time and again, and you will too in your working lives. That's the strength of teams -- some say Wisdom of Teams.
+
+We will meet next month to review how things went and to refine our decisions."
+
+## Average or *mean* as the decision in the long run
+
+David had a thought. "Let us try the decision value of 4 using Amanda's approach and see what total penalty we get for 20 trials."
+
+They did, and @tbl-decision-penalty-4 shows that indeed the total penalty for this is lower than the first two and the average penalty per trial is 166/20. This is higher than the average of 7 with 10,000 trials, but we can chalk it up to using only 20 trials.
+
+```{=html}
+<table id="tbl-decision-penalty-4" style="border-collapse:collapse;">
+  <caption>Decision, random choices, and resulting penalties (Decision = 4)</caption>
+
+  <thead>
+    <!-- Decision row ABOVE headers -->
+    <tr>
+      <td colspan="2"
+          style="text-align:right; padding:2px 6px; font-weight:600;">
+        Decision =
+      </td>
+      <td style="text-align:right; padding:2px 6px;">
+        4
+      </td>
+    </tr>
+
+    <tr>
+      <th style="text-align:right; padding:2px 6px;">random_choice</th>
+      <th style="text-align:right; padding:2px 6px;">diff</th>
+      <th style="text-align:right; padding:2px 6px;">penalty</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">1</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">0</td><td style="text-align:right; padding:2px 6px;">0</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">0</td><td style="text-align:right; padding:2px 6px;">0</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">8</td><td style="text-align:right; padding:2px 6px;">-4</td><td style="text-align:right; padding:2px 6px;">16</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">0</td><td style="text-align:right; padding:2px 6px;">0</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">4</td><td style="text-align:right; padding:2px 6px;">0</td><td style="text-align:right; padding:2px 6px;">0</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">9</td><td style="text-align:right; padding:2px 6px;">-5</td><td style="text-align:right; padding:2px 6px;">25</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">1</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">1</td><td style="text-align:right; padding:2px 6px;">1</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">9</td><td style="text-align:right; padding:2px 6px;">-5</td><td style="text-align:right; padding:2px 6px;">25</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">1</td><td style="text-align:right; padding:2px 6px;">3</td><td style="text-align:right; padding:2px 6px;">9</td></tr>
+    <tr><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">2</td><td style="text-align:right; padding:2px 6px;">4</td></tr>
+
+    <!-- Total row -->
+    <tr>
+      <td colspan="2"
+          style="text-align:right; padding:2px 6px; font-weight:600;">
+        Total penalty =
+      </td>
+      <td style="text-align:right; padding:2px 6px; font-weight:600;">
+        166
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+So what is special about 4? Given another set of numbers, do we have to repeat this charting process that Suzie did for each set of numbers?
+
+Well, 4 happens to be the average of the numbers. It turns out that when we have a large number of trials, we will get the best results, that is the lowest total penalty, when we always guess the average of the numbers. In this case the average is 4.
+
+So, we see that in the absence of any other information to help us predict, the best prediction is the *mean*. @fig-many-nos-one-pred shows this pictorially.
+
+![Many numbers, but just a single prediction!](../../images/fig-many-nos-one-pred.png){#fig-many-nos-one-pred width="70%" fig-align="center"}
+
+What we have said above **does not mean that we are guaranteed to get the smallest total error if we commit to the average**. Clearly, if someone were lucky enough that the random picks all ended up exactly equal to or very close to their decision just by chance, then their total error will be zero! But this is *extremely unlikely*.
+
+However, those occurrences are extraordinarily unlikely with a large number of trials, as happens in business where a decision is tested by thousands of events. *Statistically* the best course would be to pick the average.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In what sense is the mean the “best” model?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+“Best” means minimizing overall prediction error, not being perfect.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Can a model be “best” and still be inaccurate?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Yes. A model can be the best available option given limited information and still perform poorly in absolute terms.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Does it make intuitive sense that the average turns out to be the best model? Explain why or why not.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+It makes sense to guess a number sort of in the middle so that we are generally close to all numbers that could turn up on random choices. See s\@ec-simple-model-enrichment-1 if you want to thin k about this more.
+:::
+
+::: callout-important
+## Interpret the word "best model" with caution
+
+When we say the mean is the best model, we do not mean it is always accurate, fair, or appropriate. We mean it is best according to a specific criterion, under specific information constraints.
+:::
+
+Now you know why I titled the chapter *The simplest Model*!
+
+## Real world connection: Planning for Customer Demand
+
+How does this small “practice game” relate to the real world? Let us return to the manager’s kiosk problem.
+
+A company operates two small sales kiosks in the same city—one at the *Beach* and one at the *Mall*. The company must decide how many workers to schedule each day.
+
+### What the company must do
+
+-   The staffing decision must be made **in advance**
+-   Once the schedule is set, it cannot be easily changed without disrupting employees
+-   In this first round, the manager insists on **one number** to use everywhere (the same staffing plan for both kiosks)
+
+### What the company knows
+
+-   The company has historical data on daily customer counts—but in an unhelpful format
+-   The counts are **not labeled by kiosk** (Beach vs Mall)
+-   At this point, the company does not have any data to explain *why* customer traffic changes. It simply observes that demand varies
+
+Here are the 20 historical customer counts (mixed together, with no kiosk identification):
+
+```         
+89, 95, 131, 101, 103, 134, 109, 75, 86, 91, 177, 151, 152, 143, 123, 194, 155, 81, 161, 126
+```
+
+### Why the decision matters
+
+-   If too few workers are scheduled:
+
+    -   customers wait longer
+    -   service quality suffers
+    -   some customers leave without buying
+
+-   If too many workers are scheduled:
+
+    -   workers are idle
+    -   labor cost rises
+    -   managers waste attention adjusting schedules
+
+### How the company measures mistakes
+
+-   Being slightly wrong is not very costly
+
+-   Being very wrong is much more costly
+
+-   The manager therefore measures the cost of a decision as:
+
+    -   the **square of the difference** between planned customers and actual customers
+
+### How the decision is evaluated
+
+-   The decision is **not judged by a single day**
+-   A decision that works well once may simply be lucky
+-   Instead, the manager looks at performance **across many days**
+-   Daily customer counts vary, but the staffing decision stays the same
+
+### The conclusion
+
+-   The manager must choose a single number to plan for
+-   Under a squared-penalty rule, the number that minimizes total long-run cost is the **average** of past customer counts (here, about **123.8**)
+-   Choosing a smaller number leads to frequent large shortages
+-   Choosing a larger number leads to frequent over-staffing
+-   The average balances these errors over time
+
+### Why this matters
+
+-   This is the first “model” you learn in this book: a model that predicts the same value every time
+-   It is simple, but it is not arbitrary—it is the **best** choice given the information available
+-   Later chapters improve on this model by adding explanatory information (first categories, then numerical predictors)
+
+## Optional enrichment topic: How does skew affect the situation?
+
+In our practice game, we used the numbers:
+
+```         
+4, 2, 6, 1, 8, 1, 3, 9, 2, 4
+```
+
+in our game. That set has numbers across the entire range. Is it the case that the average performed well because of this? Could it be that the average will not perform well if most of the numbers fall within in a small range and a few extreme cases tend to push the average up?
+
+For, example, let us take the following set of numbers:
+
+```         
+2, 1, 2, 1, 3, 3, 2, 1, 10, 9
+```
+
+The mean is 3.4. However, this set has eight of its numbers less than or equal to 3. Perhaps a decision below the average will work better?
+
+Let us play the game 10,000 times and see which decision performs best.
+
+@fig-simulation-game-summary-skewed shows the results. We see that the mean is still the best *decision*.
+
+![Average of *total_penalty* vs various values for *decision* based on 10,000 plays of the game -- shows that the lowest total penalty overall occurs when *decision* equals the mean of the numbers](../../images/fig-simulation-game-summary-skewed.png){#fig-simulation-game-summary-skewed width="70%" fig-align="center"}
+
+Why does this happen? Choosing the average definitely leads to small penalty increases most of the time. However, if we went below the average, the relatively rare cases in which the random choice is high, it incurs a very large penalty and that offsets any benefits of going below the average, because we square the difference and that amplifies the error.
+
+**What if we did not square the error and instead treated the absolute difference as the penalty. In this case, the *median* is the best choice.** Pretty cool result if you as me! We will not go further into that topic, but it has its applications. In most practical applications, we use the squared-difference as the penalty.
+
+::: {.callout-note icon="false"}
+## Pause & Think {.unnumbered}
+
+1.  If two data sets have the same mean, could the mean be a better model for one than the other?
+2.  What additional information might help you judge if it will work better for one than for the other?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answers {.unnumbered}
+
+1.  Yes. The mean works better when observations are tightly clustered.
+2.  Variability, spread, or deviation from the mean would help evaluate model quality.
+:::
+
+## Optional enrichment topic: Removing outliers in skewed distributions {#sec-simple-model-enrichment-1}
+
+Continuing from the prior discussion, when faced with a skewed distribution we have a peculiar situation where our intuition tells us to make a decision where most points lie, but cold computation tells us otherwise.
+
+One may feel that it makes no sense to choose the mean and accumulate a slightly higher penalty in every event just to balance out the huge penalties that come rarely. But that is what makes sense when we use the quadratic penalty function.
+
+If the penalty is quadratic, but we still want to not decide on the average, then we can eliminate the extreme points and reduce the skew. Then we can use the average as before. From a practical viewpoint what that would mean is that we take steps to avoid extreme events by some means.
+
+Interestingly, if we do not square the differences and simply add the absolute values of the differences to compute the total penalty, then the median (or the middle value among the numbers when they are ordered by magnitude) is the best decision. I find that result very cool!
+
+Can you think of an experiment to compare removing outliers and not removing them in the context of skewed distributions to see if using the mean in both cases reduces the total penalty significantly?
+
+You can delve deeper into this topic if you are interested.

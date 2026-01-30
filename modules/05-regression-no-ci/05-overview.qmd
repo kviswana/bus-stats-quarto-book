@@ -1,6 +1,6 @@
-# Module 4: Linear Regression Models {.unnumbered}
+# Module 5: Linear Regression Models {.unnumbered}
 
-This module fills in the details on top of the intutional foundation for a linear model that the previous module laid. Specifically, the module covers R code for building linear models for the case of a single linear explanatory variable, a single categorical variable and a combination of numerical and categorical explanatory variables.It shows how to distill the model function based on the regression output.
+This module fills in the details on top of the intutional foundation for a linear model that the previous module laid.It introduces the idea of the least squares best fit line and its corresponding model.  The module covers R code for building linear models for the case of a single numerical explanatory variable, a single categorical variable and a combination of one numerical and one categorical explanatory variable.It shows how to distill the model function based on the regression output.
 
 ## Learning Goals
 

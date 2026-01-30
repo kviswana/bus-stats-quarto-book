@@ -247,5 +247,35 @@
   },
   "modules/14-projects/datasets.qmd": {
     "datasets.html": "c799e628"
+  },
+  "modules/03-introduction-to-models/path-to-models.qmd": {
+    "path-to-models.html": "eb6f06aa"
+  },
+  "modules/03-introduction-to-models/intro-to-models.qmd": {
+    "intro-to-models.html": "cb801b41"
+  },
+  "modules/03-introduction-to-models/visualizing-simple-models.qmd": {
+    "visualizing-simple-models.html": "d2cb2d16"
+  },
+  "modules/04-more-on-models/line-of-best-fit.qmd": {
+    "line-of-best-fit.html": "8e088414"
+  },
+  "modules/03-introduction-to-models/path-to-models-story.qmd": {
+    "path-to-models-story.html": "f45bc0b6"
+  },
+  "modules/04-more-on-models/visualizing-models.qmd": {
+    "visualizing-models.html": "46f6dd20"
+  },
+  "modules/03-introduction-to-models/category-means-story.qmd": {
+    "category-means-story.html": "bf1966bd"
+  },
+  "modules/04-more-on-models/line-of-best-fit-story.qmd": {
+    "line-of-best-fit-story.html": "5061af3e"
+  },
+  "modules/04-more-on-models/model-with-cat-and-num-explanatories-story.qmd": {
+    "model-with-cat-and-num-explanatories-story.html": "03832367"
+  },
+  "modules/04-more-on-models/finding-the-model-function.qmd": {
+    "finding-the-model-function.html": "2dfe5d21"
   }
 }

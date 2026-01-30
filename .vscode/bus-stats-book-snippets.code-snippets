@@ -1,0 +1,83 @@
+{
+	// Place your bus-stats-quarto-book workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+"Quarto Quick Check": {
+  "prefix": "qqc",
+  "body": [
+    "::: {.callout-note icon=false}",
+    "## Quick Check {.unnumbered}",
+    "",
+    "${1:Question goes here.}",
+    ":::",
+    "",
+    "::: {.callout-note icon=false collapse=true}",
+    "## Suggested answer {.unnumbered}",
+    "",
+    "${2:Answer goes here.}",
+    ":::"
+  ],
+  "description": "Insert a Quick Check + collapsible Answer (native Quarto)"
+}
+
+
+"Quarto Figure": {
+  "prefix": "qfig",
+  "body": [
+    "![${3:Caption}](${1:../../images/your-figure.png}){#${2:fig-id} width=${4:70%} fig-align=center}"
+  ],
+  "description": "Insert a native Quarto figure"
+},
+
+
+"Quarto Callout": {
+  "prefix": "qcall",
+  "body": [
+    "::: callout-${1|tip,important,caution|}",
+    "## ${2:Title}",
+    "",
+    "${3:Callout content goes here.}",
+    ":::"
+  ],
+  "description": "Insert a Quarto callout block"
+}
+
+
+"Quarto Pause & Think": {
+  "prefix": "qpt",
+  "body": [
+    "::: {.callout-note icon=false}",
+    "## Pause & Think {.unnumbered}",
+    "",
+    "1. ${1:First question}",
+    "2. ${2:Second question}",
+    "",
+    ":::",
+    "",
+    "::: {.callout-note icon=false collapse=true}",
+    "## Suggested answer {.unnumbered}",
+    "",
+    "${3:Answer goes here.}",
+    ":::"
+  ],
+  "description": "Insert a Pause & Think callout + collapsible Suggested answer (native Quarto)"
+}
+
+
+
+
+}

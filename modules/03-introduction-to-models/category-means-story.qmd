@@ -1,0 +1,117 @@
+# Category Means {#sec-category-means}
+
+Angela, Steve, Dave, Igor, and Suzie -- our interns from the previous chapter, sat around the table in the conference room waiting for Amanda and discussed the previous night's exciting professional basketball game.
+
+Last chapter, the interns learned an important lesson: when you must commit to **one number** without any further information, and you measure mistakes more harshly the bigger they are (by using a squared penalty), the best long-run choice is the average.
+
+Amanda walked in exactly at 9 am. WIth a bright smile, she said "Team, I have some good news. First off, we did very well last month. We had far fewer days of bad mismatches from our staffing levels with the customer counts. Your model improved significantly on what we were doing earlier.
+
+Secondly, I have better data this time and I am hoping we can improve our decision further."
+
+
+## Staffing kiosks at malls and beaches
+
+"I have better data this time" Amanda says, pulling up a spreadsheet on her laptop. “The same two kiosks. Same city. Same staffing problem. But ...”
+
+She points to the new column.
+
+“This time, the person collecting data included the kiosk.”
+
+The interns lean in. The data now tells them *where* each customer count came from: *Mall* or *Beach*.
+
+The key difference from the previous chapter is that the decision no longer has to be the same everywhere. Instead, the company can make one decision for the Mall kiosk and a different decision for the Beach kiosk, using the information it has about location. Amanda hoped that this can lead to an even better match between the staffing and the actual customer numbers.
+
+Here is the data:
+
+| customers | kiosk |
+|----------:|:------|
+|        89 | Mall  |
+|        95 | Mall  |
+|       131 | Mall  |
+|       101 | Mall  |
+|       103 | Mall  |
+|       134 | Mall  |
+|       109 | Mall  |
+|        75 | Mall  |
+|        86 | Mall  |
+|        91 | Mall  |
+|       177 | Beach |
+|       151 | Beach |
+|       152 | Beach |
+|       143 | Beach |
+|       123 | Beach |
+|       194 | Beach |
+|       155 | Beach |
+|        81 | Beach |
+|       161 | Beach |
+|       126 | Beach |
+
+Amanda taps the screen.
+
+“Last month I asked for, and you gave me, *one* figure for the number of customers for both kiosks” she says. “Now we have more information and want to do better. Can you use this extra information?”
+
+In this scenario, we need to decide a customer level to use for determining staff level -- but separately for each kiosk.
+
+-   If we are given only the data in column 1 (the *customers* counts), then based on the previous chapter, our best choice is the overall average.
+
+-   If we are given the entire table, then we have additional information and can possibly determine a different number for each kiosk. 
+
+Initially it seems to many of the interns that the new information really does not add any value.  David says, "Why not just adopt the overall average again like last month? I mean how is this kiosk information helping us?"
+
+Angela says "Let us consider an extreme scenario. What if the sales at the Beach kiosk is generally twice that of the sales in the Mall kiosk. In that case, predicting the same number for both does not seem right. Surely we will not have the same staffing level for both. So differentiating the two should make sense."
+
+"I agree" Suzie says. "We should first look at the data. Even if the difference in sales is not as dramatic as Angela mentioned, it might still make sense to differentiate. I have computed the averages for the two kiosks. Here they are." Suzie then shows @tbl-kiosk-avg-sales.
+
+
+|kiosk | avg_customers|
+|:-----|-------------:|
+|Mall  |           101|
+|Beach |           146|
+
+: Average sales at the two kiosks {#tbl-kiosk-avg-sales}
+
+David: "I see your point. These sales do seem quite different with the beach kiosk getting 40% more customers per day on average. Perhaps a different model value does make sense after all. What should the value be though for each kiosk?"
+
+Again, Igor speaks last, a little less timid than he was the last time around. "If we treat the data separately for each kiosk then we really have two problems that are identical to our problem from last month."
+
+Peter: "Then should we just say the model value for each kiosk's is its own average sales?"
+
+The rest nods in agreement. They cannot see any flaw in this.
+
+Peter: "For the *Mall* kiosk, we can use the average of the *customers* column for only the *Mall* rows, and similarly for the *Beach* kiosk."
+
+Angela: "Can we verify this with a chart like we did the last time? Except that we will have one chart per kiosk."
+
+Suzie: "Since the computer is going to do all the work, we can also compare the average penalty per trial for the two kiosks and compare that with using the overall average.""
+
+Suzie's plots for the average penalty for different guesses for each of the kiosks appear in @fig-kiosk-beach-plots.
+
+![Plots of guess against average penalty for the two kiosks: As expected, choosing the average (101 for mall, and 146 for beach) generates the lowest average penalty](../../images/fig-kiosk-beach-plots.png){#fig-kiosk-beach-plots width=70% fig-align=center}
+
+Dave says "As we expected, the best decisions for the two kiosks is still the average, but computed separately for each kiosk. In the plot for the beach kiosk, the lowest average penalty occurs at its average of 146 and at 101 for the mall kiosk." 
+
+Suzie also reported the average penalties if we used the overall average of number of customers and if we used the specific averages for each kiosk.
+
+- Average penalty per choice if we use the overall average number of customers: 1114
+- Average penalty per choice if we use kiosk-specific average for Mall: 325
+- Average penalty per choice if we use kiosk-specific average for Beach: 880
+
+We can see that the penalty is far lower if we use the kiosk-specific averages rather than one overall average. Why is the average penalty so much higher for the beach kiosk than the mall kiosk? Let us see the variability in the data for these two kiosks. See @fig-kiosk-violin-mall-beach.
+
+```{r eval=FALSE}
+kiosk_mall_beach |> 
+  point_plot(customers ~ kiosk, annot = "violin")
+
+```
+
+![Comparison of the distributions of the customer traffic for the two kiosks: Beach has a lot more variability](../../images/fig-kiosk-violin-mall-beach.png){#fig-kiosk-violin-mall-beach width=70% fig-align=center}
+
+Since the beach kiosk has a lot more variability than the mall kiosk, the penalty is much more as choosing the average as the decision will be off from the actual value by quite a bit on many days.
+
+The interns present their findings to Amanda.
+
+Amanda studies the plots and the reduction in average penalties and says "This is good. It looks like having more information surely helps us to make better decisions."
+
+“She continues, “the lesson is not ‘always use the mean. but ’ use the best mean you’re allowed to use, given the information you have.”
+
+

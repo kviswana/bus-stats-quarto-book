@@ -1,4 +1,10 @@
-/.quarto/
+.quarto/
+_book/
+.quarto/
+*_cache/
+*_files/
 .Rproj.user
 
 **/*.quarto_ipynb
+
+/.quarto/

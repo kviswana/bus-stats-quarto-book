@@ -1,36 +1,36 @@
 # Data Frames and Variables
 
-This chapter introduces **data frame** the type of R object in which we store data. 
+We store data in an R object called a *Data frame*. This chapter introduces **data frames**, explains their key components and teaches you how to get some basic information from them. We will learn more in later chapters.
 
-## Learning outcomes  {.unnumbered}
+## Learning outcomes {.unnumbered}
 
-### After working though this chapter, you will be able to:  {.unnumbered}
+### After working though this chapter, you will be able to: {.unnumbered}
 
-- explain what a data frame is
-- explain what a column and row of a data frame represent
-- name the two types of variables that we will deal with in this course
-- distinguish between numeric and categorical variables and provide examples of each
-- explain what the term *level* of a categorical variable represents and provide examples
-- explain why a column is also called a *variable*
-- explain why a row is called an *instance* or *specimen*
-- use R to do the following:
-  - load a data frame from a loaded package
-  - explain what the *pipe* operator does
-  - look at the first few rows in a data frame
-  - look at the last few rows in a data frame
-  - retrieve only the rows that satisfy certain conditions
-  - retrieve a subset of the columns of a data frame
-  - find the number of rows and columns in a data frame
-  - compute the average of a numeric column in a data frame
-  - use the *count* function to compute the number of rows in a data frame for each level of a categorical variable
-  
-  
+-   Explain the term *data frame*
+-   Explain what a column and row of a data frame represent
+-   Name the two types of variables that we will deal with in this course
+-   Distinguish between *numerical* and *categorical* variables and provide examples of each
+-   Explain what the term *level* of a categorical variable represents, and provide examples
+-   Explain why a column is also called a *variable*
+-   Explain why a row is called an *instance* or *specimen*
+-   Demonstrate the following skills related to R:
+    -   load a data frame from a loaded package
+    -   explain what the *pipe* operator does
+    -   look at the first few rows in a data frame
+    -   look at the last few rows in a data frame
+    -   retrieve only the rows that satisfy certain conditions
+    -   retrieve a subset of the columns of a data frame
+    -   find the number of rows and columns in a data frame
+    -   compute the average of a numeric column in a data frame
+    -   use the *count* function to compute the number of rows in a data frame for each level of a categorical variable
+
 ## The R Software Package for Statistics
 
-In this course, we will be using the R software package for all computations and visualizations. While R offers a great deal of functionality, we will be using a limited subset that suffices for the course topics. In particular, we will be using a specific R package that contains all the functions and data we need for the course. You should install R and RStudio using the instructions provided in @sec-appendices. That section also shows you how to use RStudio and how to load a package -- specificaly the LSTbook package -- into R.
+In this course, we will be using the R software package for all computations and visualizations. While R offers a great deal of functionality, we will be using a limited subset that suffices for the course topics. In particular, we will be using two specific R packages that contain all the functions and data we need for the course. You should install R and RStudio using the instructions provided in @sec-appendices. That section also shows you how to use RStudio and how to load a package -- specifically the *LSTbook* and *LSTextras* packages -- into R.
 
 ## R Data Frames
-In R, we generally represent data in a simple tabular structure named *data frame* -- a table with rows and columns. @tbl-boston-marathon shows an example of some initial rows from the Boston_marathon data frame contained in the LSTbook package.
+
+In R, we generally represent data in a simple tabular structure named *data frame* -- a table with rows and columns. @tbl-boston-marathon shows an example of some initial rows from the *Boston_marathon* data frame contained in the *LSTbook* package.
 
 ```{r}
 #| echo: false
@@ -40,19 +40,19 @@ In R, we generally represent data in a simple tabular structure named *data fram
 knitr::kable(head(Boston_marathon, 10))
 ```
 
-We first define the term *data frame* and then explain some terms that the definitoion uses.
+We first define the term *data frame* and then explain some terms that the definition uses.
 
-::: {.callout-definition}
-**Data frame:** *A structured dataset organized as rows and columns, where rows correspond to individual observations and columns correspond to variables, with each column containing values of the same type.*
+::: callout-definition
+> **Data frame:** *A structured data set organized as rows and columns, where rows correspond to individual observations and columns correspond to variables, with each column containing values of the same type.*
 :::
 
-A data frame contains data about some topic. Each row represents an occurence of the topic. For example, @tbl-boston-marathon contains data about the results of the Boston Marathon over the years. Each row represents the result for one year, for one gender. We also refer to a row as an *observation*, or as an *instance*, or in a medical or biology context, as a *specimen*.
+A data frame contains data about some topic. Each row represents an occurrence of the topic. For example, @tbl-boston-marathon contains data about the results of the Boston Marathon over the years. Each row represents the result for one year, for one gender. We also refer to a row as an *observation*, or as an *instance*, or in a medical or biology context, as a *specimen*.
 
 Each column represents some attribute of interest about instances. In @tbl-boston-marathon, we have columns to represent the year of the race, the name, county and sex of the winner and the finishing time.
 
 In statistics, we generally refer to columns of a data frame as *variables*. We explain why in @sec-variables.
 
-In the 1880's, Francis Galton was developing ways to quantify the heritability of traits. As part of this work, he collected data on the heights of adult children and their parents. @tbl-galton shows the initial few rows of that data. 
+In the 1880's, Francis Galton was developing ways to quantify the heritability of traits. As part of this work, he collected data on the heights of adult children and their parents' heights. @tbl-galton shows the initial few rows of that data.
 
 ```{r}
 #| echo: false
@@ -62,21 +62,27 @@ In the 1880's, Francis Galton was developing ways to quantify the heritability o
 knitr::kable(head(Galton, 10))
 ```
 
-In @tbl-galton, each row represents an adult child. The variables in this data frame represent the father's height (*father*), mother's height (*mother*), sex of the adult child (*sex*), height of the adult child (*height*), and the number of children (*nkinds*) in the family. Each family also has a unique number for each family (*family*).
+In @tbl-galton, each row represents an adult child. The variables in this data frame represent the father's height (*father*), mother's height (*mother*), sex of the adult child (*sex*), height of the adult child (*height*), and the number of children (nkids) in the family. The data frame also has a unique number for each family (*family*).
 
 ## Variables {#sec-variables}
 
-If we look at a column of a data frame, say the column *time* in @tbl-boston-marathon, we see that each row can potentially have a different value in this column. More generally, the values in a column of a data frame can *vary* from row to row -- no wonder we call columns of a data frame *variables*. Going forward, we will use the term *variable* to refer to a column of a data frame.
+If we look at a column of a data frame, say the column *time* in @tbl-boston-marathon, we see that each row can potentially have a different value in this column. More generally, the values in a column of a data frame can *vary* from row to row, leading to naming columns of a data frame *variables*. Going forward, we will use the term *variable* to refer to a column of a data frame.
 
-In this course, you will be working with many data frames. You should always be sure to understand what a row of a data frame contains information about. In the case of @tbl-boston-marathon, each row rewpresents the results of one race. In the case of @tbl-galton, each row represents one adult child. We use the term *unit of measurement* to refer to the object or concept about which each row stores information.
+In this course, you will be working with many data frames. You should always be sure to understand what a row of a data frame contains information about. In the case of @tbl-boston-marathon, each row represents the results of one race. The races for different genders are *different* races, even though people of both genders run together in marathons . In the case of @tbl-galton, each row represents one adult child.
+
+> **unit of measurement:** *The object or concept about which each row stores information.*
 
 ## Numerical and Categorical Variables
 
-In @tbl-boston-marathon, the variable *minutes* has values that are numbers. We can such variables *numerical* variables. On the other hand, the variable *sex* can take on only the values *male* and *female* which are not numeric. Similarly, the variable *country* can also take on non-numetic values. We call such variables -- those that take on non-numerical values *categorical*. The individual values of a particular categorical variable are called *levels*. Thus the values *mal* and *female* are the *levels* of the variable *sex* and the country names like *Kenya*, *Japan* and *Ethiopia* are the levels of the variable *country*.
+In @tbl-boston-marathon, the variable *minutes* has stores numbers. We can such variables *numerical* variables.
+
+On the other hand, the variable *sex* can take on only the values *male* or *female*, which are not numbers Similarly, the variable *country* can also take on non-numeric values. We call such variables *categorical*.
+
+The individual values possible or allowed for a particular categorical variable are called its *levels*. Thus the *levels* for the variable *sex* are *male* and *female*. are the *levels* of the variable *sex*. The levels for the variable *country* are country names like *Kenya*, *Japan*, and *Ethiopia*.
 
 ## Data Frames in R
 
-In this section we look at the practical side of data frames -- using them in R. We will only look at using data frames that are built in to the LSTbook package and mecome available as soon as we load the package LSTbook. If you have not already done so, you should install R and RStudio and learn how o use RStudio using the instructions from @sec-appendices.
+This section teaches you how to use data frames in R. We will predominantly use data frames built in to the *LSTbook* and *LSTextras* packages. If you have not already done so, you should install R and RStudio and learn how to use RStudio using the instructions from @sec-appendices.
 
 ### Viewing the first few rows of a data frame
 
@@ -88,58 +94,67 @@ In an RStudio command prompt you can enter the name of the data frame to get a p
 Boston_marathon
 ```
 
-Let us understand the output above. The first row says:  
+Let us understand the output above. The first row says:
 
-```
+```         
 # A tibble: 175 × 6
 ```
 
 This says that the data frame (also called *tibble*) has 175 rows and 6 columns.
 
-The second line mentiones the column (variable) names. The third line has sone specific notation within angle brackets below each variable. This is telling us what type of value is stored in each column. 
-- <dbl> means that the value in a column is a *double*, that is, number that could potentially have a fractional part.
-- <chr> means that the column has character or non-numeric values
-- <time> tells us that the column stores a time
-- and so on.
+The second line mentions the column (variable) names. The third line has some specific notation within angle brackets below each variable. This is telling us what type of value is stored in each column.
 
-If the data frame has many columns and all of them will not fit in our output width, it will only display the columns that will fit and provide information below about the additional columns. In the present case all columns do fit and so there is not additional information provided.
+-   \<dbl\> means that the value in a column is a *double*, that is, number that could potentially have a fractional part.
 
+-   \<chr\> means that the column has character or non-numeric values
+
+-   \<time\> tells us that the column stores a time - and so on.
+
+If the data frame has many columns, and all of them will not fit in the width of your R console, it will only display the columns that will fit and provide information below about the additional columns. In the present case all columns do fit and so there is no additional information provided.
+
+## *Tidy* data
+
+We encounter tabular data everywhere, each one formatted for the specific purpose it serves. Not all of them lend themselves easily to analysis, especially with software tools. To be suitable for analysis by software tools, they need to follow some minimal set of conventions. Data analysis packages can work very well with *tidy* data. In a tidy data frame:
+
+-   \*\* Rows represent single instances:\*\* Each row represents exactly one instance of the unit of observation. It should not happen that one row represents a person and another row represents a university
+-   \*\* All values in a column are of the same type:\*\* Each column represents a variable and every row has the same type of value for that variable. That is, if we have a variable named *salary* then every row represents salary in the same way, for example in dollars and as a number. It cannot be the case that one row represents *salary* in dollars and another in euros. Or that one row represents salary in dollars and another in thousands of dollars
+-   **Cell values are atomic:** A *cell* sits at then intersection of a row and a column. Each cell contains an *atomic* value that cannot be further decomposed into units that have some specific meaning for the analysis context. For example, in a university context, we cannot have a single cell that contains several course numbers. This would not be allowed because the list of several course numbers can be split up into individual course numbers and these still have specific meaning in a context. What about a cell that contains the name of a product (like ""soap"). That can be split up into the individual letters "s", "o", "a", and, "p". However, this does not count, since, unlike the course number example, the individual letters do not have any specific context-related meaning.
 
 ### Functions
-You are likely familiar with the term *functions* as used in mathematics -- you rpovide an input to the function and it performs some computation and provides an output. For example, we might have a function that takes a number as input and produces its square as output. Given the number 5 as input, it will produce the number 25 as its output. Given the number 1.5 as input, it will produce its square 2.25 as its output.
 
-Pictorially we might represent a function as a box that has one or more inputs and produces a single output. (We can also have functions that take no inputs and produce an output, but we will not worry about them now.) See @fig-function-1.
+You are likely familiar with the term *function* as used in mathematics. You provide an input to the function, it performs some computation and provides an output. For example, we might have a function that takes a number as input and produces its square as output. Given the number 5 as input, it will produce the number 25 as its output. Given the number 1.5 as input, it will produce its square 2.25 as its output.
 
-![A function that squares its input](../../images/function-1.png){#fig-function-1 width=70% fig-align="center"}
+Pictorially we might represent a function as a box that has one or more inputs and produces a single output. (We can also have functions that take no inputs and produce an output, but we will not consider them now.) See @fig-function-1.
+
+![A function that squares its input](../../images/function-1.png){#fig-function-1 width="70%" fig-align="center"}
 
 We might have functions that take more than one input. For example, a function might take two inputs x and y, and produce 23 + 3x + 4y as output. @fig-function-2 shows a function with two inputs.
 
-![A function that computes 23+3x+4y where x and y are its inputs](../../images/function-2.png){#fig-function-2 width=70% fig-align="center"}
+![A function that computes 23+3x+4y where x and y are its inputs](../../images/function-2.png){#fig-function-2 width="70%" fig-align="center"}
 
 In computing, we commonly refer to a function's inputs as its *arguments*. @fig-function-3 illustrates this.
 
-![We generally refer to a function's inputs as its *arguments* -- this function has two arguments, x and y](../../images/function-3.png){#fig-function-3 width=70% fig-align="center"}
+![We generally refer to a function's inputs as its *arguments* -- this function has two arguments, x and y](../../images/function-3.png){#fig-function-3 width="70%" fig-align="center"}
 
-The functions we considered in our examples thus far in @fig-function-1, @fig-function-2, and @fig-function-3 have been so simple that we were able to show the actual computation in the box representing the function. Most functions we use in real-life are more complex and we give them evocative names. In such cases, it makes more sense to place the name of the function in the box.   @fig-function-4 shows a generirc repesentation of a function named *cost* with three arguments named *arg1*, *arg2*, and *arg3*.
+The functions we considered in our examples thus far in @fig-function-1, @fig-function-2, and @fig-function-3 have been so simple that we were able to show the actual computation in the box representing the function. Most functions we use in real-life are more complex and we give them evocative names. In such cases, it makes more sense to place the name of the function in the box. @fig-function-4 shows a generic representation of a function named *cost* with three arguments named *arg1*, *arg2*, and *arg3*.
 
-![Generic representation of a function named *cost* that has three arguments](../../images/function-4.png){#fig-function-4 width=70% fig-align="center"}
+![Pictorial representation of a function named *cost* that has three arguments](../../images/function-4.png){#fig-function-4 width="70%" fig-align="center"}
 
-When we use a function to perform some computation, we are said to *invoke* the function. We generally invoke a function by using its name and by supplying the argument values in parentheses, as @fig-function-5 shows. We also use the term *passing arguments* to functions to refer to the act of supplying the inputs to a function. We also refer to the result of a function as its *return value*. We will also speak of a function as *returning* something. @fig-function-5 also shows that a function argumnent can be numeric or non-numeric.
+When we use a function to perform some computation, we are said to *invoke* the function. We generally invoke a function by using its name and by supplying the argument values in parentheses, as @fig-function-5 shows. We also use the term *passing arguments* to functions to refer to the act of supplying the inputs to a function. We also refer to the result of a function as its *return value*. We will also speak of a function as *returning* something. @fig-function-5 also shows that a function argument can be numeric or non-numeric.
 
-![Invoking a named function and storing the function's return value in a variable named *total*](../../images/function-5.png){#fig-function-5 width=70% fig-align="center"}
+![Invoking a named function and storing the function's return value in a variable named *total*](../../images/function-5.png){#fig-function-5 width="70%" fig-align="center"}
 
 In the next section, we look at using functions to perform computing in R. At that time we will look at a different way of passing arguments to functions.
 
 Almost all forms of computing, including statistical computing, make significant use of functions. In this course, many of the functions we use take data frame as input and produce a data frame as output. Let us now look at how we use functions in R to work with data and to perform statistical computations.
 
-
 ## Using R functions
 
 We will now look at some common R functions that we will use repeatedly in this course.
 
-### *nrow* 
+### *nrow*
 
-We will consider the *nrow()* function that allows us to find out how many rows a data frame contains. We pass a data frame as argument to the *nrow()* function and it returns a number specifying how many rows the argument data frame has. For example, to find out how many rows the Boston_marathon data frame has, we can use the following code.
+We will consider the *nrow()* function that allows us to find how many rows a data frame contains. We pass a data frame as argument to the *nrow()* function and it returns a number specifying how many rows the argument data frame has. For example, to find how many rows the *Boston_marathon* data frame has, we can use the following code.
 
 ```{r}
 nrow(Boston_marathon)
@@ -149,23 +164,23 @@ In the code above, we used the style of function invocation that @fig-function-5
 
 ### The *pipe* operator
 
-In this course we also use another method of passing an argument to a function -- via *pipes*. Let us first see the code and then learn how it works. We will invoke the *nrow()* function again, but using a different approach. The code below does exactly what the earlier code accomplished -- finding the number of rows in a data frame.
+In this course we also use another method of passing an argument to a function -- via *pipes*. W first see the code and then dissect it. We will invoke the *nrow()* function again, but using a different approach. Like the previous code, this also finds the number of rows in the *Boston_marathon* data frame.
 
 ```{r}
 Boston_marathon |> nrow()
 ```
 
-In the code above, we are still passing the Boston_marathon data frame as an argument to the *nrow()* function, but we are passing it along a *pipe* which appears in the code as "|>". 
+In the code above, we are still passing the Boston_marathon data frame as an argument to the *nrow()* function, but we are passing it along a *pipe* which appears in the code as "\|\>".
 
-@fig-pipe-1 clarifies code.
+@fig-pipe-1 explains the different components in the code.
 
-![Using the pipe operator to supply the Boston_marathon data frame as an argument to the norw function](../../images/pipe-1.png){#fig-pipe-1 width=70% fig-align="center"}
+![Using the pipe operator to supply the Boston_marathon data frame as an argument to the norw function](../../images/pipe-1.png){#fig-pipe-1 width="70%" fig-align="center"}
 
-The pipe operator "|>" has the effect of *injecting* whatever appears on its left hand side as an argument to the function on the right hand side. @fig-pipe-2 makes this very explicit by literally depicting the pipe operator "|>" as a physical pipe.
+The pipe operator "\|\>" has the effect of *injecting* whatever appears on its left hand side as an argument to the function on the right hand side. @fig-pipe-2 makes this very explicit by literally depicting the pipe operator "\|\>" as a physical pipe.
 
-![Seeing the pipeoprtator literally as a pipe though which the argument flows into a function](../../images/pipe-2.png){#fig-pipe-2 width=70% fig-align="center"}
-  
-Going forward, we will use this pipe approach extensively, but also mix in the earlier approach in places. You will catch on to our patters pretty easily.
+![Seeing the pipe operator literally as a pipe though which the argument flows into a function](../../images/pipe-2.png){#fig-pipe-2 width="70%" fig-align="center"}
+
+Going forward, we will use this *pipe* approach extensively, but also mix in the earlier approach in some places. You will easily adjust to our patterns.
 
 ### *ncol*
 
@@ -175,11 +190,11 @@ We can use the *ncol()* function to find the number of columns in a data frame.
 Boston_marathon |> ncol()
 ```
 
-The above shows us that the Boston_marathon data frame has 6 columns or variables.
+The above shows us that the *Boston_marathon* data frame has 6 columns or variables.
 
-### *head* 
+### *head*
 
-You can use the *head()* function to preview the first several rows of a data frame. This time we will use the *Births2022* data frame from the LSTbook package. 
+You can use the *head()* function to preview the first several rows of a data frame. This time we will use the *Births2022* data frame from the *LSTbook* package.
 
 ```{r}
 Births2022 |> head()
@@ -191,7 +206,7 @@ The above previewed the first six rows of *Births2022* by default because we did
 Births2022 |> head(10)
 ```
 
-### *names* 
+### *names*
 
 We use this to find the names of the columns in a data frame.
 
@@ -201,42 +216,44 @@ Births2022 |> names()
 
 ### *summarize* {#sec-summarize-function}
 
-We often calculate summaries (like the average of a variable) of the data contained in a data frame.  We will discuss other examples of summaries -- like variance, standard deviation, covariance, and correlation coefficient -- at appropriate points in the course.
+We often calculate summaries (like the average of a variable) of the data contained in a data frame.
 
-The code below shows how to compute the average of the *time* variable in the *Boston_marathon* data frame. 
+The code below shows how to compute the average of the *time* variable in the *Boston_marathon* data frame.
 
 ```{r}
 Boston_marathon |> 
   summarize(avg_time = mean(time))
 ```
 
-In the above code, we passed the Boston_marathon data frame via a pipe to the *summarize* function. Within the *summarize* function, we have used the R function *mean* to compute the average by passing the variable *time* as an argument to the *mean* function. 
+In the above code, we passed the *Boston_marathon* data frame via a pipe to the *summarize* function. Within the *summarize* function, we have used the R function *mean* to compute the average by passing the variable *time* as an argument to the *mean* function. Note that we did not use the *pipe* to pass an argument to the *mean* function.
 
-We chose to name the return value from the *mean* function (the average time) as *avg_time*. You do not necessarily need to name the summaries we compute in the *summarize* function, but we strongly recommend it.
+We chose to name the return value from the *mean* function as *average time*. You do not necessarily need to name the summaries we compute in the *summarize* function, but we strongly recommend it.
 
-For most of the summaries we compute we will use the general *summarize* function. WIthin the *summarize* function, we use specific functions depending on the kind of summary we are computing. In the previous example, we used the *mean* function for the average. Later we will see other functions to use within the *summarize* function.
+At appropriate points in the course, we will discuss other examples of summaries. We will see *variance*, *standard deviation*, and, *correlation coefficient*, among others, at appropriate points in the course.
 
-### *count* 
+For most of the summaries we compute we will use the general *summarize* function. Within the *summarize* function, we use specific functions depending on the kind of summary we compute. In the previous example, we used the *mean* function for the average. Later we will see other functions to use within the *summarize* function.
 
-The *count()* function comes in handy when we want to count how many occurrences of each distinct value in a column are present in a variable. For example, suppose we want to find how many rows are there for each sex we can do the following.
+### *count*
+
+The *count()* function comes in handy when we want to count how many occurrences of each distinct value are present in a variable. For example, suppose we want to find how many rows are there for each *sex* in the *Boston_marathon* data frame, we can do the following.
 
 ```{r}
 Boston_marathon |> count(sex)
 ```
 
-Similarly, if we wanted to find out how many times each country occurs, we can do this.
+Similarly, if we wanted to find out how many times each *country* occurs, we can do this.
 
 ```{r}
 Boston_marathon |> count(country)
 ```
 
-As you can see, the *count()* function comes in most handy when a variable is categorical. It also works for numerical variables, but will apply much more rarely in these cases.
+As you can see, the *count()* function comes in handy when a variable is categorical. It also works for numerical variables, but will apply much more rarely in these cases.
 
-## Missing values (*NA*s)
+## Missing values (*NA*s) {#sec-missing-values}
 
-Suppose the HR department of a company has a data frame of information about employees with variables (columns) *employee_id*, *first_name*, *last_name*, *base_salary*, *phone_no*, and *base_office*. It is not essential that we have data on every variabkle for every row. For example, it could be the case that the company does not have a *phone_no* for some employees and does not have a *base_office* for some. These are called *missing values*. A missing value denotes somnething whose value *we do not know*. A missing value is not the same as a blank character value or a zero numeric value. Blanks and zero are valid and known values for variables. A *missing value is different* -- *we do not know the value*. 
+Suppose the HR department of a company has a data frame of information about employees with variables (columns) *employee_id*, *first_name*, *last_name*, *base_salary*, *phone_no*, and *base_office*. It is not essential that we have data on every variable for every row. For example, it could be the case that the company does not have a *phone_no* for some employees and does not have a *base_office* for some. These are called *missing values*. A missing value denotes something whose value *we do not know*. A missing value is not the same as a blank character value or a zero numeric value. Blanks and zeros are valid and known values for variables. A *missing value is different* -- *we do not know the value*.
 
-@tbl-no-missing-values shows a data frame with no missing values. In each row, we see values for every variable.
+@tbl-no-missing-values shows a data frame with **no missing values**. In each row, we see values for every variable.
 
 ```{r}
 #| echo: false
@@ -245,7 +262,7 @@ Suppose the HR department of a company has a data frame of information about emp
 knitr::kable(head(advertising_sales_channel, 10))
 ```
 
-On the other hand @tbl-missing-values shows a small data frame with missing values.
+On the other hand @tbl-missing-values shows a small data frame **with missing values**.
 
 ```{r}
 #| echo: false
@@ -253,12 +270,13 @@ On the other hand @tbl-missing-values shows a small data frame with missing valu
 #| tbl-cap: "A data frame with missing values -- the *NA*s in columns *phone_no* and *base_office* represent missing values"
 knitr::kable(employees)
 ```
+
 ## Codebook
 
-Before using a data frame, we need to understand it well. That means, at the very least, that we know the unit of observation, the meaning of each variable and the units of measurement where applicable. This information is in the codebook for a data frame. You can use the ? operator for this purpose as the example code below shows.
+Before using a data frame, we need to understand it well. That means, at the very least, that we know the *unit of observation*, the meaning of each *variable* and the *units of measurement* for a variable where applicable. The *codebook* for a data frame provides this information. You can use the ? operator for this purpose as the example code below shows.
 
 ```{r}
 ?Boston_marathon
 ```
 
-This will show the codebook in the bottom right pane of RStudio.
+This command will show the codebook in the bottom right pane of RStudio.

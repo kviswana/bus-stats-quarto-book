@@ -1,0 +1,173 @@
+# Amanda Strikes Again  {#sec-num-cat-explanatories}
+
+In prior chapters we have looked at three different situations in the specific context of Amanda's kiosks. @tbl-first-three-model-types-kiosk-context shows the scenarios and the models we found for each.
+
+| Response variable                 | Explanatory var | Best model            |
+|:----------------------------------|:----------------|:----------------------|
+| Num customers, one for both kiosks| None            | Mean customers        |
+| Num customers, one per kiosk      | Kiosk location  | Mean for each kiosk   |
+| Number of customers               | Temperature     | Least squares line    |
+
+: Model types we have looked at so far for the kiosk scenarios {#tbl-first-three-model-types-kiosk-context}
+
+@tbl-first-three-model-types-generic summarizes the situations in more generic terms than the specific kiosk context and the best model for each. (Recall that in this book we consider only numerical response variables.)
+
+| Response variable type | Explanatory variable type | Best model            |
+|:-----------------------|:--------------------------|:----------------------|
+| Numerical              | None                      | Mean                  |
+| Numerical              | Categorical               | Category means        |
+| Numerical              | Numerical                 | Least squares line    |
+
+: Model types we have looked at so far {#tbl-first-three-model-types-generic}
+
+In our running story, this is the fourth meeting of our interns with Amanda. Amanda owns a business that operates kiosks in a city at two locations. 
+
+“Team, our beach kiosk performed really well last month. Using the temperature to estimate the number of customers really helped us stay efficient. We hit our lowest food waste thus far, and run out of stock by a lot either, at least compared to past months. Your models are helping."
+
+The interns feel very happy to hear this. 
+
+Amanda continues. "I now have more data and have reason to believe that the number of customers who turn up at the mall kiosk also seems to be related to the temperature, but not quite in the same way as the beach kiosk. I am not able to put my finger on it, but something tells me that we can do better with a model that considers both temperature and the kiosk location."
+
+She then shared the data frame *kiosk_beach_mall_temp* with the interns.
+
+She reiterates her earlier constraint:
+
+“Keep it simple. I need something I can explain in one sentence.”
+
+She emails the team the data and heads out, wondering if the team will pull off something good once more. While exuding confidence externally, internally she has a nagging doubt that she might be stretching this young team of undergrads too much. 
+
+Her confidence energizes the team and they all think through this in silebnce for a few minutes.
+
+Suzie is the first to speak up. "When we gave one number per kiosk, our model looked like this." and she wrote out @eq-kiosk-cat-model-1
+
+$$
+\widehat{\text{num customers}} =
+\begin{cases}
+101 & \text{if } \text{kiosk} = \text{"Mall"} \\
+146 & \text{if } \text{kiosk} = \text{"Beach"} 
+\end{cases}
+$$ {#eq-kiosk-cat-model-1}
+
+When we predicted the number of customers based on the temperature for the beach kiosk alone our model became this" and she wrote out @eq-kiosk-cust-temp-model-2. "How do we continue from here?"
+
+$$
+\widehat{\text{customers}} = 22.06 +  1.42\,\text{temperature}
+$$ {#eq-kiosk-cust-temp-model-2}
+
+Everyone sat back, looking intently at the two simple equations.
+
+Then David spoke up. "Can we think of some combination of the two? In the case of the temperature model, we had a general model like this in which we found the best values for *a* and *b*." and he writes out @eq-kiosk-cust-temp-model-generic-1.
+
+$$
+\widehat{\text{customers}} = a +  b\,\text{temperature}
+$$ {#eq-kiosk-cust-temp-model-generic-1}
+
+David then continues: "Why not just add another variable *c* to this?" And he wrote out @eq-kiosk-cust-temp-kiosk-model-generic-bad
+
+$$
+\widehat{\text{customers}} = a +  b\,\text{temperature} + c\,\text{kiosk\_location}
+$$ {#eq-kiosk-cust-temp-kiosk-model-generic-bad}
+
+"Now we just have to find the *best* values for *a*, *b*, and *c*. That's all!"
+
+"Terrific!" Angela says. "Looks like we are done!" People nod in agreement.
+
+"Not so fast Angela." Igor says, and everyone seems mildly irritated as if he is just being picky. 
+
+But, Igor continues "Kiosk location is either beach or mall. How do we multiply that by the value of *c*?"
+
+They fall into a deep silence again. They felt that Amanda sure gave them a tough nut to crack this time.
+
+Suzie once again tries to connect the old model to the new one. She says "Igor is right in that we cannot multiply *c* by the kiosk location. But can we not something like we did earlier with if the kiosk is beach then something, otherwise something sort of approach?" and she points to @eq-kiosk-cat-model-1.
+
+Long silence once again. Then Igor speaks out. "Perhaps our model should look something like this."
+
+$$
+\widehat{\text{customers}}
+= a + b\,\text{temperature}
++ \begin{cases}
+c_{\text{Mall}} & \text{if } \text{kiosk}=\text{"Mall"} \\
+c_{\text{Beach}} & \text{if } \text{kiosk}=\text{"Beach"}
+\end{cases}
+$$
+
+Time was running out. Amanda would be back any time now. 
+
+David spoke up finally "Peter, last time you wrote some code to get the model. Why not just try that again? Perhaps it can already do what we want."
+
+Just then Amanda comes back. The team was quite embarrassed that they did not have a solution for her. However, she senses the mood in the room and says "It looks like you have worked hard, but have not hit upon any solution yet."
+
+Peter replies "We have made some progress, but are not quite there yet. Can you give us a little more time?" He then laid out exactly where they stood.
+
+Amanda senses their disappointment and immediately says: "You seem to be on a good path here. I have a sense that you can pull this off. Let us meet in a few days. Good luck!"
+
+Over the next day, some read up on statistics. Others were all over chatbots and Igor consulted his professor. 
+
+They met briefly in the university cafeteria over lunch and agreed to meet as a team later that day to see where they stood.
+
+At the meeting, Peter started "We were on the right track." 
+
+Igor agreed. I spoke to Dr. Berlisky from the statistics department and he said that this problem actually involves a somewhat more advanced concept called *interactions effects*, However, he suggested a simple idea. Just separate the data for thw two kiosks and build separate models for each! I wonder why we did not think of that. It might be more complex than Amanda would want. But from what the prof said, I think we have no choice."
+
+The team agreed.
+
+Peter wrote up the code once again to first visualize both models.
+
+```{r}
+#| eval: false
+kiosk_beach_mall_temp |> 
+  point_plot(customers ~ temperature + kiosk,
+             annot = "model",
+             interval = "none")
+
+```
+
+![Separate least-square lines for the two kiosks showing that the beach kiosk is more sensitive to temperature](../../images/fig-kiosk-beach-mall-kiosk-temp-lines.png){#fig-kiosk-beach-mall-kiosk-temp-lines width=70% fig-align=center}
+
+David says "Amanda's instinct that the two kiosks relate duqite differently seems correct. The beach kiosk seems much more sensitive to temperature."
+
+Steve says "Yeah. At lower temperatures it has higher sales, but when it gets warmer, more people seem to want to hist the beach. Makes perfect sense to me!"
+
+The team feels happy that they can explain the common sense behind the model.
+
+Peter then writes the code to get separate models for the two kiosks. First for the Mall kiosk.
+
+```{r}
+#| eval: false
+kiosk_beach_mall_temp |> 
+  filter(kiosk == "Mall") |> 
+  model_train(customers ~ temperature) |> 
+  coef()
+```
+
+From the output, they reconstructed the model for the Mall kiosk as:
+
+
+$$
+\widehat{\text{customers}} = 72 +  0.7\,\text{temperature} 
+$$ {#eq-kiosk-cust-temp-mall}
+
+
+```{r}
+#| eval: false
+kiosk_beach_mall_temp |> 
+  filter(kiosk == "Beach") |> 
+  model_train(customers ~ temperature) |> 
+  coef()
+```
+
+From the output, they reconstructed the model for the Mall kiosk as:
+
+
+$$
+\widehat{\text{customers}} = 22 +  1.4\,\text{temperature} 
+$$ {#eq-kiosk-cust-temp-beach}
+
+
+From @fig-kiosk-beach-mall-kiosk-temp-lines, it seemed clear that the two kiosks were quite different in how they related tgo temperature and therefore two separate models seemed to make sense.
+
+Later that week, they met with Amanda again, a little fearful that they did not stick to her "simple" requirement and were giving two different models. They told her honestly that there was a more advanced approach that would fit both into a single model, but were not sufficiently knowledgeable to present that approach, although the results would be the same as with two separate models.
+
+Fortunately, Amanda was happy with their model. She says "Although I had asked for something simple, I guess when we want the model to be more and more specific, we have to tolerate some complexity after all. I am fine with this."
+
+The team resolved to learn more about the *interaction effects* that Dr. Berlinsky had spoken about and present that to Amanda when possible.

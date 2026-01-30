@@ -34,4 +34,10 @@ employees <- read_csv("lst-extras-datasets/employees.csv",
 variance_example <- read_csv("lst-extras-datasets/variance_examples.csv", 
                              show_col_types = FALSE)
 
+homes <- read_csv("lst-extras-datasets/homes.csv", 
+                             show_col_types = FALSE)
+
+kiosk <- read_csv("lst-extras-datasets/kiosk.csv", 
+                  show_col_types = FALSE)
+
 # Helper functions

@@ -1,19 +1,18 @@
 # Variance and standard deviation
 
-This chapter discusses the key statistical concepts of \textit{variance} and *standard deviation*.
+This chapter discusses the key statistical concepts of *variance* and *standard deviation*.
 
+## Learning outcomes {.unnumbered}
 
-## Learning outcomes  {.unnumbered}
+### After completing this chapter you will be able to: {.unnumbered}
 
-### After completing this chapter you will be able to:  {.unnumbered}
-
-  - Given two sets of numbers with 10 or less nymbers, identify which has higher variance and eplain why
-  - Generate a set of numbers with zero variance
-  - Given a set of no more than five numbers (at most two digits) compute their variance by hand
-  - Explain the units of measurement for variance
-  - Explain the relationship between variance and standard deviation
-  - Explain the units of measurement for standard deviation
-  - Use R to compute the variance and standard deviation of a numerical variable of a data frame
+-   Given two sets of numbers with 10 or less numbers, identify which has higher variance and explain why
+-   Generate a set of numbers with zero variance
+-   Given a set of no more than five numbers (at most two digits) compute their variance by hand
+-   Explain the units of measurement for variance
+-   Explain the relationship between variance and standard deviation
+-   Explain the units of measurement for standard deviation
+-   Use R to compute the variance and standard deviation of a numerical variable of a data frame
 
 ## Variable
 
@@ -21,11 +20,146 @@ We use the term "variable" to describe a column of a data frame. Why? Let us mak
 
 Similarly, the same data frame might have another column named "Position" that stores the position of each employee. Some example values might be "Manager", "Sales associate", and "IT Specialist." Here too we see "variability" because not all the values in the column are the same. So the term "variable" applies to columns whether they contain numeric or categorical values. However, for the rest of this document, we concern ourselves only with numerical variables.
 
+## Why *means* (averages) are not enough
+
+In business, averages are often the first numbers we look at. Average revenue, average delivery time, average customer wait time, average return on investment—these figures are easy to compute and easy to communicate.
+
+But averages alone can be dangerously misleading.
+
+To see why, consider the following examples.
+
+### Example 1: Two stores, same average sales
+
+Suppose two retail stores each reports **average daily sales of \$10,000**.
+
+-   **Store A** has daily sales that are usually between \$9,500 and \$10,500.
+-   **Store B** has daily sales that swing wildly, ranging from \$3,000 on slow days to \$25,000 on busy days.
+
+From the average alone, the two stores appear identical. From a management perspective, they are not.
+
+Store A is predictable. Staffing, inventory, and cash flow planning are relatively straightforward. Store B is risky. Some days it is overstaffed and overstocked; on other days it cannot meet demand.
+
+The average hides this difference. What distinguishes the two stores is **variability**, not the mean.
+
+### Example 2: Average delivery time
+
+A logistics manager is choosing between two suppliers. Both advertise an **average delivery time of 5 days**.
+
+-   Supplier X delivers in 4–6 days almost every time.
+-   Supplier Y sometimes delivers in 2 days and sometimes in 12 days.
+
+If you only look at averages, the suppliers appear almost equivalent.
+
+If your business depends on reliable delivery schedules, they are not.
+
+In this context, variability directly affects:
+
+-   Production planning
+-   Inventory holding costs
+-   Customer satisfaction
+
+Once again, the average tells only part of the story.
+
+### Example 3: Investment Returns
+
+Two investment portfolios have the same **average annual return of 8%**.
+
+-   Portfolio A produces returns close to 8% year after year.
+-   Portfolio B alternates between very high gains and significant losses.
+
+Many investors would consider Portfolio B riskier, even though the averages are identical. That perception of risk comes from **how spread out the returns are**, not from the mean itself.
+
+### The Key Idea
+
+Averages describe the *center* of the data, but they say nothing about how the data are **spread out**.
+
+In business settings, variability affects:
+
+-   Risk
+-   Reliability
+-   Predictability
+-   Planning and decision-making
+
+To fully understand a data set, we need measures that describe **how much values differ from the average**. That is the role of **variance** and **standard deviation**.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Two companies have the same average monthly revenue. Company A’s revenue is very stable from month to month, while Company B’s revenue fluctuates widely. Why might a manager prefer Company A, even though the averages are the same?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+A manager might prefer Company A because its stable revenue makes planning easier and reduces risk. Predictable revenue helps with budgeting, staffing, inventory management, and cash flow. Company B’s wide fluctuations introduce uncertainty, even though its average revenue is the same.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Two suppliers both report an average delivery time of five days. One supplier delivers in a narrow range of times, while the other sometimes delivers very early and sometimes very late. What important information does the average delivery time fail to capture?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The average delivery time does not capture how consistent or reliable deliveries are. It ignores variability. A supplier with unpredictable delivery times can disrupt production schedules and increase costs, even if the average delivery time is acceptable.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Explain why averages alone are insufficient for assessing risk in investment decisions.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Averages do not show how much returns vary from year to year. Two investments can have the same average return but very different levels of risk. Higher variability in returns generally means greater uncertainty and risk for the investor.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In your own words, explain what variability means in a business context.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Variability refers to how much outcomes differ from their average value. In business, it reflects unpredictability in areas such as sales, delivery times, costs, or returns, which can affect planning and decision-making.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Give one example of a business decision where variability might matter more than the average.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Examples include delivery times in a supply chain, customer wait times in a service operation, investment returns, manufacturing defect rates, or daily demand for a product. In these cases, high variability can cause operational problems even if the average appears acceptable.
+:::
+
+In the sections that follow, we will develop these measures and learn how to interpret them in practical business contexts.
+
+::: callout-important
+## Grasp this
+
+Variance and standard deviation quantify how much data values typically deviate from the mean.
+:::
+
 ## Amount of Variation
 
 Measuring the amount of variation plays an important role in statistics. If a column has no variation, then we cannot make much use of the information in the column. When a column does have variation, we often want to know the extent of variation in the values of the column. We want to ascribe a specific number -- that is, *measure* the variation in a column. We call this measure the *variance* of the values in a column. When the numbers in a column are all the same, then we say that the column has no variance -- that is, the variance is zero.
 
-Consider the following three sets of 8 numbers each:\newline\newline Set 1: (1, 2, 2, 1, 2, 1, 2, 1)\newline Set 2: (2, 6, 8, 2, 9, 2, 10, 9)\newline Set 3: (1, 3, 2, 3, 2, 2, 3, 4)\newline\newline Which of the three sets has the highest amount of variation? That is, which set has numbers that differ by the most (among the three sets)?
+Consider the following three sets of 8 numbers each:
+- Set 1: (1, 2, 2, 1, 2, 1, 2, 1)
+- Set 2: (2, 6, 8, 2, 9, 2, 10, 9)
+- Set 3: (1, 3, 2, 3, 2, 2, 3, 4)
+
+Which of the three sets has the highest amount of variation? That is, which set has numbers that differ by the most (among the three sets)?
 
 Can you order the sets in increasing order of their overall variability?
 
@@ -33,94 +167,60 @@ Overall, we can see that the numbers in Set 1 are much closer to each other than
 
 ## Measuring Variation through *variance*
 
-From the foregoing, we see that the variance of a set of numbers is a measure of how much the numbers differ from each other. A set of numbers in which the elements are generally very close together has a low variance and a set that contains numbers that differ from each other by a lot has high variance. Over and above just describing what low and high variance look oike, we would like to assign a specific number to the variance of a set of numbers.
+From the foregoing, we see that the variance of a set of numbers is a measure of how much the numbers differ from each other. A set of numbers in which the elements are generally very close together has a low variance and a set that contains numbers that differ from each other by a lot has high variance. Over and above just describing what low and high variance look like, we would like to assign a specific number to the variance of a set of numbers.
 
-In reality we will compute the variance using the R function \textit{var}. We describe two procedures below just to give you a good feel for what the variance represents.
+In reality we will compute the variance using the R function *var*. We describe two procedures below just to give you a good feel for what the variance represents.
 
-### Computing Variance: Method 1 -- Using pairwise differences
+### Computing Variance: Method 1 -- Using deviations from the mean
 
-We first look at an intuitive (but *impractical*) method for computing the variance of a set of numbers. Variance represents how different each member of a set of numbers is from the rest. So the difference between each number and the rest of them plays a central role. Our first approach to computing the variance involves looking at every possible pair of numbers in our set and seing how different the two numbers of the pair are from each other. We then combine all of these pairwise differences into a single number to represent the overall variability inthe set.
+We had earlier mentioned that *variance* is the extent to which the numbers in a collection deviate from the average. We use the following steps.
 
-#### Steps to compute variance using pairwise differences
+1.  Find the mean
 
-Let us assume that we want to compute the variance of the set of 4 num bers (2, 4, 5, 9)
+2.  Find each number's difference from the mean
 
-\begin{enumerate}
-\item Identify each possible pair of numbers from the set.
+3.  Square the differences
 
-(2, 4), (2, 5), (2, 9)\\
-(4, 5), (4, 9)\\
-(5, 9)\\
-We have 6 such pairs.
-
-\item Compute the difference for each pair and square it.
-
-
-\begin{tabular}{lrr}
-\toprule
-Pair & Difference & Difference squared \\
-\midrule
-(2, 4) & 2 & 4 \\
-(2, 5) & 3 & 9 \\
-(2, 9) & 7 & 49 \\
-(4, 5) & 1 & 1 \\
-(4, 9) & 5 & 25 \\
-(5, 9) & 4 & 16 \\
-\bottomrule
-\end{tabular}
-
-
-\item Find the average of the squared differences. \newline
-The sum of the squared differences is\newline
-Sum = 4 + 9 + 49 + 1 + 25 + 16 = 104\newline
-Average = 104/6 = 17.33333
-
-\item Divide the average from the prior step by 2\newline
-17.33333/2 = 8.66666\newline\newline
-So, the variance of (2, 4, 5, 9) is 8.66667
-
-\end{enumerate}
-
-What are the characteristics of a set of numbers with zero variance? Think a little before reading on.
-
-If the variance has to be zero then. the average of the differences also has to be zero, which means each of the differences has to be zero. That in turn means that all the numbers have to be the same. This makes a lot of sense, because if there is zero or no *variance*, then the numbers do not vary!
-
-### Computing Variance: Method 2 -- Using deviations from the mean
-
-We can also compute the variance using a different aproach -- which also gives the same result as method 1. Most people will use this description of variance. Here, instead of finding the pairwise differences, we see how much each number in our set differs from the average (referred to in statistics as the *mean*). We then combine these individual differences into a number that represents the overall variance in the set.
+4.  Average the squared differences (but use (n-1) in the denominator. We show a worked example below.
 
 Again, we use the same set of numbers (2, 4, 5, 9). Let us suppose that these numbers represent the prices of some items in a shop (in the US) and therefore they represent USD amounts.
 
 #### Steps to compute variance using deviations from the mean
 
-\begin{enumerate}
-\item Find the average of the numbers\newline\newline
-Sum = 2 + 4 + 5 + 9 = 20
-Average = 20/4 = 5
+1.  **Find the average of the numbers.**
 
-\item Find the squared deviations from the mean for each number.\newline\newline
-\begin{tabular}{lrr}
-\toprule
-Number & Difference from mean & Difference squared \\
-\midrule
-2 & 3 & 9 \\
-4 & 1 & 1 \\
-5 & 0 & 0 \\
-9 & 4 & 16 \\
-\bottomrule
-\end{tabular}
+    The sum of the numbers is:
 
-\item Divide the total of the squared differenbces from the prior step by (n-1) whwre n is the number of elements.\newline\newline
-Sum of squared deviations = 9 + 1 + 0 + 16 = 26\newline
-Result of dividing by (n-1) = 26/3 = 8.66667
+    2 + 4 + 5 + 9 = 20
 
-\end{enumerate}
+    The average is: 20 / 4 = 5
 
-### Unit of measurement for variance
+2.  **Find the squared deviations from the mean for each number.**
 
-Whenever me measure anything, we measure it in terms of some *unit of measurement*. For example, we might use meter as the *unit of measurement* for people's heights, and USD as the *unit of measurement* for US company profits. In fact, in any data frame, whenever we see a numerical variable, we need to be aware of its *unit of measurement*.
+    | Number | Difference from mean | Difference squared |
+    |--------|----------------------|--------------------|
+    | 2      | 3                    | 9                  |
+    | 4      | 1                    | 1                  |
+    | 5      | 0                    | 0                  |
+    | 9      | 4                    | 16                 |
 
-### Computing Variance: Preferred Method -- Using R!
+3.  **Divide the total of the squared deviations from the prior step by (n − 1), where n is the number of elements.**
+
+    The sum of the squared deviations is: 9 + 1 + 0 + 16 = 26
+
+    Dividing by (n − 1): 26 / 3 = 8.66667
+
+::: callout-important
+## Zero variance?
+
+Callout content goes here.
+:::
+
+What are the characteristics of a set of numbers with zero variance? Think a little before reading on.
+
+If the variance has to be zero then. the average of the differences also has to be zero, which means each of the differences has to be zero. That in turn means that all the numbers have to be the same. This makes a lot of sense, because if there is zero or no *variance*, then the numbers do not vary!
+
+### Computing Variance: Preferred Method -- Using R
 
 We have a data frame named *variance_example* that has a variable *num* with the values (2, 4, 5, 9). We can use the following R code to compute its variance.
 
@@ -138,11 +238,15 @@ mpg |>
 
 In the previous section we computed the variance of a set of numbers that represented USD values. What are the units for variance?
 
-In the two methods where we computed the variance, we found some differences in each step. These differences were differences between USD amounts and hence the differences have units of USD. We then squared the differences. The unit of measurement for the squares wiuld be USD-squared. We then averaged these in one approach and divided by a number in the other approach to get the variance. Therefore, variance also has USD-squared as its *unit of measurement*.
+### Unit of measurement for variance
+
+Whenever we measure anything, we measure it in terms of some *unit of measurement*. For example, we might use meter as the *unit of measurement* for people's heights, and USD as the *unit of measurement* for US company profits. In fact, in any data frame, whenever we see a numerical variable, we need to be aware of its *unit of measurement*.
+
+In the two methods where we computed the variance, we found some differences in each step. These differences were differences between USD amounts and hence the differences have units of USD. We then squared the differences. The unit of measurement for the squares would be USD-squared. We then averaged these in one approach and divided by a number in the other approach to get the variance. Therefore, variance also has USD-squared as its *unit of measurement*.
 
 In general, when we compute the variance of a variable measured in some units (say, u, the variance has u-squared as its unit of measurement. That is, if we have a variable expressed in meters, then the variance of the variable will be in meters-squared.
 
-We generally have a clear mental notion of units like USD and meters, but not units like USD-sauared or meters-squared.
+We generally have a clear mental notion of units like USD and meters, but not units like USD-squared or meters-squared.
 
 ## Another measure of spread: *Standard Deviation*
 
@@ -150,19 +254,24 @@ We have seen that *variance* has squared units and we cannot easily relate to th
 
 If a variable is measured in inches, its variance has inches-squared as its unit. However, when we compute its square root, we get the *standard deviation* with inches as units.
 
-We can now mentally relate the original variable values to the *standard deviation* and therefore statisticians use this measure vey widely. This is not to say that variance is not widely used as well. It is, and we will use it extensively in this course as well.
+We can now mentally relate the original variable values to the *standard deviation* and therefore statisticians use this measure very widely. This is not to say that variance is not widely used as well. It is, and we will use it extensively in this course as well.
+
+::: callout-important
+## What information does the standard deviation give us
+
+The standard deviation tells us the typical distance between a data value and the mean.
+:::
 
 ### Computing *standard deviation* using R
 
-We can use the *sd* function inside the *sumamrize* function to compute the *standard deviation*
+We can use the *sd* function inside the *summarize* function to compute the *standard deviation*
 
-Let us comnpute the *standard deviation* of the city mileage (variable *cty*) in the *mpg* data frame.
+Let us compute the *standard deviation* of the city mileage (variable *cty*) in the *mpg* data frame.
 
 ```{r}
 mpg |>
   summarize(cty_sd = sd(cty))
 ```
-
 
 Just to confirm that the computed *standard deviation* is in fact the square root of the *variance* let us compute both.
 
@@ -170,3 +279,48 @@ Just to confirm that the computed *standard deviation* is in fact the square roo
 mpg |>
   summarize(cty_var = var(cty), cty_sd = sd(cty))
 ```
+
+## Optional enrichment topic
+
+We saw two ways to compute variance. There is another method, which, of course, gives the same result, but is quite intriguing, but intuitive.
+
+### Computing Variance: Intriguing Method 1 -- Using pairwise differences
+
+We first look at an intuitive (but *impractical*) method for computing the variance of a set of numbers. Variance represents how different each member of a set of numbers is from the rest. So the difference between each number and the rest of them plays a central role. Our first approach to computing the variance involves looking at every possible pair of numbers in our set and seeing how different the two numbers of the pair are from each other. We then combine all of these pairwise differences into a single number to represent the overall variability in the set. \#### Steps to compute variance using pairwise differences
+
+Let us assume that we want to compute the variance of the set of 4 numbers (2, 4, 5, 9)
+
+1.  **Identify each possible pair of numbers from the set.**
+
+    (2, 4), (2, 5), (2, 9)\
+    (4, 5), (4, 9)\
+    (5, 9)
+
+    There are 6 such pairs.
+
+2.  **Compute the difference for each pair and square it.**
+
+    | Pair   | Difference | Difference squared |
+    |--------|------------|--------------------|
+    | (2, 4) | 2          | 4                  |
+    | (2, 5) | 3          | 9                  |
+    | (2, 9) | 7          | 49                 |
+    | (4, 5) | 1          | 1                  |
+    | (4, 9) | 5          | 25                 |
+    | (5, 9) | 4          | 16                 |
+
+3.  **Find the average of the squared differences.**
+
+    The sum of the squared differences is:
+
+    4 + 9 + 49 + 1 + 25 + 16 = 104
+
+    The average is:
+
+    104 / 6 = 17.33333
+
+4.  **Divide the average from the prior step by 2.**
+
+    17.33333 / 2 = 8.66667
+
+    So, the variance of the set (2, 4, 5, 9) is **8.66667**.

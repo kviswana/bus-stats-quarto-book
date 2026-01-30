@@ -1,0 +1,50 @@
+# Category Means {#sec-category-means}
+
+In this chapter, we extend the idea of the average as the best model a little further. In the previous chapter, we were given only a set of numbers and had to make a decision without any additional information. Our decision had to be the same in all situations.
+
+## Staffing kiosks at malls and beaches
+
+We consider a case where we are given a hint before we make a decision.
+
+In this scenario, a company operates sales kiosks in two different locations, which we will call *Beach* and *Mall*. The company has historical data for several days showing how many customers arrived at each kiosk for service. (We will assume data from 10 days for ease of presentation. The exact number of days is not important for our discussion.)
+
+The company uses this information to decide how many workers to assign to each kiosk. The key difference from the previous chapter is that the decision no longer has to be the same everywhere. Instead, the company can make one decision for the Mall kiosks and a different decision for the Beach kiosks, using the information it has about location.
+
+Here is the data:
+
+| customers | kiosk |
+|----------:|:------|
+|        89 | Mall  |
+|        95 | Mall  |
+|       131 | Mall  |
+|       101 | Mall  |
+|       103 | Mall  |
+|       134 | Mall  |
+|       109 | Mall  |
+|        75 | Mall  |
+|        86 | Mall  |
+|        91 | Mall  |
+|       177 | Beach |
+|       151 | Beach |
+|       152 | Beach |
+|       143 | Beach |
+|       123 | Beach |
+|       194 | Beach |
+|       155 | Beach |
+|        81 | Beach |
+|       161 | Beach |
+|       126 | Beach |
+
+In this scenario, we need to decide an a customer level to use for determining staff level. If we are given only the data in column 1, then based on the previous chapter, our best choice is the average. However, if we are given the entire table, then we have additional information and can determine a different number for each kiosk. For the *Mall* kiosk, we can use the average of the *customers* column for only the *Mall* rows and similarly for the *Beach* kiosk.
+
+In this case, having additional information helped us to make a better decision. The average number of customers is quite different for the two kiosks. Therefore, going with the overall average will not work very well for either kiosk. Using the specific kiosk means will fare much better.
+
+|kiosk | avg_customers|
+|:-----|-------------:|
+|Mall  |           101|
+|Beach |           146|
+
+## Optional challenge
+
+Can you think of an experiment based on the one we did in the previous chapter to compare the performance of the overall mean approach and the kiosk mean approach?
+

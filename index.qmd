@@ -10,7 +10,7 @@
 ```
 
 
-This text presents a modren, modeling-first approach to business statistics.
+This text presents a modern, modeling-first approach to business statistics.
 Rather than a traditional probability-first sequence, we begin with data,
 relationships, patterns, models, and regression — the tools most relevant to
 business decision-making in marketing, finance, economics, HR, and analytics.

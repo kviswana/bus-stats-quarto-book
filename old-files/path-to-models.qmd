@@ -1,0 +1,406 @@
+# The Simplest Model {#sec-mean-model}
+
+This chapter helps you to dip your toes into the vast and important topic of models.
+
+## Learning outcomes {.unnumbered}
+
+### After completing this chapter you will be able to: {.unnumbered}
+
+-   Explain the term model from a general perspective, and from the perspective of statistics
+-   Explain why, given the values of only one variable and in the absence of any other information, the mean is the best model
+-   Explain in what sense the mean is the *best* model
+-   Given a model equation, identify the *outcome* variable and the *explanatory* variable(s)
+-   Describe the terms *outcome* variable and \*\*explanatory\* variable
+-   Match the terminology between the two pairs (*outcome* variable, *explanatory* variable) and (independent variable, *dependent* variable)
+-   Given a model with a single numerical *explanatory* variable and a value for the *explanatory* variable, compute the model value.
+-   Explain why we place a *hat* on the *outcome* variable in a model expression
+-   Explain why we call a model's output an *estimate*
+-   List and describe the two uses of models covered in this chapter
+
+## Companies *commit* when they make decisions
+
+Good decision-making lies at the heart of effective business management.
+
+In practice, companies must commit to decisions before they know how it will play out in the real-world. Many important business decisions cannot be revised freely once they are made. Examples include setting prices, determining how much inventory to stock, choosing staffing levels, or deciding where to locate a factory.
+
+Once a decision is made, it influences many individual events that unfold over time.
+
+Consider pricing. A company sets a single price for a product, and then thousands of customers independently decide whether or not to buy at that price. One decision by the firm affects many separate outcomes.
+
+This has an important implication: *we cannot judge the quality of a decision based on a single outcome*.
+
+Suppose a company sets a price of \$10 and the first customer who walks in buys the product. Was \$10 the right price? We cannot really say. That single outcome may simply be good luck. If we observe the decisions of 1,000 customers, however, a clearer picture begins to emerge. Over many independent events, good decisions tend to perform well *on average*.
+
+In business, then, decisions must be made in advance, under uncertainty, and their quality must be judged by how well they balance out across many realizations and not by whether they happen to succeed in one particular instance.
+
+This perspective will guide how we think about models in this chapter. A good model is not one that gets lucky once. It is one that performs reliably across many possible outcomes.
+
+::: callout-important
+## Definition of model for our present purposes
+
+A model is a simple rule or equation that uses data to produce predictions or explanations, while deliberately ignoring some details of reality.
+:::
+
+## Let's play *Are you ready to commit?*: Deciding under uncertainty {#sec-mean-game}
+
+Let us play a game that captures an important feature of real business decisions: you must commit to a choice before uncertainty is resolved.
+
+Suppose I have the following set of 10 numbers:
+
+4, 5, 7, 1, 8, 4, 3, 9, 5, 4
+
+You should think of this set as representing possible outcomes—such as sales on a given day, demand from a customer, or the cost of a transaction. You do not know which value will occur next.
+
+Here are the rules of the game:
+
+1.  You commit to a single number. This is your guess, and you must choose it before any outcomes are revealed. You are not allowed to change it later.
+
+2.  I then randomly select one number from the set and compute the difference between your committed number and the selected value.
+
+3.  I square the difference to obtain the *penalty* for that round.
+
+4.  We repeat steps 2 and 3, twenty times, and add up all the penalties.
+
+The result of step 4 is your *total penalty*.
+
+Your goal is to keep this total penalty as small as possible.
+
+Let us look at one simulated play.
+
+|            |     |
+|:-----------|----:|
+| decision = |   5 |
+
+| random_choice | diff | penalty |
+|--------------:|-----:|--------:|
+|             7 |   -2 |       4 |
+|             1 |    4 |      16 |
+|             4 |    1 |       1 |
+|             1 |    4 |      16 |
+|             7 |   -2 |       4 |
+|             3 |    2 |       4 |
+|             3 |    2 |       4 |
+|             5 |    0 |       0 |
+|             1 |    4 |      16 |
+|             4 |    1 |       1 |
+|             6 |   -1 |       1 |
+|             4 |    1 |       1 |
+|             6 |   -1 |       1 |
+|             4 |    1 |       1 |
+|             3 |    2 |       4 |
+|             1 |    4 |      16 |
+|             3 |    2 |       4 |
+|             4 |    1 |       1 |
+|             1 |    4 |      16 |
+|             1 |    4 |      16 |
+
+|                 |     |
+|:----------------|----:|
+| Total penalty = | 127 |
+
+Let us see another play with a different decision.
+
+|            |     |
+|:-----------|----:|
+| decision = |   7 |
+
+| random_choice | diff | penalty |
+|--------------:|-----:|--------:|
+|             1 |    6 |      36 |
+|             7 |    0 |       0 |
+|             1 |    6 |      36 |
+|             3 |    4 |      16 |
+|             2 |    5 |      25 |
+|             2 |    5 |      25 |
+|             2 |    5 |      25 |
+|             6 |    1 |       1 |
+|             5 |    2 |       4 |
+|             3 |    4 |      16 |
+|             4 |    3 |       9 |
+|             2 |    5 |      25 |
+|             1 |    6 |      36 |
+|             2 |    5 |      25 |
+|             2 |    5 |      25 |
+|             2 |    5 |      25 |
+|             4 |    3 |       9 |
+|             4 |    3 |       9 |
+|             6 |    1 |       1 |
+|             5 |    2 |       4 |
+
+|                 |     |
+|:----------------|----:|
+| Total penalty = | 352 |
+
+And another:
+
+|            |     |
+|:-----------|----:|
+| decision = |   2 |
+
+| random_choice | diff | penalty |
+|--------------:|-----:|--------:|
+|             7 |   -5 |      25 |
+|             6 |   -4 |      16 |
+|             2 |    0 |       0 |
+|             2 |    0 |       0 |
+|             4 |   -2 |       4 |
+|             2 |    0 |       0 |
+|             2 |    0 |       0 |
+|             3 |   -1 |       1 |
+|             1 |    1 |       1 |
+|             4 |   -2 |       4 |
+|             3 |   -1 |       1 |
+|             6 |   -4 |      16 |
+|             1 |    1 |       1 |
+|             2 |    0 |       0 |
+|             2 |    0 |       0 |
+|             3 |   -1 |       1 |
+|             1 |    1 |       1 |
+|             4 |   -2 |       4 |
+|             7 |   -5 |      25 |
+|             1 |    1 |       1 |
+
+|                 |     |
+|:----------------|----:|
+| Total penalty = | 101 |
+
+And, finally:
+
+|            |     |
+|:-----------|----:|
+| decision = |   8 |
+
+| random_choice | diff | penalty |
+|--------------:|-----:|--------:|
+|             4 |    4 |      16 |
+|             7 |    1 |       1 |
+|             4 |    4 |      16 |
+|             4 |    4 |      16 |
+|             4 |    4 |      16 |
+|             2 |    6 |      36 |
+|             7 |    1 |       1 |
+|             1 |    7 |      49 |
+|             4 |    4 |      16 |
+|             2 |    6 |      36 |
+|             1 |    7 |      49 |
+|             4 |    4 |      16 |
+|             2 |    6 |      36 |
+|             4 |    4 |      16 |
+|             4 |    4 |      16 |
+|             6 |    2 |       4 |
+|             4 |    4 |      16 |
+|             7 |    1 |       1 |
+|             6 |    2 |       4 |
+|             4 |    4 |      16 |
+
+|                 |     |
+|:----------------|----:|
+| Total penalty = | 377 |
+
+Of the four, plays, the third play had the lowest total penalty and emerged as the best.
+
+However, can we do even better? What approach will help us to reduce this total difference or error?
+
+## Average or *mean* as the decision in the long run
+
+It turns out that when we have a large number of tries, we will get the best results, that is the lowest penalty, when we always guess the average of the numbers. In this case the average is 3.5. Here are the results of one trial.
+
+|            |     |
+|:-----------|----:|
+| decision = | 3.5 |
+
+| random_choice | diff | penalty |
+|--------------:|-----:|--------:|
+|             2 |  1.5 |    2.25 |
+|             5 | -1.5 |    2.25 |
+|             4 | -0.5 |    0.25 |
+|             2 |  1.5 |    2.25 |
+|             3 |  0.5 |    0.25 |
+|             3 |  0.5 |    0.25 |
+|             7 | -3.5 |   12.25 |
+|             1 |  2.5 |    6.25 |
+|             5 | -1.5 |    2.25 |
+|             4 | -0.5 |    0.25 |
+|             6 | -2.5 |    6.25 |
+|             2 |  1.5 |    2.25 |
+|             3 |  0.5 |    0.25 |
+|             4 | -0.5 |    0.25 |
+|             1 |  2.5 |    6.25 |
+|             5 | -1.5 |    2.25 |
+|             3 |  0.5 |    0.25 |
+|             7 | -3.5 |   12.25 |
+|             4 | -0.5 |    0.25 |
+|             3 |  0.5 |    0.25 |
+
+|                 |     |
+|:----------------|----:|
+| Total penalty = |  59 |
+
+We can see that the total penalty is smaller than for any of the others.
+
+SO, we see that in the absence of any other information to help us predict, the best prediction is the *mean*. @fig-many-nos-one-pred shows this pictorially.
+
+![Many numbers, but just a single prediction!](../../images/fig-many-nos-one-pred.png){#fig-many-nos-one-pred width="70%" fig-align="center"}
+
+What we have said above **does not mean that we are guaranteed to get the smallest total error if we commit to the average**. Clearly, if someone were lucky enough that the random picks all ended up exactly equal to or very close to their decision just by chance, then their total error will be zero! But this is *extremely unlikely*.
+
+However, those occurrences are extraordinarily unlikely with a large number of trials, as happens in business where a decision is tested by thousands of events. *Statistically* the best course would be to pick the average.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+In what sense is the mean the “best” model?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+“Best” means minimizing overall prediction error, not being perfect.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Can a model be “best” and still be inaccurate?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Yes. A model can be the best available option given limited information and still perform poorly in absolute terms.
+:::
+
+If we repeat this game a very large number of times with different choices for *decision*, we will get a *total penalty* each time.
+
+@fig-mean-model-simulation-plot shows the result of 10,000 plays of the game.
+
+![Average of *total_penalty* vs various values for *decision* based on 10,000 plays of the game -- shows that the lowest total penalty overall occurs when *decision* equals the mean of the numbers](../../images/fig-mean-model-simulation-plot.png){#fig-mean-model-simulation-plot width="70%" fig-align="center"}
+
+::: callout-important
+## Interpret the word "best model" with caution
+
+When we say the mean is the best model, we do not mean it is always accurate, fair, or appropriate. We mean it is best according to a specific criterion, under specific information constraints.
+:::
+
+Now you know why I titled the chapter *The simplest Model*!
+
+## Real world connection: Planning for Customer Demand
+
+How does this small game relate to the real world? Let us consider a business example.
+
+Consider a company that operates a customer support center. The company must decide how many customer support agents to schedule.
+
+### What the company must do
+
+-   The staffing decision must be made **in advance**
+-   Once the schedule is set, it cannot be easily changed
+-   The company must choose **one number** to use for many days
+
+### What the company knows
+
+-   The company has historical data on the number of calls received per day. For example, 420, 340, 510, 450, 395, 470, 650, …
+-   Some days are busy, others are quiet
+-   At this point, the company does not have data to explain *why* call volume changes or to predict it. It simply observes that call volume varies
+
+### Why the decision matters
+
+-   If too few agents are scheduled:
+
+    -   customers wait longer
+    -   service quality suffers
+
+-   If too many agents are scheduled:
+
+    -   agents sit idle
+    -   labor costs increase
+
+### How the company measures mistakes
+
+-   Being slightly wrong is not very costly
+
+-   Being very wrong is much more costly
+
+-   The company therefore measures the cost of a decision as:
+
+    -   the **square of the difference** between planned calls and actual calls
+
+### How the decision is evaluated
+
+-   The decision is **not judged by a single day**
+-   A decision that works well once may simply be lucky
+-   Instead, the company looks at performance **across many days**
+-   Daily call volume varies, but the staffing decision stays the same
+
+### The conclusion
+
+-   The company must choose a single number to plan for
+-   The number that minimizes total long-run cost is the **average** of past daily call volumes
+-   Choosing a smaller number leads to frequent large shortages
+-   Choosing a larger number leads to frequent over staffing
+-   The average balances these errors over time
+
+### Why this matters
+
+-   The goal is not to be exactly right on any one day
+-   The goal is to make a decision that performs well **on average**
+-   This is why the average is the best choice when no additional information is used
+
+The commitment game we just played follows this same logic: one decision, many outcomes, and performance judged over repeated realizations.
+
+You should take away a few things from this chapter: - When we have to estimate something, the average serves as a good basis, unless we are told additional things that can help us to narrow down our estimate - Much of statistics
+
+## Optional enrichment topic: How does skew affect the situation?
+
+We had used the numbers:
+
+```         
+4, 5, 7, 1, 8, 4, 3, 9, 5, 4 
+```
+
+in our game. That set has numbers across the entire range. Is it the case that the average performed well because of this? Could it be that the average will not perform well if most of the numbers fall within in a small range and a few extreme cases tend to push the average up?
+
+For, example, let us take the following set of numbers:
+
+```         
+2, 1, 2, 1, 3, 3, 2, 1, 10, 9
+```
+
+The mean is 3.4 -- almost the same as the previous list of numbers we had used. However, this set has eight of its numbers less than or equal to 3. Perhaps a decision below the average will work better?
+
+Let us play the game 10,000 times and see which decision performs best.
+
+@fig-simulation-game-summary-skewed shows the results. We see that the mean is still the best *decision*.
+
+![Average of *total_penalty* vs various values for *decision* based on 10,000 plays of the game -- shows that the lowest total penalty overall occurs when *decision* equals the mean of the numbers](../../images/fig-simulation-game-summary-skewed.png){#fig-simulation-game-summary-skewed width="70%" fig-align="center"}
+
+Why does this happen? Choosing the average definitely leads to small penalty increases most of the time. However, if we went below the average, the relatively rare cases in which the random choice is high, it incurs a very large penalty and that offsets any benefits of going below the average, because we square the difference and that amplifies the error.
+
+**What if we did not square the error and instead treated the absolute difference as the penalty. In this case, the *median* is the best choice.** Pretty cool result if you as me! We will not go further into that topic, but it has its applications. In most practical applications, we use the squared-difference as the penalty.
+
+::: {.callout-note icon="false"}
+## Pause & Think {.unnumbered}
+
+1.  If two data sets have the same mean, could the mean be a better model for one than the other?
+2.  What additional information might help you judge if it will work better for one than for the other?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answers {.unnumbered}
+
+1.  Yes. The mean works better when observations are tightly clustered.
+2.  Variability, spread, or deviation from the mean would help evaluate model quality.
+:::
+
+## Optional enrichment topic: Removing outliers in skewed distributions
+
+Continuing from the prior discussion, when faced with a skewed distribution we have a peculiar situation where our intuition tells us to make a decision where most points lie, but cold computation tells us otherwise.
+
+One may feel that it makes no sense to choose the mean and accumulate a slightly higher penalty in every event just to balance out the huge penalties that come rarely. But that is what makes sense when we use the quadratic penalty function.
+
+If the penalty is quadratic, but we still want to not decide on the average, then we can eliminate the extreme points and reduce the skew. Then we can use the average as before. From a practical viewpoint what that would mean is that we take steps to avoid extreme events by some means.
+
+Can you think of an experiment to compare removing outliers and not removing them in the context of skewed distributions to see if using the mean in both cases reduces the total penalty significantly?
+
+You can delve deeper into this topic if you are interested.
+
+-   

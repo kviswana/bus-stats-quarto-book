@@ -1,9 +1,0 @@
-# Concept of model
-
-The mean of a numerical variable is the "best guess" of its value when no other
-information is available — in the specific sense that it minimizes the sum of
-squared errors.
-
-```{r}
-library(ggplot2)
-mean(mtcars$mpg)
