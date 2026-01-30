@@ -1103,7 +1103,7 @@ intercept &amp; +\, \text{coef3} \, \text{if } \text{explanatory variable} = \te
 <p>We see that the <em>intercept</em> is -211. The coefficient for <em>distance</em> is 381.</p>
 <p>Let us build the model function before talking about the crazy-seeming negative <em>intercept</em>.</p>
 <p><span id="eq-hill-racing-time-distance-model"><span class="math display">\[
-\widehat{\text{time}} = -211 + 381\, \text{displ}
+\widehat{\text{time}} = -211 + 381\, \text{distance}
 \tag{11.10}\]</span></span></p>
 <p>Does it make sense that the coefficient for <em>distance</em> is positive? Per <a href="#eq-hill-racing-time-distance-model" class="quarto-xref">Equation&nbsp;<span>11.10</span></a>, as <em>distance</em> increases, the estimated <em>time</em> will increase. This makes sense.</p>
 <p>What about the <em>intercept</em> of -211?</p>
@@ -1157,7 +1157,7 @@ Steps to build the model function for models with one numerical explanatory vari
 <li>Note the <em>intercept</em> and the <em>coefficient</em> for the explanatory variable (expl_coeff)</li>
 <li>Construct the model function by substituting the name of the outcome variable, and the value of the intercept in the following equation.</li>
 <li>Then add conditions for each additional category suitably substituting the appropriate category names. <span class="math display">\[
-\widehat{\text{outcome}} = \text{intercept} + \text{expl\_coeff}\,\,\text{explanatory variable}
+\widehat{\text{outcome}} = \text{intercept} + \text{expl\_var\_coeff}\,\,\text{explanatory variable}
 \]</span></li>
 </ol>
 </div>
