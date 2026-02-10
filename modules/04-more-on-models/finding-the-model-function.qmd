@@ -13,7 +13,7 @@ When we have a numerical outcome variable and no explanatory variable, @sec-mean
 
 ### Building mean models by explicitly computing the mean
 
-Do you remember how to compute the mean oif a variable?
+Do you remember how to compute the mean of a variable?
 
 ::: {.callout-note icon=false}
 ## Quick Check {.unnumbered}

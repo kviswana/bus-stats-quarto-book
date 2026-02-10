@@ -202,7 +202,7 @@ We use the *Anthro_F* data frame. Take a look at its codebook and answer the fol
 ::: {.callout-note icon=false}
 ## Quick Check {.unnumbered}
 
-What is the unit observation?
+What is the unit of observation?
 :::
 
 ::: {.callout-note icon=false collapse=true}
@@ -223,42 +223,7 @@ We would like to visualize a model that predicts the body fat (variable *BFat*) 
 ![Least squares line model for the *Anthro_f* data frame: *BFat* as the response variable with *Wrist* as the explanatory variable](../../images/fig-anthro-f-wrist-bfat-model.png){#fig-anthro-f-wrist-bfat-model width=70% fig-align=center}
 
 
-As we saw from @sec-mean-model, the *best* model would be to predict the average. Do you recall how to compute the average?
 
-```{r}
-txhousing |>
-    summarize(avg_listings = mean(listings))
-```
-
-Why is the result not a number? Why did we get *NA*?
-
-You might recall from @sec-missing-values that *NA* means missing value. Why is the mean a missing value? The *txhousing* data frame has some missing values in the column *listings*. As a result, it is unable to compute the average. Suppose I asked you what is 2 + 3, you can say "5." since you have both the numbers that you want to add up. 
-
-However, if I asked you what is *NA* + 5? You cannot say what it is because you do not know the values of the two numbers you are trying to sum. In general, whenever *NA* is involved in an operation, the result is always *NA*.
-
-This is very inconvenient. Wht does the system simply not ignore the *NA*s and compute the average of the remaining numbers? By default it does not do that, but we can make the system do that in the following way.
-
-```{r}
-txhousing |>
-    summarize(avg_listings = mean(listings, na.rm = TRUE))
-```
-
-When you add "na.rm = TRUE", R leaves out the missing values and computes the average of the rest. Remember, R is case sensitive and so you have to type na.rm in lowercase and TRUE in uppercase. Otherwise you will get an error.
-
-So we saw that the mean of *listings* is 3217 and that is our model value.
-
-We can write the model function as @eq-txhousing-listings-mean-model
-
-$$
-\widehat{\text{listings}} = 3217
-$$ {#eq-txhousing-listings-mean-model}
-
-We had built the mean model by explicitly writing code to compute the average. 
-
-In the earlier chapters, we have built 
-This can get cumbersome as we will need to build the model differently depending on the type of explanatory variable. Fortunately, the *LSTbook* package provides a single function -- the *model_train* function through which we can build all the models for this course.
-
-Let us see how to use it.
 
 
 

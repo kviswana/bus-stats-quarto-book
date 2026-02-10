@@ -1,0 +1,139 @@
+project:
+  type: book
+
+book:
+  title: "Introduction to Business Statistics: A Modeling Approach"
+  author: "Viswa Viswanathan"
+  date: "1/15/2026"
+  chapters:
+    - index.qmd
+    - preface.qmd
+
+    - part: "Data, Visualization, and Patterns"
+      chapters:
+        - modules/01-data-visualization/01-overview.qmd
+        - modules/01-data-visualization/data-frames.qmd
+        - modules/01-data-visualization/point-plots.qmd
+        
+
+    - part: "Variation"
+      chapters:
+        - modules/02-variability/02-overview.qmd
+        - modules/02-variability/violin-plots.qmd
+        - modules/02-variability/variance-and-sd.qmd
+        
+    - part: "Introduction to models"
+      chapters:
+        - modules/03-introduction-to-models/03-overview.qmd
+        - modules/03-introduction-to-models/path-to-models-story.qmd
+        - modules/03-introduction-to-models/category-means-story.qmd
+        - modules/03-introduction-to-models/intro-to-models.qmd
+        - modules/03-introduction-to-models/visualizing-simple-models.qmd
+
+    - part: "More on models -- least squares"
+      chapters:
+        - modules/04-more-on-models/04-overview.qmd
+        - modules/04-more-on-models/line-of-best-fit-story.qmd
+        - modules/04-more-on-models/visualizing-models.qmd
+        - modules/04-more-on-models/finding-the-model-function.qmd
+        - modules/04-more-on-models/model-with-cat-and-num-explanatories-story.qmd
+    - part: "Explanatory Power of a Model"
+      chapters: 
+        - modules/05-explanatory-power-of-models/05-overview.qmd
+        - modules/05-explanatory-power-of-models/explain-as-used-in-statistics.qmd
+        - modules/05-explanatory-power-of-models/variance-analysis.qmd
+        - modules/05-explanatory-power-of-models/accounting-for-variance.qmd
+    - part: "Populations, Samples and Inference"
+      chapters:
+        - modules/07-populations-samples/07-overview.qmd
+        - modules/07-populations-samples/pop-vs-sample.qmd
+        - modules/07-populations-samples/sampling-variability.qmd
+
+    - part: "Probability"
+      chapters:
+        - modules/08-probability-variation/08-overview.qmd
+        - modules/08-probability-variation/randomness.qmd
+        - modules/08-probability-variation/variability.qmd
+        - modules/08-probability-variation/distributions.qmd
+
+    - part: "Sampling Variation and Estimators"
+      chapters:
+        - modules/09-sampling-variation/09-overview.qmd
+        - modules/09-sampling-variation/se-estimators.qmd
+        - modules/09-sampling-variation/sampling-dist-slopes.qmd
+
+    - part: "Confidence Intervals and Bands"
+      chapters:
+        - modules/10-confidence-bands/10-overview.qmd
+        - modules/10-confidence-bands/ci-slope.qmd
+        - modules/10-confidence-bands/ci-bands.qmd
+
+    - part: "Signal, Noise, and R-Squared"
+      chapters:
+        - modules/11-signal-noise/11-overview.qmd
+        - modules/11-signal-noise/variance-decomposition.qmd
+        - modules/11-signal-noise/r-squared.qmd
+
+    - part: "Hypothesis Testing via Regression"
+      chapters:
+        - modules/12-hypothesis-testing/12-overview.qmd
+        - modules/12-hypothesis-testing/t-tests-regression.qmd
+        - modules/12-hypothesis-testing/interpretation.qmd
+
+    - part: "Business Applications of Regression"
+      chapters:
+        - modules/13-business-applications/13-overview.qmd
+        - modules/13-business-applications/marketing.qmd
+        - modules/13-business-applications/finance.qmd
+        - modules/13-business-applications/hr.qmd
+        - modules/13-business-applications/operations.qmd
+
+    - part: "Projects and Datasets"
+      chapters:
+        - modules/14-projects/14-overview.qmd
+        - modules/14-projects/project-guidelines.qmd
+        - modules/14-projects/datasets.qmd
+        
+    - part: "Appendices"
+      chapters:
+        - modules/Appendices/01-overview.qmd
+  sidebar:
+    style: docked
+    background: light
+    logo: images/logo-dark.png
+
+  search: true
+
+format:
+  html:
+    theme: 
+      - flatly
+      - custom.scss
+    toc: true
+    toc-depth: 3
+    
+    number-sections: true
+    code-tools: false
+    df-print: paged
+    
+
+  pdf:
+    listings: true
+    documentclass: scrreprt
+    include-in-header: header.tex
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    geometry: "margin=1in"
+    callout-appearance: boxed
+    fontsize: 12pt
+    highlight-style: pygments
+
+# bibliography: references.bib
+# csl: apa.csl
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto

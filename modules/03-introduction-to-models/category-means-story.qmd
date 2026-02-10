@@ -4,6 +4,18 @@ Angela, Steve, Dave, Igor, and Suzie -- our interns from the previous chapter, s
 
 Last chapter, the interns learned an important lesson: when you must commit to **one number** without any further information, and you measure mistakes more harshly the bigger they are (by using a squared penalty), the best long-run choice is the average.
 
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why was the average the best choice *in the previous chapter*, given the information available at that time?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Because the company had to commit to a single number for all situations and used a squared penalty for mistakes, the average minimized the long-run penalty. With no additional information to distinguish cases, no other single number could do better on average.
+:::
+
 Amanda walked in exactly at 9 am. WIth a bright smile, she said "Team, I have some good news. First off, we did very well last month. We had far fewer days of bad mismatches from our staffing levels with the customer counts. Your model improved significantly on what we were doing earlier.
 
 Secondly, I have better data this time and I am hoping we can improve our decision further."
@@ -18,6 +30,19 @@ She points to the new column.
 “This time, the person collecting data included the kiosk.”
 
 The interns lean in. The data now tells them *where* each customer count came from: *Mall* or *Beach*.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+What new kind of decision does the presence of the *kiosk* column make possible?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+It allows the company to make different decisions for different situations. Instead of committing to one number for all days for both kiosks, the company can now choose separate staffing levels for the Mall kiosk and for the Beach kiosk.
+:::
+
 
 The key difference from the previous chapter is that the decision no longer has to be the same everywhere. Instead, the company can make one decision for the Mall kiosk and a different decision for the Beach kiosk, using the information it has about location. Amanda hoped that this can lead to an even better match between the staffing and the actual customer numbers.
 
@@ -74,11 +99,50 @@ David: "I see your point. These sales do seem quite different with the beach kio
 
 Again, Igor speaks last, a little less timid than he was the last time around. "If we treat the data separately for each kiosk then we really have two problems that are identical to our problem from last month."
 
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why does splitting the data by kiosk turn this problem into two familiar problems from the previous chapter?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Once the data are split, each kiosk requires committing to a single number for it without further distinctions. That is exactly the same decision problem as before, just applied separately to each kiosk’s data.
+:::
+
+
 Peter: "Then should we just say the model value for each kiosk's is its own average sales?"
 
 The rest nods in agreement. They cannot see any flaw in this.
 
 Peter: "For the *Mall* kiosk, we can use the average of the *customers* column for only the *Mall* rows, and similarly for the *Beach* kiosk."
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Looking at the two kiosk averages in @tbl-kiosk-avg-sales, what would go wrong if we used the *Mall* average to staff the *Beach* kiosk?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The Beach kiosk typically serves many more customers than the Mall kiosk. Using the Mall average would systematically under-staff the Beach kiosk, leading to large penalties on many days.
+:::
+
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+If Mall and Beach kiosks truly had similar customer traffic, would using separate decisions still help? Why or why not?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+If the two kiosks had similar distributions of customer traffic, then separating them would not provide much benefit. The advantage of using different decisions comes only when the additional information meaningfully distinguishes different situations.
+:::
+
 
 Angela: "Can we verify this with a chart like we did the last time? Except that we will have one chart per kiosk."
 
@@ -96,6 +160,18 @@ Suzie also reported the average penalties if we used the overall average of numb
 - Average penalty per choice if we use kiosk-specific average for Mall: 325
 - Average penalty per choice if we use kiosk-specific average for Beach: 880
 
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why does using kiosk-specific averages reduce the total penalty compared to using one overall average?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The overall average ignores meaningful differences between kiosks. By tailoring decisions to each kiosk’s typical customer level, the predictions are closer to actual outcomes for the specific kiosks more often, reducing squared penalties.
+:::
+
 We can see that the penalty is far lower if we use the kiosk-specific averages rather than one overall average. Why is the average penalty so much higher for the beach kiosk than the mall kiosk? Let us see the variability in the data for these two kiosks. See @fig-kiosk-violin-mall-beach.
 
 ```{r eval=FALSE}
@@ -106,12 +182,38 @@ kiosk_mall_beach |>
 
 ![Comparison of the distributions of the customer traffic for the two kiosks: Beach has a lot more variability](../../images/fig-kiosk-violin-mall-beach.png){#fig-kiosk-violin-mall-beach width=70% fig-align=center}
 
-Since the beach kiosk has a lot more variability than the mall kiosk, the penalty is much more as choosing the average as the decision will be off from the actual value by quite a bit on many days.
+Since the beach kiosk has a lot more variability than the mall kiosk, the penalty is much more, since choosing the average as the decision will be off from the actual value by quite a bit on many days.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Even though the Beach kiosk uses its own average, why is its penalty for the beach kiosk still higher than the Mall kiosk’s?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+The Beach kiosk has much higher variability in daily customer counts. Greater spread means that even the best single-number decision will often be far from the actual value, leading to larger penalties.
+:::
+
 
 The interns present their findings to Amanda.
 
 Amanda studies the plots and the reduction in average penalties and says "This is good. It looks like having more information surely helps us to make better decisions."
 
-“She continues, “the lesson is not ‘always use the mean. but ’ use the best mean you’re allowed to use, given the information you have.”
+“She continues, “the lesson is not ‘always use the mean, but use the best mean you’re allowed to use, given the information you have.”
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+How would you summarize the rule for choosing a model value when additional information is available?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Use the best mean you are allowed to use, given the information available. When meaningful distinctions exist, making separate decisions for different situations leads to better outcomes.
+:::
+
 
 

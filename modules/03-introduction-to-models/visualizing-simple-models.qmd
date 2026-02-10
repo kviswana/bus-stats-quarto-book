@@ -63,7 +63,7 @@ in the code sets *cty* ans=d the response variable and, by placing 1 on the RHS,
 The part
 
 ```         
-annot = "model
+annot = "model"
 ```
 
 Causes a *model* to be visualized as well. We know that the mean is our model and this plot visualizes it by drawing a line at the average *cty*.

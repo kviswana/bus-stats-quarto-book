@@ -1,4 +1,4 @@
-# Variance and standard deviation
+# Variance and standard deviation {#sec-variance-sd}
 
 This chapter discusses the key statistical concepts of *variance* and *standard deviation*.
 

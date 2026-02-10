@@ -1,0 +1,17 @@
+# Module 6: Explanatory Power of a Model {.unnumbered}
+
+We turn our attention now to measuring the quality of a model based on the notion of a model's ability to *explain* the variability in the response variable.
+
+## Learning Goals
+
+- a
+- b
+- c
+
+## Structure of This Module
+
+- What does it mean for a model to explain variability in the response variable?
+- Computing the model values and residuals
+- the variance equation
+- R-squared
+

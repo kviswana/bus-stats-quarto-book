@@ -40,4 +40,10 @@ homes <- read_csv("lst-extras-datasets/homes.csv",
 kiosk <- read_csv("lst-extras-datasets/kiosk.csv", 
                   show_col_types = FALSE)
 
+kiosk_beach_mall_temp <- read_csv("lst-extras-datasets/kiosk_beach_mall_temp.csv", 
+                  show_col_types = FALSE)
+
+kiosk_mall_beach <- read_csv("lst-extras-datasets/kiosk_mall_beach.csv", 
+                  show_col_types = FALSE)
+
 # Helper functions

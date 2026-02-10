@@ -1,0 +1,119 @@
+# *Explain* as used in Statistics
+
+To assess the quality of a model, we talk about its *explanatory power*. Statistics uses the term *explain* in a very specific way and you will need to understand it to truly grasp how we measure the quality of statistical models in the next few chapters. In this chapter we focus only on the term *explain* as used in statistics.
+
+## Relationships Between Variables Revisited
+
+In @sec-visualizing-relationships we saw what it means for two variables to be related to each other. We also saw that relationships can be positive or negative, strong or weak. 
+
+When we say that two variables are related, we mean that knowing the value of one variable helps us predict the value of the other variable. For example, if we know that a person has a high income, we can predict that they are *likely* to spend more on dining out than someone with a low income.
+
+If we are given the weights of several people and see that they are all around 150 pounds, we can predict that their heights are likely to be around 5'7" to 5'10". However, if we know that one person weighs 150 pounds and another person weighs 300 pounds, we can predict that the second person is likely to be taller than the first person. 
+
+Of course, there is no guarantee that every person who weighs around 150 pounds is between 5'7" and 5'10". There will be exceptions. But in general, knowing the weight of a person helps us make better predictions about their height than without this information. Similarly, there is no guarantee that wevery person who weighs 300 pounds is taller than every person who weighs 150 pounds. But in general, knowing that a person weighs 300 pounds helps us make better predictions about their height relative to someone who weighs 150 pounds.
+
+In general, when two variables are related, knowing the value of one variable helps us make better predictions about the value of the other variable.
+
+@fig-advertising-sales-channel-1a shows the relationship between advertising expenses and weekly sales for a company (based on the data frame *advertising_sales_channel*). As advertising expenses increase, weekly sales also tend to increase. If we know that the company is going to spend $80k during a particular week, we can expect that the sales will likely be between around 200 to 300k units. If we know that the company is going to spend only $20k during a particular week, we can expect that the sales will likely be between around 100 to 200k units.
+
+![Relationship between advertising expenses and weekly sales](../../images/fig-advertising-sales-channel-1.png){#fig-advertising-sales-channel-1a width=70% fig-align=center}
+
+Relationships between variables play a very important role in statistics and pave the path for us to *explain* things statistically
+
+## Explaining One Variable with Another
+
+Suppose we see data about the selling prices of homes in a certain neighborhood. AT first we see only the prices and nothing else. We see variability in the prices. Some homes are priced low, some are priced high, and many are priced in between. We might wonder why there is such variability in the prices, even though the homes are all in the same neighborhood. 
+
+Then we get more information about the homes, such as their sizes (in square feet). We might then see that the home sizes also vary. Some homes are small, some are large, and many are in between. We might then wonder if the variability in home sizes is related to the variability in home prices. If we find that larger homes tend to be priced higher and smaller homes tend to be priced lower, we can say "Aha, that *explains* it. I see now why some homes are priced higher and some are priced lower. It's because of their sizes."
+
+In statistics, when we say that one variable *explains* another variable, we mean that knowing the value of the first variable helps us make better predictions about the value of the second variable. In the example above, knowing the size of a home helps us make better predictions about its price. Therefore, we say that home size *explains* home price.
+
+When we say that one variable *explains* another variable, we are not saying that the first variable is the *cause* of the second variable. We are only saying that knowing the value of the first variable helps us make better predictions about the value of the second variable. In the example above, we are not saying that home size *causes* home price. We are only saying that knowing the size of a home helps us make better predictions about its price. There could be other factors at play that also affect home prices, such as location, age of the home, and so on.
+
+Relationships between variables helps to reduce uncertainty about the value of one variable when we know the value of a related variable. 
+
+For example, suppose we have the same list of prices of homes in a neighborhood. I choose one house at random from the list and and ask you to guess the price of that home. Without any other information, you might guess the average price of homes in that neighborhood (based on what you learned in @sec-mean-model). 
+
+I then give you a hint about the size of the home (in sqft) that I randomly picked. If you know the relationship between these two variables *price* and *size* then you can make a better guess about the price than just the overall average.
+
+When two variables are related, the variability in the values of one variable *explain* the variability in the values of the other. Why do home prices vary? Because home sizes vary. Why do sales vary? Because advertising expenses vary. Why do weights vary? Because heights vary. And so on.
+
+In statistics, we often use one variable to *explain* another variable. The variable that is used to explain is called the *explanatory variable* (or sometimes the *independent variable*). The variable that is being explained is called the *outcome variable*, *response variable* (or sometimes the *dependent variable*).
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+Suppose I have two variables *a* and *b* and these two are strongly positively related. Suppose also that I have the ability to control the values of *a* (for example, it might be the amount of money I spend on advertising, or the price, or the number of employees I allocate to a project). I want higher values of *b*. Can I just increase *a* to achieve my goal?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+Maybe, maybe not. Just because two variables are related does not mean that changing one variable will *cause* the other variable to change. There could be other factors at play that affect *b*. For example, if *a* is advertising expense and *b* is sales, increasing advertising expenses might lead to higher sales, but it also might not if the market is saturated or if there are other issues affecting sales. Therefore, while knowing that *a* and *b* are related helps us make better predictions about *b* when we know *a*, it does not guarantee that changing *a* will change *b*. Also, there is always the possibility that *b* is causing *a*, or that some other variables are causing both *a* and *b* to change.
+
+The general rule is: Correlation does not imply causation. 
+:::
+
+::: {.callout-warning}
+The above does not mean that correlation indicates the absence of causation. In many cases, there is indeed a causal relationship between two variables that are correlated. However, correlation alone is not sufficient to establish causation. Additional evidence and analysis are needed to determine whether a causal relationship exists.
+:::
+
+## Model as an Explainer of variation in outcome variable
+
+We spoke earlier about a variable being an explainer. In statistics, we also talk about a model as *explaining* the variation in its outcome variable. When we say that a model *explains* the outcome variable, we mean that the explanatory variables used in the model combined with the model coefficients help us make better predictions about the outcome variable, or to explain a phenomenon.
+
+For example, suppose a researcher is interested in the effect of study time and attendance on exam scores. We are not using the term here *effect* in the sense of cause and effect, but more loosely in the sense of relationship.
+
+The researcher collects data on students' study time, attendance, and exam scores. The researcher then fits a statistical model with study time and attendance as explanatory variables and exam score as the outcome variable. If the model results of student performance closely match reality, then we can conclude that the model has explained a real-world phenomenon: that students who study more and attend classes more regularly tend to perform better on exams. In this case, we can say that the model comprising study time and class attendance *explains* the variability in exam scores. 
+
+::: {.callout-important}
+Once again, we cannot infer any causality here based solely on this model. It could very well be that students who are more motivated to do well on exams also tend to study more and attend classes more regularly. The model simply helps us understand the relationships between these variables and make better predictions about exam scores based on study time and attendance. To establish causality, we would need to conduct controlled experiments or use other methods to rule out confounding factors.
+:::
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+Choose any two disciplines of business (e.g., marketing, finance, manufacturing, accounting, ...) and give an example of one variable *explaning* another.
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+Marketing example: Advertising expenses *explain* sales. Knowing how much a company spends on advertising helps us make better predictions about its sales.
+
+Finance example: Credit score *explains* loan default risk. Knowing a borrower's credit score helps us make better predictions about the likelihood of them defaulting on a loan.
+
+Manufacturing example: Machine maintenance frequency *explains* production downtime. Knowing how often machines are maintained helps us make better predictions about the amount of downtime in production.
+
+Accounting example: Revenue *explains* profit. Knowing a company's revenue helps us make better predictions about its profit.
+
+Each of the examples can go the other way as well. For example, sales can also *explain* advertising expenses, loan default risk can also *explain* credit score, and so on. The key point is that when two variables are related, knowing the value of one variable helps us make better predictions about the value of the other variable.
+:::
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+Choose any two disciplines of business (e.g., marketing, finance, manufacturing, accounting, ...) and give an example of one variable that generally does not *explan* another.
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+Marketing example: Customer satisfaction score does not generally *explain* the number of employees in a company. Knowing the customer satisfaction score does not help us make better predictions about the number of employees.
+
+Finance example: A company’s stock price does not generally explain the latitude of its headquarters. Knowing the stock price does not help us make better predictions about how far north or south the company is located.
+
+Manufacturing example: Production volume does not generally *explain* the color of the factory building. Knowing the production volume does not help us make better predictions about the color of the building.
+
+Accounting example: Check number does not generally *explain* the check amount. Knowing the check number does not help us make better predictions about the amount of the check.
+:::
+
+::: {.callout-important}
+We said that a variable can explain another variable. Let us be more specific as a preparation for the next few chapters. 
+
+If you go back to the house prices example, we said that we initially wonder why house prices vary and then realize looking at the sqft of the houses that the sqft varies and therefore naturally the prices vary because sqft and price are related.
+
+Another important way to phrase this is to say that the variability in sqft *explains* the variability in price. We will soon be using the act=ual variance of the prices as one important piece in the puzzle of measuring the explanatory power of a model.
+
+*Variance* is going to start playing an important role. As I have said before, statistics is all about measuring and managing variability.
+:::

@@ -1,0 +1,128 @@
+# Residuals
+
+We use the relationships between the outcome variable and the explanatory variables to build a model. The model helps us to determine an estimated value for the outcome variable based on the values of the explanatory variables. However, the estimated value is not always exactly equal to the actual observed value of the outcome variable. The difference between the observed value and the estimated value is called the **residual**.
+
+We have already visited the idea of *residual* before. When we first learned about least-squares models, we saw that the goal of these models is to minimize the total penalty. We computed the penalty as the square of the difference between the model estimate and the actual value. That difference is actually the *residual* and our penalty was nothing but the square of the residual. AT that time we did not show any code to compute the residuals explicitly, but now we will do that.
+
+In this chapter you will learn how to compute residuals after building a model. This knowledge will lay the foundation for you to learn to evaluate the quality of models in later chapters.
+
+## Definition of Residuals
+
+Taking the data frame *kiosk* we will first build a model to predict the number of customers based on the temperature. We have done this before already using the following code:
+
+```{r}
+kiosk |>
+    model_train(customers ~ temperature)
+```
+
+In prior chapters, we piped the model object to the *coef* function to get the model coefficients so that we could construct the model equation or model function.
+
+Now thoiugh we want to compute residuals. This means that we will need to find the difference between the actual number of customers and the estimated number of customers based on the model. To do this, we will first use the *model_values* function to get the estimated values from the model. We can then subtract these estimated values from the actual values to get the residuals.
+
+Let us take it one step at a time. We first get the model values and store them in a new column of the data frame. To add a column to a data frame, we use the *mutate* function.
+
+```{r}
+kiosk |>
+    mutate(mod_val = model_values(customers ~ temperature)
+```
+The above code returns a data frame with everything from the *kiosk* data frame and an additional column named *mod_val*. For each row of *kiosk*, this column contains the estimated number of customers based on the temperature using the model we built. 
+
+@tbl-kiosk-modval-head shows the first six rows of this new data frame.
+
+|day | temperature| customers| mod_val|
+|:---|-----------:|---------:|-------:|
+|D01 |          58|        98|     105|
+|D02 |          60|       104|     107|
+|D03 |          62|       122|     110|
+|D04 |          64|       113|     113|
+|D05 |          66|       117|     116|
+|D06 |          68|       133|     119|
+
+: First six rows of the *kiosk* data frame with the additional column *mod_val* containing the model values {#tbl-kiosk-modval-head}
+
+We should first verify that this column actually contain the model values.
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+How can we independently verify that the values in the *mod_val* column are correct?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+We can build the model, construct the model function and then check the model values in a few rows.
+:::
+
+To start verifying, let us build the model and get the model function.
+
+```{r}
+kiosk|> 
+    model_train(customers ~ temperature) |>
+    coef()
+```
+
+We have seen this model before. @eq-kiosk-model-fn-2 shows the model function.
+
+$$
+\widehat{\text{customers}} = 22.0561 + 1.4222\,\,\text{temperature}
+$$ {#eq-kiosk-model-fn-2}
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+What do we use the model_train function for?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+To build a model based on the tilde expression that defines the outcome and explanatory variables. Till now we have used it to build the model and pass it off to the *coef* function to get the model coefficients.
+
+We will pass it to other functions in later chapters.
+:::
+
+For the first row of the data frame, the temperature is 58. Plugging this value into @eq-kiosk-model-fn-2 gives us the estimated number of customers as 105. This matches the value in the *mod_val* column for the first row.
+
+For the second row, hand computation by plugging the temperature into @eq-kiosk-model-fn-2 gives a model value of 118.77, rounded to 119. This matches the value in the *mod_val* column for the second row.
+
+So, that is all a residual is.
+
+Now we can add code to add the residual as a column.
+
+```{r}
+#| eval: false
+kiosk |>
+  mutate(mod_val = model_values(customers ~ temperature),
+         resid = customers - mod_val)
+```
+
+bl-kiosk-resid-head shows the first six rows of this new data frame with the additional column *resid* containing the residuals.
+
+|day | temperature| customers| mod_val| resid|
+|:---|-----------:|---------:|-------:|-----:|
+|D01 |          58|        98|     105| -6.54|
+|D02 |          60|       104|     107| -3.39|
+|D03 |          62|       122|     110| 11.77|
+|D04 |          64|       113|     113| -0.07|
+|D05 |          66|       117|     116|  1.08|
+|D06 |          68|       133|     119| 14.24|
+
+: First six rows of the *kiosk* data frame with the additional columns *mod_val* containing the model values and *resid* containing the residuals {#tbl-kiosk-resid-head}
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+What do we use the *model_values* function for?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+We use it to compute the model values for each row in the data frame. We will typically pass it on to the *mutate* function to add a new column to the data frame containing the model values, and also to comopute the residuals.
+:::
+
+The results seem a bit off because the actual numbers do not have any fractional parts while the residual does. This is just a result of rounding. The actual computations are done with more precision.
+
+We can see that the residual for the first row is -6.54. This means that the actual number of customers (98) is 6.54 less than the estimated number of customers (105) based on the model.
+

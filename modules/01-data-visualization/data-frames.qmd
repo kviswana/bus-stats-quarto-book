@@ -26,7 +26,7 @@ We store data in an R object called a *Data frame*. This chapter introduces **da
 
 ## The R Software Package for Statistics
 
-In this course, we will be using the R software package for all computations and visualizations. While R offers a great deal of functionality, we will be using a limited subset that suffices for the course topics. In particular, we will be using two specific R packages that contain all the functions and data we need for the course. You should install R and RStudio using the instructions provided in @sec-appendices. That section also shows you how to use RStudio and how to load a package -- specifically the *LSTbook* and *LSTextras* packages -- into R.
+In this course, we will be using the R software package for all computations and visualizations. While R offers a great deal of functionality, we will be using a limited subset that suffices for the course topics. In particular, we will be using two specific R packages that contain all the functions and data we need for the course. You should install R and RStudio using the instructions provided in the appendix. That section also shows you how to use RStudio and how to load a package -- specifically the *LSTbook* and *LSTextras* packages -- into R.
 
 ## R Data Frames
 
@@ -82,7 +82,7 @@ The individual values possible or allowed for a particular categorical variable 
 
 ## Data Frames in R
 
-This section teaches you how to use data frames in R. We will predominantly use data frames built in to the *LSTbook* and *LSTextras* packages. If you have not already done so, you should install R and RStudio and learn how to use RStudio using the instructions from @sec-appendices.
+This section teaches you how to use data frames in R. We will predominantly use data frames built in to the *LSTbook* and *LSTextras* packages. If you have not already done so, you should install R and RStudio and learn how to use RStudio using the instructions from the appoendix.
 
 ### Viewing the first few rows of a data frame
 

@@ -1,0 +1,7 @@
+# *Explain* as used in Statistics
+
+To assess the quality of a model, we talk about its *explanatory power*. 
+
+```{r}
+library(ggplot2)
+mean(mtcars$mpg)

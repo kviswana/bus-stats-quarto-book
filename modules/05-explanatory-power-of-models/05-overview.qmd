@@ -1,0 +1,15 @@
+# Module 5: Explanatory Power of a Model {.unnumbered}
+
+In prior modules you have learned about models, to visualize them and to express models as functions. In this module you will learn how to assess the quality of models as measured by its *explanatory power*.
+
+## Learning Goals
+
+- a
+- b
+- c
+
+## Structure of This Module
+
+- a
+- b
+- c

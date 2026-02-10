@@ -4,7 +4,7 @@ editor:
     wrap: 72
 ---
 
-# Exploring Relationships through Scatterplots
+# Exploring Relationships through Scatterplots {#sec-visualizing-relationships}
 
 This chapter covers the basics of generating and interpreting
 scatterplots.
@@ -1004,6 +1004,35 @@ y \~ x + color → color encodes the third variable
 
 y \~ x + color + facet → facet splits into panels by the fourth variable
 :::
+
+## Optional enrichment topic: Can a numerical variable be related to a categorical one?
+Yes. A numerical variable can be related to a categorical one. For
+example, in @fig-bank-account-type-balance we see that the variable
+*balance* (numerical) differs between the two categories of the variable
+*bank_account_type* (categorical). The *Savings* accounts generally
+have higher balances than *Checking* accounts.
+
+
+@fig-mpg-cty-drv-scatter shows the relationship between the city
+mileage (variable *cty*) and the drive (variable *drv*). 
+
+```{r}
+#| eval: false
+mpg |> 
+  point_plot(cty ~ drv)
+```
+We see a pattern. Front wheel drive cars have a significantly higher fuel efficiency than the other two types of drive (rear and four wheel drive).
+
+![Relationship between a numerical variable *cty* and a caytegorical variable *drv*: from the *mpg* data frame ](../../images/fig-mpg-cty-drv-scatter.png){#fig-mpg-cty-drv-scatter width=70% fig-align=center}
+
+Although there is a relationship, we do not use the correlation coefficient to quantify it. Correlation coefficients are only used for relationships between two numerical variables. Also recallthat it measure the strength of a *linear* relationship. Here, with one variable being categorical, the idea of linearity does not apply.
+
+There is another coefficient called **eta squared** (η²) that can be used to quantify the relationship between a numerical and a categorical variable. We will talk about it in a later chapter under optional enrichment topics.
+
+
+
+
+
 
 ## Mini-Review: Scatterplots and Relationships {.unnumbered}
 

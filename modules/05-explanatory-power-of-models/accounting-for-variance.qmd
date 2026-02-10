@@ -1,0 +1,19 @@
+# The Variance Equation and R-squared {#sec-variance-accounting}
+
+We have come a very long way! After learning how to build models, we saw how the model *explains* variability in the outcome variable.
+
+From this new perspective on models, we can say:
+
+::: {.callout-note}
+The purpose of a model is to *explain* the variance in the outcome variable to whatever extent it can. 
+:::
+ 
+Some models explain no variance at all in the outcome variable (our first mean models). On the other extreme, we can (theoretically) have models that explain *all* the variability in the outcome variable. This can only happen if the real-world data we are looking at miraculously has a perfect linear relationship with the explanatory variables. In the case of a single numerical explanatory variable, all the points would have to fall along a straight line. Almost all the time, models fall in-between.
+
+We will see an interesting relationship between variances in the context of linear models -- the so-called variance accounting equation. 
+
+We will see several examples of explaining variation and attach the name R-squared to a concept we have already studied.
+
+This chapter mostly reinforces what you have already learned through many examples so that you can see recurring patterns in code and in inferring the model function or model equation.
+
+

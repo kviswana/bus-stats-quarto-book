@@ -2,7 +2,33 @@
 
 Now that we have looked at the overall mean and category means as good rules for decisions (in the absence of more information), we are ready to learn about models.
 
-People use the word *model* in many senses. In one of the more common usages, a model is an approximate representation of something for some purpose.
+People use the word *model* in many senses. In one of the more common usages, a model is an approximate or simplified representation of something that is useful for some purpose.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why does this chapter emphasize that a model is meant to be *useful* rather than *true*?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Because models deliberately leave things out. Their value comes from helping us make good decisions or gain insight, not from perfectly reproducing reality.
+:::
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why is leaving things out an essential feature of a model rather than a flaw?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Leaving things out keeps the model manageable and focused. Including every detail would make the model as complex as reality itself and therefore not useful for understanding or decision-making.
+:::
+
+
 
 @fig-house and @fig-house-model show the image of a house and a miniature model of it. The miniature is a good representation of the house in some respects. For example, it depicts the overall shape and some exterior details quite accurately. If someone were about to build a new house and the architect showed them this model, they would get a good idea about the overall external appearance of the house and the color scheme as well. However, this model differs from the actual house in many ways as well -- one cannot actually step inside it! We cannot get a feel for how roomy the interior will feel. We do not know how the house will look in its actual surroundings. It is accurate in some respects and inaccurate in others.
 
@@ -12,7 +38,20 @@ People use the word *model* in many senses. In one of the more common usages, a 
 
 Should we consider the model in @fig-house-model good? In the words of statistician George E. P. Box, "All models are wrong. But some are useful for certain purposes."
 
+
 All models are wrong in the sense that they are only *representations*. However, as the miniature model of the house in @fig-house-model, they can still be useful for some purpose.
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+According to this chapter, what does it mean for a model to be “wrong”?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+A model is “wrong” because it simplifies reality and ignores many factors. This is unavoidable and not a flaw—as long as the model is useful for the purpose at hand.
+:::
 
 We will be building many models in this course and should remember the following:
 
@@ -36,7 +75,20 @@ homes |>
   head()
 ```
 
-We might build a model to determine the value of *price* given the values of one or more of the other variables. In this case, let us use the variable *floor_area_sqft*. Remember, this is a model and so we do not expect it be be exact. We do not aim for the model to determine the actual *price*, but only to compute a good *estimate* of the *price*. (We have obviously simplified the situation for pedagogical purposes. House prices depend on many other factors. But that need not hold us back. You will still learn the underlying concepts.). 
+We might build a model to determine the value of *price* given the values of one or more of the other variables. In this case, let us use the variable *floor_area_sqft*. Remember, this is a model and so we do not expect it be be exact. We do not aim for the model to determine the actual *price*, but only to compute a good *estimate* of the *price* that works well on average across many repetitions. (We have obviously simplified the situation for pedagogical purposes. House prices depend on many other factors. But that need not hold us back. You will still learn the underlying concepts.). 
+
+::: {.callout-note icon="false"}
+## Quick Check {.unnumbered}
+
+Why does making a decision under uncertainty require thinking about *many possible outcomes*, not just one?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Suggested answer {.unnumbered}
+
+Because the decision must be chosen *before* knowing which outcome will occur. A good decision performs reasonably well across all plausible outcomes, not just a single case.
+:::
+
 
 What might the model look like? @eq-price-model shows the model. *For now, do not worry about how we arrived the model.*
 
@@ -47,15 +99,68 @@ $$ {#eq-price-model}
 
 In the model, we have placed a *hat* over *price* because the model computes not the actual price of a home with the specified floor area and instead only computes an estimate. In statistics, we place a *hat* over quantities that estimate other quantities.
 
+
 @eq-price-model shows a *linear* model. We call it *linear* because all variables are only raised to the fist power. We have not squared or raised a variable to any other power. In this course we build only *linear models*.
 
 We call the equation that @eq-price-model shows a **model function**. 
 
+Once we have a model function, we can compute model estimates for given inputs. For example, @eq-price-model says that the estimated price for a home with 1000 sq-ft is: 
+
+61,399 + 394*1,000 = 455,399
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+If I have a model (don't take this model seriously) for computing an estimated value for a person's height based on their weight as: estimated height (in cm) = 120 plus 0.6 times the weight (in kg). Write out the model function as an equation.
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+$$
+\widehat{\text{Height (cm)}} = 120 + 0.6 \, \text{Weight (kg)}
+$$
+:::
+
 In our context, we use the term *model* to denote a mathematical equation of the kind that @eq-price-model shows. Our models help us to determine the value of a variable in a data frame for any given instance. Specifically, in the house price example that we just considered, the model in @eq-price-model enables us to estimate the *price* of a home, given its floor area.
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+Using the same model equation to link the height of a person to their weight:
+
+$$
+\widehat{\text{Height (cm)}} = 120 + 0.6 \, \text{Weight (kg)}
+$$
+
+What is the estimated weight of a person who weighs 70 kgs?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+120 + 0.6*70 = 162 cm
+:::
+
 
 ### *Response* and *Explanatory* variables
 
-We call the variable whose value the model estimates as the *response* variable. The variables based on which the model estimates the *response* variable are called *explanatory* variables. We can also refer to the *response* variable as the *dependent* variable, and *explanatory* variables as *independent* variables.
+We call the variable whose value the model estimates the *response* variable. The variables based on which the model estimates the *response* variable are called *explanatory* variables. We can also refer to the *response* variable as the *dependent* variable, and *explanatory* variables as *independent* variables.
+
+In this course we use the terms *response variable* and *explanatory variables*. @tbl-response-explanatory-other-names shows several other terms for these used in different disciplines or application areas.
+
+| **Response Variable** | **Explanatory Variable** | **Common Usage / Context** |
+|:----------------------|:-------------------------|:---------------------------|
+| Dependent variable    | Independent variable     | Traditional statistics and regression terminology |
+| Outcome variable      | Predictor variable       | Applied statistics, social sciences, medical studies |
+| Target variable       | Input variable           | Machine learning and predictive modeling |
+| Output variable       | Feature                  | Data science and ML pipelines |
+| Y variable            | X variable               | Algebraic and mathematical notation |
+| Response              | Covariate                | Regression modeling and econometrics |
+| Effect                | Regressor                | Causal modeling and econometric contexts |
+
+: Other commonly used names for *response* and *explanatory* variables in various areas {#tbl-response-explanatory-other-names}
+
 
 ### Using the model
 
@@ -67,7 +172,7 @@ You should try out some more cases and wee how the model does. We will learn a l
 
 I won't blame you if you are wondering "We already have the prices in the data frame. Why do we need a model to calculate these?"
 
-Consider again the home in the fifth row. Why did the model overestimate the price? Well, you should consider that this particular home was not the only one whose floor area was in the vicinity of 1480. The data set has other homes with similar floor areas and their prices vary. If we look at homes that have floor areas between 1430 and 1530, we see that their prices range from \$553,000 to \$647,000. In fact, many homes below 1480 square feet in floor area have higher prices. How could that be? Well, variables other than floor area play a role in price too. So our model makes an estimate based on the whole data frame.
+Consider again the home in the fifth row. Why did the model overestimate the price? Well, you should consider that this particular home was not the only one whose floor area was in the vicinity of 1480. The data set has other homes with similar floor areas and their prices vary. If we look at homes that have floor areas between 1430 and 1530, we see that their prices range from \$553,000 to \$647,000. Our model makes an estimate based on the whole data frame. In fact, many homes below 1480 square feet in floor area have higher prices. How could that be? Well, variables other than floor area play a role in price too. We should not make the mistake of thinking that our models have all the necessary information. Recall that a model is a simplification for a specific purpose.
 
 The next section addresses two main uses of models.
 
