@@ -311,7 +311,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/04-more-on-models/visualizing-models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -358,7 +358,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/05-explanatory-power-of-models/accounting-for-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and R-squared</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and <span class="math inline">\(R^2\)</span></span></span></a>
   </div>
 </li>
       </ul>
@@ -408,12 +408,40 @@ window.Quarto = {
 <section id="business-scenario-fuel-efficiency-of-vehicle-fleet" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="business-scenario-fuel-efficiency-of-vehicle-fleet"><span class="header-section-number">8.1</span> Business scenario – fuel efficiency of vehicle fleet</h2>
 <p>In <a href="path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a>, we used a set of numbers to play a game. Now we will extend the idea to actual data frames.</p>
-<p>You manage a company that operates a fleet of rental cars used primarily for city driving. The fleet includes a wide range of vehicles, from compact sedans to larger SUVs, each with different city fuel efficiency.</p>
-<p>For planning purposes, the company must commit to one single number to represent the expected city fuel efficiency of a car drawn at random from the fleet. This number is used repeatedly—for estimating fuel costs, setting reimbursement rates, and budgeting operating expenses.</p>
-<p>The company does not know in advance which specific car will be rented on a given day. Some days the car will be more fuel-efficient than expected, and on other days less fuel-efficient.</p>
-<p>If the company assumes fuel efficiency that is too high, it underestimates fuel costs. If it assumes fuel efficiency that is too low, it overestimates costs and ties up capital unnecessarily. Larger errors in either direction are more costly than smaller ones.</p>
-<p>The decision is not evaluated based on a single rental. Instead, it is judged by how well it performs across many rentals over time.</p>
-<p>In this setting, the question becomes: “What single number should the company commit to so that total long-run cost is as small as possible?”</p>
+<p>You manage the vehicle fleet for a city municipal agency. The fleet includes a wide range of vehicles—from fuel-efficient subcompacts used by building inspectors to pickup trucks used by maintenance crews.</p>
+<p>Employees drive these vehicles for work-related tasks throughout the city. While the total distance driven each month remains fairly constant (around 50,000 miles), the mix of vehicles used varies considerably. During some months, smaller cars dominate as inspection work increases. During others, larger vehicles see heavier use when maintenance and construction projects ramp up. It is hard to predict this.</p>
+<p>Each month, you must submit a fuel budget request to the city controller’s office at the beginning of the month—before you know which specific vehicles will be assigned to which tasks. You have a very good estimate for the total miles that will be driven, but you need to estimate how much fuel will be consumed.</p>
+<p>For this estimate, you need to commit to a single number: the expected city fuel efficiency (in miles per gallon) for a vehicle drawn from your fleet. If you estimate too high, you’ll run out of budget mid-month. If you estimate too low, you’ll tie up funds that could be used elsewhere.</p>
+<p>What single number should you use?</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the “best model” when you have no explanatory variable?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The overall mean of the outcome variable is the best model when you have no explanatory variable.</p>
+</div>
+</div>
+</div>
 <p>The data about your fleet is in the <em>mpg</em> data. It has many variables, but we focus here on the variable <em>cty</em> showing us the city miles per gallon of each car.</p>
 <p>Assuming (artificially) that the company is only allowed to use the variable <em>cty</em> what single number should they commit to?</p>
 <section id="committing-to-one-number-for-the-entire-fleet" class="level3" data-number="8.1.1">
@@ -464,11 +492,249 @@ Figure&nbsp;8.1: Visualizing mean <em>cty</em> as the model
 \widehat{\text{cty}} = 16.9
 \tag{8.1}\]</span></span></p>
 <p>We placed a <em>hat</em> on <em>cty</em> because this is just an estimate or a model value and not an actual data point.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The data frame also has a column for highway mileage. If they had to estimate a single value for the highway mileage how would the tilde expression in the above code change?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It will become:</p>
+<p>hwy ~ 1</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="we-can-do-better-with-more-information" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="we-can-do-better-with-more-information"><span class="header-section-number">8.2</span> We can do better with more information</h2>
-<p>Instead of having to commit to one single number for the fuel efficiency for the entire fleet, what if we could use a different number for each class of vehicle? In out <em>mpg</em> data set, we have vehicles of different classes – variable <em>class</em>. This has values like <em>Compact</em>, <em>SUV</em> and <em>Pickup truck</em>.</p>
+<p>AFter using the model in <a href="#eq-cty-model" class="quarto-xref">Equation&nbsp;<span>8.1</span></a> for a few months, the controller’s office saw big discrepancies between actual fuel costs and the estimated costs. They have asked you to come up with ways to improve this estimate.</p>
+<p>You wre always queasy about the single number idea that the controller’s office had imposed on you and had been thinking about a better way. You had done some data analysis and figured out that the vehicle usage by class across the months is also quite predictable based on various tasks that happen in the city. You found the following:</p>
+<ul>
+<li>Winter months (Jan, Feb, Nov, Dec) have higher pickup and SUV usage (snow removal, winter maintenance)</li>
+<li>Spring/Summer months (Mar-Jun) have higher compact and midsize usage (inspections, routine tasks)</li>
+<li>2seaters remain consistently low (specialty use)</li>
+<li>Minivans show moderate variation (transporting crews/equipment)</li>
+</ul>
+<p>So, for any month you can say with great confidence how many miles will be drive=n by vehicles of each class. <a href="#tbl-miles-by-class" class="quarto-xref">Table&nbsp;<span>8.1</span></a> shows the data.</p>
+<div id="tbl-miles-by-class" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-miles-by-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8.1: Vehicle miles for each month by class
+</figcaption>
+<div aria-describedby="tbl-miles-by-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Month</th>
+<th>compact</th>
+<th>midsize</th>
+<th>suv</th>
+<th>2seater</th>
+<th>minivan</th>
+<th>pickup</th>
+<th>subcompact</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Jan</td>
+<td>8000</td>
+<td>7000</td>
+<td>12000</td>
+<td>1000</td>
+<td>3000</td>
+<td>15000</td>
+<td>4000</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>Feb</td>
+<td>9000</td>
+<td>8000</td>
+<td>10000</td>
+<td>1000</td>
+<td>4000</td>
+<td>13000</td>
+<td>5000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>Mar</td>
+<td>11000</td>
+<td>9000</td>
+<td>8000</td>
+<td>2000</td>
+<td>5000</td>
+<td>10000</td>
+<td>5000</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>Apr</td>
+<td>13000</td>
+<td>10000</td>
+<td>6000</td>
+<td>2000</td>
+<td>6000</td>
+<td>8000</td>
+<td>5000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>May</td>
+<td>12000</td>
+<td>11000</td>
+<td>7000</td>
+<td>3000</td>
+<td>5000</td>
+<td>7000</td>
+<td>5000</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>Jun</td>
+<td>10000</td>
+<td>12000</td>
+<td>9000</td>
+<td>3000</td>
+<td>4000</td>
+<td>7000</td>
+<td>5000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>Jul</td>
+<td>9000</td>
+<td>11000</td>
+<td>10000</td>
+<td>3000</td>
+<td>5000</td>
+<td>8000</td>
+<td>4000</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>Aug</td>
+<td>10000</td>
+<td>10000</td>
+<td>11000</td>
+<td>2000</td>
+<td>6000</td>
+<td>9000</td>
+<td>2000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>Sep</td>
+<td>12000</td>
+<td>9000</td>
+<td>9000</td>
+<td>2000</td>
+<td>7000</td>
+<td>8000</td>
+<td>3000</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>Oct</td>
+<td>11000</td>
+<td>8000</td>
+<td>10000</td>
+<td>1000</td>
+<td>6000</td>
+<td>11000</td>
+<td>3000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>Nov</td>
+<td>9000</td>
+<td>7000</td>
+<td>11000</td>
+<td>1000</td>
+<td>5000</td>
+<td>13000</td>
+<td>4000</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>Dec</td>
+<td>7000</td>
+<td>6000</td>
+<td>13000</td>
+<td>1000</td>
+<td>4000</td>
+<td>14000</td>
+<td>5000</td>
+<td>50000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Now, instead of having to use a single number for the entire fleet, you can provide a separate fuel efficiency number for each class of vehicle in the fleet. Then using <span class="quarto-unresolved-ref">?tbl-tbl-miles-by-class</span>, you can compute a better estimate for fuel consumption.</p>
+<p>Instead of having to commit to one single number for the fuel efficiency for the entire fleet, what if we could use a different number for each class of vehicle? In our <em>mpg</em> data set, we have vehicles of different classes – variable <em>class</em>. This has values like <em>Compact</em>, <em>SUV</em> and <em>Pickup truck</em>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the previous example, we were mot allowed to use any explanatory variables. Now that we can use a separate <em>cty</em> estimate cor each class of vehicle, what should it be for each class?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For each class, we should use its average <em>cty</em> as the estimate for the class.</p>
+</div>
+</div>
+</div>
 <p>Based on <a href="category-means-story.html" class="quarto-xref"><span>Chapter 6</span></a>, we know that for each class of vehicle, we should commit to the average of <em>cty</em> for that class.</p>
 <p>We can compute these averages easily:</p>
 <div class="cell">
@@ -484,7 +750,7 @@ Figure&nbsp;8.1: Visualizing mean <em>cty</em> as the model
 </div>
 <p>Note how the above code is very similar to what we would use for computing the overall average, but we have added:</p>
 <pre><code>.by = class</code></pre>
-<p>To show that we do not want just one average for the whole data frame, but we want separate averages for each <em>class</em> of vehicle. As simple as that!</p>
+<p>to show that we do not want just one average for the whole data frame, but we want separate averages for each <em>class</em> of vehicle. As simple as that!</p>
 <p>Let us visualize this model:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
@@ -516,7 +782,32 @@ Figure&nbsp;8.2: Visualizing the more sophisticated model of mean <em>cty</em> b
 20.4 &amp; \text{if } \text{class} = \text{"subcompact"}
 \end{cases}
 \tag{8.2}\]</span></span></p>
-<p>Instead of class, we can have <em>drv</em> as the explanatory variable as well. Here are code snippets that will compute the model and plot it.</p>
+<p>Now you can use <a href="#eq-cty-class-model" class="quarto-xref">Equation&nbsp;<span>8.2</span></a> and <a href="#tbl-miles-by-class" class="quarto-xref">Table&nbsp;<span>8.1</span></a> to provide monthly estimated fuel consumption data to the controller’s office.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If instead of class, we had <em>drv</em> as the explanatory variable, write the code and construct the model function.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_cty =</span> <span class="fu">mean</span>(cty), <span class="at">.by =</span> drv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -555,12 +846,73 @@ Figure&nbsp;8.3: Visualizing the model of mean <em>cty</em> by <em>drv</em> as t
 14.1 &amp; \text{if } \text{drv} = \text{"r"} \\
 \end{cases}
 \tag{8.3}\]</span></span></p>
-<p>The <em>mpg</em> data frame has another column <em>fl</em> to represent the fuel type of the vehicle. We now want to use <em>fl</em> as the explanatory variable. Try out the following using the above as examples.</p>
-<ul>
-<li>Write R code to compute the average of <em>cty</em> for each fuel type</li>
-<li>Write R code to visualize the model with <em>cty</em> as the response variable and <em>fl</em> as the explanatory variable.</li>
-<li>Write out the model equation for this scenario.</li>
-</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Instead of class, we can have the fuel type <em>fl</em> as the explanatory variable as well. Show the R code to compute the average <em>cty</em> for each fuel type, plot the model and write the model function and visualize the model.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_cty =</span> <span class="fu">mean</span>(cty), <span class="at">.by =</span> fl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["fl"],"name":[1],"type":["chr"],"align":["left"]},{"label":["avg_cty"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"p","2":"17.37"},{"1":"r","2":"16.74"},{"1":"e","2":"9.75"},{"1":"d","2":"25.60"},{"1":"c","2":"24.00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+\widehat{\text{cty}} =
+\begin{cases}
+17.4 &amp; \text{if } \text{fl} = \text{"p"} \\
+16.7 &amp; \text{if } \text{fl} = \text{"r"} \\
+9.75 &amp; \text{if } \text{fl} = \text{"e"} \\
+25.6 &amp; \text{if } \text{fl} = \text{"d"} \\
+24 &amp; \text{if } \text{fl} = \text{"c"} \\
+\end{cases}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(cty <span class="sc">~</span> fl, <span class="at">annot =</span> <span class="st">"model"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">interval =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-cty-fl-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cty-fl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-cty-fl-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cty-fl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.4: Model for <em>cty</em> with <em>fl</em> as explanatory variablew
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>

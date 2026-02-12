@@ -311,7 +311,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/04-more-on-models/visualizing-models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -358,7 +358,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/05-explanatory-power-of-models/accounting-for-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and R-squared</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and <span class="math inline">\(R^2\)</span></span></span></a>
   </div>
 </li>
       </ul>
@@ -408,7 +408,7 @@ window.Quarto = {
 </header>
 
 
-<p>Our journey so far has introduced the idea of models and shown us the intuition, and rationale behind models. We have also seen how to visualize the models. However, we have not lingered too much on systematically building models and reconstructing the model function from what R shows us about the models.</p>
+<p>Our journey so far has introduced the idea of models and shown us the intuition, and rationale behind models. We have also seen how to visualize the models. However, although we have seen in bits and pieces how we build models and reconstruct the model function from the R output, we have not given it focussed attention.</p>
 <p>This chapter closes the loop.</p>
 <section id="finding-the-model-function-for-models-with-no-explanatory-variables" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="finding-the-model-function-for-models-with-no-explanatory-variables"><span class="header-section-number">11.1</span> Finding the model function for models with no explanatory variables</h2>
@@ -544,9 +544,9 @@ or the native R model-reporting functions.</code></pre>
 <p><span id="eq-txhousing-listings-mean-model-copy"><span class="math display">\[
 \widehat{\text{listings}} = 3217
 \tag{11.2}\]</span></span></p>
-<p>You night recall from <a href="line-of-best-fit-story.html" class="quarto-xref"><span>Chapter 9</span></a> that in general when we have a single explanatory variable, we are trying to find the best values for <em>a</em> and <em>b</em> in an equation of the from that <a href="#eq-generic" class="quarto-xref">Equation&nbsp;<span>11.3</span></a> provides to compute an estimated value for the outcome variable (hence the <em>hat</em>)</p>
+<p>You might recall from <a href="line-of-best-fit-story.html" class="quarto-xref"><span>Chapter 9</span></a> that in general when we have a single explanatory variable, we are trying to find the best values for <em>a</em> and <em>b</em> in an equation of the from that <a href="#eq-generic" class="quarto-xref">Equation&nbsp;<span>11.3</span></a> provides to compute an estimated value for the outcome variable (hence the <em>hat</em>)</p>
 <p><span id="eq-generic"><span class="math display">\[
-\widehat{\text{outcome}} = a + b\,\,\text{explanatory\_var}
+\widehat{\text{outcome}} = a + b\times\text{explanatory\_var}
 \tag{11.3}\]</span></span></p>
 <p>The <em>intercept</em> in the model coefficients output by the <em>coef</em> function corresponds to <em>a</em>. If there is another coefficient in the output that corresponds to <em>b</em>. In the current example we have only the <em>intercept</em> and no other coefficient and so we use only <em>a</em> in reconstructing the model function as <a href="#eq-txhousing-listings-mean-model-copy" class="quarto-xref">Equation&nbsp;<span>11.2</span></a>.</p>
 <p>Let us consider another example using the <em>mpg</em> data frame. We will now build a model for <em>cty</em> with no explanatory variables.</p>
@@ -588,11 +588,11 @@ Suggested answer
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If a company had a fleet of cars and needed to estimate something based on the city mileage of the fleet as a whole and we had to settle on juse a single representative number for the whole fleet, then the average would be the best – assuming again that bigger errors are more heavily penalized.</p>
+<p>If a company had a fleet of cars and needed to estimate something based on the city mileage of the fleet as a whole and we had to settle on just a single representative number for the whole fleet, then the average would be the best – assuming again that bigger errors are more heavily penalized.</p>
 </div>
 </div>
 </div>
-<p>Let us close out with another example from the <em>Anthro_F</em> data frame to predict body fat (variable *BFat) with no explanatory variables.</p>
+<p>Let us close out with another example from the <em>Anthro_F</em> data frame to estimate body fat (variable *BFat) with no explanatory variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Anthro_F <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model_train</span>(BFat <span class="sc">~</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
@@ -763,7 +763,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>WHich account tyoe will it treat as the base? <em>Checking</em> or <em>Savings</em>?</p>
+<p>Which account type will it treat as the base? <em>Checking</em> or <em>Savings</em>?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -813,9 +813,9 @@ Steps to build the model function for models with one categorical explanatory va
 \widehat{\text{outcome}} =
 \begin{cases}
 intercept &amp; \text{if } \text{explanatory variable} = \text{base category} \\
-intercept &amp; + \,\text{coef1} \, \text{if } \text{explanatory variable} = \text{"category 1"} \\
-intercept &amp; +\, \text{coef2} \, \text{if } \text{explanatory variable} = \text{"category 2"} \\
-intercept &amp; +\, \text{coef3} \, \text{if } \text{explanatory variable} = \text{"category 3"}
+intercept &amp; + \,\text{coef1} \,\, \text{if } \text{explanatory variable} = \text{"category 1"} \\
+intercept &amp; +\, \text{coef2} \,\, \text{if } \text{explanatory variable} = \text{"category 2"} \\
+intercept &amp; +\, \text{coef3} \,\, \text{if } \text{explanatory variable} = \text{"category 3"}
 \end{cases}
 \]</span></li>
 </ol>
@@ -839,7 +839,7 @@ intercept &amp; +\, \text{coef3} \, \text{if } \text{explanatory variable} = \te
 <p>As before, we substitute the “intercept* for <em>a</em> and in the case of a numerical explanatory variable, we substitute the other coefficient for <em>b</em>.</p>
 <p><a href="#eq-mpg-hwy-displ-model" class="quarto-xref">Equation&nbsp;<span>11.9</span></a> shows the model function.</p>
 <p><span id="eq-mpg-hwy-displ-model"><span class="math display">\[
-\widehat{\text{hwy}} = 36 - 3.5\, \text{displ}
+\widehat{\text{hwy}} = 36 - 3.5\times \text{displ}
 \tag{11.9}\]</span></span></p>
 <p>Let us see another example. We use the <em>Hill_racing</em> data frame to build a model with <em>time</em> (finishing time measured in seconds) as the outcome variable, and)<em>distance</em> (measured in km) as the explanatory variable.</p>
 <div class="cell">
@@ -854,14 +854,14 @@ intercept &amp; +\, \text{coef3} \, \text{if } \text{explanatory variable} = \te
 <p>We see that the <em>intercept</em> is -211. The coefficient for <em>distance</em> is 381.</p>
 <p>Let us build the model function before talking about the crazy-seeming negative <em>intercept</em>.</p>
 <p><span id="eq-hill-racing-time-distance-model"><span class="math display">\[
-\widehat{\text{time}} = -211 + 381\, \text{distance}
+\widehat{\text{time}} = -211 + 381\times \text{distance}
 \tag{11.10}\]</span></span></p>
 <p>Does it make sense that the coefficient for <em>distance</em> is positive? Per <a href="#eq-hill-racing-time-distance-model" class="quarto-xref">Equation&nbsp;<span>11.10</span></a>, as <em>distance</em> increases, the estimated <em>time</em> will increase. This makes sense.</p>
 <p>What about the <em>intercept</em> of -211?</p>
 <p>From <a href="#eq-hill-racing-time-distance-model" class="quarto-xref">Equation&nbsp;<span>11.10</span></a>, we see that if there is a hypothetical race with distance of 0 km, then the model says that people will finish the race 211 seconds before the race starts!</p>
-<p>Obviously that makes no sense as time works in the normal world. SO what is going on?</p>
-<p>Models are approximate and we can only expect reasonable results within the range of data on which they were built. We need to be wary of interpreting models very outside of their scope. In our dataset, the shortest race is 1.1 km and the average is 10.7 km.</p>
-<p>For the 1.,1 km race, the model predicts a time of 208 seconds or around 3.5 minutes, which seems reasonable – given that these are “hill” races.</p>
+<p>Obviously that makes no sense if time works as it does in the normal world. What is going on?</p>
+<p>Models are approximate and we can only expect reasonable results within the range of data on which they were built. We need to be wary of interpreting models outside of their scope. In our dataset, the shortest race is 1.1 km and the average is 10.7 km.</p>
+<p>For the 1.1 km race, the model predicts a time of 208 seconds or around 3.5 minutes, which seems reasonable – given that these are “hill” races.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -908,7 +908,7 @@ Steps to build the model function for models with one numerical explanatory vari
 <li>Note the <em>intercept</em> and the <em>coefficient</em> for the explanatory variable (expl_coeff)</li>
 <li>Construct the model function by substituting the name of the outcome variable, and the value of the intercept in the following equation.</li>
 <li>Then add conditions for each additional category suitably substituting the appropriate category names. <span class="math display">\[
-\widehat{\text{outcome}} = \text{intercept} + \text{expl\_var\_coeff}\,\,\text{explanatory variable}
+\widehat{\text{outcome}} = \text{intercept} + \text{expl\_var\_coeff}\times\text{explanatory variable}
 \]</span></li>
 </ol>
 </div>
@@ -1319,8 +1319,8 @@ Steps to build the model function for models with one numerical explanatory vari
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../modules/04-more-on-models/visualizing-models.html" class="pagination-link" aria-label="Visualizing models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing models</span></span>
+      <a href="../../modules/04-more-on-models/visualizing-models.html" class="pagination-link" aria-label="Visualizing Models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
