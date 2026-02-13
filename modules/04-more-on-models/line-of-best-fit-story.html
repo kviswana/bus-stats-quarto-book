@@ -78,11 +78,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-6598efebc0fc82f63c3510b9ac47738c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -139,10 +139,34 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction to Business Statistics: A Modeling Approach</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/kviswana/bus-stats-quarto-book/issues/new?title=Book%20issue%20report&amp;labels=bug&amp;body=Page%20URL%3A%20%0A%0ASection%20Title%3A%20%0ADescribe%20the%20issue%3A%20%0A%0AIf%20this%20is%20a%20typo%2C%20please%20suggest%20a%20fix%3A%20" target="_blank"> <i class="bi bi-bug" role="img">
+</i> 
+<span class="menu-text">Report a bug</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -151,29 +175,18 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/04-overview.html">More on models – least squares</a></li><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/line-of-best-fit-story.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line of Best Fit</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../../index.html" class="sidebar-logo-link">
       <img src="../../images/logo-dark.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Introduction to Business Statistics: A Modeling Approach</a> 
-    </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -380,6 +393,12 @@ window.Quarto = {
   </ul></li>
   <li><a href="#visualizing-the-model" id="toc-visualizing-the-model" class="nav-link" data-scroll-target="#visualizing-the-model"><span class="header-section-number">9.2</span> Visualizing the model</a></li>
   <li><a href="#what-do-we-mean-by-the-best-model" id="toc-what-do-we-mean-by-the-best-model" class="nav-link" data-scroll-target="#what-do-we-mean-by-the-best-model"><span class="header-section-number">9.3</span> What do we mean by the <em>best</em> model?</a></li>
+  <li><a href="#optional-enrichment-topic-beyond-straight-lines" id="toc-optional-enrichment-topic-beyond-straight-lines" class="nav-link" data-scroll-target="#optional-enrichment-topic-beyond-straight-lines"><span class="header-section-number">9.4</span> Optional enrichment topic: Beyond straight lines</a>
+  <ul class="collapse">
+  <li><a href="#when-a-straight-line-may-not-be-appropriate" id="toc-when-a-straight-line-may-not-be-appropriate" class="nav-link" data-scroll-target="#when-a-straight-line-may-not-be-appropriate"><span class="header-section-number">9.4.1</span> When a straight line may not be appropriate</a></li>
+  <li><a href="#a-flexible-alternative-lowess-smoothing" id="toc-a-flexible-alternative-lowess-smoothing" class="nav-link" data-scroll-target="#a-flexible-alternative-lowess-smoothing"><span class="header-section-number">9.4.2</span> A flexible alternative: LOWESS smoothing</a></li>
+  <li><a href="#models-as-choices-not-defaults" id="toc-models-as-choices-not-defaults" class="nav-link" data-scroll-target="#models-as-choices-not-defaults"><span class="header-section-number">9.4.3</span> Models as choices, not defaults</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -675,7 +694,7 @@ Figure&nbsp;9.1: Model that takes a temperature as input and produces a predicte
 <img src="../../images/fig-specific-beach-kiosk-model-box.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-specific-beach-kiosk-model-box-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.2: Caption
+Figure&nbsp;9.2: Peter’s example model for a model to estimate customers based on temperature
 </figcaption>
 </figure>
 </div>
@@ -720,7 +739,7 @@ b &amp; \text{if } x &lt; \text{temperature} \leq y \\
 c &amp; \text{if } \text{temperature} &gt; y
 \end{cases}
 \]</span></p>
-<p>… and a model does not even have to have a mathematical form like the ones above. **Any method that can take a <em>temperature</em> as input and produce an estimated number of customers can be a model.</p>
+<p>… and a model does not even have to have a mathematical form like the ones above. <strong>Any method that can take a <em>temperature</em> as input and produce an estimated number of customers can be a model</strong>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -737,30 +756,38 @@ Important
 <p>Fields like <em>machine learning</em> consider many other types of models.</p>
 </div>
 </div>
-<p>Angela says “That’s a great idea Peter! Amanda wanted something simple. Of course we gave her very simple models earlier too, but now we have to incorporate <em>temperature</em> and I cannot imagine something that is adjusts its predictions to the temperature and is simpler than what Peter has shown.”</p>
-<p>“If we fix the values of <em>a</em> and <em>b</em>, eq-kiosk-cust-temp-model produces a predicted number of customers for any temperature. For example, if we fix a value of 15 for <em>a</em> and 2 for <em>b</em> as Peter did before, then <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> shows our model to determine the number of customers for any temperature. If we plug in a temperature of 70, the model will give us 155 as the estimated number of customers.”</p>
+<p>Angela says “That’s a great idea Peter! Amanda wanted something simple. Of course we gave her very simple models earlier too, but now we have to incorporate <em>temperature</em> and I cannot imagine something that adjusts its predictions to the temperature and is simpler than what Peter has shown.”</p>
+<p>“If we fix the values of <em>a</em> and <em>b</em>, <a href="#eq-kiosk-cust-temp-model" class="quarto-xref">Equation&nbsp;<span>9.1</span></a> produces a predicted number of customers for any temperature. For example, if we fix a value of 15 for <em>a</em> and 2 for <em>b</em> as Peter did before, then <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> shows our model to determine the number of customers for any temperature. If we plug in a temperature of 70, the model will give us 155 as the estimated number of customers.”</p>
 <p><span id="eq-kiosk-cust-temp-model-specific"><span class="math display">\[
 \widehat{\text{customers}} = 15 +  2\times\text{temperature}
 \tag{9.3}\]</span></span></p>
 <p>Igor says “I like this idea too. Its prediction changes smoothly as temperature changes, and it avoids arbitrary cutoffs.”</p>
 <p>Dave sounds a cautionary note “This is all great guys, but how do we find the <em>best</em> values for <em>a</em> and <em>b</em>? And what do we mean by <em>good</em> choices?”</p>
 <p>Suzie: “I have an idea about how we might define <em>good</em>. Suppose we have a model – let us say for the time being that we use <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a>. That is, given any temperature, we plug it into <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> and it spits out the estimated number of customers.</p>
-<p>Suppose we plug in 66 for temperature. <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> says the number of customers is 15 + 2*66, or 147. In our data, the number of customers for 66 degrees is 117 for one of the rows where the temperature is 66.”</p>
+<p>Suppose we plug in 66 for temperature. <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> says the number of customers is 15 + 2*66, or 147. In our data, the number of customers for 66 degrees is 117 for one of the rows where the temperature is 66. So the model’s estimate is off by 30.”</p>
 <p>David’s eyes light up “Oh, we can treat this just like we did earlier and get the penalty by squaring!. This penalty will become 30*30, or 900 for that one row.”</p>
 <p>Igor then observes “For any given value of <em>a</em> and <em>b</em>, we can compute the penalty corresponding to each row of the data. With <em>a</em> = 15 and <em>b</em> = 2, we can compute the penalties for each row.” He then worked for a few minutes to come up with penalties for all the rows of <a href="#tbl-temp-customers" class="quarto-xref">Table&nbsp;<span>9.1</span></a> and came up with <a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>.</p>
 <div id="tbl-igor-computations-for-15-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-igor-computations-for-15-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;9.2: Igor’s computations: For each row he plugged in the temperature into <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> and computed est_customers (estimated customers by <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a>) and then computed the squared difference between the actual value of <em>customers</em> and <em>est_customers</em>
+Table&nbsp;9.2: Igor’s computations: For each row he plugged in the temperature into <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> and computed <span class="math inline">\(\widehat{\text{customers}}\)</span> and then computed the squared difference between the actual value of <em>customers</em> and <span class="math inline">\(\widehat{\text{customers}}\)</span>
 </figcaption>
 <div aria-describedby="tbl-igor-computations-for-15-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 22%">
+<col style="width: 18%">
+<col style="width: 26%">
+<col style="width: 9%">
+<col style="width: 15%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">day</th>
 <th style="text-align: right;">temperature</th>
 <th style="text-align: right;">customers</th>
-<th style="text-align: right;">est_customers</th>
+<th style="text-align: right;"><span class="math inline">\(\widehat{\text{customers}}\)</span></th>
 <th style="text-align: right;">diff</th>
 <th style="text-align: right;">penalty</th>
 </tr>
@@ -971,14 +998,14 @@ Table&nbsp;9.2: Igor’s computations: For each row he plugged in the temperatur
 </div>
 </figure>
 </div>
-<p>Angela said: “Well the total penalty is 28,312. How do we know if different values for <em>a</em> and <em>b</em> can give us a lower penalty?. In earlier weeks we only had to try different values for one thing. Here we have two things <em>a</em> and <em>b</em> to think about. What do we do?”</p>
-<p>Suzie says: “But we have made progress. We have at least clearly defined the problem. We need to find the values for <em>a</em> and <em>b</em> that will give us the lowest possible total penalty along the lines of Igor’s <a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>. That is, we try many different values for &amp;<em>a</em> and <em>b</em> and compute Igor’s table (<a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>) for that combination. We then select the combination taht produces the lowest total penalty. We want the lowest total penalty because that will mean that we have got the model predictions as close as we can to the real values in the data.”</p>
-<p>Peter says “Hey, this reminds me of something I saw my dad doing for his work. He always says that visualizing makes things easier. WHy don’t we try that first?””</p>
+<p>Angela says: “Well the total penalty is 28,312. How do we know if different values for <em>a</em> and <em>b</em> can give us a lower penalty? In earlier weeks we only had to try different values for one thing. Here we have two things <em>a</em> and <em>b</em> to think about. What do we do?”</p>
+<p>Suzie says: “But we have made progress. We have at least clearly defined the problem. We need to find the values for <em>a</em> and <em>b</em> that will give us the lowest possible total penalty along the lines of Igor’s <a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>. That is, we try many different values for &amp;<em>a</em> and <em>b</em> and compute Igor’s table (<a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>) for that combination. We then select the combination that produces the lowest total penalty. We want the lowest total penalty because that will mean that we have got the model estimates as close as we can to the real values in the data.”</p>
+<p>Peter says “Hey, this reminds me of something I saw my dad doing for his work. He always says that visualizing makes things easier. Why don’t we try that first?””</p>
 </section>
 </section>
 <section id="visualizing-the-model" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="visualizing-the-model"><span class="header-section-number">9.2</span> Visualizing the model</h2>
-<p>Peter continued: “Graphically, <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> represents a straight line. Let us generate a scatter plot of the data first.” He wrote come code and generated <a href="#fig-kiosk-temp-cust-scatter" class="quarto-xref">Figure&nbsp;<span>9.4</span></a> which showed the relationship between <em>temperature</em> and <em>customers</em>.</p>
+<p>Peter continues: “Graphically, <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> represents a straight line. Let us generate a scatterplot of the data first.” He writes come code and generates <a href="#fig-kiosk-temp-cust-scatter" class="quarto-xref">Figure&nbsp;<span>9.4</span></a> which shows the relationship between <em>temperature</em> and <em>customers</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>kiosk <span class="sc">|&gt;</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(customers <span class="sc">~</span> temperature)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1003,7 +1030,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Looking at the scatter plot of temperature versus customers <a href="#fig-kiosk-temp-cust-scatter" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>:</p>
+<p>Looking at the scatterplot of temperature versus customers <a href="#fig-kiosk-temp-cust-scatter" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>:</p>
 <ul>
 <li>Does the relationship appear perfectly linear?</li>
 <li>Does that prevent us from using a linear model?</li>
@@ -1031,7 +1058,7 @@ Answer
 </div>
 </div>
 <p>Peter then says: “We have been using <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> as our tentative model to explore. In my pre-calculus class, i learned that this is actually the equation of a straight line. I can add it to the earlier plot.”</p>
-<p>He then generates <a href="#fig-kiosk-model-initial-attempt" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> which has both the earlier scatter plot and the line from <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a>. (You need not worry about how he added the line yet. We will learn that shortly.)</p>
+<p>He then generates <a href="#fig-kiosk-model-initial-attempt" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> which has both the earlier scatterplot and the line from <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a>. (You need not worry about how he added the line yet. We will learn that shortly.)</p>
 <div id="fig-kiosk-model-initial-attempt" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kiosk-model-initial-attempt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1045,7 +1072,7 @@ Figure&nbsp;9.5: Adding a line showing the kiosk model with <em>a</em> = 15 and 
 <p>Igor says: “Wow this model is way off the mark! We can reduce the total penalty by a lot.”</p>
 <p>Peter smiles: “Please explain to us lesser mortals Igor!”</p>
 <p>Try to answer by yourself before reading what Igor has to say.</p>
-<p>Igor says: “Well, the line represents the model estimates. If the estimates are good, they will be near the actual points. But our line,representing the estimate for any temperature is way above the general region where the points actually lie! For example, we see from <a href="#fig-kiosk-model-initial-attempt" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> that two days in our historical data have had a temperature of 64 degrees. The number of customers for those two days have been 113 and 127. But the tentative model from <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> estimates 143. In fact, we can take any actual row of our data and see that the model estimates are way higher than the general area of the points. Clearly, we did not make great initial choices for <em>a</em> and <em>b</em>! No offense Peter, I know you were just illustrating the form, and not trying to be exact.”</p>
+<p>Igor says: “Well, the line represents the model estimates. If the estimates are good, they will be near the actual points. But our line representing the estimate for any temperature is way above the general region where the points actually lie! For example, we see from <a href="#fig-kiosk-model-initial-attempt" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> that two days in our historical data have had a temperature of 64 degrees. The number of customers for those two days have been 113 and 127. But the tentative model from <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> estimates 143. In fact, we can take any actual row of our data and see that the model estimates are way higher than the general area of the points. Clearly, we did not make great initial choices for <em>a</em> and <em>b</em>! No offense Peter, I know you were just illustrating the form, and not trying to be exact.”</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1076,17 +1103,17 @@ Suggested answer
 </div>
 </div>
 <p>Angela says: “OK, if we want the model estimates to reflect actual data, we would want the line to be within the point cloud, and perhaps generally go through the middle of the cloud. That would make the estimates at least fall in the general region of the actual values. Let us try again with different choices for <em>a</em> and <em>b</em>. How should we change the values? Should we increase or decrease each one?”</p>
-<p>Igor says: “In <a href="#eq-kiosk-cust-temp-model-specific" class="quarto-xref">Equation&nbsp;<span>9.3</span></a> <em>a</em> represents where the line intercepts the y-axis at x = 0. I learned this in my pre-calc class. In that class they called <em>a</em> the <em>intercept</em>.”</p>
-<p>Suzie jumped up “I know why. They call it the intercept because that is where the line <em>intersects</em> the y-axis. But in this plot, the line does not stretch all the way to the y-axis because we do not have temperature = 0 in our data.”</p>
-<p>Igor: “It does intersect the y-axis, if only we zoom out and show the origin of the plot where x=0 and y=0). Currently the x-axis only starts from around 55.”</p>
-<p>Peter quickly modified the plot to show the origin. <a href="#fig-initial-model-with-intercept-visible" class="quarto-xref">Figure&nbsp;<span>9.6</span></a> shows his new plot. This is effectively the same plot as <a href="#fig-kiosk-model-initial-attempt" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>, only zoomed out so that we can see more.</p>
+<p>Igor says: “In <a href="#eq-kiosk-cust-temp-model" class="quarto-xref">Equation&nbsp;<span>9.1</span></a> <em>a</em> represents where the line intercepts the y-axis at x = 0. I learned this in my pre-calc class. In that class they called <em>a</em> the <em>intercept</em>.”</p>
+<p>Suzie jumps up “But in this plot, the line does not stretch all the way to the y-axis because we do not have temperature = 0 in our data.”</p>
+<p>Igor: “It does intersect the y-axis, if only we zoom out sufficiently. Currently the x-axis only starts from around 55.”</p>
+<p>Peter quickly modifies the plot to show the origin and lower regions of the y-axis. <a href="#fig-initial-model-with-intercept-visible" class="quarto-xref">Figure&nbsp;<span>9.6</span></a> shows his new plot. This is effectively the same plot as <a href="#fig-kiosk-model-initial-attempt" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>, only zoomed out so that we can see more.</p>
 <div id="fig-initial-model-with-intercept-visible" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-initial-model-with-intercept-visible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../images/fig-initial-model-with-intercept-visible.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-initial-model-with-intercept-visible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.6: Model with <em>a</em> = 15 and <em>b</em> = 2 plotted to reveal the origin of the plot so as to see the intercept
+Figure&nbsp;9.6: Model with <em>a</em> = 15 and <em>b</em> = 2 plotted so as to reveal the intercept
 </figcaption>
 </figure>
 </div>
@@ -1118,7 +1145,7 @@ Figure&nbsp;9.7: Second attempt: model with <em>a</em> = 15 and <em>b</em> = 1.5
 </figure>
 </div>
 <p>Angela says: “Wow! that looks so much better! It goes right through the point cloud. But do we know if it is the <em>best</em> line?”</p>
-<p>Igor produced the table for this model and announced: “We have smashed the total penalty from 28312 to 1469! But I still don’t know if that is the lowest possible. Maybe there are other values of <em>a</em> and <em>b</em> that can reduce it even more.”</p>
+<p>Igor produces the table for this model and announces: “We have smashed the total penalty from 28,312 to 1469! But I still don’t know if that is the lowest possible. Maybe there are other values of <em>a</em> and <em>b</em> that can reduce it even more.”</p>
 <p>Peter, tired of generating more and more plots, says “We can keep on trying – we have an infinite number of choices for <em>a</em> and <em>b</em>. How do we find the <em>best</em> values for <em>a</em> and <em>b</em> that produce the <em>best line? What does </em>best* even mean?</p>
 </section>
 <section id="what-do-we-mean-by-the-best-model" class="level2" data-number="9.3">
@@ -1151,11 +1178,11 @@ Common Misconception
 <p>The error or <em>residual</em> for an estimate is <strong>not</strong> the shortest distance to the line. It is the <strong>vertical difference</strong> between the observed value and the estimated value. This is because our model estimates the response (customers) and we compare that to the actual number of customers for any point.</p>
 </div>
 </div>
-<p>David points to <a href="#fig-tentative-model-with-residuals-visualized" class="quarto-xref">Figure&nbsp;<span>9.8</span></a> and says: “For the point at <em>temperature</em> = 62, the actual data had <em>customers</em> = 105, whereas our model estimates 108. So the model is off by -3 (if we compute the residual using this equation.” and he writes out <a href="#eq-residual-1" class="quarto-xref">Equation&nbsp;<span>9.4</span></a>.</p>
+<p>David points to <a href="#fig-tentative-model-with-residuals-visualized" class="quarto-xref">Figure&nbsp;<span>9.8</span></a> and says: “For the point at <em>temperature = 62</em>, the actual data had <em>customers = 105</em>, whereas our model estimates 108. So the model is off by -3 (if we compute the residual using this equation.” and he writes out <a href="#eq-residual-1" class="quarto-xref">Equation&nbsp;<span>9.4</span></a>.</p>
 <p><span id="eq-residual-1"><span class="math display">\[
-\text{residual} = \text{actual value} - \text{model prediction}
+\text{residual} = \text{actual value} - \text{model estimate}
 \tag{9.4}\]</span></span></p>
-<p>Peter continues: ““For the data point with <em>temperature</em> = 68, the model estimates 116, whereas the actual value was 132 for a residual of +16. Finally, for the point where the <em>temperature</em> is 76, the model estimates 129, whereas the actual value was 130. The model did well on this point. In this way, we can compute the <em>residual</em> for every point and square it. We are not particularly concerned about the actual sign of the residual since we are going to square it anyway. This is exactly what Igor showed us in <a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>.”</p>
+<p>Peter continues: “For the data point with <em>temperature = 68</em>, the model estimates 116, whereas the actual value was 132 for a residual of +16. Finally, for the point where the <em>temperature</em> is 76, the model estimates 129, whereas the actual value was 130. The model did well on this point. In this way, we can compute the <em>residual</em> for every point and square it. We are not particularly concerned about the actual sign of the residual since we are going to square it anyway. This is exactly what Igor showed us in <a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>.”</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Quick Check">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1190,9 +1217,9 @@ Answer
 </div>
 </div>
 </div>
-<p>Angela says: “If we draw any line through these points, each line will have low <em>absolute residuals</em> for some points and higher ones for others. But we have many points and so we want an <em>overall measure of how close the line is to </em>all the points* by considering all the <em>absolute residuals</em>. Even if a line is spot-on for a few points, it is not very useful if it is wildly off for many others. That overall measure is in fact the total penalty from <a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>. It is very nice that we have seen the computations and also seen its visualization to make sure we understand all this. I sure am glad we are doing this as a team!”</p>
+<p>Angela says: “If we draw any line through these points, each line will have low <em>absolute residuals</em> for some points and higher ones for others. But we have many points and so we want an <em>overall measure of how close the line is to </em>all the points* by considering all the <em>residuals</em>. Even if a line is spot-on for a few points, it is not very useful if it is wildly off for many others. That overall measure is in fact the total penalty from <a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>. It is very nice that we have seen the computations and also seen its visualization to make sure we understand all this. I sure am glad we are doing this as a team!”</p>
 <p>Igor says, “Yes, now I too see the connection between my table (<a href="#tbl-igor-computations-for-15-2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>) and Peter’s visualization of the concept. So, we will square the residuals from all the points and add them all up. That is how much total penalty the line/model has when we consider <em>all</em> data points. As Amanda wanted, squaring punishes bigger residuals much more than smaller ones. I have heard that this is a standard theme in statistics.”</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="What's the deal with squaring?">
+<div class="callout callout-style-default callout-important callout-titled" title="What's the deal with squaring?">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1237,6 +1264,7 @@ Answer
 <div class="callout-body-container callout-body">
 <p>Positive and negative errors would cancel out if we summed errors directly.</p>
 <p>Squaring errors ensures that all errors contribute positively and that larger errors are penalized more heavily.</p>
+<p>There is a kind of model that works b y minimizing absolute errors too, but we do not look at that in this course.</p>
 </div>
 </div>
 </div>
@@ -1251,8 +1279,10 @@ Quick Check
 </div>
 <div class="callout-body-container callout-body">
 <p>In what sense is the line in <a href="#fig-tentative-model-with-residuals-visualized" class="quarto-xref">Figure&nbsp;<span>9.8</span></a> better than the one in <a href="#fig-initial-model-with-intercept-visible" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>?</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1261,7 +1291,7 @@ Suggested answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The line in <a href="#fig-tentative-model-with-residuals-visualized" class="quarto-xref">Figure&nbsp;<span>9.8</span></a> is much closer to each of the points than the one in <a href="#fig-initial-model-with-intercept-visible" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>. Consequently it will have much lower residuals for almost any point.</p>
 </div>
@@ -1269,11 +1299,11 @@ Suggested answer
 </div>
 <p>David says: “For this model (a = 15, b = 1.5), the total of all the squared residuals is: 1,469. Is there a line that can give an even lower value? What are the values for <em>a</em> and <em>b</em> for which we get the <em>lowest</em> possible total of all the squared residuals?”</p>
 <p>The team now understands exactly what they mean by the <em>best</em> model. They are looking for values for <em>a</em> and <em>b</em> that will result in the lowest total penalty. But they are stuck on to how to actually get it.</p>
-<p>Catching the thread about trying to generate a plot to identify the best values just like Suzie did in the first week, Angela returns to her idea. “Suzie, can you do you pull off your plotting magic again, please?”</p>
+<p>Returning to the idea of trying to generate a plot to identify the best values just like Suzie did in the first week, Angela asks “Suzie, can you do you pull off your plotting magic again, please?”</p>
 <p>Suzie: “Well angela, that would be a three-dimensional plot because we will have <em>a</em>, <em>b</em>, and the <em>total penalty</em> all on the same plot. I can do it, but I am afraid it will not be much help.”</p>
 <p>Igor: “Wht not just print out a large table of all combinations of <em>a</em> and <em>b</em> and the total penalty for each combination? We can then look through the table and select the best value – or even ask the program to look through the table and find the values for us?”</p>
 <p>Suzie says “We can Igor, but I have two issues. Firstly, when I try the various combinations of <em>a</em> and <em>b</em>, I can only do it in some intervals like 0.1 or something like that. What if the best solution was between two of my values? We will then not get an exact solution, but we will get something very close. A bigger problem is what if Amanda comes up with two more variables to use in our predictions? Then trying all combinations can generate a very large number of rows, perhaps millions. There has to be a better way.”</p>
-<p>Steve, who has been silent for a long time has actually been having a nagging feeling that he has done something similar in one of his classes. He now says “I think we learned something like this in my econ class. Rather than making Suzie write a whole new program, I think there is a function in R, based in calculus that can readily do this for us! Let me try.”</p>
+<p>Steve, who has been silent for a long time has actually been having a nagging feeling that he has done something similar in one of his classes. He now says “I think we learned something like this in my econ class. Rather than making Suzie write a whole new program, I think there is a function in R, based in calculus, that can readily do this for us! Let me try.”</p>
 <p>And he runs the code below: which generates the <em>best</em> values for <em>a</em> and <em>b</em> that guarantee that the <em>sum of squared residuals</em> is the smallest possible.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>kiosk <span class="sc">|&gt;</span> </span>
@@ -1319,7 +1349,7 @@ Pause &amp; Think
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Answer">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1328,13 +1358,13 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A least squares regression line is the line that minimizes the sum of squared vertical estimation errors, or the sum of squared residuals (same thing).</p>
 </div>
 </div>
 </div>
-<p>Igor is at it again. He announces “The total penalty for this is 1388. This beats the 1469 we got earlier. And, according to Steve, this is the <em>best</em>. I am quite impressed that we had eyeballed a solution very close to the best!”</p>
+<p>Igor is at it again. He announces “The total penalty for this is 1388. This beats the 1469 we got earlier. And, according to Steve, this is the <em>best</em>. I am quite impressed that we had eyeballed a solution this close to the best!”</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1348,8 +1378,8 @@ Important
 <p>The team found a line that <em>minimizes the sum of squared residuals</em>. Technically this is called the <em>least-squares criterion</em> and plays a very important role in statistics and data analysis.</p>
 </div>
 </div>
-<p>They explained the model to Amanda. After a lot of questioning to understand their decision criteria, Amanda agreed to use this model for the next month.</p>
-<p>Amanda was thrilled with their work. “Great work team. Talk to me when you graduate. I want to assemble a business analytics team for my businesses and I sure can do with a team like yours. You might not be from Harvard or MIT. All I care about is that you are able to apply your learnings to business problems and are willing to think through things with a clear head.”</p>
+<p>They explain the model to Amanda. After a lot of questioning to understand their decision criteria, Amanda agrees to use this model for the next month.</p>
+<p>Amanda seems thrilled with their work. “Great work team. Talk to me when you graduate. I want to assemble a business analytics team for my businesses and I sure can do with a team like yours.”</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Pause &amp; Think">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1369,7 +1399,7 @@ Pause &amp; Think
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1378,7 +1408,7 @@ Suggested answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>No.&nbsp;124 is only a model estimation. In reality the number of customers may be 124 or higher or lower.</p></li>
@@ -1388,13 +1418,14 @@ Suggested answer
 </div>
 </div>
 </div>
+</section>
 <section id="optional-enrichment-topic-beyond-straight-lines" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="optional-enrichment-topic-beyond-straight-lines"><span class="header-section-number">9.4</span> Optional enrichment topic: Beyond straight lines</h2>
 <p>In this chapter, we have assumed that a straight line is a reasonable model for the relationship between temperature and customer traffic. In many business settings, this assumption works well: simple models are easy to interpret, easy to communicate, and often good enough for decision-making.</p>
 <p>However, not all relationships are well captured by a straight line.</p>
 <section id="when-a-straight-line-may-not-be-appropriate" class="level3" data-number="9.4.1">
 <h3 data-number="9.4.1" class="anchored" data-anchor-id="when-a-straight-line-may-not-be-appropriate"><span class="header-section-number">9.4.1</span> When a straight line may not be appropriate</h3>
-<p>In some situations, a scatter plot may reveal patterns such as:</p>
+<p>In some situations, a scatterplot may reveal patterns such as:</p>
 <ul>
 <li><p>curvature (the relationship bends),</p></li>
 <li><p>diminishing returns (the effect of increases slows down), or</p></li>
@@ -1405,7 +1436,7 @@ Suggested answer
 </section>
 <section id="a-flexible-alternative-lowess-smoothing" class="level3" data-number="9.4.2">
 <h3 data-number="9.4.2" class="anchored" data-anchor-id="a-flexible-alternative-lowess-smoothing"><span class="header-section-number">9.4.2</span> A flexible alternative: LOWESS smoothing</h3>
-<p>One way to explore nonlinear relationships is through a technique called LOWESS (short for locally weighted scatter plot smoothing).</p>
+<p>One way to explore nonlinear relationships is through a technique called LOWESS (short for locally weighted scatterplot smoothing).</p>
 <p><a href="#fig-lowess-example" class="quarto-xref">Figure&nbsp;<span>9.9</span></a> shows an example of a LOWESS model using the <em>mpg</em> data frame. In this data frame the <em>displacement</em> of an engine is related to the highway mileage <em>hwy</em>, but not in a linear way. The LOWESS model better describes it than a straight line would. Like the earlier line model, this too can take in a value for <em>displ</em> and provide an estimated value for <em>hwy</em>.</p>
 <div id="fig-lowess-example" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1447,9 +1478,6 @@ Figure&nbsp;9.9: LOWESS model for <em>displacement</em> vs <em>cty</em> in the <
 
 
 </section>
-</section>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
