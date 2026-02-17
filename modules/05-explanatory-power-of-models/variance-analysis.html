@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Explaining Variation in Outcome Variable with Models – Introduction to Business Statistics: A Modeling Approach</title>
+<title>14&nbsp; Using Models to Explain Variation in Outcome Variables – Introduction to Business Statistics: A Modeling Approach</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -172,7 +172,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/05-overview.html">Explanatory Power of a Model</a></li><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/variance-analysis.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Explaining Variation in Outcome Variable with Models</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/05-overview.html">Explanatory Power of a Model</a></li><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/variance-analysis.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using Models to Explain Variation in Outcome Variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -365,7 +365,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/05-explanatory-power-of-models/variance-analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Explaining Variation in Outcome Variable with Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using Models to Explain Variation in Outcome Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -393,9 +393,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/05-overview.html">Explanatory Power of a Model</a></li><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/variance-analysis.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Explaining Variation in Outcome Variable with Models</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/05-overview.html">Explanatory Power of a Model</a></li><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/variance-analysis.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using Models to Explain Variation in Outcome Variables</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-explaining-variation" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Explaining Variation in Outcome Variable with Models</span></span></h1>
+<h1 class="title"><span id="sec-explaining-variation" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using Models to Explain Variation in Outcome Variables</span></span></h1>
 </div>
 
 
@@ -412,20 +412,40 @@ window.Quarto = {
 </header>
 
 
-<p>In the previous chapter, we learned how to compute <strong>model values</strong> and <strong>residuals</strong>. For each day, the model gave us a predicted number of customers, and the residual told us how far off that prediction was from reality.</p>
+<p>In the previous chapter, we learned how to compute <strong>model estimates</strong> and <strong>residuals</strong>. For each day, the model gave us an estimated number of customers, and the residual told us how far off that prediction was from reality.</p>
 <p>Amanda asked the interns to come over to the the mall kiosk so that they could get a feel for the actual operation while they discussed how to take this project forward. She seemed a bit concerned.</p>
-<p>“You have helped us improve efficiency over the past few months. I have been able to maintain stable staffing levels while not overstaffing on slow days, or under-staffing on busy days.</p>
+<p>“You have helped us improve efficiency over the past few months. I have been able to maintain stable staffing levels while not over-staffing on slow days, or under-staffing on busy days.</p>
 <p>I have seen that using data properly does indeed help me to make better decisions and am planning to sign up for a service that will give me more data about our operations … but they are pricey and I don’t want to spend the money without knowing how much potential we have to improve our models. I want to know how much room we have to improve. So my first question for you all is:</p>
 <blockquote class="blockquote">
 <p><em>How good is this model, really? Do we have room to improve? Or have we hit the ceiling?</em></p>
 </blockquote>
 <p>Well, that was three questions …” Amanda said with a smile. “Why don’t you discuss and we can talk about it after a while?”</p>
+<div id="fig-explain-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-explain-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-explain-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explain-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Explaining variation?
+</figcaption>
+</figure>
+</div>
+<div id="fig-explain-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-explain-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-explain-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explain-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: When two variables are related, knowing the value of one can reduce uncertainty in the other … to some extent
+</figcaption>
+</figure>
+</div>
 <p>The interns are about to discover an important concept in linear models (the kind we build in this course) – <strong>variance of the outcome variable is split between what the model explains and what it does not</strong>.</p>
 <section id="model-as-an-explainer-of-variation-in-the-outcome-variable" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="model-as-an-explainer-of-variation-in-the-outcome-variable"><span class="header-section-number">14.1</span> Model as an explainer of variation in the outcome variable</h2>
-<p>Steve began “To map back to what we did in our last few months for Amanda, we might say that when look at the outcome variable – the number of customers each day – and see the variability. Initially when Amanda just gave us the number of customers alone, we could not do much and suggested that the best she could do was to use the average as the estimate each day for both kiosks.</p>
+<p>Steve began “To map back to what we did in our last few months for Amanda, we might say that when look at the outcome variable – the number of customers each day – and see the variability. Initially when Amanda just gave us the numbers of customers alone, we could not do much and suggested that the best she could do was to use the average as the estimate each day for both kiosks.</p>
 <p>Some of the variability in the number of customers arises because of their location. The beach kiosk has its pattern and the mall one has its quirks. For example, on average the beach kiosk saw 40 more customers each day. So using the same staffing level for both kiosks does not make sense.</p>
-<p>So, one reason for the variation in the numbers was the kiosk each number was associated with. Once Amanda gave us the kiosk for each number in the data, we were hen able to give her a separate estimate for each kiosk and she confirmed that it improved matters for her.””</p>
+<p>So, one reason for the variation in the numbers was the kiosk each number was associated with. Once Amanda gave us the kiosk for each number in the data, we were hen able to give her a separate estimate for each kiosk and she confirmed that it improved matters for her.”</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -828,8 +848,8 @@ Important
 <p>Angela says “Darn. The predictions look reasonably close, but they are nowhere near exact. So the model is <em>not perfect</em>. How can we improve it?”</p>
 <p>Igor says “Guys, I think I understand this a bit better now. It makes sense that we cannot estimate the exact number of customers just using the temperature and kiosk location. After all, the real world is more complex than that. Many other factors can and do affect the number of customers.”</p>
 <p>Dave says “Yes, the other day I was at the beach on a nice warm day and yet I only saw a few people out on the beach. We had an important playoff game in town. So, there you go, that is one thing that affects the number of customers, but which is not in our model.”</p>
-<p>Angela then says “So it looks like we cannot improve things for Amanda unless she gives us more data. But can we answer her question of how good the model is? May be it is not <em>exact</em>, but it might still be good enough that she should not be spending money to get more data. I mean the extra benefit might not be worth the cost.”</p>
-<p>Suzie has an idea “Let us put some hard numbers on this OK? If we are trying to find out how much variability the model <em>explains</em>, well, how much variability is there to explain in the first place?”</p>
+<p>Angela then says “So it looks like we cannot improve things for Amanda unless she gives us more data. But can we answer her question of how good the model is? May be it is not <em>exact</em>, but it might still be good enough that she should not be spending money to get more data. I mean the extra benefit from that information might not be worth the cost.”</p>
+<p>Suzie has an idea “Let us put some hard numbers on this OK? If we are trying to find out how much variability the model <em>explains</em>. What does that mean? I mean, how much variability is there to explain in the first place?”</p>
 <p>Igor lights up “We are talking about explaining variability in the daily number of customers. Why not just use the variance of that variable?”</p>
 <p>Suzie writes code immediately to calculate that:</p>
 <div class="cell">
@@ -843,13 +863,13 @@ Important
 </div>
 </div>
 </div>
-<p>Dave “OK. Where do we go from here?”</p>
-<p>Angela “Guys, let us slow don a wee bit here. Can we please go back to the simplest model we had, and start thinking from there? That might help us wrap our heads around this better.”</p>
-<p>Igor “OK. In our simplest model, we just predicted the average of the number of customers, completely ignoring the kiosk location or the temperature because at that time we did not have those variables. SO how much variation does that model explain?”</p>
-<p>Again Suzie whips out code and produces <a href="#tbl-mean-model-estimates-kiosk-1" class="quarto-xref">Table&nbsp;<span>14.1</span></a>:</p>
+<p>Dave “OK. The total variance in the number of customers is 1169. Where do we go from here?”</p>
+<p>Angela “Guys, let us slow down a wee bit here. Can we please go back to the simplest model we had, and start thinking from there? That might help us wrap our heads around this better.”</p>
+<p>Igor “OK. In our simplest model, we just estimated the daily number of customers as the average of the number of customers. We completely ignored the kiosk location or the temperature because at that time we did not have those variables. So how much variation does that model explain? Can we first see the model values for each row?”</p>
+<p>Again Suzie whips out code to add the model estimates to the data frame and produces <a href="#tbl-mean-model-estimates-kiosk-1" class="quarto-xref">Table&nbsp;<span>14.1</span></a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>kiosk_beach_mall_temp <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mod_val =</span> <span class="fu">model_values</span>(customers <span class="sc">~</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mod_est =</span> <span class="fu">model_values</span>(customers <span class="sc">~</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tbl-mean-model-estimates-kiosk-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -863,7 +883,7 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 <th style="text-align: right;">customers</th>
 <th style="text-align: left;">kiosk</th>
 <th style="text-align: right;">temperature</th>
-<th style="text-align: right;">mod_val</th>
+<th style="text-align: right;">model_est</th>
 </tr>
 </thead>
 <tbody>
@@ -1173,7 +1193,7 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 </figure>
 </div>
 <p>Igor says “But I thought that if we had only the number of customers and nothing else, then the model estimate is just the average.”</p>
-<p>Peter “Yes, when we use customers ~ 1 in the <em>model_values</em> function, that is exactly what it does. The average is 123.8. We can just let <em>model_values</em> do the dirty work for us! The model equation would be” and he wrote down <span class="citation" data-cites="q-kiosk-mean-model-2">@q-kiosk-mean-model-2</span>.</p>
+<p>Peter “Yes, that is exactly what Suzie’s code does. when we use customers ~ 1 in the <em>model_values</em> function, it builds a model with no explanatory variables and treats the average as the model value. The average is 123.8. We can just let <em>model_values</em> do the dirty work for us! The model equation would be” and he wrote down <span class="citation" data-cites="q-kiosk-mean-model-2">@q-kiosk-mean-model-2</span>.</p>
 <p><span id="eq-kiosk-mean-model-2"><span class="math display">\[
 \widehat{\text{customers}} = 124
 \tag{14.1}\]</span></span></p>
@@ -1182,9 +1202,9 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 <p>Angela “So, according to this model, given what it is allowed to use, all the rows should have the same number of customers. It has no clue why they differ. I get it now. It is unable to explain any of the variation in the number of customers!”</p>
 <p>Igor “I think Angela hit upon a great insight. The variance of the model estimates actually represents the <em>amount of variation that the model explains</em>! If the model estimates have no variance as in the current situation, then the model explains nothing.”</p>
 <p>David “I sure am happy that we managed to get away with giving Angela a model that <em>explained nothing</em> on the first day we met! But then that is all we could do with the data we had!”</p>
-<p>“Let me make sure I understand” says Peter. “You are sying that on the one side we have the variance of the outcome variable (number of customers) and on the other side we have the variance of the model estimates, or put differently, the amount of variation the model expects.”</p>
-<p>“Yes” Igor responds. Our actual values can vary all over the place, but the model values, as we have built the model, have to fit on a straight line. they atr much more constrained than real-life. SO the variance of the model estimates will always be lower.”</p>
-<p>Suzie says “Let us make all this concrete, can we?” and first calculates the variance of the number of customers by itself. That is the amout of variation that a model must try to explain.”</p>
+<p>“Let me make sure I understand” says Peter. “You are saying that on the one side we have the variance of the outcome variable, var(customers), and on the other side we have the variance of the model estimates, or put differently, the amount of variation the model expects.”</p>
+<p>“Yes” Igor responds. Our actual values can vary all over the place, but the model values, as we have built the model, are much more constrained (have to fit on a straight line). So, the variance of the model estimates will always be lower than the variance of the outcome variable.”</p>
+<p>Suzie says “Let us make all this concrete, can we?” and first calculates the variance of the number of customers by itself. That is the amount of variation that a model must try to explain.”</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>kiosk_beach_mall_temp <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">outcome_var =</span> <span class="fu">var</span>(customers))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1197,7 +1217,7 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 </div>
 </div>
 <p>“OK” Dave says. 1169 is our baseline. A perfect model will explain all of it.”</p>
-<p>“But” says Suzie “We are building only linear models and our model estimates will always fall on a straight line. Our points as they stand are scattered and no single straight line can ever catch all of them. Because of this, no model we build can ever hope to explain all of the variance in the number of customers.”</p>
+<p>“But” says Suzie “We are building only linear models and our model estimates will always fall on a straight line. Our points as they stand are quite scattered. No single straight line can ever catch all of them. Because of this, no model we build can ever hope to explain all of the variance in the number of customers.”</p>
 <p>Peter “That’s a sobering thought. Taking it to the next step, why don’t we see how much variability the model with separate means for the two kiosks explains?</p>
 <p>Angela writes the following code to build the model.</p>
 <div class="cell">
@@ -1232,12 +1252,12 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 </div>
 <p>“OK” says Angela. “This model explains less than half of the total variance. To be more precise, it explains 514/1169 or 44% of the total variance.”</p>
 <p>“Wow!” David says. “Although the model seems to not be great, Angela has condensed the idea of measuring a model’s quality into a single number! Pretty statistical approach if you ask me.”</p>
-<p>Igor summarizes. “So we have it. The quality of the model is just the variance of the model estimates divided by the variance of the ourcome variable.” And he writes <a href="#eq-model-quality" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>:</p>
+<p>Igor summarizes. “So we have it. The quality of the model is just the variance of the model estimates divided by the variance of the outcome variable.” And he writes <a href="#eq-model-quality" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>:</p>
 <p><span id="eq-model-quality"><span class="math display">\[
 \text{Model quality}
 =
 \frac{\text{Var}(\text{model estimates})}
-     {\text{Var}(\text{outcome})}
+     {\text{Var}(\text{outcome variable})}
 \tag{14.3}\]</span></span></p>
 <p>Peter cannot wait. “How about the model that includes temperature as well? Does it improve the quality? Let’s check.” and he writes the following code.</p>
 <div class="cell">
@@ -1252,8 +1272,8 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 </div>
 </div>
 </div>
-<p>Angela exults “Wow! This model explains 1005 out of has a variance of 1169. Does that mean that it explains 1005/1169, or 86% of the variability in customers? What is the model equation for this?””</p>
-<p>Igor says “You better believe it! Indeed it does.” He then wrote the code and wrote out the model equation too.</p>
+<p>Angela exults “Wow! This model explains 1005 out of has a variance of 1169. Does that mean that it explains 1005/1169, or 86% of the variability in customers? What is the model equation for this?”</p>
+<p>Igor says “You better believe it! Indeed it does.” He then writes the code to build the model and get the model coefficients.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>kiosk_beach_mall_temp <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model_train</span>(customers <span class="sc">~</span> temperature <span class="sc">+</span> kiosk) <span class="sc">|&gt;</span> </span>
@@ -1263,7 +1283,7 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
       -18.4         2.6       -56.6 </code></pre>
 </div>
 </div>
-<p>They reconstructed the model equation <a href="#eq-kiosk-mode-no-intxn-2" class="quarto-xref">Equation&nbsp;<span>14.4</span></a> from the output.</p>
+<p>They reconstruct the model equation <a href="#eq-kiosk-mode-no-intxn-2" class="quarto-xref">Equation&nbsp;<span>14.4</span></a> from the output.</p>
 <p><span id="eq-kiosk-mode-no-intxn-2"><span class="math display">\[
 \widehat{\text{customers}} = -18.4 + 2.6\times \text{temperature} +
 \begin{cases}
@@ -1271,8 +1291,8 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 -57 &amp;\text{if } \text{kiosk} = \text{"Mall"}
 \end{cases}
 \tag{14.4}\]</span></span></p>
-<p>David recalled their whole discussion about <em>interaction effects</em> and asked, “Hey Igor or Suzie, by any chance, did Dr.&nbsp;Berlinsky show either of you a way by which we can build a model that includes the fancy <em>interaction effect</em>? We can then try to see how much explanatory quality we can gain by including that.”</p>
-<p>“He did show me the code. In fact it requires just changing a single character!” Igor said and wrote it.”</p>
+<p>David recalls their whole discussion about <em>interaction effects</em> and asks, “Hey Igor or Suzie, by any chance, did Dr.&nbsp;Berlinsky show either of you a way by which we can build a model that includes the fancy <em>interaction effect</em>? We can then try to see how much explanatory quality we can gain by including that.”</p>
+<p>“He did show me the code. In fact it requires just changing a single character!” Igor says and writes it.”</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>kiosk_beach_mall_temp <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp_kiosk_intxn_mod_est =</span> <span class="fu">model_values</span>(customers <span class="sc">~</span> temperature <span class="sc">*</span> kiosk)) <span class="sc">|&gt;</span></span>
@@ -1285,10 +1305,10 @@ Table&nbsp;14.1: Model estimates for customers ~ 1, same as the mean model (roun
 </div>
 </div>
 </div>
-<p>Angela observed “Well, that explains 1066 out of 1169 which is 91%.”</p>
-<p>Suzie added “Interpreting the coefficients is complicated, but Dr.&nbsp;B assured me that the net model is exactly the same as the two separate models we gave Amanda.”</p>
-<p>Amanda settled for <a href="#eq-kiosk-mode-no-intxn-2" class="quarto-xref">Equation&nbsp;<span>14.4</span></a> as the model that best balances operating efficiency and complexity.</p>
-<p>For the moment she decided that the current models were sufficiently good that she need not spend the money to get more data.</p>
+<p>Angela observes “Well, that explains 1066 out of 1169 which is 91%.”</p>
+<p>Suzie adds “Interpreting the coefficients is complicated, but Dr.&nbsp;B assured me that the model with interactions gives exactly the same results as the two separate models we gave Amanda.”</p>
+<p>Amanda settles for <a href="#eq-kiosk-mode-no-intxn-2" class="quarto-xref">Equation&nbsp;<span>14.4</span></a> as the model that best balances operating efficiency and complexity.</p>
+<p>For the moment she decides that the current models were sufficiently good that she need not spend the money to get more data.</p>
 
 
 </section>

@@ -365,7 +365,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/05-explanatory-power-of-models/variance-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Explaining Variation in Outcome Variable with Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using Models to Explain Variation in Outcome Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -500,7 +500,7 @@ Figure&nbsp;7.2: Model of the house in <a href="#fig-house" class="quarto-xref">
 </figure>
 </div>
 <p>Should we consider the model in <a href="#fig-house-model" class="quarto-xref">Figure&nbsp;<span>7.2</span></a> good? In the words of statistician George E. P. Box, “All models are wrong. But some are useful for certain purposes.”</p>
-<p>All models are wrong in the sense that they are only <em>representations</em>. However, as the miniature model of the house in <a href="#fig-house-model" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>, they can still be useful for some purpose.</p>
+<p>All models are wrong in the sense that they are only <em>representations</em> of the real thing, and not the real thing itself. However, as the miniature model of the house in <a href="#fig-house-model" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>, they can still be useful for some purpose.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -606,7 +606,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If I have a model (don’t take this model seriously) for computing an estimated value for a person’s height based on their weight as: estimated height (in cm) = 120 plus 0.6 times the weight (in kg). Write out the model function as an equation.</p>
+<p>If I have a model for computing an estimated value for a person’s height based on their weight as: estimated height (in cm) = 120 plus 0.6 times the weight (in kg). Write out the model function as an equation. (Don’t take this model seriously. I am only using it as an example and not to be used in a real context.)</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -627,7 +627,7 @@ Suggested answer
 </div>
 </div>
 </div>
-<p>In our context, we use the term <em>model</em> to denote a mathematical equation of the kind that <a href="#eq-price-model" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> shows. Our models help us to determine the value of a variable in a data frame for any given instance. Specifically, in the house price example that we just considered, the model in <a href="#eq-price-model" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> enables us to estimate the <em>price</em> of a home, given its floor area.</p>
+<p>In our context, we use the term <em>model</em> to denote a mathematical equation of the kind that <a href="#eq-price-model" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> shows. It expresses the model estimate as a function of the other variables (we will get more precise about this shortly). Specifically, in the house price example that we just considered, the model in <a href="#eq-price-model" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> enables us to estimate the <em>price</em> of a home, given its floor area.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -664,7 +664,7 @@ Suggested answer
 <section id="response-and-explanatory-variables" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="response-and-explanatory-variables"><span class="header-section-number">7.1.1</span> <em>Response</em> and <em>Explanatory</em> variables</h3>
 <p>We call the variable whose value the model estimates the <em>response</em> variable. The variables based on which the model estimates the <em>response</em> variable are called <em>explanatory</em> variables. We can also refer to the <em>response</em> variable as the <em>dependent</em> variable, and <em>explanatory</em> variables as <em>independent</em> variables.</p>
-<p>In this course we use the terms <em>response variable</em> and <em>explanatory variables</em>. <a href="#tbl-response-explanatory-other-names" class="quarto-xref">Table&nbsp;<span>7.1</span></a> shows several other terms for these used in different disciplines or application areas.</p>
+<p>In this course we use the terms <em>response variable</em> and <em>explanatory variables</em>. <a href="#tbl-response-explanatory-other-names" class="quarto-xref">Table&nbsp;<span>7.1</span></a> shows several other terms that varoious fields use for the same ideas.</p>
 <div id="tbl-response-explanatory-other-names" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-response-explanatory-other-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -681,7 +681,7 @@ Table&nbsp;7.1: Other commonly used names for <em>response</em> and <em>explanat
 <tr class="header">
 <th style="text-align: left;"><strong>Response Variable</strong></th>
 <th style="text-align: left;"><strong>Explanatory Variable</strong></th>
-<th style="text-align: left;"><strong>Common Usage / Context</strong></th>
+<th style="text-align: left;"><strong>Context used in</strong></th>
 </tr>
 </thead>
 <tbody>
