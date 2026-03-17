@@ -100,7 +100,7 @@ $$ {#eq-price-model}
 In the model, we have placed a *hat* over *price* because the model computes not the actual price of a home with the specified floor area and instead only computes an estimate. In statistics, we place a *hat* over quantities that estimate other quantities.
 
 
-@eq-price-model shows a *linear* model. We call it *linear* because all variables are only raised to the fist power. We have not squared or raised a variable to any other power. In this course we build only *linear models*.
+@eq-price-model shows a *linear* model. We call it *linear* because all variables are only raised to the first power. We have not squared or raised a variable to any other power. In this course we build only *linear models*.
 
 We call the equation that @eq-price-model shows a **model function**. 
 
