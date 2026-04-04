@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>16&nbsp; Adjustment – Introduction to Business Statistics: A Modeling Approach</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../modules/05-explanatory-power-of-models/accounting-for-variance.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6598efebc0fc82f63c3510b9ac47738c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction to Business Statistics: A Modeling Approach</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/kviswana/bus-stats-quarto-book/issues/new?title=Book%20issue%20report&amp;labels=bug&amp;body=Page%20URL%3A%20%0A%0ASection%20Title%3A%20%0ADescribe%20the%20issue%3A%20%0A%0AIf%20this%20is%20a%20typo%2C%20please%20suggest%20a%20fix%3A%20" target="_blank"> <i class="bi bi-bug" role="img">
+</i> 
+<span class="menu-text">Report a bug</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/05-overview.html">Explanatory Power of a Model</a></li><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/adjustment.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Adjustment</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo-dark.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Business Statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data, Visualization, and Patterns</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/01-data-visualization/01-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 1: Data, Visualization &amp; Patterns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/01-data-visualization/data-frames.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Frames and Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/01-data-visualization/point-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploring Relationships through Scatterplots</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Variation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/02-variability/02-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2: Variation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/02-variability/violin-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Using Violin Plots to Visualize Distribution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/02-variability/variance-and-sd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variance and standard deviation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Introduction to models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/03-introduction-to-models/03-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3: Introduction to models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/03-introduction-to-models/path-to-models-story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The Simplest Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/03-introduction-to-models/category-means-story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Category Means</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/03-introduction-to-models/intro-to-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is a model?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/03-introduction-to-models/visualizing-simple-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visualizing Mean Models</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">More on models – least squares</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/04-more-on-models/04-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 4: Linear Regression Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/04-more-on-models/line-of-best-fit-story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line of Best Fit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/04-more-on-models/visualizing-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/04-more-on-models/finding-the-model-function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Finding the Model Function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/04-more-on-models/model-with-cat-and-num-explanatories-story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Amanda’s New Challenge</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Explanatory Power of a Model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/05-explanatory-power-of-models/05-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 5: Explanatory Power of a Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/05-explanatory-power-of-models/explain-as-used-in-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><em>Explain</em> as used in Statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/05-explanatory-power-of-models/variance-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using Models to Explain Variation in Outcome Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/05-explanatory-power-of-models/accounting-for-variance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and <span class="math inline">\(R^2\)</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/05-explanatory-power-of-models/adjustment.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Adjustment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#apples-to-apples-comparisons" id="toc-apples-to-apples-comparisons" class="nav-link active" data-scroll-target="#apples-to-apples-comparisons"><span class="header-section-number">16.1</span> Apples to apples comparisons</a>
+  <ul class="collapse">
+  <li><a href="#who-is-the-best-store-manager" id="toc-who-is-the-best-store-manager" class="nav-link" data-scroll-target="#who-is-the-best-store-manager"><span class="header-section-number">16.1.1</span> Who is the best store manager?</a></li>
+  <li><a href="#bank-branch-loan-default-comparisons" id="toc-bank-branch-loan-default-comparisons" class="nav-link" data-scroll-target="#bank-branch-loan-default-comparisons"><span class="header-section-number">16.1.2</span> Bank branch loan default comparisons</a></li>
+  <li><a href="#comparing-students-gpas" id="toc-comparing-students-gpas" class="nav-link" data-scroll-target="#comparing-students-gpas"><span class="header-section-number">16.1.3</span> Comparing students’ GPAs</a></li>
+  <li><a href="#gender-pay-gap" id="toc-gender-pay-gap" class="nav-link" data-scroll-target="#gender-pay-gap"><span class="header-section-number">16.1.4</span> Gender pay gap?</a></li>
+  </ul></li>
+  <li><a href="#we-might-need-adjustment-to-properly-understand-relationships" id="toc-we-might-need-adjustment-to-properly-understand-relationships" class="nav-link" data-scroll-target="#we-might-need-adjustment-to-properly-understand-relationships"><span class="header-section-number">16.2</span> We might need adjustment to properly understand relationships</a>
+  <ul class="collapse">
+  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">16.2.1</span> Simpson’s paradox</a></li>
+  </ul></li>
+  <li><a href="#a-word-of-caution-about-our-examples" id="toc-a-word-of-caution-about-our-examples" class="nav-link" data-scroll-target="#a-word-of-caution-about-our-examples"><span class="header-section-number">16.3</span> A word of caution about our examples</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/05-overview.html">Explanatory Power of a Model</a></li><li class="breadcrumb-item"><a href="../../modules/05-explanatory-power-of-models/adjustment.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Adjustment</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-adjustment" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Adjustment</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>At a high level, we use simple models for one of two purposes:</p>
+<ul>
+<li>reveal differences across groups
+<ul>
+<li>One model might tell us that the average weekly sales of product A are greater than that of product B.</li>
+<li>Another model might tell us that cars with front wheel drive have higher fuel efficiency than cars with rear, or four-wheel drive.</li>
+</ul></li>
+<li>reveal relationships between variables.
+<ul>
+<li>A model might tell us that sales of a company are positively related to advertising expenditure.</li>
+<li>A model might show us that the more time students spend on social media, the lower their GPA is.</li>
+</ul></li>
+</ul>
+<p>Can models mislead? Can they ask us to believe something that is really not true?</p>
+<p>This chapter considers these important questions and sensitizes you to the important concept of <em>adjustment</em> that takes us beyond just crunching the numbers, and into thinking critically about them.</p>
+<section id="apples-to-apples-comparisons" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="apples-to-apples-comparisons"><span class="header-section-number">16.1</span> Apples to apples comparisons</h2>
+<p>We first look at several concrete examples that teach us to be cautious when making comparisons.</p>
+<section id="who-is-the-best-store-manager" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="who-is-the-best-store-manager"><span class="header-section-number">16.1.1</span> Who is the best store manager?</h3>
+<p>A company has many retail stores across the country. The VP of sales has announced that the store manager of the store with the highest sales will get a big bonus. <span class="citation" data-cites="tab-store-sales">@tab-store-sales</span> shows the sales of the first six stores in the dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>store_sales <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="caption-top table">
+<caption>First six rows from the store sales dataset {#tab-store-sales}</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">store_id</th>
+<th style="text-align: left;">store_manager_name</th>
+<th style="text-align: right;">store_sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S001</td>
+<td style="text-align: left;">Ava Patel</td>
+<td style="text-align: right;">1879989</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S002</td>
+<td style="text-align: left;">Liam Kim</td>
+<td style="text-align: right;">2258457</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S003</td>
+<td style="text-align: left;">Mia Garcia</td>
+<td style="text-align: right;">2518618</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S004</td>
+<td style="text-align: left;">Noah Nguyen</td>
+<td style="text-align: right;">3842134</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S005</td>
+<td style="text-align: left;">Emma Johnson</td>
+<td style="text-align: right;">3176279</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S006</td>
+<td style="text-align: left;">Ethan Singh</td>
+<td style="text-align: right;">2629851</td>
+</tr>
+</tbody>
+</table>
+<p>Since the store manager of the store with the highest sales will get a big bonus, we look at the sales of all stores and find that the top six stores by sales are as shown in <span class="citation" data-cites="tab-top-sales">@tab-top-sales</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>store_sales <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>store_sales) <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="caption-top table">
+<caption>Top six stores by sales {#tab-top-sales}</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">store_id</th>
+<th style="text-align: left;">store_manager_name</th>
+<th style="text-align: right;">store_sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S030</td>
+<td style="text-align: left;">Sebastian Perez</td>
+<td style="text-align: right;">4635738</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S016</td>
+<td style="text-align: left;">James Gonzalez</td>
+<td style="text-align: right;">4501858</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S004</td>
+<td style="text-align: left;">Noah Nguyen</td>
+<td style="text-align: right;">3842134</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S033</td>
+<td style="text-align: left;">Zoey Allen</td>
+<td style="text-align: right;">3530267</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S036</td>
+<td style="text-align: left;">Samuel King</td>
+<td style="text-align: right;">3424019</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S014</td>
+<td style="text-align: left;">Elijah Hernandez</td>
+<td style="text-align: right;">3278952</td>
+</tr>
+</tbody>
+</table>
+<p>Should Sebastian Perez get the award?</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Under what conditions is comparing total sales in the stores a good or a poor basis for the award? What other variables might be relevant to consider in this comparison?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The best we can say is: <strong>Other things being equal</strong>, the store with the highest sales is likely to be the best managed. So, before concluding that Sebastian Perez is the best manager, we need to ask: Are the stores otherwise similar? If not, what are the differences and how do they affect sales?</p>
+<p>Besides the quality of store management, other factors could affect the total sales in a store. For example:</p>
+<ul>
+<li>Size of the store</li>
+<li>economic condition of the neighborhood where the store is located</li>
+<li>kind of products they sell</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the stores differ only in their floor area and are otherwise quite similar, we will get a better picture by <strong>adjusting</strong> the sales for store size. So instead of comparing sales volume, we could compare sales volume <em>per square foot</em>.</p>
+<p>If we think there are other important factors playing a role, we should adjust for them as well.</p>
+</div>
+</div>
+<p>The data frame <em>store_sales_full</em>, has <em>store_floor_area</em>. as an additional variable. See <span class="citation" data-cites="tab-store-sales-full">@tab-store-sales-full</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>store_sales_full <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="caption-top table">
+<caption>First six rows from the <em>store_sales_full</em> dataset showing each store’s floor area as well{#tab-store-sales-full}</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">store_id</th>
+<th style="text-align: left;">store_manager_name</th>
+<th style="text-align: right;">store_sales</th>
+<th style="text-align: right;">store_floor_area</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S001</td>
+<td style="text-align: left;">Ava Patel</td>
+<td style="text-align: right;">1879989</td>
+<td style="text-align: right;">4400</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S002</td>
+<td style="text-align: left;">Liam Kim</td>
+<td style="text-align: right;">2258457</td>
+<td style="text-align: right;">4800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S003</td>
+<td style="text-align: left;">Mia Garcia</td>
+<td style="text-align: right;">2518618</td>
+<td style="text-align: right;">6600</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S004</td>
+<td style="text-align: left;">Noah Nguyen</td>
+<td style="text-align: right;">3842134</td>
+<td style="text-align: right;">5100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S005</td>
+<td style="text-align: left;">Emma Johnson</td>
+<td style="text-align: right;">3176279</td>
+<td style="text-align: right;">5100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S006</td>
+<td style="text-align: left;">Ethan Singh</td>
+<td style="text-align: right;">2629851</td>
+<td style="text-align: right;">6700</td>
+</tr>
+</tbody>
+</table>
+<p>Let us compute the sales per square foot for each store and then look at the top six stores by this metric. See <span class="citation" data-cites="tab-top-sales-sqft">@tab-top-sales-sqft</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>store_sales_full <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sales_per_sqft =</span> store_sales<span class="sc">/</span>store_floor_area) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>store_id) <span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>sales_per_sqft) <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="caption-top table">
+<caption>Top six stores by sales per square foot {#tab-top-sales-sqft}</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">store_manager_name</th>
+<th style="text-align: right;">store_sales</th>
+<th style="text-align: right;">store_floor_area</th>
+<th style="text-align: right;">sales_per_sqft</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Noah Nguyen</td>
+<td style="text-align: right;">3842134</td>
+<td style="text-align: right;">5100</td>
+<td style="text-align: right;">753</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sebastian Perez</td>
+<td style="text-align: right;">4635738</td>
+<td style="text-align: right;">6300</td>
+<td style="text-align: right;">736</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">James Gonzalez</td>
+<td style="text-align: right;">4501858</td>
+<td style="text-align: right;">6800</td>
+<td style="text-align: right;">662</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Elijah Hernandez</td>
+<td style="text-align: right;">3278952</td>
+<td style="text-align: right;">5100</td>
+<td style="text-align: right;">643</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Emma Johnson</td>
+<td style="text-align: right;">3176279</td>
+<td style="text-align: right;">5100</td>
+<td style="text-align: right;">623</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Samuel King</td>
+<td style="text-align: right;">3424019</td>
+<td style="text-align: right;">5700</td>
+<td style="text-align: right;">601</td>
+</tr>
+</tbody>
+</table>
+<p><span class="citation" data-cites="tab-top-sales-sqft">@tab-top-sales-sqft</span> shows that Noah Nguyen has the highest sales per square foot. So, if we adjust for store size, Noah Nguyen would get the award instead of Sebastian Perez. Several of the stores in the top six from earlier (<span class="citation" data-cites="tab-top-sales">@tab-top-sales</span>) do not figure in this list at all.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The person who gathered the data realized that the floor area of the store that Sebastian manages was incorrectly shown as 6300 sqft. It is actually 7000 sqft. Does this change make it possible for Sebastian to regain the top spot based on the adjusted calculations?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No.&nbsp;With the same sales and a higher floor area, sebastian’s sales per square foot would go down. This has the possible effect of moving him down the list, and it certainly does not help him regain the top spot.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What exactly did the adjustment do? Why was Sebastian the top performer earlier and why did that change after adjustment? Why did many others who were in the top six earlier not figure in the top six after adjustment?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Initially Sebastian seemed to be the top performer, but it turned out that he had an advantage in terms of store size. When we removed that advantage by comparing sales per square foot, a different picture emerged. SImilarly, many of the stores that were in the top six by total sales had relatively large floor areas, and when we adjusted for that, they did not figure in the top six by sales per square foot.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Under what conditions would we need to make even more adjustments?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Other than just the size, if the stores are similar in all respects, then we do not need to adjust for anything else. However, if there are other differences between the stores that we think might affect sales, then we should adjust for those as well. For example, if some stores are in more affluent neighborhoods than others, then we might want to adjust for neighborhood income level.</p>
+<p>When we say <em>adjust for</em> we mean that we want to include that as an explanatory variable.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bank-branch-loan-default-comparisons" class="level3" data-number="16.1.2">
+<h3 data-number="16.1.2" class="anchored" data-anchor-id="bank-branch-loan-default-comparisons"><span class="header-section-number">16.1.2</span> Bank branch loan default comparisons</h3>
+<p>A bank compares loan default rates across branches.</p>
+<blockquote class="blockquote">
+<p>Branch A: 8% default rate Branch B: 3% default rate</p>
+</blockquote>
+<p>Conclusion: Branch A has weaker loan officers.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What might we need to adjust for? What might be possible buried variables?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Customer credit profile</li>
+<li>Neighborhood income level</li>
+<li>Type of loans issued</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before jumping to conclusions based only on the default rate, We might need to <strong>Adjust for</strong> other variables.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do you see a common theme emerging from these <em>comparison</em> situations showing the need for <em>adjustment</em>?</p>
+<p>When we compare different numbers that seem to show show superiority or inferiority, we should always wonder if the baseline or potential is different for the different numbers we are comparing. We can then take this into account (<strong>adjust!</strong>) in our comparison.</p>
+<p><strong>Based on the examples, you should not assume that comparisons are never valid.</strong> Indeed, many comparisons might be valid. We are only pointing out that we should examine this facet carefully before tacitly accepting the story that some numbers tell us.</p>
+</div>
+</div>
+</section>
+<section id="comparing-students-gpas" class="level3" data-number="16.1.3">
+<h3 data-number="16.1.3" class="anchored" data-anchor-id="comparing-students-gpas"><span class="header-section-number">16.1.3</span> Comparing students’ GPAs</h3>
+<p>Daniel Kaplan, in “Lessons in statistics” presents a nice example of the need for <em>adjustment</em> that students can relate to. We use the same idea here.</p>
+<p>At the end of their freshman semester, Susan has a GPA of 3.8, compared to Nolan’s 3.45. The cutoff for a certain scholarship is 3.5. Susan qualifies to apply, Nolan does not. Assuming that the scholarship provide used the GPAs to identify <em>better</em> students, Under what conditions can we consider this comparison to be fair, and under what conditions would it be unfair? If the comparison is unfair, what can we do to perform a fair comparison?</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Describe one situation in which you would consider this comparison fair and one where you would consider this unfair.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let us consider the <em>unfair</em> angle first. Suppose Susan took classes with professors who were easier graders than those with whom Nolan took classes. For example, in courses that Susan took, the average grade might have been 3.67. On the other hand, the average grade in the courses that Nolan took might have been 3.00. That would be a systematic difference between the two students’ situations that we will miss if we used just the raw GPAs.</p>
+<p>If we can show that both Susan and Nolan had, on average, professors who graded equally easily across their courses, then the comparison of their GPAs would seem to be fair.</p>
+<p>Of course, we can think of many other reasons whereby both Susan and Nolan are equally <em>good</em> students and yet their GPA differs. For example, Nolan might have had ill-health or family issues that affected his performance.</p>
+</div>
+</div>
+</div>
+<p>The suggested answer above tells us that comparing raw GPAs could be misleading and that we somehow need to temper the GPAs or <em>adjust</em> them to account for their professor’s grading difficulty. That is, we should compute an adjusted GPA for Susan and Nolan and then compare them. Alternatively, the scholarship cutoff should be based on an adjusted GPA rather than the raw one.</p>
+<p>The dataset <em>gpa_data_basic</em> has illustrative data for five students on four courses each.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gpa_data_basic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["student_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["course_id"],"name":[2],"type":["chr"],"align":["left"]},{"label":["course_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["prof_id"],"name":[4],"type":["chr"],"align":["left"]},{"label":["student_grade"],"name":[5],"type":["chr"],"align":["left"]},{"label":["grade_points"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"S01","2":"C101","3":"Acct I","4":"P01","5":"A-","6":"3.67"},{"1":"S01","2":"C102","3":"Marketing","4":"P02","5":"A-","6":"3.67"},{"1":"S01","2":"C103","3":"Microecon","4":"P01","5":"B+","6":"3.33"},{"1":"S01","2":"C104","3":"Stats I","4":"P02","5":"A-","6":"3.67"},{"1":"S02","2":"C201","3":"Finance","4":"P03","5":"A-","6":"3.67"},{"1":"S02","2":"C202","3":"Ops Mgmt","4":"P03","5":"B+","6":"3.33"},{"1":"S02","2":"C207","3":"HR Mgmt","4":"P03","5":"B+","6":"3.33"},{"1":"S02","2":"C208","3":"Business Analytics","4":"P03","5":"B+","6":"3.33"},{"1":"S03","2":"C203","3":"Management","4":"P04","5":"B","6":"3.00"},{"1":"S03","2":"C204","3":"Business Law","4":"P05","5":"B","6":"3.00"},{"1":"S03","2":"C205","3":"Info Systems","4":"P04","5":"B","6":"3.00"},{"1":"S03","2":"C206","3":"Strategy","4":"P05","5":"B","6":"3.00"},{"1":"S04","2":"C203","3":"Management","4":"P04","5":"C+","6":"2.33"},{"1":"S04","2":"C204","3":"Business Law","4":"P05","5":"B-","6":"2.67"},{"1":"S04","2":"C205","3":"Info Systems","4":"P04","5":"C+","6":"2.33"},{"1":"S04","2":"C206","3":"Strategy","4":"P05","5":"B-","6":"2.67"},{"1":"S05","2":"C101","3":"Acct I","4":"P01","5":"B+","6":"3.33"},{"1":"S05","2":"C201","3":"Finance","4":"P03","5":"B","6":"3.00"},{"1":"S05","2":"C203","3":"Management","4":"P04","5":"B-","6":"2.67"},{"1":"S05","2":"C202","3":"Ops Mgmt","4":"P03","5":"B","6":"3.00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Based on the above data, we can compute the GPA for the students and list them in descending order. See <span class="citation" data-cites="tab-gpa-basic">@tab-gpa-basic</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gpa_data_basic <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">gpa =</span> <span class="fu">mean</span>(grade_points), <span class="at">.by =</span> student_id) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>gpa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="caption-top table">
+<caption>Students arranged in non-ascending order of GPA based on raw grades {#tab-gpa-basic}</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">student_id</th>
+<th style="text-align: right;">gpa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S01</td>
+<td style="text-align: right;">3.58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S02</td>
+<td style="text-align: right;">3.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S03</td>
+<td style="text-align: right;">3.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S05</td>
+<td style="text-align: right;">3.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S04</td>
+<td style="text-align: right;">2.50</td>
+</tr>
+</tbody>
+</table>
+<p>The data frame <em>gpa_data_adjusted</em> shows the student data with an additional variable showing the corresponding professor’s grading toughness in the range 0.75 (very tough grader) to 1.25 (very easy grader. See <span class="citation" data-cites="tab-grade-data-adjusted">@tab-grade-data-adjusted</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gpa_data_adjusted</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["student_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["course_id"],"name":[2],"type":["chr"],"align":["left"]},{"label":["course_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["prof_id"],"name":[4],"type":["chr"],"align":["left"]},{"label":["student_grade"],"name":[5],"type":["chr"],"align":["left"]},{"label":["grade_points"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["prof_toughness"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["adjusted_points"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"S01","2":"C101","3":"Acct I","4":"P01","5":"A-","6":"3.67","7":"1.25","8":"2.94"},{"1":"S01","2":"C102","3":"Marketing","4":"P02","5":"A-","6":"3.67","7":"1.20","8":"3.06"},{"1":"S01","2":"C103","3":"Microecon","4":"P01","5":"B+","6":"3.33","7":"1.25","8":"2.66"},{"1":"S01","2":"C104","3":"Stats I","4":"P02","5":"A-","6":"3.67","7":"1.20","8":"3.06"},{"1":"S02","2":"C201","3":"Finance","4":"P03","5":"A-","6":"3.67","7":"1.00","8":"3.67"},{"1":"S02","2":"C202","3":"Ops Mgmt","4":"P03","5":"B+","6":"3.33","7":"1.00","8":"3.33"},{"1":"S02","2":"C207","3":"HR Mgmt","4":"P03","5":"B+","6":"3.33","7":"1.00","8":"3.33"},{"1":"S02","2":"C208","3":"Business Analytics","4":"P03","5":"B+","6":"3.33","7":"1.00","8":"3.33"},{"1":"S03","2":"C203","3":"Management","4":"P04","5":"B","6":"3.00","7":"0.85","8":"3.53"},{"1":"S03","2":"C204","3":"Business Law","4":"P05","5":"B","6":"3.00","7":"0.75","8":"4.00"},{"1":"S03","2":"C205","3":"Info Systems","4":"P04","5":"B","6":"3.00","7":"0.85","8":"3.53"},{"1":"S03","2":"C206","3":"Strategy","4":"P05","5":"B","6":"3.00","7":"0.75","8":"4.00"},{"1":"S04","2":"C203","3":"Management","4":"P04","5":"C+","6":"2.33","7":"0.85","8":"2.74"},{"1":"S04","2":"C204","3":"Business Law","4":"P05","5":"B-","6":"2.67","7":"0.75","8":"3.56"},{"1":"S04","2":"C205","3":"Info Systems","4":"P04","5":"C+","6":"2.33","7":"0.85","8":"2.74"},{"1":"S04","2":"C206","3":"Strategy","4":"P05","5":"B-","6":"2.67","7":"0.75","8":"3.56"},{"1":"S05","2":"C101","3":"Acct I","4":"P01","5":"B+","6":"3.33","7":"1.25","8":"2.66"},{"1":"S05","2":"C201","3":"Finance","4":"P03","5":"B","6":"3.00","7":"1.00","8":"3.00"},{"1":"S05","2":"C203","3":"Management","4":"P04","5":"B-","6":"2.67","7":"0.85","8":"3.14"},{"1":"S05","2":"C202","3":"Ops Mgmt","4":"P03","5":"B","6":"3.00","7":"1.00","8":"3.00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The variable <em>adjusted_points</em> shows the grade points for each student for each course adjusted with the professor’s grading toughness (raw grade point divided by grading toughness).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explain why the adjusted points in the first row is 2.94.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The raw grade point for the first row is 3.67. The corresponding professor’s toughness is 1.25. The adjusted points is computed as 3.67/1.25 = 2.94. The same applies to all rows in the data frame.</p>
+</div>
+</div>
+</div>
+<p>Using this data, we can now compute the adjusted gpa. See <span class="citation" data-cites="tab-gpa-adjusted">@tab-gpa-adjusted</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gpa_data_adjusted <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">adj_gpa =</span> <span class="fu">mean</span>(adjusted_points), <span class="at">.by =</span> student_id) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>adj_gpa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="caption-top table">
+<caption>GPA of students based on adjusted grades {#tab-gpa-adjusted}</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">student_id</th>
+<th style="text-align: right;">adj_gpa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S03</td>
+<td style="text-align: right;">3.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S02</td>
+<td style="text-align: right;">3.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S04</td>
+<td style="text-align: right;">3.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S05</td>
+<td style="text-align: right;">2.95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S01</td>
+<td style="text-align: right;">2.93</td>
+</tr>
+</tbody>
+</table>
+<p>When comparing <span class="citation" data-cites="tab-gpa-basic">@tab-gpa-basic</span> and <span class="citation" data-cites="tab-gpa-adjusted">@tab-gpa-adjusted</span>, we see that the order of students has changed. Student S01, who had the highest raw GPA, has the lowest adjusted GPA. Student S03, who had a raw GPA of 3.00, has the highest adjusted GPA of 3.77.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Students S03 and S05 had a raw GPA of 3.0. But the adjusted GPA for S03 went up to 3.77 and that for S05 went down to 2.95. Why this difference?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>They took courses with different instructors with different grading toughness. S03 took courses with tougher graders than S05.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Instead of comparing GPAs directly, we need to <strong>adjust</strong> them for grading toughness of professors to get a more accurate picture of the students’ performance.</p>
+</div>
+</div>
+</section>
+<section id="gender-pay-gap" class="level3" data-number="16.1.4">
+<h3 data-number="16.1.4" class="anchored" data-anchor-id="gender-pay-gap"><span class="header-section-number">16.1.4</span> Gender pay gap?</h3>
+<p>An employee sues a company for pay discrimination based on the following data:</p>
+<blockquote class="blockquote">
+<p>Average male salary: $110,000 Average female salary: $95,000</p>
+</blockquote>
+<p>It could be true that the company is systematically paying female employees lower salaries. Or could it be the case that the company is not discriminating against female employees. <em>Could it even be the case that the company is systematically paying its male employees lower salaries?</em></p>
+<p>What should we examine before concluding? What important variables might we be missing?</p>
+<p>What if:</p>
+<ul>
+<li><p>the company had mostly male employees for a long time and is trying to bridge this gap and has been recruiting more female employees in recent years, but more of these recruits have been at lower levels – resulting in lower average salaries for female employees?</p></li>
+<li><p>the job roles differ significantly between male and female employees? For example, the company may have many people who operate heavy equipment and are paid very high salaries because of the risk involved. All of these operators are male and this could raise the average male pay.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>It could turn out that when we adjust for the right variables, the difference vanishes.</p></li>
+<li><p>It could even be that when we compare male and female workers performing similar tasks or at similar job levels (<strong>adjust for the variables job level and job type</strong>) <em>the data could even possibly reveal that the company is actually underpaying male employees!</em> … despite the overall average seemingly showing the opposite.</p></li>
+</ul>
+<p>The only way to get to the truth is to <strong>adjust</strong> for the right variables and then compare.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We spoke earlier about baseline potential being different for the numbers being compared. Such differences arise from <strong>systematic</strong> differences between the groups being compared.</p>
+<ul>
+<li><p>In the case of the store managers, we initially attributed the difference in sales across stores solely to how effectively the stores were being managed. But that might not be the only difference. Stores might differ in other ways that the initial analysis has not considered – for example, store size.</p></li>
+<li><p>In the bank loan default scenario, if we attributed the differences in default rates solely to the efficiency of the loan officers then we assume that the branches are otherwise the same. When we see how there might be other differences, then we get a more nuanced picture.</p></li>
+<li><p>In the GPA example, we initially attributed the GPA differences solely to the <em>quality</em> of the students. However, when we take into account other important differences – like the differences in toUghness of grading across professors, a different picture emerges.</p></li>
+<li><p>In the pay discrimination example, we initially attributed the pay difference solely to gender, ignoring other relevant systematic differences between the two groups.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="we-might-need-adjustment-to-properly-understand-relationships" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="we-might-need-adjustment-to-properly-understand-relationships"><span class="header-section-number">16.2</span> We might need adjustment to properly understand relationships</h2>
+<p>The previous section showed the importance of adjustment when comparing summaries across groups. In this section, we will see that adjustment is also important when we are trying to understand relationships between variables.</p>
+<section id="simpsons-paradox" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">16.2.1</span> Simpson’s paradox</h3>
+<p>The data frame <em>demand_expenditure_simpson</em> has data on demand and expenditure for a company. We can build a model to understand the relationship between demand and expenditure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>demand_expenditure_simpson <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model_train</span>(Demand <span class="sc">~</span> Expenditure) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coef</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) Expenditure 
+    634.581      -0.317 </code></pre>
+</div>
+</div>
+<p>The output shows, counterintuitively, that the coefficient of <em>Expenditure</em> is negative. See <a href="#eq-simpson-overall" class="quarto-xref">Equation&nbsp;<span>16.1</span></a>. The model suggests that increasing expenditure by one unit <em>decreases</em> demand by 0.32 units. <span id="eq-simpson-overall"><span class="math display">\[
+\widehat{Demand} = 634.6 - 0.32 \times Expenditure
+\tag{16.1}\]</span></span></p>
+<p><a href="#fig-simpson-overall" class="quarto-xref">Figure&nbsp;<span>16.1</span></a> confirms this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>demand_expenditure_simpson <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(Demand <span class="sc">~</span> Expenditure, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">annot =</span> <span class="st">"model"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">interval =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-simpson-overall" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-simpson-overall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-simpson-overall.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simpson-overall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.1: The curious relationship between advertising expenditure and demand in the <em>demand_expenditure_simpson</em> data frame
+</figcaption>
+</figure>
+</div>
+<p>While the overall relationship is puzzling, we can see that the plot itself shows three distinct clouds of points. This might lead us to wonder if there is a variable we might be missing.</p>
+<p>The data frame <em>demand_expenditure_simpson</em> has a variable <em>Product</em>. Perhaps that has something to do with this counter-intuitive finding.</p>
+<p>Let us <em>adjust</em> for product by including it in the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>demand_expenditure_simpson <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model_train</span>(Demand <span class="sc">~</span> Expenditure <span class="sc">+</span> Product) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coef</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) Expenditure    ProductY    ProductZ 
+    505.489       0.509    -207.555    -409.010 </code></pre>
+</div>
+</div>
+<p>We see now that the coefficient of <em>Expenditure</em> is positive, showing that higher expenditure is associated with higher demand. See the model function in <a href="#eq-simpson-adjusted" class="quarto-xref">Equation&nbsp;<span>16.2</span></a>.</p>
+<p><span id="eq-simpson-adjusted"><span class="math display">\[
+\widehat{Demand} = 505.5 + 0.51 \times Expenditure
+\begin{cases}
++\,0 &amp; \text{if } \text{Product} = \text{"ProductX"} \\
+-\,207.6 &amp; \text{if } \text{Product} = \text{"ProductY"} \\
+-\,409 &amp; \text{if } \text{Product} = \text{"ProductZ"}
+\end{cases}
+\tag{16.2}\]</span></span></p>
+<p>Plotting three separate regression lines for the three products confirms this finding. See <a href="#fig-simpson-adjusted" class="quarto-xref">Figure&nbsp;<span>16.2</span></a>.</p>
+<div id="fig-simpson-adjusted" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-simpson-adjusted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-simpson-adjusted.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simpson-adjusted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.2: Relationships in the <em>demand_expenditure_simpson</em> data frame after adjusting for <em>product</em>
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the above example, why did the overall data give us an incorrect picture of the effect of advertising on sales?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The data for the three products were such that product Z had the highest expenditures and the lowest demands, product Y had the next highest expenditures and the next lowest demands, and product X had the lowest expenditures and the highest demands. This created a situation where the overall data showed a negative relationship between expenditure and demand, even though within each product, there was a positive relationship.</p>
+<p>There was a systematic difference in the baseline demand for the three products, and this created a situation where the overall relationship was misleading. When we adjusted for product, we were able to see the true positive relationship between expenditure and demand within each product.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="a-word-of-caution-about-our-examples" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="a-word-of-caution-about-our-examples"><span class="header-section-number">16.3</span> A word of caution about our examples</h2>
+<p>We showed some dramatic examples to illustrate the importance of adjustment. We do not mean to suggest that all comparisons of averages or of relationships are misleading or will have sweeping effects when we adjust for other variables.</p>
+<p>However, we do want to stress that we should always be cautious and ask ourselves if there are other variables that we need to adjust for before accepting the story that the numbers are telling us.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../modules/05-explanatory-power-of-models/accounting-for-variance.html" class="pagination-link" aria-label="The Variance Equation and $R^2$">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and <span class="math inline">\(R^2\)</span></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
