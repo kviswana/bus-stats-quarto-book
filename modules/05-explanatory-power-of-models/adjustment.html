@@ -453,8 +453,13 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>store_sales <span class="sc">|&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="tbl-store-sales" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-store-sales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;16.1: First six rows from the store sales dataset
+</figcaption>
+<div aria-describedby="tbl-store-sales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<caption>First six rows from the store sales dataset {#tab-store-sales}</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">store_id</th>
@@ -495,14 +500,22 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Since the store manager of the store with the highest sales will get a big bonus, we look at the sales of all stores and find that the top six stores by sales are as shown in <span class="citation" data-cites="tab-top-sales">@tab-top-sales</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>store_sales <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>store_sales) <span class="sc">|&gt;</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="tbl-top-sales" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-top-sales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;16.2: Top six stores by sales
+</figcaption>
+<div aria-describedby="tbl-top-sales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<caption>Top six stores by sales {#tab-top-sales}</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">store_id</th>
@@ -543,6 +556,9 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Should Sebastian Perez get the award?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -599,7 +615,7 @@ Important
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <table class="caption-top table">
-<caption>First six rows from the <em>store_sales_full</em> dataset showing each store’s floor area as well{#tab-store-sales-full}</caption>
+<caption>First six rows from the <em>store_sales_full</em> dataset showing each store’s floor area as well{#tbl-store-sales-full}</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">store_id</th>
@@ -655,8 +671,13 @@ Important
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>sales_per_sqft) <span class="sc">|&gt;</span> </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="tbl-top-sales-sqft" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-top-sales-sqft-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;16.3: Top six stores by sales per square foot
+</figcaption>
+<div aria-describedby="tbl-top-sales-sqft-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<caption>Top six stores by sales per square foot {#tab-top-sales-sqft}</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">store_manager_name</th>
@@ -704,6 +725,9 @@ Important
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p><span class="citation" data-cites="tab-top-sales-sqft">@tab-top-sales-sqft</span> shows that Noah Nguyen has the highest sales per square foot. So, if we adjust for store size, Noah Nguyen would get the award instead of Sebastian Perez. Several of the stores in the top six from earlier (<span class="citation" data-cites="tab-top-sales">@tab-top-sales</span>) do not figure in this list at all.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -916,8 +940,13 @@ Suggested answer
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">gpa =</span> <span class="fu">mean</span>(grade_points), <span class="at">.by =</span> student_id) <span class="sc">|&gt;</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>gpa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="tbl-gpa-basic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gpa-basic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;16.4: Students arranged in non-ascending order of GPA based on raw grades
+</figcaption>
+<div aria-describedby="tbl-gpa-basic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<caption>Students arranged in non-ascending order of GPA based on raw grades {#tab-gpa-basic}</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">student_id</th>
@@ -947,6 +976,9 @@ Suggested answer
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The data frame <em>gpa_data_adjusted</em> shows the student data with an additional variable showing the corresponding professor’s grading toughness in the range 0.75 (very tough grader) to 1.25 (very easy grader. See <span class="citation" data-cites="tab-grade-data-adjusted">@tab-grade-data-adjusted</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gpa_data_adjusted</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -994,8 +1026,13 @@ Suggested answer
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">adj_gpa =</span> <span class="fu">mean</span>(adjusted_points), <span class="at">.by =</span> student_id) <span class="sc">|&gt;</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>adj_gpa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="tbl-gpa-adjusted" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gpa-adjusted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;16.5: GPA of students based on adjusted grades
+</figcaption>
+<div aria-describedby="tbl-gpa-adjusted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<caption>GPA of students based on adjusted grades {#tab-gpa-adjusted}</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">student_id</th>
@@ -1025,6 +1062,9 @@ Suggested answer
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>When comparing <span class="citation" data-cites="tab-gpa-basic">@tab-gpa-basic</span> and <span class="citation" data-cites="tab-gpa-adjusted">@tab-gpa-adjusted</span>, we see that the order of students has changed. Student S01, who had the highest raw GPA, has the lowest adjusted GPA. Student S03, who had a raw GPA of 3.00, has the highest adjusted GPA of 3.77.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
