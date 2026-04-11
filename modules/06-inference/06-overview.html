@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 4: Linear Regression Models – Introduction to Business Statistics: A Modeling Approach</title>
+<title>Module 6: Transitioning to Inference – Introduction to Business Statistics: A Modeling Approach</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../modules/04-more-on-models/line-of-best-fit-story.html" rel="next">
-<link href="../../modules/03-introduction-to-models/visualizing-simple-models.html" rel="prev">
+<link href="../../modules/06-inference/populations-and-samples.html" rel="next">
+<link href="../../modules/05-explanatory-power-of-models/adjustment.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -135,7 +135,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/04-overview.html">More on models – least squares</a></li><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/04-overview.html">Module 4: Linear Regression Models</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Transitioning to inference</a></li><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Module 6: Transitioning to Inference</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -274,7 +274,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/04-more-on-models/04-overview.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../modules/04-more-on-models/04-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 4: Linear Regression Models</span></a>
   </div>
 </li>
@@ -356,7 +356,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/06-inference/06-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../modules/06-inference/06-overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Module 6: Transitioning to Inference</span></a>
   </div>
 </li>
@@ -392,9 +392,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/04-overview.html">More on models – least squares</a></li><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/04-overview.html">Module 4: Linear Regression Models</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Transitioning to inference</a></li><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Module 6: Transitioning to Inference</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Module 4: Linear Regression Models</h1>
+<h1 class="title">Module 6: Transitioning to Inference</h1>
 </div>
 
 
@@ -411,7 +411,8 @@ window.Quarto = {
 </header>
 
 
-<p>This module fills in the details on top of the intuitive foundation for a linear model that the previous module laid.It introduces the idea of the least squares best fit line and its corresponding model. The module covers R code for building linear models for the case of a single numerical explanatory variable, a single categorical variable and a combination of one numerical and one categorical explanatory variable.It shows how to distill the model function based on the regression output.</p>
+<p>Until now we have been looking at our data sets as isolated entities. We have been focused on understanding the data and the relationships between variables in the data.</p>
+<p>In this module, we will start to think about how we can use our data to make inferences about the world beyond our data set. We will start to think about how we can use our data to make predictions and to understand the underlying processes that generate our data.</p>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning Goals</h2>
 <ul>
@@ -423,10 +424,11 @@ window.Quarto = {
 <section id="structure-of-this-module" class="level2">
 <h2 class="anchored" data-anchor-id="structure-of-this-module">Structure of This Module</h2>
 <ul>
-<li>mention that the model gives an estimated value, but defer detailed discussion until later</li>
-<li>R code for building model with no explanatory variable and reconstructing the model function</li>
-<li>R code for building model with one numeric explanatory variable and reconstructing the model function</li>
-<li>R code for building model with one numeric explanatory variable and one categorical explanatory variable and reconstructing the model function</li>
+<li>Populations, samples, and sampling</li>
+<li>Sampling distributions</li>
+<li>Confidence intervals</li>
+<li>Probability distributions</li>
+<li>Hypothesis testing</li>
 </ul>
 
 
@@ -834,13 +836,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../modules/03-introduction-to-models/visualizing-simple-models.html" class="pagination-link" aria-label="Visualizing Mean Models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visualizing Mean Models</span></span>
+      <a href="../../modules/05-explanatory-power-of-models/adjustment.html" class="pagination-link" aria-label="Adjustment">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Adjustment</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../modules/04-more-on-models/line-of-best-fit-story.html" class="pagination-link" aria-label="Line of Best Fit">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line of Best Fit</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../modules/06-inference/populations-and-samples.html" class="pagination-link" aria-label="Populations and samples">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Populations and samples</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
