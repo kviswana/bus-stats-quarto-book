@@ -10,17 +10,29 @@
 ```
 
 
-This text presents a modern, modeling-first approach to business statistics.
-Rather than a traditional probability-first sequence, we begin with data,
-relationships, patterns, models, and regression — the tools most relevant to
-business decision-making in marketing, finance, economics, HR, and analytics.
+Most business statistics courses start with probability.
 
-You will learn:
+This one starts with decisions.
 
-- how to visualize data  
-- how to describe relationships  
-- how to build regression models  
-- how to interpret uncertainty  
-- how to make data-driven decisions  
+Business leaders do not begin with sampling distributions — they begin with questions:
+What drives sales?
+What predicts customer churn?
+What explains profitability?
 
-Let’s get started.
+To answer those questions, we build models.
+
+This book takes a modeling-first approach. You will begin with data visualization and variability, move to averages as models, then to category means, and ultimately to regression models that explain and predict business outcomes.
+
+Only after you understand how models work do we introduce probability, confidence intervals, and hypothesis testing — as tools for quantifying uncertainty in the models you build.
+
+By the end of this book, you will be able to:
+
+- explore and visualize data
+- understand variability
+- build and interpret regression models
+- evaluate how much variation a model explains
+- make data-driven decisions under uncertainty
+
+Statistics is not about memorizing formulas. It is about building useful models for real decisions.
+
+Let’s begin.

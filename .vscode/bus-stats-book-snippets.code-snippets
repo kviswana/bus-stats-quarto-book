@@ -77,6 +77,26 @@
   "description": "Insert a Pause & Think callout + collapsible Suggested answer (native Quarto)"
 }
 
+"R Code Chunk": {
+  "prefix": "qr",
+  "body": [
+    "```{r}",
+    "$1",
+    "```"
+  ],
+  "description": "Insert an R code chunk"
+}
+
+"Quarto Markdown Table": {
+  "prefix": "qtable",
+  "body": [
+    "| Column 1 | Column 2 | Column 3 |",
+    "|----------|----------|----------|",
+    "| ${1:data} | ${2:data} | ${3:data} |",
+    "| ${4:data} | ${5:data} | ${6:data} |"
+  ],
+  "description": "Insert basic markdown table"
+}
 
 
 

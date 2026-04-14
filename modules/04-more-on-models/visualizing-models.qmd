@@ -1,4 +1,4 @@
-# Visualizing models {#sec-visualizing-models}
+# Visualizing Models {#sec-visualizing-models}
 
 In this chapter, we will first revisit how to build visualize the two *mean* models we saw earlier in @sec-mean-model and @sec-category-means. To be sure, we already covered these in @sec-visualizing-mean-models, but repeat it with different examples to provide reinforcement.
 
@@ -98,7 +98,7 @@ This code shows you how to add a model as an annotation. We had used "annot=" ea
 
 annot = "model", interval = "none"
 
-The first part asks the function to annotate the scatter plot with a model. 
+The first part asks the function to annotate the scatterplot with a model. 
 For now, we will just use the second part "interval = ..." without explanation. Later in the course, you will see why we use this.
 
 ![Scatter plot of *listings* from the *txhousing* data frame annotated with a model: the model is the blue horizontal line at the average value of listings (3217)](../../images/fig-txhousing-listings-mean-model.png){#fig-txhousing-listings-mean-model width=70% fig-align=center}
@@ -159,7 +159,7 @@ How can you verify the suggested answer from the previous question?
 Multiply *minutes* by 60 and that should equal *time*. However, we cannot use the variable *time* as it is not numerical. (Take a close look.)
 :::
 
-Let us visualize a model for the variable *minutes*. As before, we generate the scatter plot and then annotate with a model. We changed the data frame and the tilde expression. @fig-boston-marathon-minutes-model shows the plot. The model line is at *minutes = 144*.
+Let us visualize a model for the variable *minutes*. As before, we generate the scatterplot and then annotate with a model. We changed the data frame and the tilde expression. @fig-boston-marathon-minutes-model shows the plot. The model line is at *minutes = 144*.
 
 ```{r}
 #| eval: false
@@ -168,7 +168,7 @@ Boston_marathon |>
              interval = "none")
 ```
 
-![Scatter plot of *minutes* from the *Boston_marathon* data frame annotated with a model](../../images/fig-boston-marathon-minutes-model.png){#fig-boston-marathon-minutes-model width=70% fig-align=center}
+![Scatterplot of *minutes* from the *Boston_marathon* data frame annotated with a model](../../images/fig-boston-marathon-minutes-model.png){#fig-boston-marathon-minutes-model width=70% fig-align=center}
 
 ## Visualizing category mean models (single explanatory variable that is categorical)
 
@@ -181,7 +181,7 @@ Boston_marathon |>
              interval = "none")
 ```
 
-![Boston marathon model for *minutes* with *sex8 as the explanatory variabl](../../images/fig-boston-marathon-minutes-sex-model.png){#fig-boston-marathon-minutes-sex-model width=70% fig-align=center}
+![Boston marathon model for *minutes* with *sex* as the explanatory variabl](../../images/fig-boston-marathon-minutes-sex-model.png){#fig-boston-marathon-minutes-sex-model width=70% fig-align=center}
 
 For another example, we now use the *mpg* data frame and plot a model for the city. mileage (variable *cty*) with the kind of drive (variable *drv*) as the explanatory variable. @fig-mpg-cty-drv-model shows the plot. This time we see that the model is the mean for each kind of drive.
 
@@ -211,7 +211,7 @@ What is the unit of observation?
 Each row gives us information about a single college woman in the age range 18-25. SO the unit of observation is a *single college woman in the age range 18-25*.
 :::
 
-We would like to visualize a model that predicts the body fat (variable *BFat*) with *Wrist* as the explanatory variable. @fig-anthro-f-wrist-bfat-model shows the scatter plot and the least squares line.
+We would like to visualize a model that predicts the body fat (variable *BFat*) with *Wrist* as the explanatory variable. @fig-anthro-f-wrist-bfat-model shows the scatterplot and the least squares line.
 
 ```{r}
 #| eval: false

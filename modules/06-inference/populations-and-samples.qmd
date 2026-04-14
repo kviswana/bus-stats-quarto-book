@@ -1,0 +1,150 @@
+# Populations and samples {#sec-populations-and-samples}
+
+Thus far we used several datasets to learn how to build visualizations and models. This helped us to understand some basic things about the datasets as well as about relationships between its variables. 
+
+But really, is that all we take away from analyzing a dataset? 
+
+Consider for example the *mpg* data frame. For the cars in that data frame, we compute the city fuel efficiency as 16.9 miles per gallon.
+
+We then rent a car and notice that it has 5 gallons of fuel in it. If we had to estimate how far it could travel with the gas in its tank, how would we go about it? If we did not use any specific information about the car (like its make, model, etc), it might be reasonable for us to estimate that it would be able to travel 16.9 miles per gallon $\times$ 5 gallons = 84.5 miles. 
+
+But this car we rented was not one of the cars in the *mpg* data frame. How then is it reasonable to assume that the data in the *mpg* data frame can be used to make an estimate about the car we rented?
+
+::: {.callout-important}
+The *mpg* data frame contains data about 200+ cars. We can reasonably expect that it says something meaningful about cars in general. That is, *we can make plausible inferences about cars in general* based on the data in the *mpg* data frame, *even though the data frame was not based on every single car in the world*.
+:::
+
+Of course, the quality of our estimate of how far our rental car will go will depend on how well the data in the *mpg* data frame apply to our rental car. 
+
+More generally, the quality of our inferences about the world beyond our data will depend on how well our data apply to the world beyond our data.
+
+Our main point here is that we can use data to make inferences about the world beyond our data.
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+What might be some characteristics of a dataset that would give us confidence about making inferences about the world beyond the dataset?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+- The dataset is based on a large number of observations.
+- The dataset is not biased in some way that would make it unrepresentative of the world beyond the dataset. For example, if our *mpg* dataset was based on only sports cars, then it would not be reasonable to use it to make inferences about cars in general.
+:::
+
+This chapter gets you started on the important topic of *inferential statistics*.
+
+## Samples and populations
+
+In statistics, when we look at a dataset, we almost always think of the dataset as just one possible collection of data from among many possibilities. 
+
+For example, the *mpg* data frame is just one possible collection of data about cars. That dataset contains data on 200+ cars. But we can easily conceive of a dataset made up of a different set of 200+ cars as well. 
+
+If we want to find the average income of a resident of the United States, ideally we would have to gather data on every single resident of the United States. But that is not practical. Instead, we gather data on a certain number of people and use that data to make inferences about the average income of a resident of the United States.
+
+This is the fundamental idea behind sampling in statistics: we use a subset (sample) of a larger group (population) to make inferences about the larger group.
+
+The term *population* refers to the entire group that we are interested in. 
+
+The term *sample* refers to the subset of the population that we actually have data on.
+
+Often we would like to *infer* something about the population based only on analyzing the sample.
+
+The term *population* can refer to a group of people, but it can also refer to a group of things. For example, the population of cars in the world is the entire set of cars in the world. The population of trees in a forest is the entire set of trees in that forest.
+
+The term *population* can be somewhat tricky and its meaning in any given context might be tricky to pin down. For example, when we talk about the population of cars in the world, do we mean all cars that have ever existed? Or all cars that currently exist? Or all cars that will ever exist?
+
+For the purpose of this book, we will not worry too much about the precise meaning of the term *population* in any given context. We will just think of it as the larger group that we are interested in making inferences about.
+
+Sometimes people also refer to the population as the data generating process. This is a more abstract way of thinking about the population. It emphasizes the idea that the population is not just a static group of things, but rather a process that generates data. While that might be the more appropriate way to think about the term *population*, a more concrete approach suffices for our purpose.
+
+## Our datasets are samples
+
+Consider the data frames we have been working with so far. 
+
+| Data frame | #rows | Description |
+|----------|----------|----------|
+| *mpg* | 234 | Data on 200+ cars |
+| *diamonds* | 53,940 | Data on 50,000+ diamonds |
+|exp_demand | 600 | Simulated data on advertising expenditure and demand for a product|
+|kiosk| 25 | Simulated data on temperature and number of customers |
+
+All of these data frames are samples. They are all subsets of larger populations. When we analyze these data frames and *infer* something general from them e.g.,:
+- The average miles per gallon for cars is 16.9
+- The average price of a diamond is \$3,800
+- The relationship between advertising expenditure and demand is positive
+- The relationship between temperature and number of customers is positive
+
+we are generalizing from a limited set of data to a broader set of data. We are making inferences about the world beyond our data.
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+WHen making an inference beyond the dataset we analyzed, what determines the *quality* of our inference? What would make us feel more, or less, confident about our inferneces?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+Things that increase our confidence:
+
+- The dataset is based on a large number of observations. If based on a small number of observations, the dataset might not be representative of the world beyond the dataset. For example, if our *mpg* dataset was based on only 10 cars, then it would not be reasonable to use it to make inferences about cars in general.
+- The dataset is not biased in some way that would make it unrepresentative of the world beyond the dataset. For example, if our *mpg* dataset was based on only sports cars, then it would not be reasonable to use it to make inferences about cars in general.
+:::
+
+## How confident can we be about our inferences?
+
+When we make inferences about the world beyond our data, we are always uncertain about the quality of our inferences. 
+
+For example, suppose we want to estimate the average miles per gallon for cars in general. 
+
+We analyze the *mpg* data frame and find that the average city miles per gallon for the cars in that data frame is 16.9. Can we be sure that the average city miles per gallon for cars in general is 16.9? No, we cannot be sure. 
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+Why can we not be sure that the average city miles per gallon for **cars in general** is 16.9?
+:::
+
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+We have not looked at data for the entire population. Only when we do that can we be absolutely sure.
+:::
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+If we cannot be sure that we will get the exact answer, what then is the point of making aninference from a sample?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+Even if we do not get the exact number, we can still get a good estimate. For example, if the average city miles per gallon for cars in general is 17.2, then our estimate of 16.9 is not too bad and certainly better than having no estimate at all.
+:::
+
+::: {.callout-important}
+Here is the big shift in thinking that statistics requires: In the face of uncertainty, we have to be willing to give up the quest for exact answers. Instead we need to understand the value of estimates that are good enough for our purposes, even if they are not exact.
+
+The power of statistics comes from:
+- its ability to enable us to make inexact, but useful, estimates from limited data
+- its ability to inform us about how much confidence we can have in those estimates.
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

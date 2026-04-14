@@ -1,4 +1,4 @@
-# The Variance Equation and R-squared {#sec-variance-accounting}
+# The Variance Equation and $R^2$ {#sec-variance-accounting}
 
 We have come a very long way! After learning how to build models, we saw how the model *explains* variability in the outcome variable.
 
@@ -7,13 +7,241 @@ From this new perspective on models, we can say:
 ::: {.callout-note}
 The purpose of a model is to *explain* the variance in the outcome variable to whatever extent it can. 
 :::
+
+We also saw that we can measure the quality of a model by how much of the variability in the outcome variable it explains. In fact statisticians call this the $R^2$ of the model. See @eq-crude-rsq
+
+$$
+R^2
+=
+\frac{\text{Var}(\text{model estimates})}
+     {\text{Var}(\text{outcome variable})}
+$$ {#eq-crude-rsq}
  
-Some models explain no variance at all in the outcome variable (our first mean models). On the other extreme, we can (theoretically) have models that explain *all* the variability in the outcome variable. This can only happen if the real-world data we are looking at miraculously has a perfect linear relationship with the explanatory variables. In the case of a single numerical explanatory variable, all the points would have to fall along a straight line. Almost all the time, models fall in-between.
+
+
+::: {.callout-note icon=false}
+## Quick Check {.unnumbered}
+
+How much variability in the outcome variable does the mean model with no explanatory variables explain?
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Suggested answer {.unnumbered}
+
+The model values in this case are fixed and have no variability. For example we might have a model like:
+
+$$
+\widehat{\text{customers}} = 124
+$$
+
+In this case, the model estimates are the same for every row and hence have zero variance. The model does not expect any variability in the outcome variable, but there is variability in the outcome variable. So the model explains zero variability in the outcome variable. Therefore, $R^2$ is zero for this model.  
+:::
+
+Some models explain no variance in the outcome variable at all. Our first mean model had no variance at all, and therefore did not explain any variability in the outcome variable. On the other extreme, we can (theoretically) have models that explain *all* the variability in the outcome variable. This can only happen if in the real-world dataset we are looking at the outcome variable,miraculously, has a perfect linear relationship with the explanatory variable(s). In the case of a single numerical explanatory variable, all the points would have to fall along a straight line. This almost never happens in real life.
 
 We will see an interesting relationship between variances in the context of linear models -- the so-called variance accounting equation. 
 
 We will see several examples of explaining variation and attach the name R-squared to a concept we have already studied.
 
 This chapter mostly reinforces what you have already learned through many examples so that you can see recurring patterns in code and in inferring the model function or model equation.
+
+## The variance equation
+
+Let us take the mpg dataset, build a model to explain the highway mileage (column *hwy*) with *displacement* as the explanatory variable, and add the model estimates to the data frame.
+
+```{r}
+mpg |> 
+  mutate(model_estimate = model_values(hwy ~ displ)) |> 
+  select(displ, year, hwy, model_estimate)
+```
+
+Now that we have the model estimates, we can extend the above code to compute the residuals as well.
+
+```{r}
+mpg |> 
+  mutate(model_estimate = model_values(hwy ~ displ),
+         residual = hwy - model_estimate) |> 
+  select(displ, year, hwy, model_estimate, residual)
+```
+
+We can then compute the variance of the outcome variable, the model estimates, and the residuals.
+
+```{r}
+mpg |> 
+  mutate(model_estimate = model_values(hwy ~ displ),
+         residual = hwy - model_estimate) |> 
+  summarize(var(hwy), var(model_estimate), var(residual))
+```
+
+What do you see in the output? The variances of the model estimates and the residuals exactly add up to the variance of the outcome variable!
+
+$$
+\underbrace{\operatorname{Var}(\text{customers})}_{\substack{
+    \text{total variance} \\
+    \text{(i.e., variance in outcome variable)}
+  }}
+= \underbrace{\operatorname{Var}(\widehat{\text{customers}})}_{\text{model estimate variance}}
++ \underbrace{\operatorname{Var}(\text{resid})}_{\text{residual variance}}
+$$
+
+Or more generally as:
+
+$$
+\operatorname{Var}(\text{outcome variable}) 
+= \operatorname{Var}(\text{model estimates}) 
++ \operatorname{Var}(\text{residuals})
+$$ {#eq-accounting-for-variance}
+
+In the linear models that we build in this course, @eq-accounting-for-variance **always** holds!
+
+Let us try an example from our kiosk models. First the model with no explanatory variables.
+
+```{r}
+kiosk_beach_mall_temp |> 
+  mutate(model_estimate = model_values(customers ~ 1),
+         residual = customers - model_estimate) |> 
+  summarize(Total_variance = var(customers), 
+            Model_estimate_variance = var(model_estimate), 
+            Residual_variance = var(residual))
+```
+
+What just happened? Well, the model above with no explanatory variables has no variance and does not explain any variability. So the residual for each row is the full value of the outcome variable. Which is why you see that the variance of the residuals is equal to the variance of the outcome variables. The variance equation still holds!
+
+Let us try the model with just the kiosk as the explanatory variable.
+
+```{r}
+kiosk_beach_mall_temp |> 
+  mutate(model_estimate = model_values(customers ~ kiosk),
+         residual = customers - model_estimate) |> 
+  summarize(Total_variance = var(customers), 
+            Model_estimate_variance = var(model_estimate), 
+            Residual_variance = var(residual))
+```
+
+As we have already seen, this model explains 514 out of the total variance of 1169. The variance equation holds again.
+
+Let us now see the model with temperature and kiosk (without interaction effects).
+
+```{r}
+kiosk_beach_mall_temp |> 
+  mutate(model_estimate = model_values(customers ~ temperature + kiosk),
+         residual = customers - model_estimate) |> 
+  summarize(Total_variance = var(customers), 
+            Model_estimate_variance = var(model_estimate), 
+            Residual_variance = var(residual))
+```
+
+We have seen this before too. This model explains 1005 out of 1169. The variance equation holds again.
+
+We can try one with the *Boston_marathon* data frame. Let us use minutes as the explanatory variable and year as the explanatory variable.
+
+```{r}
+Boston_marathon |> 
+  mutate(model_estimate = model_values(minutes ~ year),
+         residual = minutes - model_estimate) |> 
+  summarize(Total_variance = var(minutes), 
+            Model_estimate_variance = var(model_estimate), 
+            Residual_variance = var(residual))
+```
+
+What? The variance equation does not seem to hold. But this is actually happening because of rounding.
+
+We can make it print more digits for verification.
+
+```{r}
+#| eval: false
+## Run this code in RStudio
+options(pillar.sigfig = 12)
+Boston_marathon |> 
+  mutate(model_estimate = model_values(minutes ~ year),
+         residual = minutes - model_estimate) |> 
+  summarize(Total_variance = var(minutes), 
+            Model_estimate_variance = var(model_estimate), 
+            Residual_variance = var(residual))
+```
+
+Run the above code in Rstudio and verify that the variance equation holds.
+
+Let us include sex as well and see how much improvement there is.
+
+```{r}
+#| eval: false
+## Run this code in RStudio
+options(pillar.sigfig = 12)
+Boston_marathon |> 
+  mutate(model_estimate = model_values(minutes ~ year + sex),
+         residual = minutes - model_estimate) |> 
+  summarize(Total_variance = var(minutes), 
+            Model_estimate_variance = var(model_estimate), 
+            Residual_variance = var(residual))
+```
+
+
+## Safe approach for computing $R^2$
+
+In any of the prior examples, we can find the proportion of variance that the model explains by using @eq-crude-rsq-1.
+
+$$
+R^2
+=
+\frac{\text{Var}(\text{model estimates})}
+     {\text{Var}(\text{outcome variable})}
+$$ {#eq-crude-rsq-1}
+
+However, this approach might not always work when we have missing values for the explanatory variables or the outcome variable. If some rows have rows with missing values for one or more explanatory variables, those rows will be left out of the *model_values* function and will end up with no model estimates. But the variance computations will still include all available values. So the number of rows on which the three variances are calculated could be mismatched and it will seem like the variance equation is not holding up.
+
+The *txhousing* data frame provides an example.
+
+```{r}
+txhousing |> 
+  mutate(model_estimate = model_values(sales ~ listings),
+         residual = sales - model_estimate) |>
+  summarize(Total_variance = var(sales),
+            Model_estimate_variance = var(model_estimate),
+            Residual_variance = var(residual))
+```
+
+We see that the output is all NA. TWe can avoid this by using na.rm = TRUE in the *var* function. But that will result in the mismatch we spoke about in the prior paragraph.
+
+The safe approach is to use the function that is explicitly provided for computing $R^2$ -- that function is *R2()*.
+
+```{r}
+txhousing |> 
+  model_train(sales ~ listings) |> 
+  R2()
+```
+
+From the output we see an $R^2$ value of 85%.
+
+Let us check the computed $R^2$ value for some of our earlier computations by using both methods.
+
+```{r}
+## R-squared by method 1
+kiosk_beach_mall_temp |> 
+  mutate(model_estimate = model_values(customers ~ temperature + kiosk),
+         residual = customers - model_estimate) |> 
+  summarize(Total_variance = var(customers), 
+            Model_estimate_variance = var(model_estimate), 
+            Residual_variance = var(residual))
+```
+
+This gives us 1005/1169 or 86%.
+
+```{r}
+kiosk_beach_mall_temp |> 
+  model_train(customers~ temperature + kiosk) |> 
+  R2()
+```
+
+We get the same 86%.
+
+Going forward, we will use the *R2()* function for computing $R^2$.
+
+$$
+\hat{y} =
+\underbrace{\beta_0}_{\text{intercept}}
++
+\underbrace{\beta_1 x}_{\text{slope effect}}
+$$
 
 

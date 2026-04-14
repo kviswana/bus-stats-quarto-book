@@ -1,10 +1,10 @@
-# Explaining Variation in Outcome Variable with Models {#sec-explaining-variation}
+# Using Models to Explain Variation in Outcome Variables {#sec-explaining-variation}
 
-In the previous chapter, we learned how to compute **model values** and **residuals**. For each day, the model gave us a predicted number of customers, and the residual told us how far off that prediction was from reality.
+In the previous chapter, we learned how to compute **model estimates** and **residuals**. For each day, the model gave us an estimated number of customers, and the residual told us how far off that prediction was from reality.
 
-Amanda asked the interns to come over the the mall kiosk so that they could get a feel for the actual operation while they discussed how to take this project forward. She seemed a bit concerned.
+Amanda asked the interns to come over to the the mall kiosk so that they could get a feel for the actual operation while they discussed how to take this project forward. She seemed a bit concerned.
 
-"You have helped us improve efficiency over the past few months. I have been able to maintain stable staffing levels while not overstaffing on slow days, or under-staffing on busy days. 
+"You have helped us improve efficiency over the past few months. I have been able to maintain stable staffing levels while not over-staffing on slow days, or under-staffing on busy days. 
 
 I have seen that using data properly does indeed help me to make better decisions and am planning to sign up for a service that will give me more data about our operations ... but they are pricey and I don't want to spend the money without knowing how much potential we have to improve our models. I want to know how much room we have to improve. So my first question for you all is:
 
@@ -12,15 +12,19 @@ I have seen that using data properly does indeed help me to make better decision
 
 Well, that was three questions ..." Amanda said with a smile. "Why don't you discuss and we can talk about it after a while?"
 
+![Explaining variation?](../../images/fig-explain-1.png){#fig-explain-1 width=70% fig-align=center}
+
+![When two variables are related, knowing the value of one can reduce uncertainty in the other ... to some extent](../../images/fig-explain-2.png){#fig-explain-2 width=70% fig-align=center}
+
 The interns are about to discover an important concept in linear models (the kind we build in this course) -- **variance of the outcome variable is split between what the model explains and what it does not**.
 
 ## Model as an explainer of variation in the outcome variable
 
-Steve began "To map back to what we did in our last few months for Amanda, we might say that when look at the outcome variable -- the number of customers each day --  and see the variability. Initially when Amanda just gave us the number of customers alone, we could not do much and suggested that the best she could do was to use the average as the estimate each day for both kiosks.
+Steve began "To map back to what we did in our last few months for Amanda, we might say that when look at the outcome variable -- the number of customers each day --  and see the variability. Initially when Amanda just gave us the numbers of customers alone, we could not do much and suggested that the best she could do was to use the average as the estimate each day for both kiosks.
 
 Some of the variability in the number of customers arises because of their location. The beach kiosk has its pattern and the mall one has its quirks. For example, on average the beach kiosk saw 40 more customers each day. So using the same staffing level for both kiosks does not make sense.
 
-So, one reason for the variation in the numbers was the kiosk each number was associated with. Once Amanda gave us the kiosk for each number in the data, we were hen able to give her a separate estimate for each kiosk and she confirmed that it improved matters for her.""
+So, one reason for the variation in the numbers was the kiosk each number was associated with. Once Amanda gave us the kiosk for each number in the data, we were hen able to give her a separate estimate for each kiosk and she confirmed that it improved matters for her."
 
 
 ::: {.callout-important}
@@ -108,9 +112,9 @@ Igor says "Guys, I think I understand this a bit better now. It makes sense that
 
 Dave says "Yes, the other day I was at the beach on a nice warm day and yet I only saw a few people out on the beach. We had an important playoff game in town. So, there you go, that is one thing that affects the number of customers, but which is not in our model."
 
-Angela then says "So it looks like we cannot improve things for Amanda unless she gives us more data. But can we answer her question of how good the model is? May be it is not *exact*, but it might still be good enough that she should not be spending money to get more data. I mean the extra benefit might not be worth the cost."
+Angela then says "So it looks like we cannot improve things for Amanda unless she gives us more data. But can we answer her question of how good the model is? May be it is not *exact*, but it might still be good enough that she should not be spending money to get more data. I mean the extra benefit from that information might not be worth the cost."
 
-Suzie has an idea "Let us put some hard numbers on this OK? If we are trying to find out how much variability the model *explains*, well, how much variability is there to explain in the first place?"
+Suzie has an idea "Let us put some hard numbers on this OK? If we are trying to find out how much variability the model *explains*. What does that mean? I mean, how much variability is there to explain in the first place?"
 
 Igor lights up "We are talking about explaining variability in the daily number of customers. Why not just use the variance of that variable?"
 
@@ -121,21 +125,21 @@ kiosk_beach_mall_temp |>
   summarize(cust_var = var(customers))
 ```
 
-Dave "OK. Where do we go from here?"
+Dave "OK. The total variance in the number of customers is 1169. Where do we go from here?"
 
-Angela "Guys, let us slow don a wee bit here. Can we please go back to the simplest model we had, and start thinking from there? That might help us wrap our heads around this better."
+Angela "Guys, let us slow down a wee bit here. Can we please go back to the simplest model we had, and start thinking from there? That might help us wrap our heads around this better." 
 
-Igor "OK. In our simplest model, we just predicted the average of the number of customers, completely ignoring the kiosk location or the temperature because at that time we did not have those variables. SO how much variation does that model explain?"
+Igor "OK. In our simplest model, we just estimated the daily number of customers as the average of the number of customers. We completely ignored the kiosk location or the temperature because at that time we did not have those variables. So how much variation does that model explain? Can we first see the model values for each row?"
 
-Again Suzie whips out code and produces @tbl-mean-model-estimates-kiosk-1:
+Again Suzie whips out code to add the model estimates to the data frame and produces @tbl-mean-model-estimates-kiosk-1:
 
 ```{r}
 #| eval: false
 kiosk_beach_mall_temp |> 
-  mutate(mod_val = model_values(customers ~ 1))
+  mutate(mod_est = model_values(customers ~ 1))
 ```
 
-| customers|kiosk | temperature| mod_val|
+| customers|kiosk | temperature| model_est|
 |---------:|:-----|-----------:|-------:|
 |  66.78076|Mall  |    58.62733|     124|
 | 118.66666|Mall  |    73.64915|     124|
@@ -192,7 +196,7 @@ kiosk_beach_mall_temp |>
 
 Igor says "But I thought that if we had only the number of customers and nothing else, then the model estimate is just the average."
 
-Peter "Yes, when we use customers ~ 1 in the *model_values* function, that is exactly what it does. The average is 123.8. We can just let *model_values* do the dirty work for us! The model equation would be" and he wrote down @q-kiosk-mean-model-2.
+Peter "Yes, that is exactly what Suzie's code does. when we use customers ~ 1 in the *model_values* function, it builds a model with no explanatory variables and treats the average as the model value. The average is 123.8. We can just let *model_values* do the dirty work for us! The model equation would be" and he wrote down @q-kiosk-mean-model-2.
 
 $$
 \widehat{\text{customers}} = 124
@@ -209,11 +213,11 @@ Igor "I think Angela hit upon a great insight. The variance of the model estimat
 
 David "I sure am happy that we managed to get away with giving Angela a model that *explained nothing* on the first day we met! But then that is all we could do with the data we had!"
 
-"Let me make sure I understand" says Peter. "You are sying that on the one side we have the variance of the outcome variable (number of customers) and on the other side we have the variance of the model estimates, or put differently, the amount of variation the model expects."
+"Let me make sure I understand" says Peter. "You are saying that on the one side we have the variance of the outcome variable, var(customers), and on the other side we have the variance of the model estimates, or put differently, the amount of variation the model expects."
 
-"Yes" Igor responds. Our actual values can vary all over the place, but the model values, as we have built the model, have to fit on a straight line. they atr  much more constrained than real-life. SO the variance of the model estimates will always be lower."
+"Yes" Igor responds. Our actual values can vary all over the place, but the model values, as we have built the model, are much more constrained (have to fit on a straight line). So, the variance of the model estimates will always be lower than the variance of the outcome variable."
 
-Suzie says "Let us make all this concrete, can we?" and first calculates the variance of the number of customers by itself. That is the amout of variation that a model must try to explain."
+Suzie says "Let us make all this concrete, can we?" and first calculates the variance of the number of customers by itself. That is the amount of variation that a model must try to explain."
 
 ```{r}
 kiosk_beach_mall_temp |> 
@@ -222,7 +226,7 @@ kiosk_beach_mall_temp |>
 
 "OK" Dave says. 1169 is our baseline. A perfect model will explain all of it."
 
-"But" says Suzie "We are building only linear models and our model estimates will always fall on a straight line. Our points as they stand are scattered and no single straight line can ever catch all of them. Because of this, no model we build can ever hope to explain all of the variance in the number of customers."
+"But" says Suzie "We are building only linear models and our model estimates will always fall on a straight line. Our points as they stand are quite scattered. No single straight line can ever catch all of them. Because of this, no model we build can ever hope to explain all of the variance in the number of customers."
 
 Peter "That's a sobering thought. Taking it to the next step, why don't we see how much variability the model with separate means for the two kiosks explains? 
 
@@ -256,13 +260,13 @@ kiosk_beach_mall_temp |>
 
 "Wow!" David says. "Although the model seems to not be great, Angela has condensed the idea of measuring a model's quality into a single number! Pretty statistical approach if you ask me."
 
-Igor summarizes. "So we have it. The quality of the model is just the variance of the model estimates divided by the variance of the ourcome variable." And he writes @eq-model-quality:
+Igor summarizes. "So we have it. The quality of the model is just the variance of the model estimates divided by the variance of the outcome variable." And he writes @eq-model-quality:
 
 $$
 \text{Model quality}
 =
 \frac{\text{Var}(\text{model estimates})}
-     {\text{Var}(\text{outcome})}
+     {\text{Var}(\text{outcome variable})}
 $$ {#eq-model-quality}
 
 Peter cannot wait. "How about the model that includes temperature as well? Does it improve the quality? Let's check." and he writes the following code.
@@ -273,9 +277,9 @@ kiosk_beach_mall_temp |>
   summarize(temp_kiosk_mod_est_var = var(temp_kiosk_mod_est))
 ```
 
-Angela exults "Wow! This model explains 1005 out of has a variance of 1169. Does that mean that it explains 1005/1169, or 86% of the variability in customers? What is the model equation for this?""
+Angela exults "Wow! This model explains 1005 out of has a variance of 1169. Does that mean that it explains 1005/1169, or 86% of the variability in customers? What is the model equation for this?"
 
-Igor says "You better believe it! Indeed it does." He then wrote the code and wrote out the model equation too.
+Igor says "You better believe it! Indeed it does." He then writes the code to build the model and get the model coefficients.
 
 ```{r}
 kiosk_beach_mall_temp |> 
@@ -283,10 +287,10 @@ kiosk_beach_mall_temp |>
   coef()
 ```
 
-They reconstructed the model equation @eq-kiosk-mode-no-intxn-2 from the output.
+They reconstruct the model equation @eq-kiosk-mode-no-intxn-2 from the output.
 
 $$
-\widehat{\text{customers}} = -18.4 + 2.6\, \text{temperature} +
+\widehat{\text{customers}} = -18.4 + 2.6\times \text{temperature} +
 \begin{cases}
 0 & \text{if } \text{kiosk} = \text{"Beach"} \\
 -57 &\text{if } \text{kiosk} = \text{"Mall"}
@@ -294,9 +298,9 @@ $$
 $$ {#eq-kiosk-mode-no-intxn-2}
 
 
-David recalled their whole discussion about *interaction effects* and asked, "Hey Igor or Suzie, by any chance, did Dr. Berlinsky show either of you a way by which we can build a model that includes the fancy *interaction effect*? We can then try to see how much explanatory quality we can gain by including that."
+David recalls their whole discussion about *interaction effects* and asks, "Hey Igor or Suzie, by any chance, did Dr. Berlinsky show either of you a way by which we can build a model that includes the fancy *interaction effect*? We can then try to see how much explanatory quality we can gain by including that."
 
-"He did show me the code. In fact it requires just changing a single character!" Igor said and wrote it."
+"He did show me the code. In fact it requires just changing a single character!" Igor says and writes it."
 
 ```{r}
 kiosk_beach_mall_temp |> 
@@ -304,11 +308,11 @@ kiosk_beach_mall_temp |>
   summarize(temp_kiosk_mod_est_var = var(temp_kiosk_intxn_mod_est))
 ```
 
-Angela observed "Well, that explains 1066 out of 1169 which is 91%."
+Angela observes "Well, that explains 1066 out of 1169 which is 91%."
 
-Suzie added "Interpreting the coefficients is complicated, but Dr. B assured me that the net model is exactly the same as the two separate models we gave Amanda."
+Suzie adds "Interpreting the coefficients is complicated, but Dr. B assured me that the model with interactions gives exactly the same results as the two separate models we gave Amanda."
 
-Amanda settled for @eq-kiosk-mode-no-intxn-2 as the model that best balances operating efficiency and complexity.
+Amanda settles for @eq-kiosk-mode-no-intxn-2 as the model that best balances operating efficiency and complexity.
 
-For the moment she decided that the current models were sufficiently good that she need not spend the money to get more data.
+For the moment she decides that the current models were sufficiently good that she need not spend the money to get more data.
 

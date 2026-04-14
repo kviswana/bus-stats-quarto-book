@@ -65,7 +65,7 @@ kiosk|>
 We have seen this model before. @eq-kiosk-model-fn-2 shows the model function.
 
 $$
-\widehat{\text{customers}} = 22.0561 + 1.4222\,\,\text{temperature}
+\widehat{\text{customers}} = 22.0561 + 1.4222\times\text{temperature}
 $$ {#eq-kiosk-model-fn-2}
 
 ::: {.callout-note icon=false}

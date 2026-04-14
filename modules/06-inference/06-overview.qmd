@@ -1,0 +1,20 @@
+# Module 6: Transitioning to Inference {.unnumbered}
+
+Until now we have been looking at our data sets as isolated entities. We have been focused on understanding the data and the relationships between variables in the data. 
+
+In this module, we will start to think about how we can use our data to make inferences about the world beyond our data set. We will start to think about how we can use our data to make predictions and to understand the underlying processes that generate our data.
+
+## Learning Goals
+
+- a
+- b
+- c
+
+## Structure of This Module
+
+- Populations, samples, and sampling
+- Sampling distributions
+- Confidence intervals
+- Probability distributions
+- Hypothesis testing
+

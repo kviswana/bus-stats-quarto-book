@@ -1,9 +1,3 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
-
 # Exploring Relationships through Scatterplots {#sec-visualizing-relationships}
 
 This chapter covers the basics of generating and interpreting
@@ -158,14 +152,14 @@ Its x-value (*price*) and its y-value (*sales_qty*)
 ::: {.callout-note icon="false"}
 ## Quick Check {.unnumbered}
 
-If a point is at x = 14 and y = 1100, what does it mean in context?
+If a point is at x = 14 and y = 1100, how does that relate to the data frame on which the plot was based?
 :::
 
 ::: {.callout-note icon="false" collapse="true"}
 ## Suggested answer {.unnumbered}
 
-There was an observation (row in the *price_demand* data frame) where
-the price was about 14 and the monthly sales quantity was about 1100.
+There is an observation (row in the *price_demand* data frame) where
+the price was 14 and the monthly sales quantity is 1100.
 :::
 
 Note the following about the plot:
@@ -224,8 +218,7 @@ plot?
 ::: {.callout-note icon="false" collapse="true"}
 ## Suggested answer {.unnumbered}
 
-Many points can be close together or overlapping, and the plot shows
-approximate positions rather than exact values.
+Many points can be close together or overlapping, and it can be hard to poinpoint exactly where the center of a plotted point falls.
 :::
 
 ### Finding the point corresponding to a row of the data frame

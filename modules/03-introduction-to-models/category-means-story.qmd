@@ -16,6 +16,8 @@ Why was the average the best choice *in the previous chapter*, given the informa
 Because the company had to commit to a single number for all situations and used a squared penalty for mistakes, the average minimized the long-run penalty. With no additional information to distinguish cases, no other single number could do better on average.
 :::
 
+
+
 Amanda walked in exactly at 9 am. WIth a bright smile, she said "Team, I have some good news. First off, we did very well last month. We had far fewer days of bad mismatches from our staffing levels with the customer counts. Your model improved significantly on what we were doing earlier.
 
 Secondly, I have better data this time and I am hoping we can improve our decision further."

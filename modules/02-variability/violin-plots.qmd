@@ -1,9 +1,3 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
-
 # Using Violin Plots to Visualize Distribution
 
 This chapter talks about visualizing variability.

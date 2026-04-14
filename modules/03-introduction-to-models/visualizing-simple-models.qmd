@@ -1,6 +1,6 @@
 # Visualizing Mean Models {#sec-visualizing-mean-models}
 
-In the prior chapters, we have established the overall *mean* as the *best model* when we have no other *explanatory* variable, and the category mean as the *simplest*best model\* when we have a categorical explanatory variable.
+In the prior chapters, we have established the overall *mean* as the *best model* when we have no other *explanatory* variable, and the category mean as the *best model* when we have a categorical explanatory variable.
 
 In this chapter we use the *point_plot* function to visualize these models.
 
@@ -63,7 +63,7 @@ in the code sets *cty* ans=d the response variable and, by placing 1 on the RHS,
 The part
 
 ```         
-annot = "model"
+annot = "model
 ```
 
 Causes a *model* to be visualized as well. We know that the mean is our model and this plot visualizes it by drawing a line at the average *cty*.

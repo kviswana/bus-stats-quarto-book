@@ -1,0 +1,21 @@
+student_id,course_id,course_name,prof_id,student_grade,grade_points
+S01,C101,Acct I,P01,A-,3.67
+S01,C102,Marketing,P02,A-,3.67
+S01,C103,Microecon,P01,B+,3.33
+S01,C104,Stats I,P02,A-,3.67
+S02,C201,Finance,P03,A-,3.67
+S02,C202,Ops Mgmt,P03,B+,3.33
+S02,C207,HR Mgmt,P03,B+,3.33
+S02,C208,Business Analytics,P03,B+,3.33
+S03,C203,Management,P04,B,3
+S03,C204,Business Law,P05,B,3
+S03,C205,Info Systems,P04,B,3
+S03,C206,Strategy,P05,B,3
+S04,C203,Management,P04,C+,2.33
+S04,C204,Business Law,P05,B-,2.67
+S04,C205,Info Systems,P04,C+,2.33
+S04,C206,Strategy,P05,B-,2.67
+S05,C101,Acct I,P01,B+,3.33
+S05,C201,Finance,P03,B,3
+S05,C203,Management,P04,B-,2.67
+S05,C202,Ops Mgmt,P03,B,3

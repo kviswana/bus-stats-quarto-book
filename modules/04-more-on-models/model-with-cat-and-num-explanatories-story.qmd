@@ -56,7 +56,7 @@ $$
 \end{cases}
 $$ {#eq-kiosk-cat-model-1}
 
-With the new data, if we estimate the number of customers based on temperature alone, our model becomes this" and she writes out the code and @eq-kiosk-cust-temp-model-2. 
+"With the new data, if we estimate the number of customers based on temperature alone, our model becomes this" and she writes out the code and @eq-kiosk-cust-temp-model-2. 
 
 ```{r}
 kiosk_beach_mall_temp |> 
@@ -66,23 +66,23 @@ kiosk_beach_mall_temp |>
 
 
 $$
-\widehat{\text{customers}} = 8.35 +  1.76\,\text{temperature}
+\widehat{\text{customers}} = 8.35 +  1.76\times \text{temperature}
 $$ {#eq-kiosk-cust-temp-model-2}
 
 "How do we continue from here?"
 
-Everyone sat back, looking intently at the two simple equations.
+Everyone sits back, looking intently at the two simple equations.
 
-Then David spoke up. "Can we think of some combination of the two? In the case of the temperature model, we had a general model like this in which we found the best values for *a* and *b*." and he writes out @eq-kiosk-cust-temp-model-generic-1.
+Then David speaks up. "Can we think of some combination of the two? In the case of the temperature model, we had a general model like this in which we found the best values for *a* and *b*." and he writes out @eq-kiosk-cust-temp-model-generic-1.
 
 $$
-\widehat{\text{customers}} = a +  b\,\text{temperature}
+\widehat{\text{customers}} = a +  b\times\text{temperature}
 $$ {#eq-kiosk-cust-temp-model-generic-1}
 
 David then continues: "Why not just add another variable *c* to this?" And he wrote out @eq-kiosk-cust-temp-kiosk-model-generic-bad
 
 $$
-\widehat{\text{customers}} = a +  b\,\text{temperature} + c\,\text{kiosk\_location}
+\widehat{\text{customers}} = a +  b\times\text{temperature} + c\times \text{kiosk\_location}
 $$ {#eq-kiosk-cust-temp-kiosk-model-generic-bad}
 
 "Now we just have to find the *best* values for *a*, *b*, and *c*. That's all!"
@@ -91,17 +91,17 @@ $$ {#eq-kiosk-cust-temp-kiosk-model-generic-bad}
 
 "Hold on" Igor says, and everyone seems mildly irritated, like he is a party pooper. 
 
-But, Igor continues "Kiosk location is either Beach or Mall. It is categorical. How do we multiply that by the value of *c*? I mean, what is Beach times 1.5 or some such?"
+But, Igor continues "Kiosk location is either Beach or Mall. It is categorical. How do we multiply that by the value of *c*? I mean, what is Beach times 1.5 or some number?"
 
-They fall into a deep silence again. Angela says "Amanda sure us gave a tough nut to crack.""
+They fall into a deep silence again. Angela says "Amanda sure us gave a tough nut to crack."
 
-Suzie once again tries to connect the old model to the new one. She says "Igor is right in that we cannot multiply *c* by the kiosk location. But can we not do something like we did earlier with, if the kiosk is beach then something, otherwise something else sort of approach?" and she points to @eq-kiosk-cat-model-1.
+Suzie once again tries to connect the old model to the new one. She says "Igor is right in that we cannot multiply *c* by the kiosk location. But can we not do something like we did earlier. Like, if the kiosk is beach then something, otherwise something else sort of approach?" and she points to @eq-kiosk-cat-model-1.
 
 Long silence once again. Then Igor speaks out. "Perhaps our model should look something like this."
 
 $$
 \widehat{\text{customers}}
-= a + b\,\text{temperature}
+= a + b\times \text{temperature}
 + \begin{cases}
 c_{\text{Mall}} & \text{if } \text{kiosk}=\text{"Mall"} \\
 c_{\text{Beach}} & \text{if } \text{kiosk}=\text{"Beach"}
@@ -110,11 +110,11 @@ $$
 
 Time is running out. Amanda would be back any time now. 
 
-David speaks up finally "Peter, can you simply extend the earlier temperature model by just tagging on kiosk and see what hapepns? Why not just try? Perhaps it can already do what we want."
+David speaks up finally "Peter, can you simply extend the earlier temperature model by just tagging on kiosk and see what happens? Why not just try? Perhaps it can already do what we want."
 
-Just then Amanda comes back. The team is quite embarrassed that, unlike on earlier occasions, when they were ready with a solution when Amanda returned, now they do not have a solution. She senses the mood in the room and says "It looks like you have worked hard, but have not hit upon any solution yet."
+Just then Amanda comes back. The team is quite embarrassed that unlike on earlier occasions, when they were ready with a solution before Amanda returned, now they do not have a solution. She senses the mood in the room and says "It looks like you have worked hard, but have not hit upon any solution yet."
 
-Peter replies "We have made some progress, but are not quite there yet. Can you give us a little more time?" He then describes out exactly where they stand and their idea of somehow combining the category mean model with the temperature model.
+Peter replies "We have made some progress, but are not quite there yet. Can you give us a little more time?" He then describes exactly where they stand, and their idea of somehow combining the category mean model with the temperature model.
 
 Amanda senses their disappointment and immediately says: "You seem to be on a good path here. I have a sense that you can pull this off. Let us meet in a few days. Good luck!"
 
@@ -124,11 +124,11 @@ They meet briefly over coffee in the university cafeteria and agree to meet as a
 
 At the meeting, Peter starts "We were on the right track." 
 
-Igor agrees. I spoke to Dr. Berlisky from the statistics department and I have bad and good news. He said that this problem actually involves a somewhat more advanced concept called *interactions effects*. That is the bad news.
+Igor agrees. I spoke to Dr. Berlinsky from the statistics department and I have bad and good news. He said that this problem actually involves a somewhat more advanced concept called *interactions effects* that will take some additional reading to understand and implement. That is the bad news.
 
-And here is the good news, he suggested a simple idea. Just separate the data for thw two kiosks and build separate models for each based on temperature alone! I wonder why we did not think of that. We will have a separate model for each kiosk. That could be more complex than Amanda might like. But from what the prof said, I think we have no choice. In any case, he said that even if we built a fancy model with *interaction effects*,  we would get the exact same results, but could build the model in a single step."
+And here is the good news, he suggested a simple idea. Just separate the data for thw two kiosks and build separate models for each based on temperature alone! I wonder why we did not think of that. It is just the same idea we applied when we gave separate means for the two kiosks in the second week. We will have a separate model for each kiosk. That could be more complex than Amanda might like. But from what Prof B said, I think we have no choice. In any case, he said that even if we built a fancy model with *interaction effects*,  we would get the exact same results as the two separate models approach. The only advantage is that we could build the model in one step and give Amanda a single equation instead of two separate equations."
 
-The team agreed. This is what they would propose to Amanda.
+The team agreed. They would propose two separate models to Amanda.
 
 Peter writes up some code once again to first visualize both models (@fig-kiosk-beach-mall-kiosk-temp-lines).
 
@@ -154,7 +154,7 @@ From the output, they reconstructed the model for the Mall kiosk as:
 
 
 $$
-\widehat{\text{customers}} = -18.53 +  1.77\,\text{temperature} 
+\widehat{\text{customers}} = -18.53 +  1.77\times\text{temperature} 
 $$ {#eq-kiosk-cust-temp-mall}
 
 
@@ -170,7 +170,7 @@ From the output, they reconstruct the model for the Beach kiosk as:
 
 
 $$
-\widehat{\text{customers}} = -82 +  3.6\,\text{temperature} 
+\widehat{\text{customers}} = -82 +  3.6\times \text{temperature} 
 $$ {#eq-kiosk-cust-temp-beach}
 
 
@@ -182,10 +182,10 @@ Peter clarifies. "Suzie, these are *intercepts*. These are the points where the 
 
 ![Caption](../../images/fig-plot-showing-negative-intercepts.png){#fig-plot-showing-negative-intercepts width=70% fig-align=center}
 
-The group nods in understanding and seem relieved to see the connection between the plot and the coefficients.
+The group nods in understanding and seems relieved to see the connection between the plot and the coefficients.
 
 ::: {.callout-important}
-The intercept is the predicted number of customers at 0°F.
+The intercept of a line is the estimated number of customers at 0°F for the corresponding kiosk.
 
 It’s outside the observed data range, but the model still defines it.
 
@@ -194,17 +194,17 @@ It seems nonsensical to have negative model estimates, but if we restrict the mo
 We should use models only within the range of data that were used to build them. In this scenario, we should not use these models outside the range of 50°F and 80°F. If we adhere to this, then we will not generate absurd model estimates.
 :::
 
-Later that week, they meet with Amanda again, a little fearful that they did not stick to her "simple" requirement and were giving two different models. They tell her honestly that they had heard about a more advanced approach that would fit both into a single model, but that they were not sufficiently knowledgeable to present it. They also tell her that the results would still be the same as with two separate models.
+Later that week, they meet with Amanda again, a little fearful that they did not stick to her *simple* requirement and were giving two different models. They tell her honestly that they had heard about a more advanced approach that would fit both into a single model, but that they were not sufficiently knowledgeable to present it. They also tell her that the results would still be the same as with two separate models.
 
 Fortunately, Amanda seems happy with their work. But she said that she would prefer a single simple model rather than two, even if it meant somewhat lower quality estimates. 
 
 The team's spirits sank. 
 
-Suzie was ready. She said, "I too have Dr. Berlinsky for a class and  just before leaving campus for this meeting. I was worried about our model being a bit more complex than what Amanda wanted. 
+But Suzie was ready. She said, "I too have Dr. Berlinsky for a class and, just before leaving campus for this meeting. I was worried about our model being a bit more complex than what Amanda wanted. 
 
-He said, and as we already know too, that temperature affects the two kiosks differently. The line for the beach kiosk is steeper, and our two separate models capture that difference.
+Dr. B said, and as we already know too, that temperature affects the two kiosks differently. The line for the beach kiosk is steeper, and our two separate models capture that difference.
 
-However, he also said that in real life simpler models also have their virtues. Even if the more complex model gives slightly better results, its complexity might add costs in terms of overloading the operating personnel a bit, which has its costs too. If a simpler solution gave close results then, on balance it might be alright.
+However, he also said that, in real life, simpler models also have their virtues. Even if the more complex model gives slightly better results, its complexity might add costs in terms of overloading the operating personnel a bit, which has its costs too. If a simpler solution gave close results then, on balance it might be alright.
 
 He said that we could build a simpler model that assumes that the temperature affects both kiosks equally (same slope). That model looks like this." And she showed @fig-no-interaction-kiosk-model.
 
@@ -221,7 +221,7 @@ kiosk_beach_mall_temp |>
 They reconstruct the model equation @eq-kiosk-mode-no-intxn from the output.
 
 $$
-\widehat{\text{customers}} = -18.4 + 2.6\, \text{temperature} +
+\widehat{\text{customers}} = -18.4 + 2.6\times \text{temperature} +
 \begin{cases}
 0 & \text{if } \text{kiosk} = \text{"Beach"} \\
 -57 &\text{if } \text{kiosk} = \text{"Mall"}
@@ -229,7 +229,7 @@ $$
 $$ {#eq-kiosk-mode-no-intxn}
 
 
-Amanda said "Now you're talking. I prefer this one."
+Amanda says "Now you're talking. I prefer this one. I do not want to complicate things too much."
 
 The team resolved to learn more about the *interaction effects* that Dr. Berlinsky had spoken about and present that to Amanda when possible. 
 

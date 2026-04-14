@@ -46,4 +46,24 @@ kiosk_beach_mall_temp <- read_csv("lst-extras-datasets/kiosk_beach_mall_temp.csv
 kiosk_mall_beach <- read_csv("lst-extras-datasets/kiosk_mall_beach.csv", 
                   show_col_types = FALSE)
 
+store_sales <- read_csv("lst-extras-datasets/store_sales.csv", 
+                  show_col_types = FALSE)    
+store_sales_full <- read_csv("lst-extras-datasets/store_sales_full.csv", 
+                  show_col_types = FALSE)  
+               
+gpa_data_basic <- read_csv("lst-extras-datasets/gpa_data_basic.csv", 
+                  show_col_types = FALSE) 
+gpa_data_adjusted <- read_csv("lst-extras-datasets/gpa_data_adjusted.csv", 
+                  show_col_types = FALSE) 
+
+
+demand_expenditure_simpson <- read_csv("lst-extras-datasets/demand_expenditure_simpson.csv", 
+                  show_col_types = FALSE) 
+
+kiosk_customers_population <- read_csv("lst-extras-datasets/kiosk_customers_population.csv", 
+                  show_col_types = FALSE) 
+
+exp_demand <- read_csv("lst-extras-datasets/exp_demand.csv", 
+                  show_col_types = FALSE)
+
 # Helper functions

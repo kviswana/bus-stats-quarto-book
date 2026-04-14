@@ -1,0 +1,20 @@
+March 9: First test review
+March 11: First test
+March 16: Line of best fit (Ch 9)
+March 18: Line of best fit (Ch 9), Visualizing models (Ch 10)
+
+March 23: Amanda's new challenge (Ch 12) [Visualizing models (Ch 10), Finding the model function (Ch 11)]
+March 25: Amanda's new challenge (Ch 12)
+
+March 30: "Explain" as used in statistics and Using model to explain variation (Ch 13 and 14)
+April 1: Models to explain variation (Ch 14)
+
+April 8: Variance equation (Chapter 15)
+
+April 13: Adjusting for ... (Ch 16) + CritiCoach
+April 15: Samples and populations (Ch 17) + Inference based on single sample (Ch 18)
+April 20: Computing confidence intervals for various models (Ch 19) + Project
+April 22: Probability (Ch 20) 
+April 27: Hypothesis testing (Ch 21)
+April 29: 
+May 4: Final examination review

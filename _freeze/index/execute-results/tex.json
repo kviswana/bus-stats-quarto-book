@@ -1,8 +1,8 @@
 {
-  "hash": "07eacc8dab4766f55fdc129bd370bad0",
+  "hash": "9f64c8734aa8cfad4802b36c71d11bb2",
   "result": {
     "engine": "knitr",
-    "markdown": "# Introduction to Business Statistics {.unnumbered}\n\n*A Modeling and Regression-Based Approach*\n\n\n\n\nThis text presents a modern, modeling-first approach to business statistics.\nRather than a traditional probability-first sequence, we begin with data,\nrelationships, patterns, models, and regression — the tools most relevant to\nbusiness decision-making in marketing, finance, economics, HR, and analytics.\n\nYou will learn:\n\n- how to visualize data  \n- how to describe relationships  \n- how to build regression models  \n- how to interpret uncertainty  \n- how to make data-driven decisions  \n\nLet’s get started.\n",
+    "markdown": "# Introduction to Business Statistics {.unnumbered}\n\n*A Modeling and Regression-Based Approach*\n\n\n\n\nMost business statistics courses start with probability.\n\nThis one starts with decisions.\n\nBusiness leaders do not begin with sampling distributions — they begin with questions:\nWhat drives sales?\nWhat predicts customer churn?\nWhat explains profitability?\n\nTo answer those questions, we build models.\n\nThis book takes a modeling-first approach. You will begin with data visualization and variability, move to averages as models, then to category means, and ultimately to regression models that explain and predict business outcomes.\n\nOnly after you understand how models work do we introduce probability, confidence intervals, and hypothesis testing — as tools for quantifying uncertainty in the models you build.\n\nBy the end of this book, you will be able to:\n\n- explore and visualize data\n- understand variability\n- build and interpret regression models\n- evaluate how much variation a model explains\n- make data-driven decisions under uncertainty\n\nStatistics is not about memorizing formulas. It is about building useful models for real decisions.\n\nLet’s begin.\n",
     "supporting": [
       "index_files"
     ],

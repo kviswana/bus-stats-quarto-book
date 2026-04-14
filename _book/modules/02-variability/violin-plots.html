@@ -78,11 +78,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-6598efebc0fc82f63c3510b9ac47738c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -107,13 +107,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction to Business Statistics: A Modeling Approach</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/kviswana/bus-stats-quarto-book/issues/new?title=Book%20issue%20report&amp;labels=bug&amp;body=Page%20URL%3A%20%0A%0ASection%20Title%3A%20%0ADescribe%20the%20issue%3A%20%0A%0AIf%20this%20is%20a%20typo%2C%20please%20suggest%20a%20fix%3A%20" target="_blank"> <i class="bi bi-bug" role="img">
+</i> 
+<span class="menu-text">Report a bug</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -122,29 +175,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/02-variability/02-overview.html">Variation</a></li><li class="breadcrumb-item"><a href="../../modules/02-variability/violin-plots.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Using Violin Plots to Visualize Distribution</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../../index.html" class="sidebar-logo-link">
       <img src="../../images/logo-dark.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Introduction to Business Statistics: A Modeling Approach</a> 
-    </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -282,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/04-more-on-models/visualizing-models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,13 +365,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/05-explanatory-power-of-models/variance-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Explaining Variation in Outcome Variable with Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using Models to Explain Variation in Outcome Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../modules/05-explanatory-power-of-models/accounting-for-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and R-squared</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">The Variance Equation and <span class="math inline">\(R^2\)</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/05-explanatory-power-of-models/adjustment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Adjustment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Transitioning to inference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/06-inference/06-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6: Transitioning to Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/06-inference/populations-and-samples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Populations and samples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/06-inference/inference-from-single-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/06-inference/confidence-interval-examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Visualizing models and Computing Confidence Intervals</span></span></a>
   </div>
 </li>
       </ul>
@@ -426,14 +509,6 @@ Table&nbsp;3.1: Boston Marathon data (20 randonmly selected rows).
 <div aria-describedby="tbl-boston-marathon-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 37%">
-<col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 10%">
-<col style="width: 11%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">year</th>
@@ -446,6 +521,54 @@ Table&nbsp;3.1: Boston Marathon data (20 randonmly selected rows).
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: right;">1988</td>
+<td style="text-align: left;">Ibrahim Hussein</td>
+<td style="text-align: left;">Kenya</td>
+<td style="text-align: left;">02:08:43</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1977</td>
+<td style="text-align: left;">Michiko (Miki) Gorman</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">02:48:33</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">169</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2004</td>
+<td style="text-align: left;">Catherine Ndereba</td>
+<td style="text-align: left;">Kenya</td>
+<td style="text-align: left;">02:24:27</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">144</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1972</td>
+<td style="text-align: left;">Nina Kuscsik</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">03:10:26</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1911</td>
+<td style="text-align: left;">Clarence H. DeMar</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">02:21:39</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">142</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2011</td>
+<td style="text-align: left;">Geoffrey Mutai</td>
+<td style="text-align: left;">Kenya</td>
+<td style="text-align: left;">02:03:02</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr class="odd">
 <td style="text-align: right;">1994</td>
 <td style="text-align: left;">Cosmas Ndeti</td>
 <td style="text-align: left;">Kenya</td>
@@ -454,142 +577,86 @@ Table&nbsp;3.1: Boston Marathon data (20 randonmly selected rows).
 <td style="text-align: right;">127</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1975</td>
-<td style="text-align: left;">Liane Winter</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">02:42:24</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">162</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1973</td>
-<td style="text-align: left;">Jon Anderson</td>
+<td style="text-align: right;">1927</td>
+<td style="text-align: left;">Clarence H. DeMar</td>
 <td style="text-align: left;">United States</td>
-<td style="text-align: left;">02:16:03</td>
+<td style="text-align: left;">02:40:22</td>
 <td style="text-align: left;">male</td>
-<td style="text-align: right;">136</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1949</td>
-<td style="text-align: left;">Karl Gosta Leandersson</td>
-<td style="text-align: left;">Sweden</td>
-<td style="text-align: left;">02:31:50</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">152</td>
+<td style="text-align: right;">160</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1988</td>
-<td style="text-align: left;">Rosa Mota</td>
-<td style="text-align: left;">Portugal</td>
-<td style="text-align: left;">02:24:30</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">144</td>
+<td style="text-align: right;">1980</td>
+<td style="text-align: left;">Bill Rodgers</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">02:12:11</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">132</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">2002</td>
-<td style="text-align: left;">Margaret Okayo</td>
+<td style="text-align: right;">2017</td>
+<td style="text-align: left;">Geoffrey Kirui</td>
 <td style="text-align: left;">Kenya</td>
-<td style="text-align: left;">02:20:43</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">141</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1981</td>
-<td style="text-align: left;">Toshihiko Seko</td>
-<td style="text-align: left;">Japan</td>
-<td style="text-align: left;">02:09:26</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">129</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1921</td>
-<td style="text-align: left;">Frank T. Zuna</td>
-<td style="text-align: left;">United States</td>
-<td style="text-align: left;">02:18:57</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">139</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1992</td>
-<td style="text-align: left;">Ibrahim Hussein</td>
-<td style="text-align: left;">Kenya</td>
-<td style="text-align: left;">02:08:14</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">128</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1983</td>
-<td style="text-align: left;">Joan Benoit</td>
-<td style="text-align: left;">United States</td>
-<td style="text-align: left;">02:22:43</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">143</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1919</td>
-<td style="text-align: left;">Carl W. A. Linder</td>
-<td style="text-align: left;">United States</td>
-<td style="text-align: left;">02:29:13</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">149</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2019</td>
-<td style="text-align: left;">Worknesh Degefa</td>
-<td style="text-align: left;">Ethiopia</td>
-<td style="text-align: left;">02:23:31</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">144</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1995</td>
-<td style="text-align: left;">Uta Pippig</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">02:25:11</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">145</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2003</td>
-<td style="text-align: left;">Robert Kipkoech Cheruiyot</td>
-<td style="text-align: left;">Kenya</td>
-<td style="text-align: left;">02:10:11</td>
+<td style="text-align: left;">02:09:37</td>
 <td style="text-align: left;">male</td>
 <td style="text-align: right;">130</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1961</td>
-<td style="text-align: left;">Eino Oksanen</td>
-<td style="text-align: left;">Finland</td>
-<td style="text-align: left;">02:23:39</td>
+<td style="text-align: right;">1950</td>
+<td style="text-align: left;">Ki-Yong Ham</td>
+<td style="text-align: left;">Korea</td>
+<td style="text-align: left;">02:32:39</td>
 <td style="text-align: left;">male</td>
-<td style="text-align: right;">144</td>
+<td style="text-align: right;">153</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1945</td>
-<td style="text-align: left;">John A. Kelley</td>
-<td style="text-align: left;">United States</td>
-<td style="text-align: left;">02:30:40</td>
+<td style="text-align: right;">2018</td>
+<td style="text-align: left;">Yuki Kawauchi</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: left;">02:15:58</td>
 <td style="text-align: left;">male</td>
-<td style="text-align: right;">151</td>
+<td style="text-align: right;">136</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1993</td>
-<td style="text-align: left;">Olga Markova</td>
-<td style="text-align: left;">Russia</td>
-<td style="text-align: left;">02:25:27</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">145</td>
+<td style="text-align: right;">1951</td>
+<td style="text-align: left;">Shigeki Tanaka</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: left;">02:27:45</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">148</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1982</td>
-<td style="text-align: left;">Alberto Salazar</td>
+<td style="text-align: right;">1983</td>
+<td style="text-align: left;">Greg A. Meyer</td>
 <td style="text-align: left;">United States</td>
-<td style="text-align: left;">02:08:52</td>
+<td style="text-align: left;">02:09:00</td>
 <td style="text-align: left;">male</td>
 <td style="text-align: right;">129</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">1913</td>
+<td style="text-align: left;">Fritz Carlson</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">02:25:14</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">145</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1956</td>
+<td style="text-align: left;">Antti Viskari</td>
+<td style="text-align: left;">Finland</td>
+<td style="text-align: left;">02:14:14</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">134</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1989</td>
+<td style="text-align: left;">Ingrid Kristiansen</td>
+<td style="text-align: left;">Norway</td>
+<td style="text-align: left;">02:24:33</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">145</td>
+</tr>
+<tr class="even">
 <td style="text-align: right;">2019</td>
 <td style="text-align: left;">Lawrence Cherono</td>
 <td style="text-align: left;">Kenya</td>
@@ -597,13 +664,21 @@ Table&nbsp;3.1: Boston Marathon data (20 randonmly selected rows).
 <td style="text-align: left;">male</td>
 <td style="text-align: right;">128</td>
 </tr>
+<tr class="odd">
+<td style="text-align: right;">1965</td>
+<td style="text-align: left;">Morio Shigematsu</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: left;">02:16:33</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">137</td>
+</tr>
 <tr class="even">
-<td style="text-align: right;">2016</td>
-<td style="text-align: left;">Atsede Baysa</td>
-<td style="text-align: left;">Ethiopia</td>
-<td style="text-align: left;">02:29:19</td>
+<td style="text-align: right;">1974</td>
+<td style="text-align: left;">Michiko (Miki) Gorman</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">02:47:11</td>
 <td style="text-align: left;">female</td>
-<td style="text-align: right;">149</td>
+<td style="text-align: right;">167</td>
 </tr>
 </tbody>
 </table>
