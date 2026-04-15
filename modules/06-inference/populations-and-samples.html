@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../modules/06-inference/sampling-distributions.html" rel="next">
+<link href="../../modules/06-inference/inference-from-single-sample.html" rel="next">
 <link href="../../modules/06-inference/06-overview.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -368,8 +368,37 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/06-inference/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../modules/06-inference/inference-from-single-sample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/06-inference/confidence-interval-examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Visualizing models and Computing Confidence Intervals</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/07-probability/07-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 7: Population, Samples and Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/07-probability/probability-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></span></a>
   </div>
 </li>
       </ul>
@@ -415,7 +444,7 @@ window.Quarto = {
 <p>Thus far we used several datasets to learn how to build visualizations and models. This helped us to understand some basic things about the datasets as well as about relationships between its variables.</p>
 <p>But really, is that all we take away from analyzing a dataset?</p>
 <p>Consider for example the <em>mpg</em> data frame. For the cars in that data frame, we compute the city fuel efficiency as 16.9 miles per gallon.</p>
-<p>We then rent a car and notice that it has 5 gallons of fuel in it. If we had to estimate how far it could travel with the gas in its tank, how would we go about it? If we did not use any specific information about the car (like its make, model, etc), it might be reasonable for us to estimate that oit would be able to travel 16.9 miles per gallon <span class="math inline">\(\times\)</span> 5 gallons = 84.5 miles.</p>
+<p>We then rent a car and notice that it has 5 gallons of fuel in it. If we had to estimate how far it could travel with the gas in its tank, how would we go about it? If we did not use any specific information about the car (like its make, model, etc), it might be reasonable for us to estimate that it would be able to travel 16.9 miles per gallon <span class="math inline">\(\times\)</span> 5 gallons = 84.5 miles.</p>
 <p>But this car we rented was not one of the cars in the <em>mpg</em> data frame. How then is it reasonable to assume that the data in the <em>mpg</em> data frame can be used to make an estimate about the car we rented?</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1043,7 +1072,7 @@ Important
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../modules/06-inference/sampling-distributions.html" class="pagination-link" aria-label="Inference Based on a Single Sample">
+      <a href="../../modules/06-inference/inference-from-single-sample.html" class="pagination-link" aria-label="Inference Based on a Single Sample">
         <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>18&nbsp; Inference Based on a Single Sample – Introduction to Business Statistics: A Modeling Approach</title>
+<title>20&nbsp; Probability Distributions – Introduction to Business Statistics: A Modeling Approach</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../modules/06-inference/populations-and-samples.html" rel="prev">
+<link href="../../modules/07-probability/07-overview.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -171,7 +171,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Transitioning to inference</a></li><li class="breadcrumb-item"><a href="../../modules/06-inference/sampling-distributions.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/07-probability/07-overview.html">Probability</a></li><li class="breadcrumb-item"><a href="../../modules/07-probability/probability-distributions.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -404,8 +404,37 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/06-inference/sampling-distributions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../modules/06-inference/inference-from-single-sample.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/06-inference/confidence-interval-examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Visualizing models and Computing Confidence Intervals</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/07-probability/07-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 7: Population, Samples and Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/07-probability/probability-distributions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></span></a>
   </div>
 </li>
       </ul>
@@ -420,17 +449,30 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#limitation-of-a-single-sample" id="toc-limitation-of-a-single-sample" class="nav-link active" data-scroll-target="#limitation-of-a-single-sample"><span class="header-section-number">18.1</span> Limitation of a Single Sample</a></li>
-  <li><a href="#the-magic-of-sampling-distributions" id="toc-the-magic-of-sampling-distributions" class="nav-link" data-scroll-target="#the-magic-of-sampling-distributions"><span class="header-section-number">18.2</span> The magic of sampling distributions</a></li>
+  <li><a href="#simple-probability-coins-and-dice" id="toc-simple-probability-coins-and-dice" class="nav-link active" data-scroll-target="#simple-probability-coins-and-dice"><span class="header-section-number">20.1</span> Simple Probability: Coins and Dice</a></li>
+  <li><a href="#discrete-vs.-continuous-distributions" id="toc-discrete-vs.-continuous-distributions" class="nav-link" data-scroll-target="#discrete-vs.-continuous-distributions"><span class="header-section-number">20.2</span> Discrete vs.&nbsp;Continuous Distributions</a></li>
+  <li><a href="#visualizing-discrete-distributions" id="toc-visualizing-discrete-distributions" class="nav-link" data-scroll-target="#visualizing-discrete-distributions"><span class="header-section-number">20.3</span> Visualizing Discrete Distributions</a></li>
+  <li><a href="#visualizing-continuous-distributions" id="toc-visualizing-continuous-distributions" class="nav-link" data-scroll-target="#visualizing-continuous-distributions"><span class="header-section-number">20.4</span> Visualizing Continuous Distributions</a></li>
+  <li><a href="#visualizing-continuous-distributions-1" id="toc-visualizing-continuous-distributions-1" class="nav-link" data-scroll-target="#visualizing-continuous-distributions-1"><span class="header-section-number">20.5</span> Visualizing continuous distributions</a></li>
+  <li><a href="#interpreting-the-two-types-of-distribution" id="toc-interpreting-the-two-types-of-distribution" class="nav-link" data-scroll-target="#interpreting-the-two-types-of-distribution"><span class="header-section-number">20.6</span> Interpreting the Two Types of Distribution</a></li>
+  <li><a href="#the-probability-density-function-pdf" id="toc-the-probability-density-function-pdf" class="nav-link" data-scroll-target="#the-probability-density-function-pdf"><span class="header-section-number">20.7</span> The Probability Density Function (PDF)</a></li>
+  <li><a href="#relative-probability-what-the-density-curve-actually-tells-us" id="toc-relative-probability-what-the-density-curve-actually-tells-us" class="nav-link" data-scroll-target="#relative-probability-what-the-density-curve-actually-tells-us"><span class="header-section-number">20.8</span> Relative Probability: What the Density Curve Actually Tells Us</a></li>
+  <li><a href="#the-normal-gaussian-distribution" id="toc-the-normal-gaussian-distribution" class="nav-link" data-scroll-target="#the-normal-gaussian-distribution"><span class="header-section-number">20.9</span> The Normal (Gaussian) Distribution</a></li>
+  <li><a href="#how-do-we-calculate-probabilities-from-a-pdf" id="toc-how-do-we-calculate-probabilities-from-a-pdf" class="nav-link" data-scroll-target="#how-do-we-calculate-probabilities-from-a-pdf"><span class="header-section-number">20.10</span> How do we calculate probabilities from a PDF?</a></li>
+  <li><a href="#other-important-distributions" id="toc-other-important-distributions" class="nav-link" data-scroll-target="#other-important-distributions"><span class="header-section-number">20.11</span> Other Important Distributions</a>
+  <ul class="collapse">
+  <li><a href="#the-chi-square-distribution" id="toc-the-chi-square-distribution" class="nav-link" data-scroll-target="#the-chi-square-distribution"><span class="header-section-number">20.11.1</span> The Chi-Square Distribution</a></li>
+  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution"><span class="header-section-number">20.11.2</span> The T Distribution</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Transitioning to inference</a></li><li class="breadcrumb-item"><a href="../../modules/06-inference/sampling-distributions.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/07-probability/07-overview.html">Probability</a></li><li class="breadcrumb-item"><a href="../../modules/07-probability/probability-distributions.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sampling-distributions" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></span></h1>
+<h1 class="title"><span id="sec-probability-distributions" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></span></h1>
 </div>
 
 
@@ -447,24 +489,27 @@ window.Quarto = {
 </header>
 
 
-<p>In the previous chapter, we learned the distinction between populations and samples. We dabbled with the idea that even though a sample is a subset of the population, it can still tell us something useful about the population.</p>
-<p>In this chapter, we will look at a powerful fundamental idea which enables inference, and allows us to quantify the uncertainty in our inferences.</p>
-<section id="limitation-of-a-single-sample" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="limitation-of-a-single-sample"><span class="header-section-number">18.1</span> Limitation of a Single Sample</h2>
-<p>We revisit <a href="../03-introduction-to-models/path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
-<p>At that time our interns were given data about the number of customers who visited one of two kiosks over 50 days. We were given no additional information. We had had to estimate the number of customers who would show up at a kiosk on any given day. We concluded at that time that our best estimate is the overall average numbers of customers.</p>
-<p>In <a href="../03-introduction-to-models/path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a> we did not treat the data we had as a sample. Instead we took it as the entirety and we used the average number of customers as our estimate for the number oif customers that Amanda should use for planning.</p>
-<p>We now understand that our data was a sample. Our best estimate for the estimated number of customers would actually be the mean of the population. But we used the mean of the sample.</p>
-<p>What if the sample we used was not representative of the population? What if it had unusually low or high values? In that case we would overestimate or underestimate the true population mean. So the question is: What can we say about the true mean based only on the sample mean from a single sample?</p>
-<p>Given that there is a chance that the sample might not be representative of the population, can we still get valuable information from it? Another way to look at it is this: if we are not given any information at all – not even the sample – then we have a certain level of uncertainty about the population mean. Can we say anything about it at all? Of course we do not expect to give a specific number – like the estimated number of customers is 500. However, can we even give a range? Can we say for example that it lies between 0 and 10,000? In theory, no. In practice we might be able to say with great confidence that a kiosk located in a beach or mall will likely get between zero and 10,000 customers in a day. However, such a broad estimate might not be useful for any practical decisions.</p>
-<p>Does having just one sample help us to give a more meaningful range? And, can it help us to actually measure how confident we are about the range?</p>
-<p>In what follows, we will carefully discuss the kind of inference we can draw from a <em>single sample</em>, knowing fully well that it could be unrepresentative of the population.</p>
-</section>
-<section id="the-magic-of-sampling-distributions" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="the-magic-of-sampling-distributions"><span class="header-section-number">18.2</span> The magic of sampling distributions</h2>
-<p>We can understand all this better if we take many samples from the same population and compute the sample mean each time.</p>
-<p>The data frame <em>kiosk_customers_population</em> contains 1000 rows of data about the number of customers who visited one of the two kiosks ever since the business began. For our purposes we can treat this as the population. Note that this is only for teaching purposes. In real life, we would generally not have access to the entire population.</p>
-<p>We first compute the average number of customers for the <em>population</em>. This is the number we are trying to estimate from a single sample.</p>
+<p>When we talk about outcomes in the real world – how a coin lands, which class a randomly picked car belongs to, or how long you might wait for the next customer to walk in – we are really talking about <em>probability distributions</em>. A probability distribution tells us what outcomes are possible and how likely each one is.</p>
+<p>In this chapter, we build up the idea of probability distributions carefully, starting with simple examples you already know intuitively, and then working towards the more powerful continuous distributions that underpin much of statistics.</p>
+<section id="simple-probability-coins-and-dice" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="simple-probability-coins-and-dice"><span class="header-section-number">20.1</span> Simple Probability: Coins and Dice</h2>
+<p>You have probably heard the phrase “fifty-fifty chance.” That is an informal way of describing the probability distribution of a fair coin toss.</p>
+<p>A fair coin has only two possible outcomes – heads and tails – and each is equally likely:</p>
+<p><span class="math display">\[
+P(\text{head}) = 0.5, \quad P(\text{tail}) = 0.5
+\]</span></p>
+<p>Notice that the two probabilities sum to 1. That is always the case: all possible outcomes together must account for 100% of what can happen.</p>
+<p><a href="#fig-coin-toss-distribution" class="quarto-xref">Figure&nbsp;<span>20.1</span></a> shows the same thing pictorially.</p>
+<div id="fig-coin-toss-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coin-toss-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-coin-toss-distribution.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coin-toss-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.1: Probability distribution of coin toss
+</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -475,7 +520,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Why do we even need to estimate? Why not directly calculate what we need from the population itself?</p>
+<p>A fair six-sided die is rolled. What is the probability of rolling a 3?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -490,87 +535,85 @@ Suggested answer
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Remember, we will almost never have access to the population. Even in the rare case when we can clearly define the actual dataset of the population, we might not be able to gather that data. The modern approach in statistics is to think of the population as a data generating process rather than as an explicit dataset.</p>
+<p>There are six equally likely outcomes (1 through 6), so the probability of any one of them is <span class="math inline">\(P(3) = \frac{1}{6} \approx 0.167\)</span>.</p>
+<p>In general: <span class="math inline">\(P(1) = P(2) = P(3) = P(4) = P(5) = P(6) = \frac{1}{6}\)</span></p>
 </div>
 </div>
 </div>
-<p>For education purposes we are treating the data frame <em>kiosk_customers_population</em> as our population. We first calculate the average number of customers in the population.</p>
+<p><a href="#fig-die-roll-trials-distribution" class="quarto-xref">Figure&nbsp;<span>20.2</span></a> shows the number of times each face showed up in 1000 rools of a die. The number of times each face shows up is not equal in practice. But as the number of rolls of the die increases, these numbers will tend to come closer and closer to equality.</p>
+<div id="fig-die-roll-trials-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-die-roll-trials-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-die-roll-trials-distribution.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-die-roll-trials-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.2: Number of occurrences of each die face in 1000 die rolls
+</figcaption>
+</figure>
+</div>
+<p>These two examples – the coin and the die – are instances of <em>discrete probability distributions</em>, where only a countable set of outcomes is possible.</p>
+</section>
+<section id="discrete-vs.-continuous-distributions" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="discrete-vs.-continuous-distributions"><span class="header-section-number">20.2</span> Discrete vs.&nbsp;Continuous Distributions</h2>
+<p>The distributions we have seen so far in this chapter are <em>discrete</em> because the outcomes are separate, distinct values. But many real-world quantities can take on any value along a continuous range. This leads to the second major type: <em>continuous distributions</em>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Discrete</th>
+<th>Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Takes on</strong></td>
+<td>Distinct, separated values</td>
+<td>Any value in a range</td>
+</tr>
+<tr class="even">
+<td><strong>Examples</strong></td>
+<td>Coin toss, die roll, car class</td>
+<td>Height, weight, profit, time until next customer arrives</td>
+</tr>
+</tbody>
+</table>
+<p>The distinction matters because it changes how we think about and compute probabilities, as we will see shortly.</p>
+</section>
+<section id="visualizing-discrete-distributions" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="visualizing-discrete-distributions"><span class="header-section-number">20.3</span> Visualizing Discrete Distributions</h2>
+<p>The natural way to visualize a discrete distribution is with a bar chart. Each bar sits above one of the possible outcomes, and its height gives the probability of that outcome.</p>
+<p>Consider the coin toss. We have two bars of equal height, each at 0.5. The bars do not touch each other because there is a conceptual gap between “heads” and “tails” – they are distinct categories.</p>
+<p>Now consider a richer example. In the <code>mpg</code> dataset, if we pick a car at random, we might ask: what is the probability it belongs to each vehicle class? Some classes are more common than others.</p>
+<p>Let us first count the number of vehicles of each class in the dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>population_mean <span class="ot">&lt;-</span> kiosk_customers_population <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_pop_cust =</span> <span class="fu">mean</span>(customers))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The population mean is 124.595, let us say 124.6.</p>
-<p>We first take one sample of 50 days of customer counts from this population and compute its mean with a view to estimating the population mean.</p>
-<p>The code below uses the function <em>slice_sample</em> to randomly select a set of rows from a data frame. It then computes the mean.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>kiosk_customers_population <span class="sc">|&gt;</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_customers =</span> <span class="fu">mean</span>(customers))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["avg_customers"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"121"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["class"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2seater","2":"5"},{"1":"compact","2":"47"},{"1":"midsize","2":"41"},{"1":"minivan","2":"11"},{"1":"pickup","2":"33"},{"1":"subcompact","2":"35"},{"1":"suv","2":"62"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p>We get a mean of 121, which is different from the population mean of 124.5. But it does seem close. So even a seemingly small sample of 50 for a population of 1,000 might be useful after all! But let us take it one step at a time.</p>
-<p>Let us repeat this process of sampling and computing the mean 5,000 times. That is, we take 5,000 samples and compute the mean of each. You need n ot bother about this code. Just focus on getting the concepts.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> kiosk_customers_population <span class="sc">|&gt;</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_customers =</span> <span class="fu">mean</span>(customers)) <span class="sc">|&gt;</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trials</span>(<span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The data frame <em>sample_means</em> now contains the means calculated from each of the 5,000 samples. Here are its first 10 rows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":[".trial"],"name":[1],"type":["int"],"align":["right"]},{"label":["avg_customers"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"121","_rn_":"1"},{"1":"2","2":"136","_rn_":"2"},{"1":"3","2":"126","_rn_":"3"},{"1":"4","2":"125","_rn_":"4"},{"1":"5","2":"120","_rn_":"5"},{"1":"6","2":"125","_rn_":"6"},{"1":"7","2":"119","_rn_":"7"},{"1":"8","2":"123","_rn_":"8"},{"1":"9","2":"123","_rn_":"9"},{"1":"10","2":"134","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<p><a href="#fig-sampling-dist-cust-means" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> shows a histogram of the 5000 sample means.</p>
-<div id="fig-sampling-dist-cust-means" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<p>The dataset has 234 rows and roughly 2% of the vehicles are two-seaters and 20% of the cars are compacts. Therefore: - The probability of picking a compact is 0.20 - The probability of picking a 2-seater is only 0.02</p>
+<p>2fig-mpg-class-bar shows these probabilities as a bar chart.</p>
+<div id="fig-mpg-class-bar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sampling-dist-cust-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-sampling-dist-cust-means.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<div aria-describedby="fig-mpg-class-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-mpg-class-bar.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sampling-dist-cust-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.1: Distribution of the 5000 sample means
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mpg-class-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.3: Proportions of various car classes in the <code>mpg</code> data frame
 </figcaption>
 </figure>
 </div>
-<p>We can also plot a violin chart to see a smooth distribution. <a href="#fig-sample-means-violin" class="quarto-xref">Figure&nbsp;<span>18.2</span></a> shows the plot.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(avg_customers <span class="sc">~</span> <span class="dv">1</span>, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">annot =</span> <span class="st">"violin"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">point_ink =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sampling-distributions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="fig-sample-means-violin" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sample-means-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-sample-means-violin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sample-means-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.2: Violin plot of the sample means
-</figcaption>
-</figure>
-</div>
+<p>The bar chart makes these differences in probabilities immediately visible. A compact is ten times more likely to appear in a random draw than a 2-seater.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -581,7 +624,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>From the histogram in <a href="#fig-sampling-dist-cust-means" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> and from the violin in <span class="citation" data-cites="ig-sample-means-violin">@ig-sample-means-violin</span>, how would you describe the distribution of the sample means?</p>
+<p>In a discrete distribution plotted as a bar chart, what must the heights of all the bars sum to?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -596,131 +639,76 @@ Suggested answer
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>It seems to be symmetrically bell shaped with a mean around 125 – which, miraculously, is the population mean.</p>
+<p>They must sum to 1, because the bars represent the probabilities of all possible outcomes, and some outcome must occur.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Central Limit Theorem">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>To summarize, in the case of discrete outcomes, the probability of an outcome is just its proportion in the dataset.</p>
+</section>
+<section id="visualizing-continuous-distributions" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="visualizing-continuous-distributions"><span class="header-section-number">20.4</span> Visualizing Continuous Distributions</h2>
+<p>For continuous variables, we use a <em>histogram</em> to visualize the distribution. Histograms look similar to bar charts – they also use bars – but there is an important difference: the bars touch each other, reflecting the fact that the underlying variable is continuous with no gaps.</p>
+<p>Histograms can display either frequencies (counts) or probabilities on the y-axis. When we put probabilities on the y-axis, we begin to see the histogram as an approximation to a smooth curve, which is exactly how continuous distributions are represented mathematically.</p>
+<p>Consider the inter-arrival times (time laspse between the arrival of two consecutive customers) at a bank. Suppose customers arrive at an average rate of 12 per hour – that is, one customer every 5 minutes on average. If we recorded a large number of inter-arrival times and plotted them in a histogram, we would see a characteristic shape: many short gaps and progressively fewer long gaps. This shape follows an <em>exponential distribution</em>.</p>
+<p><a href="#fig-interarrival-times-hist" class="quarto-xref">Figure&nbsp;<span>20.4</span></a> shows the histogram.</p>
+<div id="fig-interarrival-times-hist" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-interarrival-times-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-interarrival-times-hist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<div class="callout-title-container flex-fill">
-Central Limit Theorem
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interarrival-times-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.4: Histogram of inter-arrival times at a bank based on 1000 observations– on average 12 customers arrive each hour
+</figcaption>
+</figure>
 </div>
+<p>In <a href="#fig-interarrival-times-hist" class="quarto-xref">Figure&nbsp;<span>20.4</span></a>, each bar spans a time interval on the x-axis. In this case, each bar spans one minute. You can see from the leftmost bar that 120 of the 1000 inter-arrival times were less than one minute. As expected, we see that very long inter-arrival times are rare.</p>
+<p>Based on our earlier discussion under variation, we can see that this distribution is skewed towards higher values.</p>
+<p><a href="#fig-bank-violin" class="quarto-xref">Figure&nbsp;<span>20.5</span></a> visualizes the same data as a violin plot.</p>
+<div id="fig-bank-violin" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bank-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-bank-violin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<div class="callout-body-container callout-body">
-<p>The above is not a coincidence! It is called the <strong>Central Limit Theorem</strong>.</p>
-<p>Irrespective of the population we are dealing with, if we repeat the above procedure (with a decent sample size (30+), the resulting distribution of means will ALWAYS be normal with the same mean as the population mean. Its standard deviation will ALWAYS be the population standard deviation divided by square root of n (sample size).</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bank-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.5: Violin plot of the same inter-arrival times at a bank
+</figcaption>
+</figure>
 </div>
+<p>When we add up many small random values – like the combined effect of many small factors that together determine a person’s height. The distribution of the resulting sum tends to look like a symmetric, bell-shaped curve. This is the <em>normal distribution</em>, and it appears so often in nature and in statistics that it deserves special attention.</p>
+</section>
+<section id="visualizing-continuous-distributions-1" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="visualizing-continuous-distributions-1"><span class="header-section-number">20.5</span> Visualizing continuous distributions</h2>
+<p>Until now we have used the violin plot extensively to visualize continuous distributions. We have used the histogram as well, but it bins the values and does not tell us the complete story. To see the full story, we need to visualize the distribution as a smooth curve, which is how it is represented mathematically. This is called a <em>probability density function</em> (PDF), and it is the continuous analogue of a bar chart for discrete distributions.</p>
+<p>We can see what a probability density function looks like if we split the violin vertically down the middle and rotate it right by 90 degrees.</p>
+<p><a href="#fig-violin-split-rotate" class="quarto-xref">Figure&nbsp;<span>20.6</span></a> shows the result.</p>
+<div id="fig-violin-split-rotate" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-violin-split-rotate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-violin-split-rotate.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Standard Error (SE)">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-violin-split-rotate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.6: Violin plot split vertically down the middle and rotated right 90 degrees resembles a probability density function
+</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Standard Error (SE)
+<p><a href="#fig-heights-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.7</span></a> shows the PDF of the heights of adult women in the US. This represents a normal (or Gaussian) distribution. As the figure says, the mean height is 162 cm and the standard deviation is 6.9 cm.</p>
+<p>The curve is bell shaped and symmetrical around the mean.</p>
+<div id="fig-heights-normal-dist" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-heights-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-heights-normal-dist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heights-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.7: Probability density function of the heights of adult women in the US
+</figcaption>
+</figure>
 </div>
-<div class="callout-body-container callout-body">
-<p>The “population standard deviation divided by the square root of the sample size” is called the <strong>standard error</strong> or <strong>SE</strong>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A consequence of the Central Limit Theorem is that approximately 95% of the sample means fall within roughly 2 standard errors of the population mean.</p>
-</div>
-</div>
-<p>We can verify this. We already know that the population mean is 124.5. Let us compute the population standard deviation and the standard error.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>kiosk_customers_population <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cust_std =</span> <span class="fu">sd</span>(customers), </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">cust_se =</span> cust_std<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["cust_std"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cust_se"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"34.7","2":"4.91"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<p>The standard deviation of the number of customers is 34.7 and the standard error is 4.91.</p>
-<p>Let us check what percentage of the sample means falls within 2 standard errors of the population mean.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fl">124.6</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">4.91</span> <span class="sc">&lt;=</span> avg_customers,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="fl">124.6</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">4.91</span> <span class="sc">&gt;=</span> avg_customers) <span class="sc">|&gt;</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4784</code></pre>
-</div>
-</div>
-<p>4784 of the sample means fell within 2 standard errors of the population mean. This is 95.7%.</p>
-<p>To recap, whenever we take many samples from a population and compute the mean for every sample, roughly 95% of these sample means will fall roughly within 2 standard errors of the population mean.</p>
-<p>The number 2 is an approximation, but suffices for our purposes. There is more theory involved here, but we can safely skip it.</p>
-<p>From the above, we arrive at this crucial point: - take many samples - compute the mean of each sample - compute the standard error (SE) as before - for each sample, compute the interval $ $ - 95% of these intervals will contain the population mean!</p>
-<p>So, if we take just one sample and compute the above interval, there is a 95% chance that the interval contains the population mean!</p>
-<p>From just one sample we cannot give an exact estimate of the population mean. <strong>But we can give an interval that has a 95% chance of containing the population mean.</strong></p>
-<p>We now generate a single sample.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> kiosk_customers_population <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["customers"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["kiosk"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"154","2":"Beach"},{"1":"122","2":"Beach"},{"1":"136","2":"Beach"},{"1":"113","2":"Mall"},{"1":"146","2":"Beach"},{"1":"101","2":"Mall"},{"1":"131","2":"Mall"},{"1":"131","2":"Beach"},{"1":"118","2":"Beach"},{"1":"182","2":"Beach"},{"1":"106","2":"Beach"},{"1":"106","2":"Beach"},{"1":"122","2":"Beach"},{"1":"113","2":"Mall"},{"1":"131","2":"Mall"},{"1":"67","2":"Mall"},{"1":"119","2":"Mall"},{"1":"124","2":"Mall"},{"1":"162","2":"Beach"},{"1":"100","2":"Mall"},{"1":"105","2":"Beach"},{"1":"96","2":"Mall"},{"1":"93","2":"Mall"},{"1":"154","2":"Beach"},{"1":"103","2":"Mall"},{"1":"136","2":"Beach"},{"1":"82","2":"Mall"},{"1":"131","2":"Beach"},{"1":"96","2":"Mall"},{"1":"106","2":"Mall"},{"1":"146","2":"Beach"},{"1":"100","2":"Mall"},{"1":"67","2":"Mall"},{"1":"119","2":"Mall"},{"1":"127","2":"Mall"},{"1":"108","2":"Mall"},{"1":"118","2":"Beach"},{"1":"60","2":"Mall"},{"1":"187","2":"Beach"},{"1":"124","2":"Mall"},{"1":"217","2":"Beach"},{"1":"131","2":"Mall"},{"1":"94","2":"Mall"},{"1":"102","2":"Mall"},{"1":"130","2":"Mall"},{"1":"113","2":"Mall"},{"1":"182","2":"Beach"},{"1":"96","2":"Mall"},{"1":"131","2":"Mall"},{"1":"122","2":"Beach"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<p>We can compute the sample mean</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sample <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(customers))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["sample_mean"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"121"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<p>The sample mean is 121.</p>
-<p>So from what we discussed earlier, the interval:</p>
-<p>{121 - 2*4.91, 121 + 2*4.91}</p>
-<p>which is the interval</p>
-<p>{111.18, 130.82}</p>
-<p>has a 95% chance of containing the population mean.</p>
-<p>Or to state it differently, just from one sample, we can be 95% confident that the interval {111.18, 130.82} contains the population mean.</p>
-<p>From a single sample, we can never be 100% confident about any finite interval that contains the population mean.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Confidence Interval">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Confidence Interval
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The interval</p>
-<p>{sample_mean - 2*SE, sample_mean + 2*SE}</p>
-<p>is called a <strong>Confidence Interval</strong></p>
-</div>
-</div>
-<p>If something seemed fishy about this whole argument, I will come clean now. I misled you when I claimed that we were able to compute a confidence interval from just a single sample alone.</p>
+</section>
+<section id="interpreting-the-two-types-of-distribution" class="level2" data-number="20.6">
+<h2 data-number="20.6" class="anchored" data-anchor-id="interpreting-the-two-types-of-distribution"><span class="header-section-number">20.6</span> Interpreting the Two Types of Distribution</h2>
+<p>Here is a key difference in how we interpret probabilities for the two types of distribution:</p>
+<p>For a <strong>discrete distribution</strong>, the y-axis of a bar chart gives the <em>actual probability</em> of each outcome. If the bar for “compact” reaches 0.20, that means there is a 20% chance of picking a compact.</p>
+<p>For a <strong>continuous distribution</strong>, the y-axis of a smooth curve does <em>not</em> give actual probabilities. Why not? Because with a continuous variable, there are infinitely many possible values. The probability of landing on any single exact value – say, exactly 5.0000… minutes of inter-arrival time, or an exact height of 165 cm – is zero.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -731,11 +719,11 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What did we use beyond the sample in computing the confidence interval?</p>
+<p>A continuous distribution of inter-arrival times is plotted as a smooth curve. What is the probability that the next customer arrives in exactly 3.000000… minutes (to infinite decimal places)?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -744,12 +732,59 @@ Suggested answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We used the Standard Error of SE. By our definition, the SE is the *population standard deviation divided by the square root of the sample size.</p>
+<p>Zero. In a continuous distribution, the probability of any single exact value is zero. Probability is only meaningful over a <em>range</em> of values (an interval), not at a single point.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="the-probability-density-function-pdf" class="level2" data-number="20.7">
+<h2 data-number="20.7" class="anchored" data-anchor-id="the-probability-density-function-pdf"><span class="header-section-number">20.7</span> The Probability Density Function (PDF)</h2>
+<p>The smooth curve that describes a continuous distribution is called a <em>probability density function</em>, or PDF. The name contains an important clue: the y-axis gives <em>density</em>, not probability.</p>
+<p>Think of density the way you think of population density in geography. A city might have a high population density – many people per square kilometre – without you being able to say exactly how many people live at one specific GPS coordinate. Similarly, a high density value at a given x-value tells you that outcomes near that x-value are relatively common, without giving you the probability of any single exact outcome.</p>
+<p>Consider the distribution of heights of adult women in the United States. Suppose the PDF has a value of 0.58 at a height of 162 cm.</p>
+<div id="fig-continuous-pdf-density-labeled" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continuous-pdf-density-labeled-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-continuous-pdf-density-labeled.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continuous-pdf-density-labeled-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.8: Density for a height of 162 cm is 0.58
+</figcaption>
+</figure>
+</div>
+<p>This does <strong>not</strong> mean there is a 58% chance that a randomly chosen woman is <em>exactly</em> 162 cm tall. That probability is zero. What it <em>does</em> mean is that heights near 162 cm are relatively likely – specifically, they are more likely than heights where the curve is lower.</p>
+</section>
+<section id="relative-probability-what-the-density-curve-actually-tells-us" class="level2" data-number="20.8">
+<h2 data-number="20.8" class="anchored" data-anchor-id="relative-probability-what-the-density-curve-actually-tells-us"><span class="header-section-number">20.8</span> Relative Probability: What the Density Curve Actually Tells Us</h2>
+<p>The density value at a given x-value is meaningful only in comparison to the density value at other x-values. It gives you the <em>relative</em> likelihood of outcomes.</p>
+<p><a href="#fig-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.9</span></a> shows a generic normal distribution with mean -0.6 and standard deviation 0.2.</p>
+<div id="fig-normal-dist" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-normal-dist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.9: Normal distribution with mean -0.6 and sd 0.2
+</figcaption>
+</figure>
+</div>
+<p>The distribution is <a href="#fig-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.9</span></a> has a height of 2 at x = -0.6. So clearly the height at any point cannot be a probability!</p>
+<p><a href="#fig-height-dist-with-points" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows the height distribution we saw earlier with two points labeled.</p>
+<div id="fig-height-dist-with-points" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-height-dist-with-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-height-dist-with-points.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-height-dist-with-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.10: Normal distribution with mean -0.6 and sd 0.2, with two points labeled
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-height-dist-with-points" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows that the density for a height of 63 inches is 0.15 and the density for a height of 66 inches is 0.10. These are relative densities and not probabilities. They tell us that heights close to 63 inches are 1.5 times more likely than heights close to 66 inches.</p>
+<p>This is the correct way to read a probability density function: not as absolute probabilities, but as a map of relative likelihood across the range of possible values.</p>
+<p>The y-axis can even exceed 1 in a PDF and still be perfectly valid. This confuses many people at first.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -760,11 +795,11 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>So what is the problem in using the SE in computing the confidence interval?</p>
+<p>Suppose a PDF has a value of 0.8 at <span class="math inline">\(x = 10\)</span> and a value of 0.2 at <span class="math inline">\(x = 20\)</span>. How much more likely is an outcome near <span class="math inline">\(x = 10\)</span> compared to an outcome near <span class="math inline">\(x = 20\)</span>?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -773,71 +808,158 @@ Suggested answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>To compute the confidence interval, we need the population … but that is silly. If we have the population, then we do not need a confidence interval at all! We can just compute the population mean directly. No need for inference!</p>
+<p>An outcome near <span class="math inline">\(x = 10\)</span> is <span class="math inline">\(0.8 / 0.2 = 4\)</span> times more likely than an outcome near <span class="math inline">\(x = 20\)</span>.</p>
 </div>
 </div>
 </div>
-<p>So what happens now? How do we get a confidence interval based strictly on a sample and using nothing else?</p>
-<p>In practice, we estimate the population standard deviation by calculating the standard deviation of the sample.</p>
-<p>The complete procedure to compute the confidence interval then is:</p>
-<ol type="1">
-<li>Get a single sample</li>
-<li>Compute the sample mean</li>
-<li>Compute the sample standard deviation</li>
-<li>Get the SE by dividing the sample standard deviation by the square root of the sample size</li>
-<li>compute the confidence interval as</li>
-</ol>
-<p>{sample mean - 2*SE, sample mean + 2*SE}</p>
-<p>Fortunately, you do not need to compute any of this by hand. We will use R.</p>
-<p>Here is sample code to compute the confidence interval from the sample we had earlier.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sample <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">model_train</span>(customers <span class="sc">~</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">conf_interval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".lwr"],"name":[2],"type":["dbl"],"align":["right"]},{"label":[".coef"],"name":[3],"type":["dbl"],"align":["right"]},{"label":[".upr"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"113","3":"121","4":"130"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The intuition behind “density”
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Think of the function value at any given x-value as the relative <em>density</em> of outcomes around that x-value. A high density means outcomes in that neighborhood are clustered together and likely. A low density means outcomes in that neighborhood are sparse and unlikely.</p>
 </div>
-<p>The output shows that the sample mean is 121 and that the confidence interval is {113, 130}.</p>
-<p>That is, from the single sample of 50 we used from a population of 5,000, we were able to say that we are 95% confident that the interval {113, 130} contains the population mean.</p>
-<p>If you recall, we had computed this earlier as</p>
-<p>{111.18, 130.82}</p>
-<p>Why the difference?</p>
+</div>
+</section>
+<section id="the-normal-gaussian-distribution" class="level2" data-number="20.9">
+<h2 data-number="20.9" class="anchored" data-anchor-id="the-normal-gaussian-distribution"><span class="header-section-number">20.9</span> The Normal (Gaussian) Distribution</h2>
+<p>The normal distribution is the most important probability distribution in all of statistics. It is the bell-shaped curve that arises naturally when many independent random influences are added together – which, it turns out, describes an enormous variety of real-world phenomena.</p>
+<p>A key property of any probability density function – including the normal distribution – is that the total area under the curve is always exactly 1. This is the continuous analogue of the fact that all bar heights must sum to 1 in a discrete distribution.</p>
+<p>The normal distribution is fully described by just two numbers:</p>
 <ul>
-<li>First off, we used the actual population standard deviation in computing the SE, but the R code used the sample standard deviation.</li>
-<li>Secondly, we used 2 as the factor, whereas we had discussed that 2 is an approximation. The R code did not use 2.</li>
+<li>its <strong>mean</strong> <span class="math inline">\(\mu\)</span>, which controls where the centre of the bell is located</li>
+<li>its <strong>standard deviation</strong> <span class="math inline">\(\sigma\)</span>, which controls how wide or narrow the bell is</li>
 </ul>
-<p>What the r code computed is correct. I showed hand computations just to explain things.</p>
-<p>Going forward, we will only be using R.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Subtle, but important">
+<p>A larger standard deviation produces a flatter, more spread-out curve. A smaller standard deviation produces a taller, more tightly concentrated curve. Shifting the mean simply slides the whole curve left or right along the x-axis, without changing its shape.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two normal distributions have the same mean but different standard deviations: one has <span class="math inline">\(\sigma = 1\)</span> and the other has <span class="math inline">\(\sigma = 5\)</span>. Which one will have a taller peak?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The one with <span class="math inline">\(\sigma = 1\)</span>. A smaller standard deviation means the distribution is more tightly concentrated around the mean, so the peak must be taller in order for the total area under the curve to remain equal to 1.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-do-we-calculate-probabilities-from-a-pdf" class="level2" data-number="20.10">
+<h2 data-number="20.10" class="anchored" data-anchor-id="how-do-we-calculate-probabilities-from-a-pdf"><span class="header-section-number">20.10</span> How do we calculate probabilities from a PDF?</h2>
+<p>We already know that the function value from the pdf is not a probability; it is only a relative density. So how do we calculate actual probabilities from a PDF?</p>
+<p>For continuous distributions, the probability of a value being exactly equal to anything is always 0. We can only calculate the probability that a value falls in a certain range.</p>
+<p>We do that by finding the area under the curve of the PDF over that range.</p>
+<p><a href="#fig-cust-sales-30-40-shaded" class="quarto-xref">Figure&nbsp;<span>20.11</span></a> shows the pdf of the daily sales by a customer for a store. The area under the curve between 30 and 40 is shaded. The probability that a randomly chosen customer has daily sales between 30 and 40 is equal to the area of the shaded region, which is 0.121.</p>
+<div id="fig-cust-sales-30-40-shaded" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cust-sales-30-40-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-cust-sales-30-40-shaded.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cust-sales-30-40-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.11: PDF of daily sales by a customer with the area between 30 and 40 shaded
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-cust-sales-gt-20-shaded" class="quarto-xref">Figure&nbsp;<span>20.12</span></a> shows the same PDF with the area to the right of 20 shaded. The probability that a randomly chosen customer has daily sales greater than 20 is equal to the area of the shaded region, which is 0.502.</p>
+<div id="fig-cust-sales-gt-20-shaded" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cust-sales-gt-20-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-cust-sales-gt-20-shaded.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cust-sales-gt-20-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.12: PDF of daily sales by a customer with the area to the right of 20 shaded
+</figcaption>
+</figure>
+</div>
+<p>We can also infer from <a href="#fig-cust-sales-gt-20-shaded" class="quarto-xref">Figure&nbsp;<span>20.12</span></a> that the probability of a randomly chosen customer having daily sales less than 20 is 0.498, since the total area under the curve must equal 1.</p>
+</section>
+<section id="other-important-distributions" class="level2" data-number="20.11">
+<h2 data-number="20.11" class="anchored" data-anchor-id="other-important-distributions"><span class="header-section-number">20.11</span> Other Important Distributions</h2>
+<p>Beyond the normal distribution, statistics relies on several other distributions that arise in specific contexts.</p>
+<section id="the-chi-square-distribution" class="level3" data-number="20.11.1">
+<h3 data-number="20.11.1" class="anchored" data-anchor-id="the-chi-square-distribution"><span class="header-section-number">20.11.1</span> The Chi-Square Distribution</h3>
+<p>The chi-square distribution is a family of distributions, each characterized by a single parameter called the <em>degrees of freedom</em>. As the degrees of freedom increase, the distribution shifts to the right and becomes more symmetric. It is used extensively in statistical tests – for instance, when testing whether observed counts differ from expected counts, or when comparing proportions across groups.</p>
+</section>
+<section id="the-t-distribution" class="level3" data-number="20.11.2">
+<h3 data-number="20.11.2" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">20.11.2</span> The T Distribution</h3>
+<p>The T distribution (sometimes called Student’s t-distribution) also forms a family parameterised by degrees of freedom. It looks similar to the normal distribution – bell-shaped and symmetric – but with heavier tails, meaning extreme values are more likely than under a normal distribution. As the degrees of freedom increase, the T distribution approaches the normal distribution. It is used extensively in statistics whenever we are working with small samples or when the population standard deviation is unknown.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In what sense is the T distribution “broader” than the normal distribution, and why might that matter in practice?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The T distribution has heavier tails than the normal distribution, meaning it assigns more probability to values far from the centre. This matters in practice because when we use the T distribution in hypothesis testing, we account for the extra uncertainty that comes from working with small samples. Using the normal distribution in those situations would understate that uncertainty and lead to overconfident conclusions.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Subtle, but important
+Summary: Key ideas from this chapter
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Suppose we compute the confidence interval for the mean as {113, 130}.</p>
-<p><strong>Statement 1</strong>: Should we say that there is a 95% chance that the population mean falls in that interval?</p>
-<p>Or should we say</p>
-<p><strong>Statement 2</strong>: that there is a 95% chance that the interval contains the population mean?</p>
-<p>Although these two statements seem to be saying the same thing, statisticians make a distinction.</p>
-<p>The population mean is a single fixed number. It does not uncertain in any way. The intervals are random and can fall anywhere.</p>
-<p>Statisticians want to make a clear distinction between what is random and what is fixed.</p>
-<p>The statement “population mean falls in an interval” seems to suggest that it can vary or move around when it cannot.</p>
-<p>This why they prefer <strong>Statement 2</strong> which has more of a suggestion that the intervals are the varying ones.</p>
+<ol type="1">
+<li>A <strong>probability distribution</strong> describes the possible outcomes of a random process and how likely each is.</li>
+<li><strong>Discrete distributions</strong> apply to variables with a countable set of outcomes; probabilities are read directly from the bar heights in a bar chart.</li>
+<li><strong>Continuous distributions</strong> apply to variables that can take any value in a range; the y-axis of the curve gives <em>density</em>, not probability.</li>
+<li>The <strong>probability density function (PDF)</strong> describes a continuous distribution; the area under the entire curve always equals 1.</li>
+<li>Density values are meaningful only in <em>relative</em> terms – they tell you how likely one outcome is compared to another.</li>
+<li>The <strong>normal distribution</strong> is the most important continuous distribution, defined by its mean and standard deviation.</li>
+<li>The <strong>chi-square</strong> and <strong>T distributions</strong> are other important distributions that appear throughout statistics.</li>
+</ol>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1242,8 +1364,8 @@ Subtle, but important
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../modules/06-inference/populations-and-samples.html" class="pagination-link" aria-label="Populations and samples">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Populations and samples</span></span>
+      <a href="../../modules/07-probability/07-overview.html" class="pagination-link" aria-label="Module 7: Population, Samples and Inference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 7: Population, Samples and Inference</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

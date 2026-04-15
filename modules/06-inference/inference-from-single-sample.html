@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Visualizing Models – Introduction to Business Statistics: A Modeling Approach</title>
+<title>18&nbsp; Inference Based on a Single Sample – Introduction to Business Statistics: A Modeling Approach</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../modules/04-more-on-models/finding-the-model-function.html" rel="next">
-<link href="../../modules/04-more-on-models/line-of-best-fit-story.html" rel="prev">
+<link href="../../modules/06-inference/confidence-interval-examples.html" rel="next">
+<link href="../../modules/06-inference/populations-and-samples.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -172,7 +172,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/04-overview.html">More on models – least squares</a></li><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/visualizing-models.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Transitioning to inference</a></li><li class="breadcrumb-item"><a href="../../modules/06-inference/inference-from-single-sample.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -323,7 +323,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/04-more-on-models/visualizing-models.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../modules/04-more-on-models/visualizing-models.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></span></a>
   </div>
 </li>
@@ -405,7 +405,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/06-inference/inference-from-single-sample.html" class="sidebar-item-text sidebar-link">
+  <a href="../../modules/06-inference/inference-from-single-sample.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></span></a>
   </div>
 </li>
@@ -450,19 +450,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#recap-of-models" id="toc-recap-of-models" class="nav-link active" data-scroll-target="#recap-of-models"><span class="header-section-number">10.1</span> Recap of models</a></li>
-  <li><a href="#visualizing-simple-mean-models-no-explanatory-variable" id="toc-visualizing-simple-mean-models-no-explanatory-variable" class="nav-link" data-scroll-target="#visualizing-simple-mean-models-no-explanatory-variable"><span class="header-section-number">10.2</span> Visualizing simple mean models (no explanatory variable)</a></li>
-  <li><a href="#visualizing-category-mean-models-single-explanatory-variable-that-is-categorical" id="toc-visualizing-category-mean-models-single-explanatory-variable-that-is-categorical" class="nav-link" data-scroll-target="#visualizing-category-mean-models-single-explanatory-variable-that-is-categorical"><span class="header-section-number">10.3</span> Visualizing category mean models (single explanatory variable that is categorical)</a></li>
-  <li><a href="#visualizing-least-squares-line-models-single-explanatory-variable-that-is-numeric" id="toc-visualizing-least-squares-line-models-single-explanatory-variable-that-is-numeric" class="nav-link" data-scroll-target="#visualizing-least-squares-line-models-single-explanatory-variable-that-is-numeric"><span class="header-section-number">10.4</span> Visualizing least-squares line models (single explanatory variable that is numeric)</a></li>
+  <li><a href="#limitation-of-a-single-sample" id="toc-limitation-of-a-single-sample" class="nav-link active" data-scroll-target="#limitation-of-a-single-sample"><span class="header-section-number">18.1</span> Limitation of a Single Sample</a></li>
+  <li><a href="#the-magic-of-sampling-distributions" id="toc-the-magic-of-sampling-distributions" class="nav-link" data-scroll-target="#the-magic-of-sampling-distributions"><span class="header-section-number">18.2</span> The magic of sampling distributions</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/04-overview.html">More on models – least squares</a></li><li class="breadcrumb-item"><a href="../../modules/04-more-on-models/visualizing-models.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/06-inference/06-overview.html">Transitioning to inference</a></li><li class="breadcrumb-item"><a href="../../modules/06-inference/inference-from-single-sample.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-visualizing-models" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualizing Models</span></span></h1>
+<h1 class="title"><span id="sec-sampling-distributions" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Inference Based on a Single Sample</span></span></h1>
 </div>
 
 
@@ -479,173 +477,24 @@ window.Quarto = {
 </header>
 
 
-<p>In this chapter, we will first revisit how to build visualize the two <em>mean</em> models we saw earlier in <a href="../03-introduction-to-models/path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a> and <a href="../03-introduction-to-models/category-means-story.html" class="quarto-xref"><span>Chapter 6</span></a>. To be sure, we already covered these in <a href="../03-introduction-to-models/visualizing-simple-models.html" class="quarto-xref"><span>Chapter 8</span></a>, but repeat it with different examples to provide reinforcement.</p>
-<p>We will then learn how to visualize line models that we learned about in <a href="line-of-best-fit-story.html" class="quarto-xref"><span>Chapter 9</span></a>. This will set the stage for us to learn how to <em>build</em> these models and construct the models as equations.</p>
-<section id="recap-of-models" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="recap-of-models"><span class="header-section-number">10.1</span> Recap of models</h2>
-<p>From prior chapters, we have learned that a model takes as input the values of the explanatory variable(s) (if any) and outputs an estimated value of the outcome variable.</p>
-<p>We started off in <a href="../03-introduction-to-models/path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a> by showing that, in the absence of an explanatory variable, the <em>mean</em> is the best model. For example, our <em>mpg</em> data frame contains data about several cars. Let us suppose that our outcome variable is <em>hwy</em>, the highway mileage of a car.</p>
-<p>If we are given only the data from that single column <em>hwy</em>, and nothing else, the best <em>model</em> we can come up with for <em>estimating</em> the highway mileage of a car is to always provide the average highway mileage from the data set.</p>
-<p>We then considered, in <a href="../03-introduction-to-models/category-means-story.html" class="quarto-xref"><span>Chapter 6</span></a>, the case where we had a single explanatory variable, a categorical one and saw that here too the same idea applies, except that the best model for a category is the average for that category.</p>
-<p>We then studied, in <a href="line-of-best-fit-story.html" class="quarto-xref"><span>Chapter 9</span></a> the case of a single explanatory variable again, but this time the explanatory variable was numerical. We learned there about the <em>least squares criterion</em> to find the best model.</p>
-<p><a href="../03-introduction-to-models/visualizing-simple-models.html" class="quarto-xref"><span>Chapter 8</span></a> showed us how to visualize the models we built around the idea of the <em>mean</em> as a model in <a href="../03-introduction-to-models/path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a> and @#sec-category-means. In this chapter, we use new examples to briefly review how to visualize those models and also compute and write out the model functions. We then move on to visualizing our line models from <a href="line-of-best-fit-story.html" class="quarto-xref"><span>Chapter 9</span></a> and how to build and reconstruct the model function as an equation.</p>
-<p>We will first learn how to visualize the models. We then look at how to generate the model function in equation form.</p>
+<p>In the previous chapter, we learned the distinction between populations and samples. We dabbled with the idea that even though a sample is a subset of the population, it can still tell us something useful about the population.</p>
+<p>In this chapter, we will look at a powerful fundamental idea which enables inference, and allows us to quantify the uncertainty in our inferences.</p>
+<section id="limitation-of-a-single-sample" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="limitation-of-a-single-sample"><span class="header-section-number">18.1</span> Limitation of a Single Sample</h2>
+<p>We revisit <a href="../03-introduction-to-models/path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+<p>At that time our interns were given data about the number of customers who visited one of two kiosks over 50 days. We were given no additional information. We had had to estimate the number of customers who would show up at a kiosk on any given day. We concluded at that time that our best estimate is the overall average numbers of customers.</p>
+<p>In <a href="../03-introduction-to-models/path-to-models-story.html" class="quarto-xref"><span>Chapter 5</span></a> we did not treat the data we had as a sample. Instead we took it as the entirety and we used the average number of customers as our estimate for the number oif customers that Amanda should use for planning.</p>
+<p>We now understand that our data was a sample. Our best estimate for the estimated number of customers would actually be the mean of the population. But we used the mean of the sample.</p>
+<p>What if the sample we used was not representative of the population? What if it had unusually low or high values? In that case we would overestimate or underestimate the true population mean. So the question is: What can we say about the true mean based only on the sample mean from a single sample?</p>
+<p>Given that there is a chance that the sample might not be representative of the population, can we still get valuable information from it? Another way to look at it is this: if we are not given any information at all – not even the sample – then we have a certain level of uncertainty about the population mean. Can we say anything about it at all? Of course we do not expect to give a specific number – like the estimated number of customers is 500. However, can we even give a range? Can we say for example that it lies between 0 and 10,000? In theory, no. In practice we might be able to say with great confidence that a kiosk located in a beach or mall will likely get between zero and 10,000 customers in a day. However, such a broad estimate might not be useful for any practical decisions.</p>
+<p>Does having just one sample help us to give a more meaningful range? And, can it help us to actually measure how confident we are about the range?</p>
+<p>In what follows, we will carefully discuss the kind of inference we can draw from a <em>single sample</em>, knowing fully well that it could be unrepresentative of the population.</p>
 </section>
-<section id="visualizing-simple-mean-models-no-explanatory-variable" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="visualizing-simple-mean-models-no-explanatory-variable"><span class="header-section-number">10.2</span> Visualizing simple mean models (no explanatory variable)</h2>
-<p>We take a different dataset this time. The data frame <em>txhousing</em> contains real estate data for the state of Texas for several years. We first follow the good practice of understanding the dataset before jumping in and building models. <a href="#tbl-txhousing-head-10" class="quarto-xref">Table&nbsp;<span>10.1</span></a> shows the first 10 rows .</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>txhousing <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">10</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tbl-txhousing-head-10" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-txhousing-head-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;10.1: First 10 rows from the <em>txhousing</em> data frame
-</figcaption>
-<div aria-describedby="tbl-txhousing-head-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 7%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 13%">
-<col style="width: 10%">
-<col style="width: 13%">
-<col style="width: 15%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">city</th>
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">month</th>
-<th style="text-align: right;">sales</th>
-<th style="text-align: right;">volume</th>
-<th style="text-align: right;">median</th>
-<th style="text-align: right;">listings</th>
-<th style="text-align: right;">inventory</th>
-<th style="text-align: right;">date</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">72</td>
-<td style="text-align: right;">5380000</td>
-<td style="text-align: right;">71400</td>
-<td style="text-align: right;">701</td>
-<td style="text-align: right;">6.3</td>
-<td style="text-align: right;">2000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">6505000</td>
-<td style="text-align: right;">58700</td>
-<td style="text-align: right;">746</td>
-<td style="text-align: right;">6.6</td>
-<td style="text-align: right;">2000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">130</td>
-<td style="text-align: right;">9285000</td>
-<td style="text-align: right;">58100</td>
-<td style="text-align: right;">784</td>
-<td style="text-align: right;">6.8</td>
-<td style="text-align: right;">2000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">9730000</td>
-<td style="text-align: right;">68600</td>
-<td style="text-align: right;">785</td>
-<td style="text-align: right;">6.9</td>
-<td style="text-align: right;">2000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">141</td>
-<td style="text-align: right;">10590000</td>
-<td style="text-align: right;">67300</td>
-<td style="text-align: right;">794</td>
-<td style="text-align: right;">6.8</td>
-<td style="text-align: right;">2000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">156</td>
-<td style="text-align: right;">13910000</td>
-<td style="text-align: right;">66900</td>
-<td style="text-align: right;">780</td>
-<td style="text-align: right;">6.6</td>
-<td style="text-align: right;">2000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">152</td>
-<td style="text-align: right;">12635000</td>
-<td style="text-align: right;">73500</td>
-<td style="text-align: right;">742</td>
-<td style="text-align: right;">6.2</td>
-<td style="text-align: right;">2000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">131</td>
-<td style="text-align: right;">10710000</td>
-<td style="text-align: right;">75000</td>
-<td style="text-align: right;">765</td>
-<td style="text-align: right;">6.4</td>
-<td style="text-align: right;">2001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">104</td>
-<td style="text-align: right;">7615000</td>
-<td style="text-align: right;">64500</td>
-<td style="text-align: right;">771</td>
-<td style="text-align: right;">6.5</td>
-<td style="text-align: right;">2001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Abilene</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">101</td>
-<td style="text-align: right;">7040000</td>
-<td style="text-align: right;">59300</td>
-<td style="text-align: right;">764</td>
-<td style="text-align: right;">6.6</td>
-<td style="text-align: right;">2001</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>We see that for the first 10 rows, <em>city</em> and <em>year</em> are the same, but there is variation in the other variables. The dataset has 8602 observations or rows. Use the command ?txhousing in RStudio to answer the following questions.</p>
+<section id="the-magic-of-sampling-distributions" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="the-magic-of-sampling-distributions"><span class="header-section-number">18.2</span> The magic of sampling distributions</h2>
+<p>We can understand all this better if we take many samples from the same population and compute the sample mean each time.</p>
+<p>The data frame <em>kiosk_customers_population</em> contains 1000 rows of data about the number of customers who visited one of the two kiosks ever since the business began. For our purposes we can treat this as the population. Note that this is only for teaching purposes. In real life, we would generally not have access to the entire population.</p>
+<p>We first compute the average number of customers for the <em>population</em>. This is the number we are trying to estimate from a single sample.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -656,7 +505,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What is the <em>unit of observation</em> int his dataset? Unfortunately, the codebook does not give sufficient details. Se if you can use ChatGPT or other chatbot to find the answer.</p>
+<p>Why do we even need to estimate? Why not directly calculate what we need from the population itself?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -671,9 +520,86 @@ Suggested answer
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>For every city in Texas, the dataset has its real estate activity for one month. The data spans 12 months each from 2000 to 2014 and for 2015 7 months from Jan to July. There are 46 cities. For each city we have data for 180 + 7 = 187 months. Therefore the unit of observation is the real estate activity for a single city for a single month.</p>
+<p>Remember, we will almost never have access to the population. Even in the rare case when we can clearly define the actual dataset of the population, we might not be able to gather that data. The modern approach in statistics is to think of the population as a data generating process rather than as an explicit dataset.</p>
 </div>
 </div>
+</div>
+<p>For education purposes we are treating the data frame <em>kiosk_customers_population</em> as our population. We first calculate the average number of customers in the population.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>population_mean <span class="ot">&lt;-</span> kiosk_customers_population <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_pop_cust =</span> <span class="fu">mean</span>(customers))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The population mean is 124.595, let us say 124.6.</p>
+<p>We first take one sample of 50 days of customer counts from this population and compute its mean with a view to estimating the population mean.</p>
+<p>The code below uses the function <em>slice_sample</em> to randomly select a set of rows from a data frame. It then computes the mean.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>kiosk_customers_population <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_customers =</span> <span class="fu">mean</span>(customers))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["avg_customers"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"121"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>We get a mean of 121, which is different from the population mean of 124.5. But it does seem close. So even a seemingly small sample of 50 for a population of 1,000 might be useful after all! But let us take it one step at a time.</p>
+<p>Let us repeat this process of sampling and computing the mean 5,000 times. That is, we take 5,000 samples and compute the mean of each. You need n ot bother about this code. Just focus on getting the concepts.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> kiosk_customers_population <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_customers =</span> <span class="fu">mean</span>(customers)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trials</span>(<span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data frame <em>sample_means</em> now contains the means calculated from each of the 5,000 samples. Here are its first 10 rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":[".trial"],"name":[1],"type":["int"],"align":["right"]},{"label":["avg_customers"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"121","_rn_":"1"},{"1":"2","2":"136","_rn_":"2"},{"1":"3","2":"126","_rn_":"3"},{"1":"4","2":"125","_rn_":"4"},{"1":"5","2":"120","_rn_":"5"},{"1":"6","2":"125","_rn_":"6"},{"1":"7","2":"119","_rn_":"7"},{"1":"8","2":"123","_rn_":"8"},{"1":"9","2":"123","_rn_":"9"},{"1":"10","2":"134","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><a href="#fig-sampling-dist-cust-means" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> shows a histogram of the 5000 sample means.</p>
+<div id="fig-sampling-dist-cust-means" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sampling-dist-cust-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-sampling-dist-cust-means.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sampling-dist-cust-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.1: Distribution of the 5000 sample means
+</figcaption>
+</figure>
+</div>
+<p>We can also plot a violin chart to see a smooth distribution. <a href="#fig-sample-means-violin" class="quarto-xref">Figure&nbsp;<span>18.2</span></a> shows the plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(avg_customers <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">annot =</span> <span class="st">"violin"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">point_ink =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="inference-from-single-sample_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="fig-sample-means-violin" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sample-means-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/fig-sample-means-violin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sample-means-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.2: Violin plot of the sample means
+</figcaption>
+</figure>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -685,7 +611,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Explain precisely what the first row tells us.</p>
+<p>From the histogram in <a href="#fig-sampling-dist-cust-means" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> and from the violin in <span class="citation" data-cites="ig-sample-means-violin">@ig-sample-means-violin</span>, how would you describe the distribution of the sample means?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -700,61 +626,131 @@ Suggested answer
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The first row tells us that in Jan 2000, the city of Abilene had 72 sales, 701 listings, and so on.</p>
+<p>It seems to be symmetrically bell shaped with a mean around 125 – which, miraculously, is the population mean.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-important callout-titled" title="Central Limit Theorem">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Check
+Central Limit Theorem
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Why does the data frame have 8602 rows?</p>
+<p>The above is not a coincidence! It is called the <strong>Central Limit Theorem</strong>.</p>
+<p>Irrespective of the population we are dealing with, if we repeat the above procedure (with a decent sample size (30+), the resulting distribution of means will ALWAYS be normal with the same mean as the population mean. Its standard deviation will ALWAYS be the population standard deviation divided by square root of n (sample size).</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-important callout-titled" title="Standard Error (SE)">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Suggested answer
+Standard Error (SE)
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>187 months times 46 cities = 8602.</p>
+<p>The “population standard deviation divided by the square root of the sample size” is called the <strong>standard error</strong> or <strong>SE</strong>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>If you had access to only the column <em>listings</em> and we had to build a model to predict <em>listings</em> based on no other information, what would you predict?</p>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A consequence of the Central Limit Theorem is that approximately 95% of the sample means fall within roughly 2 standard errors of the population mean.</p>
+</div>
+</div>
+<p>We can verify this. We already know that the population mean is 124.5. Let us compute the population standard deviation and the standard error.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>txhousing<span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">point_plot</span>(listings <span class="sc">~</span> <span class="dv">1</span>, <span class="at">annot =</span> <span class="st">"model"</span>, <span class="at">interval =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>kiosk_customers_population <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cust_std =</span> <span class="fu">sd</span>(customers), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">cust_se =</span> cust_std<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cust_std"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cust_se"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"34.7","2":"4.91"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<p>In this example, our outcome variable is <em>listings</em> and we have no explanatory variable. Therefore we use “1” on the RHS of the tilde expression.</p>
-<p>This code shows you how to add a model as an annotation. We had used “annot=” earlier for generating violin plots. Here we use:</p>
-<p>annot = “model”, interval = “none”</p>
-<p>The first part asks the function to annotate the scatterplot with a model. For now, we will just use the second part “interval = …” without explanation. Later in the course, you will see why we use this.</p>
-<div id="fig-txhousing-listings-mean-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-txhousing-listings-mean-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-txhousing-listings-mean-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-txhousing-listings-mean-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.1: Scatter plot of <em>listings</em> from the <em>txhousing</em> data frame annotated with a model: the model is the blue horizontal line at the average value of listings (3217)
-</figcaption>
-</figure>
 </div>
-<p>Let us see one more example of visualizing a simple mean model.</p>
-<p>The data frame <em>Boston_marathon</em> contains data about the results of the Boston Marathon over the years.</p>
-<p>Like we did with the <em>txhousing</em> data frame, we should first understand the data frame before processing it. Take a look at the codebook for the <em>Boston_marathon</em> data frame and answer the following questions. Try to recall how we got the codebook for <em>txhousing</em> and use the same approach here. The codebook is not too informative, but just viewing it using View(Boston_marathon) might tell you what you need to know.</p>
+<p>The standard deviation of the number of customers is 34.7 and the standard error is 4.91.</p>
+<p>Let us check what percentage of the sample means falls within 2 standard errors of the population mean.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fl">124.6</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">4.91</span> <span class="sc">&lt;=</span> avg_customers,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="fl">124.6</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">4.91</span> <span class="sc">&gt;=</span> avg_customers) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4784</code></pre>
+</div>
+</div>
+<p>4784 of the sample means fell within 2 standard errors of the population mean. This is 95.7%.</p>
+<p>To recap, whenever we take many samples from a population and compute the mean for every sample, roughly 95% of these sample means will fall roughly within 2 standard errors of the population mean.</p>
+<p>The number 2 is an approximation, but suffices for our purposes. There is more theory involved here, but we can safely skip it.</p>
+<p>From the above, we arrive at this crucial point: - take many samples - compute the mean of each sample - compute the standard error (SE) as before - for each sample, compute the interval $ $ - 95% of these intervals will contain the population mean!</p>
+<p>So, if we take just one sample and compute the above interval, there is a 95% chance that the interval contains the population mean!</p>
+<p>From just one sample we cannot give an exact estimate of the population mean. <strong>But we can give an interval that has a 95% chance of containing the population mean.</strong></p>
+<p>We now generate a single sample.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> kiosk_customers_population <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["customers"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["kiosk"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"154","2":"Beach"},{"1":"122","2":"Beach"},{"1":"136","2":"Beach"},{"1":"113","2":"Mall"},{"1":"146","2":"Beach"},{"1":"101","2":"Mall"},{"1":"131","2":"Mall"},{"1":"131","2":"Beach"},{"1":"118","2":"Beach"},{"1":"182","2":"Beach"},{"1":"106","2":"Beach"},{"1":"106","2":"Beach"},{"1":"122","2":"Beach"},{"1":"113","2":"Mall"},{"1":"131","2":"Mall"},{"1":"67","2":"Mall"},{"1":"119","2":"Mall"},{"1":"124","2":"Mall"},{"1":"162","2":"Beach"},{"1":"100","2":"Mall"},{"1":"105","2":"Beach"},{"1":"96","2":"Mall"},{"1":"93","2":"Mall"},{"1":"154","2":"Beach"},{"1":"103","2":"Mall"},{"1":"136","2":"Beach"},{"1":"82","2":"Mall"},{"1":"131","2":"Beach"},{"1":"96","2":"Mall"},{"1":"106","2":"Mall"},{"1":"146","2":"Beach"},{"1":"100","2":"Mall"},{"1":"67","2":"Mall"},{"1":"119","2":"Mall"},{"1":"127","2":"Mall"},{"1":"108","2":"Mall"},{"1":"118","2":"Beach"},{"1":"60","2":"Mall"},{"1":"187","2":"Beach"},{"1":"124","2":"Mall"},{"1":"217","2":"Beach"},{"1":"131","2":"Mall"},{"1":"94","2":"Mall"},{"1":"102","2":"Mall"},{"1":"130","2":"Mall"},{"1":"113","2":"Mall"},{"1":"182","2":"Beach"},{"1":"96","2":"Mall"},{"1":"131","2":"Mall"},{"1":"122","2":"Beach"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>We can compute the sample mean</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sample <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(customers))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["sample_mean"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"121"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The sample mean is 121.</p>
+<p>So from what we discussed earlier, the interval:</p>
+<p>{121 - 2*4.91, 121 + 2*4.91}</p>
+<p>which is the interval</p>
+<p>{111.18, 130.82}</p>
+<p>has a 95% chance of containing the population mean.</p>
+<p>Or to state it differently, just from one sample, we can be 95% confident that the interval {111.18, 130.82} contains the population mean.</p>
+<p>From a single sample, we can never be 100% confident about any finite interval that contains the population mean.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Confidence Interval">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Confidence Interval
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The interval</p>
+<p>{sample_mean - 2*SE, sample_mean + 2*SE}</p>
+<p>is called a <strong>Confidence Interval</strong></p>
+</div>
+</div>
+<p>If something seemed fishy about this whole argument, I will come clean now. I misled you when I claimed that we were able to compute a confidence interval from just a single sample alone.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -765,36 +761,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>How many variables does the data frame have?</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Suggested answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Six</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick Check
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What is the unit of observation? That is, what does a row tell us about?</p>
+<p>What did we use beyond the sample in computing the confidence interval?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -809,8 +776,7 @@ Suggested answer
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Each row tells us about the result of a year’s race for a gender. The unit of observation therefore is the result of a race in a year – with the races for males and females being considered as different races.</p>
-<p>We have two rows for years starting from 1972 when women started participating. Prior to that, from 1897 to 1971, we have only one row per year.</p>
+<p>We used the Standard Error of SE. By our definition, the SE is the *population standard deviation divided by the square root of the sample size.</p>
 </div>
 </div>
 </div>
@@ -824,7 +790,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Which column shows the finishing time?</p>
+<p>So what is the problem in using the SE in computing the confidence interval?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -839,138 +805,66 @@ Suggested answer
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The variable <em>time</em> shows the finishing time in seconds and the colvariableumn <em>minutes</em> shows it in minutes.</p>
+<p>To compute the confidence interval, we need the population … but that is silly. If we have the population, then we do not need a confidence interval at all! We can just compute the population mean directly. No need for inference!</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<p>So what happens now? How do we get a confidence interval based strictly on a sample and using nothing else?</p>
+<p>In practice, we estimate the population standard deviation by calculating the standard deviation of the sample.</p>
+<p>The complete procedure to compute the confidence interval then is:</p>
+<ol type="1">
+<li>Get a single sample</li>
+<li>Compute the sample mean</li>
+<li>Compute the sample standard deviation</li>
+<li>Get the SE by dividing the sample standard deviation by the square root of the sample size</li>
+<li>compute the confidence interval as</li>
+</ol>
+<p>{sample mean - 2*SE, sample mean + 2*SE}</p>
+<p>Fortunately, you do not need to compute any of this by hand. We will use R.</p>
+<p>Here is sample code to compute the confidence interval from the sample we had earlier.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sample <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">model_train</span>(customers <span class="sc">~</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">conf_interval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".lwr"],"name":[2],"type":["dbl"],"align":["right"]},{"label":[".coef"],"name":[3],"type":["dbl"],"align":["right"]},{"label":[".upr"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"113","3":"121","4":"130"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The output shows that the sample mean is 121 and that the confidence interval is {113, 130}.</p>
+<p>That is, from the single sample of 50 we used from a population of 5,000, we were able to say that we are 95% confident that the interval {113, 130} contains the population mean.</p>
+<p>If you recall, we had computed this earlier as</p>
+<p>{111.18, 130.82}</p>
+<p>Why the difference?</p>
+<ul>
+<li>First off, we used the actual population standard deviation in computing the SE, but the R code used the sample standard deviation.</li>
+<li>Secondly, we used 2 as the factor, whereas we had discussed that 2 is an approximation. The R code did not use 2.</li>
+</ul>
+<p>What the r code computed is correct. I showed hand computations just to explain things.</p>
+<p>Going forward, we will only be using R.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Subtle, but important">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Check
+Subtle, but important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>How can you verify the suggested answer from the previous question?</p>
+<p>Suppose we compute the confidence interval for the mean as {113, 130}.</p>
+<p><strong>Statement 1</strong>: Should we say that there is a 95% chance that the population mean falls in that interval?</p>
+<p>Or should we say</p>
+<p><strong>Statement 2</strong>: that there is a 95% chance that the interval contains the population mean?</p>
+<p>Although these two statements seem to be saying the same thing, statisticians make a distinction.</p>
+<p>The population mean is a single fixed number. It does not uncertain in any way. The intervals are random and can fall anywhere.</p>
+<p>Statisticians want to make a clear distinction between what is random and what is fixed.</p>
+<p>The statement “population mean falls in an interval” seems to suggest that it can vary or move around when it cannot.</p>
+<p>This why they prefer <strong>Statement 2</strong> which has more of a suggestion that the intervals are the varying ones.</p>
 </div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Suggested answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Multiply <em>minutes</em> by 60 and that should equal <em>time</em>. However, we cannot use the variable <em>time</em> as it is not numerical. (Take a close look.)</p>
-</div>
-</div>
-</div>
-<p>Let us visualize a model for the variable <em>minutes</em>. As before, we generate the scatterplot and then annotate with a model. We changed the data frame and the tilde expression. <a href="#fig-boston-marathon-minutes-model" class="quarto-xref">Figure&nbsp;<span>10.2</span></a> shows the plot. The model line is at <em>minutes = 144</em>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Boston_marathon <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(minutes <span class="sc">~</span> <span class="dv">1</span>, <span class="at">annot =</span> <span class="st">"model"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">interval =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="fig-boston-marathon-minutes-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-boston-marathon-minutes-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-boston-marathon-minutes-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boston-marathon-minutes-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.2: Scatterplot of <em>minutes</em> from the <em>Boston_marathon</em> data frame annotated with a model
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="visualizing-category-mean-models-single-explanatory-variable-that-is-categorical" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="visualizing-category-mean-models-single-explanatory-variable-that-is-categorical"><span class="header-section-number">10.3</span> Visualizing category mean models (single explanatory variable that is categorical)</h2>
-<p>We built a model for <em>minutes</em> from the <em>Boston_marathon</em> data frame assuming no explanatory variable. What if we used <em>sex</em> as the explanatory variable? <a href="#fig-boston-marathon-minutes-sex-model" class="quarto-xref">Figure&nbsp;<span>10.3</span></a> shows the model. This time we have a separate mean model for each sex.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Boston_marathon <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(minutes <span class="sc">~</span> sex, <span class="at">annot =</span> <span class="st">"model"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">interval =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="fig-boston-marathon-minutes-sex-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-boston-marathon-minutes-sex-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-boston-marathon-minutes-sex-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boston-marathon-minutes-sex-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.3: Boston marathon model for <em>minutes</em> with <em>sex</em> as the explanatory variabl
-</figcaption>
-</figure>
-</div>
-<p>For another example, we now use the <em>mpg</em> data frame and plot a model for the city. mileage (variable <em>cty</em>) with the kind of drive (variable <em>drv</em>) as the explanatory variable. <a href="#fig-mpg-cty-drv-model" class="quarto-xref">Figure&nbsp;<span>10.4</span></a> shows the plot. This time we see that the model is the mean for each kind of drive.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(cty <span class="sc">~</span> drv, <span class="at">annot =</span> <span class="st">"model"</span>, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">interval =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="fig-mpg-cty-drv-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mpg-cty-drv-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-mpg-cty-drv-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mpg-cty-drv-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.4: Model of category means for <em>cty ~ drv</em> for the <em>mpg</em> data frame
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="visualizing-least-squares-line-models-single-explanatory-variable-that-is-numeric" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="visualizing-least-squares-line-models-single-explanatory-variable-that-is-numeric"><span class="header-section-number">10.4</span> Visualizing least-squares line models (single explanatory variable that is numeric)</h2>
-<p>We use the <em>Anthro_F</em> data frame. Take a look at its codebook and answer the following question.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick Check
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What is the unit of observation?</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Suggested answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Each row gives us information about a single college woman in the age range 18-25. SO the unit of observation is a <em>single college woman in the age range 18-25</em>.</p>
-</div>
-</div>
-</div>
-<p>We would like to visualize a model that predicts the body fat (variable <em>BFat</em>) with <em>Wrist</em> as the explanatory variable. <a href="#fig-anthro-f-wrist-bfat-model" class="quarto-xref">Figure&nbsp;<span>10.5</span></a> shows the scatterplot and the least squares line.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> Anthro_F <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">point_plot</span>(BFat <span class="sc">~</span> Wrist, <span class="at">annot =</span> <span class="st">"model"</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">interval =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="fig-anthro-f-wrist-bfat-model" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-anthro-f-wrist-bfat-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-anthro-f-wrist-bfat-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anthro-f-wrist-bfat-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.5: Least squares line model for the <em>Anthro_f</em> data frame: <em>BFat</em> as the response variable with <em>Wrist</em> as the explanatory variable
-</figcaption>
-</figure>
 </div>
 
 
@@ -1378,13 +1272,13 @@ Figure&nbsp;10.5: Least squares line model for the <em>Anthro_f</em> data frame:
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../modules/04-more-on-models/line-of-best-fit-story.html" class="pagination-link" aria-label="Line of Best Fit">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line of Best Fit</span></span>
+      <a href="../../modules/06-inference/populations-and-samples.html" class="pagination-link" aria-label="Populations and samples">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Populations and samples</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../modules/04-more-on-models/finding-the-model-function.html" class="pagination-link" aria-label="Finding the Model Function">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Finding the Model Function</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../modules/06-inference/confidence-interval-examples.html" class="pagination-link" aria-label="Visualizing models and Computing Confidence Intervals">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Visualizing models and Computing Confidence Intervals</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
