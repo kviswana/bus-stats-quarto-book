@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20&nbsp; Probability Distributions – Introduction to Business Statistics: A Modeling Approach</title>
+<title>21&nbsp; Hypothesis Testing – Introduction to Business Statistics: A Modeling Approach</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../modules/07-probability/hypothesis-testing-new.html" rel="next">
-<link href="../../modules/07-probability/07-overview.html" rel="prev">
+<link href="../../modules/07-probability/probability-distributions.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -104,8 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -172,7 +134,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/07-probability/07-overview.html">Probability</a></li><li class="breadcrumb-item"><a href="../../modules/07-probability/probability-distributions.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/07-probability/07-overview.html">Probability</a></li><li class="breadcrumb-item"><a href="../../modules/07-probability/hypothesis-testing-new.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -434,13 +396,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/07-probability/probability-distributions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../modules/07-probability/probability-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/07-probability/hypothesis-testing-new.html" class="sidebar-item-text sidebar-link">
+  <a href="../../modules/07-probability/hypothesis-testing-new.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
   </div>
 </li>
@@ -456,30 +418,35 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#simple-probability-coins-and-dice" id="toc-simple-probability-coins-and-dice" class="nav-link active" data-scroll-target="#simple-probability-coins-and-dice"><span class="header-section-number">20.1</span> Simple Probability: Coins and Dice</a></li>
-  <li><a href="#discrete-vs.-continuous-distributions" id="toc-discrete-vs.-continuous-distributions" class="nav-link" data-scroll-target="#discrete-vs.-continuous-distributions"><span class="header-section-number">20.2</span> Discrete vs.&nbsp;Continuous Distributions</a></li>
-  <li><a href="#visualizing-discrete-distributions" id="toc-visualizing-discrete-distributions" class="nav-link" data-scroll-target="#visualizing-discrete-distributions"><span class="header-section-number">20.3</span> Visualizing Discrete Distributions</a></li>
-  <li><a href="#visualizing-continuous-distributions" id="toc-visualizing-continuous-distributions" class="nav-link" data-scroll-target="#visualizing-continuous-distributions"><span class="header-section-number">20.4</span> Visualizing Continuous Distributions</a></li>
-  <li><a href="#visualizing-continuous-distributions-1" id="toc-visualizing-continuous-distributions-1" class="nav-link" data-scroll-target="#visualizing-continuous-distributions-1"><span class="header-section-number">20.5</span> Visualizing continuous distributions</a></li>
-  <li><a href="#interpreting-the-two-types-of-distribution" id="toc-interpreting-the-two-types-of-distribution" class="nav-link" data-scroll-target="#interpreting-the-two-types-of-distribution"><span class="header-section-number">20.6</span> Interpreting the Two Types of Distribution</a></li>
-  <li><a href="#the-probability-density-function-pdf" id="toc-the-probability-density-function-pdf" class="nav-link" data-scroll-target="#the-probability-density-function-pdf"><span class="header-section-number">20.7</span> The Probability Density Function (PDF)</a></li>
-  <li><a href="#relative-probability-what-the-density-curve-actually-tells-us" id="toc-relative-probability-what-the-density-curve-actually-tells-us" class="nav-link" data-scroll-target="#relative-probability-what-the-density-curve-actually-tells-us"><span class="header-section-number">20.8</span> Relative Probability: What the Density Curve Actually Tells Us</a></li>
-  <li><a href="#the-normal-gaussian-distribution" id="toc-the-normal-gaussian-distribution" class="nav-link" data-scroll-target="#the-normal-gaussian-distribution"><span class="header-section-number">20.9</span> The Normal (Gaussian) Distribution</a></li>
-  <li><a href="#how-do-we-calculate-probabilities-from-a-pdf" id="toc-how-do-we-calculate-probabilities-from-a-pdf" class="nav-link" data-scroll-target="#how-do-we-calculate-probabilities-from-a-pdf"><span class="header-section-number">20.10</span> How do we calculate probabilities from a PDF?</a></li>
-  <li><a href="#other-important-distributions" id="toc-other-important-distributions" class="nav-link" data-scroll-target="#other-important-distributions"><span class="header-section-number">20.11</span> Other Important Distributions</a>
+  <li><a href="#when-do-we-believe-something" id="toc-when-do-we-believe-something" class="nav-link active" data-scroll-target="#when-do-we-believe-something"><span class="header-section-number">21.1</span> When Do We Believe Something?</a></li>
+  <li><a href="#our-running-example-a-new-training-programme" id="toc-our-running-example-a-new-training-programme" class="nav-link" data-scroll-target="#our-running-example-a-new-training-programme"><span class="header-section-number">21.2</span> Our Running Example: A New Training Programme</a></li>
+  <li><a href="#the-null-and-alternate-hypotheses" id="toc-the-null-and-alternate-hypotheses" class="nav-link" data-scroll-target="#the-null-and-alternate-hypotheses"><span class="header-section-number">21.3</span> The Null and Alternate Hypotheses</a></li>
+  <li><a href="#beyond-reasonable-doubt-connecting-to-confidence-intervals" id="toc-beyond-reasonable-doubt-connecting-to-confidence-intervals" class="nav-link" data-scroll-target="#beyond-reasonable-doubt-connecting-to-confidence-intervals"><span class="header-section-number">21.4</span> Beyond Reasonable Doubt: Connecting to Confidence Intervals</a></li>
+  <li><a href="#the-two-possible-errors" id="toc-the-two-possible-errors" class="nav-link" data-scroll-target="#the-two-possible-errors"><span class="header-section-number">21.5</span> The Two Possible Errors</a>
   <ul class="collapse">
-  <li><a href="#the-chi-square-distribution" id="toc-the-chi-square-distribution" class="nav-link" data-scroll-target="#the-chi-square-distribution"><span class="header-section-number">20.11.1</span> The Chi-Square Distribution</a></li>
-  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution"><span class="header-section-number">20.11.2</span> The T Distribution</a></li>
+  <li><a href="#type-1-error-a-false-alarm" id="toc-type-1-error-a-false-alarm" class="nav-link" data-scroll-target="#type-1-error-a-false-alarm"><span class="header-section-number">21.5.1</span> Type 1 Error: A False Alarm</a></li>
+  <li><a href="#type-2-error-a-missed-signal" id="toc-type-2-error-a-missed-signal" class="nav-link" data-scroll-target="#type-2-error-a-missed-signal"><span class="header-section-number">21.5.2</span> Type 2 Error: A Missed Signal</a></li>
   </ul></li>
+  <li><a href="#formulating-hypotheses-examples-across-domains" id="toc-formulating-hypotheses-examples-across-domains" class="nav-link" data-scroll-target="#formulating-hypotheses-examples-across-domains"><span class="header-section-number">21.6</span> Formulating Hypotheses: Examples Across Domains</a>
+  <ul class="collapse">
+  <li><a href="#example-1-a-new-advertising-campaign-business" id="toc-example-1-a-new-advertising-campaign-business" class="nav-link" data-scroll-target="#example-1-a-new-advertising-campaign-business"><span class="header-section-number">21.6.1</span> Example 1: A New Advertising Campaign (Business)</a></li>
+  <li><a href="#example-2-quality-control-in-manufacturing-business" id="toc-example-2-quality-control-in-manufacturing-business" class="nav-link" data-scroll-target="#example-2-quality-control-in-manufacturing-business"><span class="header-section-number">21.6.2</span> Example 2: Quality Control in Manufacturing (Business)</a></li>
+  <li><a href="#example-3-loan-default-risk-finance" id="toc-example-3-loan-default-risk-finance" class="nav-link" data-scroll-target="#example-3-loan-default-risk-finance"><span class="header-section-number">21.6.3</span> Example 3: Loan Default Risk (Finance)</a></li>
+  <li><a href="#example-4-a-new-drug-everyday-life-health" id="toc-example-4-a-new-drug-everyday-life-health" class="nav-link" data-scroll-target="#example-4-a-new-drug-everyday-life-health"><span class="header-section-number">21.6.4</span> Example 4: A New Drug (Everyday Life / Health)</a></li>
+  <li><a href="#example-5-a-sports-performance-claim-sports" id="toc-example-5-a-sports-performance-claim-sports" class="nav-link" data-scroll-target="#example-5-a-sports-performance-claim-sports"><span class="header-section-number">21.6.5</span> Example 5: A Sports Performance Claim (Sports)</a></li>
+  <li><a href="#example-6-employee-absenteeism-business-hr" id="toc-example-6-employee-absenteeism-business-hr" class="nav-link" data-scroll-target="#example-6-employee-absenteeism-business-hr"><span class="header-section-number">21.6.6</span> Example 6: Employee Absenteeism (Business / HR)</a></li>
+  <li><a href="#example-7-online-checkout-redesign-business-technology" id="toc-example-7-online-checkout-redesign-business-technology" class="nav-link" data-scroll-target="#example-7-online-checkout-redesign-business-technology"><span class="header-section-number">21.6.7</span> Example 7: Online Checkout Redesign (Business / Technology)</a></li>
+  </ul></li>
+  <li><a href="#a-note-on-what-failing-to-reject-really-means" id="toc-a-note-on-what-failing-to-reject-really-means" class="nav-link" data-scroll-target="#a-note-on-what-failing-to-reject-really-means"><span class="header-section-number">21.7</span> A Note on What “Failing to Reject” Really Means</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/07-probability/07-overview.html">Probability</a></li><li class="breadcrumb-item"><a href="../../modules/07-probability/probability-distributions.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/07-probability/07-overview.html">Probability</a></li><li class="breadcrumb-item"><a href="../../modules/07-probability/hypothesis-testing-new.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-probability-distributions" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></span></h1>
+<h1 class="title"><span id="sec-hypothesis-testing" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></h1>
 </div>
 
 
@@ -496,27 +463,35 @@ window.Quarto = {
 </header>
 
 
-<p>When we talk about outcomes in the real world – how a coin lands, which class a randomly picked car belongs to, or how long you might wait for the next customer to walk in – we are really talking about <em>probability distributions</em>. A probability distribution tells us what outcomes are possible and how likely each one is.</p>
-<p>In this chapter, we build up the idea of probability distributions carefully, starting with simple examples you already know intuitively, and then working towards the more powerful continuous distributions that underpin much of statistics.</p>
-<section id="simple-probability-coins-and-dice" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="simple-probability-coins-and-dice"><span class="header-section-number">20.1</span> Simple Probability: Coins and Dice</h2>
-<p>You have probably heard the phrase “fifty-fifty chance.” That is an informal way of describing the probability distribution of a fair coin toss.</p>
-<p>A fair coin has only two possible outcomes – heads and tails – and each is equally likely:</p>
-<p><span class="math display">\[
-P(\text{head}) = 0.5, \quad P(\text{tail}) = 0.5
-\]</span></p>
-<p>Notice that the two probabilities sum to 1. That is always the case: all possible outcomes together must account for 100% of what can happen.</p>
-<p><a href="#fig-coin-toss-distribution" class="quarto-xref">Figure&nbsp;<span>20.1</span></a> shows the same thing pictorially.</p>
-<div id="fig-coin-toss-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-coin-toss-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-coin-toss-distribution.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coin-toss-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.1: Probability distribution of coin toss
-</figcaption>
-</figure>
-</div>
+<p>Statistics, at its core, is about making decisions under uncertainty. We rarely have complete information, yet we still have to act. Should we launch a new product? Is this marketing campaign actually working? Did the new training programme improve employee performance? In each case, we are asking: <em>do I have enough evidence to believe something?</em></p>
+<p>This chapter is about the formal framework statisticians use to answer that question. It is called <em>hypothesis testing</em>, and by the end of this chapter you will be able to think through any real-world claim with the same structured logic that underpins scientific and business decision-making.</p>
+<p>We will build up the ideas using a single running example, and then explore how the same framework applies across business, everyday life, and sports.</p>
+<section id="when-do-we-believe-something" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="when-do-we-believe-something"><span class="header-section-number">21.1</span> When Do We Believe Something?</h2>
+<p>Before we get into any statistics, let us think about how human beings naturally decide whether to believe a claim.</p>
+<p>Imagine a friend tells you: “I can predict the outcome of a coin flip every single time.” You are sceptical – as you should be. So you test them. You flip a coin, they predict it correctly. Do you believe them now?</p>
+<p>Probably not. One correct prediction could easily be a fluke. So you flip again. They get it right. And again. And again. After ten correct predictions in a row, you are starting to raise an eyebrow. After twenty in a row, you are genuinely astonished. At some point, you cross a threshold where the evidence is so compelling that you abandon your scepticism and conclude: <em>this is not a fluke</em>.</p>
+<p>That threshold – the point where coincidence becomes too implausible – is the beating heart of hypothesis testing.</p>
+<p>The same logic plays out in courts of law. A jury does not require <em>certainty</em> to convict. Certainty is almost never available. What they require is proof <em>beyond a reasonable doubt</em>. This phrase has a precise meaning: the evidence must be strong enough that any reasonable person would be convinced. It does not mean zero chance of being wrong. It means the chance of being wrong is small enough that we are willing to act as though we are right.</p>
+<p>Statistics formalises this intuition into a rigorous procedure.</p>
+</section>
+<section id="our-running-example-a-new-training-programme" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="our-running-example-a-new-training-programme"><span class="header-section-number">21.2</span> Our Running Example: A New Training Programme</h2>
+<p>A large retail company has introduced a new sales training programme for its staff. Before the programme, the average number of sales per employee per week was 42. The HR director wants to know: <em>has the training actually improved sales performance?</em></p>
+<p>This is a hypothesis testing question. Let us use it to build up all the key ideas.</p>
+</section>
+<section id="the-null-and-alternate-hypotheses" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="the-null-and-alternate-hypotheses"><span class="header-section-number">21.3</span> The Null and Alternate Hypotheses</h2>
+<p>The first step in hypothesis testing is to state clearly what we are testing. We do this by formulating two competing claims.</p>
+<p>The <strong>null hypothesis</strong> is the conservative, “nothing has changed” claim. It represents the status quo – the world as it was before, or as we would expect it to be if nothing interesting were happening. In our example:</p>
+<blockquote class="blockquote">
+<p><strong>Null hypothesis:</strong> The training programme has had no effect. The average sales per employee per week is still 42.</p>
+</blockquote>
+<p>The <strong>alternate hypothesis</strong> is the claim we are trying to find evidence <em>for</em>. It is the interesting claim – the one that, if true, would matter. In our example:</p>
+<blockquote class="blockquote">
+<p><strong>Alternate hypothesis:</strong> The training programme has improved sales. The average sales per employee per week is now greater than 42.</p>
+</blockquote>
+<p>This asymmetry is important and worth dwelling on. We do not treat the two hypotheses as equals. The null hypothesis gets the benefit of the doubt. We start by <em>assuming it is true</em>, and we only abandon it if the data provide compelling evidence against it. Just as in a court of law, the defendant (the null hypothesis) is presumed innocent until proven guilty beyond a reasonable doubt.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -527,7 +502,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A fair six-sided die is rolled. What is the probability of rolling a 3?</p>
+<p>In the training programme example, why is “the programme has no effect” the null hypothesis rather than the alternate?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -542,85 +517,18 @@ Suggested answer
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>There are six equally likely outcomes (1 through 6), so the probability of any one of them is <span class="math inline">\(P(3) = \frac{1}{6} \approx 0.167\)</span>.</p>
-<p>In general: <span class="math inline">\(P(1) = P(2) = P(3) = P(4) = P(5) = P(6) = \frac{1}{6}\)</span></p>
+<p>Because the null hypothesis always represents the default, conservative position – the world as it was before any intervention. We require evidence to move <em>away</em> from that position, not evidence to stay there. Assuming the programme works without evidence would be the wrong starting point; it would be too easy to claim success without justification.</p>
 </div>
 </div>
 </div>
-<p><a href="#fig-die-roll-trials-distribution" class="quarto-xref">Figure&nbsp;<span>20.2</span></a> shows the number of times each face showed up in 1000 rools of a die. The number of times each face shows up is not equal in practice. But as the number of rolls of the die increases, these numbers will tend to come closer and closer to equality.</p>
-<div id="fig-die-roll-trials-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-die-roll-trials-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-die-roll-trials-distribution.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-die-roll-trials-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.2: Number of occurrences of each die face in 1000 die rolls
-</figcaption>
-</figure>
-</div>
-<p>These two examples – the coin and the die – are instances of <em>discrete probability distributions</em>, where only a countable set of outcomes is possible.</p>
 </section>
-<section id="discrete-vs.-continuous-distributions" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="discrete-vs.-continuous-distributions"><span class="header-section-number">20.2</span> Discrete vs.&nbsp;Continuous Distributions</h2>
-<p>The distributions we have seen so far in this chapter are <em>discrete</em> because the outcomes are separate, distinct values. But many real-world quantities can take on any value along a continuous range. This leads to the second major type: <em>continuous distributions</em>.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Discrete</th>
-<th>Continuous</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Takes on</strong></td>
-<td>Distinct, separated values</td>
-<td>Any value in a range</td>
-</tr>
-<tr class="even">
-<td><strong>Examples</strong></td>
-<td>Coin toss, die roll, car class</td>
-<td>Height, weight, profit, time until next customer arrives</td>
-</tr>
-</tbody>
-</table>
-<p>The distinction matters because it changes how we think about and compute probabilities, as we will see shortly.</p>
-</section>
-<section id="visualizing-discrete-distributions" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="visualizing-discrete-distributions"><span class="header-section-number">20.3</span> Visualizing Discrete Distributions</h2>
-<p>The natural way to visualize a discrete distribution is with a bar chart. Each bar sits above one of the possible outcomes, and its height gives the probability of that outcome.</p>
-<p>Consider the coin toss. We have two bars of equal height, each at 0.5. The bars do not touch each other because there is a conceptual gap between “heads” and “tails” – they are distinct categories.</p>
-<p>Now consider a richer example. In the <code>mpg</code> dataset, if we pick a car at random, we might ask: what is the probability it belongs to each vehicle class? Some classes are more common than others.</p>
-<p>Let us first count the number of vehicles of each class in the dataset:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["class"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2seater","2":"5"},{"1":"compact","2":"47"},{"1":"midsize","2":"41"},{"1":"minivan","2":"11"},{"1":"pickup","2":"33"},{"1":"subcompact","2":"35"},{"1":"suv","2":"62"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<p>The dataset has 234 rows and roughly 2% of the vehicles are two-seaters and 20% of the cars are compacts. Therefore: - The probability of picking a compact is 0.20 - The probability of picking a 2-seater is only 0.02</p>
-<p>2fig-mpg-class-bar shows these probabilities as a bar chart.</p>
-<div id="fig-mpg-class-bar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mpg-class-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-mpg-class-bar.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mpg-class-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.3: Proportions of various car classes in the <code>mpg</code> data frame
-</figcaption>
-</figure>
-</div>
-<p>The bar chart makes these differences in probabilities immediately visible. A compact is ten times more likely to appear in a random draw than a 2-seater.</p>
+<section id="beyond-reasonable-doubt-connecting-to-confidence-intervals" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="beyond-reasonable-doubt-connecting-to-confidence-intervals"><span class="header-section-number">21.4</span> Beyond Reasonable Doubt: Connecting to Confidence Intervals</h2>
+<p>You have already encountered the idea of a 95% confidence interval in an earlier chapter. Recall that a 95% confidence interval around an estimate says: if we repeated this study many times, 95% of the intervals we constructed would contain the true value.</p>
+<p>Hypothesis testing is built on the same underlying logic. The standard threshold used in most fields is 95% confidence – or equivalently, we are willing to tolerate only a 5% chance of being wrong when we reject the null hypothesis.</p>
+<p>In our example: after the training programme, suppose we measure the sales of a sample of employees and compute their average. If that average is only slightly above 42 – say, 43 – we would not be very impressed. A difference that small could easily have arisen by chance, even if the programme had no real effect.</p>
+<p>But if the average is 56, that is a very different story. A gap that large would be extremely unlikely to occur purely by chance if the null hypothesis were true. The data are, in effect, screaming at us that something has changed.</p>
+<p>The 95% threshold formalises this. We ask: <em>if the null hypothesis were true, how likely would it be to see data at least as extreme as what we actually observed?</em> If that probability is less than 5%, we declare that the result is statistically significant and we reject the null hypothesis in favour of the alternate.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -631,7 +539,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In a discrete distribution plotted as a bar chart, what must the heights of all the bars sum to?</p>
+<p>We observe that the average sales per employee after the training programme is 44.5, compared to the previous average of 42. Without doing any calculations, what additional information would you need to decide whether this difference is statistically significant?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -646,76 +554,26 @@ Suggested answer
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>They must sum to 1, because the bars represent the probabilities of all possible outcomes, and some outcome must occur.</p>
+<p>You would need to know how much variability there is in the sales data. If sales vary enormously from week to week and employee to employee, then a difference of 2.5 units could easily be random noise. If sales are very consistent, even a small difference might be meaningful. You would also want to know how large the sample was – a difference based on 500 employees is far more convincing than the same difference based on 5 employees.</p>
 </div>
 </div>
-</div>
-<p>To summarize, in the case of discrete outcomes, the probability of an outcome is just its proportion in the dataset.</p>
-</section>
-<section id="visualizing-continuous-distributions" class="level2" data-number="20.4">
-<h2 data-number="20.4" class="anchored" data-anchor-id="visualizing-continuous-distributions"><span class="header-section-number">20.4</span> Visualizing Continuous Distributions</h2>
-<p>For continuous variables, we use a <em>histogram</em> to visualize the distribution. Histograms look similar to bar charts – they also use bars – but there is an important difference: the bars touch each other, reflecting the fact that the underlying variable is continuous with no gaps.</p>
-<p>Histograms can display either frequencies (counts) or probabilities on the y-axis. When we put probabilities on the y-axis, we begin to see the histogram as an approximation to a smooth curve, which is exactly how continuous distributions are represented mathematically.</p>
-<p>Consider the inter-arrival times (time laspse between the arrival of two consecutive customers) at a bank. Suppose customers arrive at an average rate of 12 per hour – that is, one customer every 5 minutes on average. If we recorded a large number of inter-arrival times and plotted them in a histogram, we would see a characteristic shape: many short gaps and progressively fewer long gaps. This shape follows an <em>exponential distribution</em>.</p>
-<p><a href="#fig-interarrival-times-hist" class="quarto-xref">Figure&nbsp;<span>20.4</span></a> shows the histogram.</p>
-<div id="fig-interarrival-times-hist" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-interarrival-times-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-interarrival-times-hist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interarrival-times-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.4: Histogram of inter-arrival times at a bank based on 1000 observations– on average 12 customers arrive each hour
-</figcaption>
-</figure>
-</div>
-<p>In <a href="#fig-interarrival-times-hist" class="quarto-xref">Figure&nbsp;<span>20.4</span></a>, each bar spans a time interval on the x-axis. In this case, each bar spans one minute. You can see from the leftmost bar that 120 of the 1000 inter-arrival times were less than one minute. As expected, we see that very long inter-arrival times are rare.</p>
-<p>Based on our earlier discussion under variation, we can see that this distribution is skewed towards higher values.</p>
-<p><a href="#fig-bank-violin" class="quarto-xref">Figure&nbsp;<span>20.5</span></a> visualizes the same data as a violin plot.</p>
-<div id="fig-bank-violin" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bank-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-bank-violin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bank-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.5: Violin plot of the same inter-arrival times at a bank
-</figcaption>
-</figure>
-</div>
-<p>When we add up many small random values – like the combined effect of many small factors that together determine a person’s height. The distribution of the resulting sum tends to look like a symmetric, bell-shaped curve. This is the <em>normal distribution</em>, and it appears so often in nature and in statistics that it deserves special attention.</p>
-</section>
-<section id="visualizing-continuous-distributions-1" class="level2" data-number="20.5">
-<h2 data-number="20.5" class="anchored" data-anchor-id="visualizing-continuous-distributions-1"><span class="header-section-number">20.5</span> Visualizing continuous distributions</h2>
-<p>Until now we have used the violin plot extensively to visualize continuous distributions. We have used the histogram as well, but it bins the values and does not tell us the complete story. To see the full story, we need to visualize the distribution as a smooth curve, which is how it is represented mathematically. This is called a <em>probability density function</em> (PDF), and it is the continuous analogue of a bar chart for discrete distributions.</p>
-<p>We can see what a probability density function looks like if we split the violin vertically down the middle and rotate it right by 90 degrees.</p>
-<p><a href="#fig-violin-split-rotate" class="quarto-xref">Figure&nbsp;<span>20.6</span></a> shows the result.</p>
-<div id="fig-violin-split-rotate" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-violin-split-rotate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-violin-split-rotate.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-violin-split-rotate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.6: Violin plot split vertically down the middle and rotated right 90 degrees resembles a probability density function
-</figcaption>
-</figure>
-</div>
-<p><a href="#fig-heights-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.7</span></a> shows the PDF of the heights of adult women in the US. This represents a normal (or Gaussian) distribution. As the figure says, the mean height is 162 cm and the standard deviation is 6.9 cm.</p>
-<p>The curve is bell shaped and symmetrical around the mean.</p>
-<div id="fig-heights-normal-dist" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-heights-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-heights-normal-dist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heights-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.7: Probability density function of the heights of adult women in the US
-</figcaption>
-</figure>
 </div>
 </section>
-<section id="interpreting-the-two-types-of-distribution" class="level2" data-number="20.6">
-<h2 data-number="20.6" class="anchored" data-anchor-id="interpreting-the-two-types-of-distribution"><span class="header-section-number">20.6</span> Interpreting the Two Types of Distribution</h2>
-<p>Here is a key difference in how we interpret probabilities for the two types of distribution:</p>
-<p>For a <strong>discrete distribution</strong>, the y-axis of a bar chart gives the <em>actual probability</em> of each outcome. If the bar for “compact” reaches 0.20, that means there is a 20% chance of picking a compact.</p>
-<p>For a <strong>continuous distribution</strong>, the y-axis of a smooth curve does <em>not</em> give actual probabilities. Why not? Because with a continuous variable, there are infinitely many possible values. The probability of landing on any single exact value – say, exactly 5.0000… minutes of inter-arrival time, or an exact height of 165 cm – is zero.</p>
+<section id="the-two-possible-errors" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="the-two-possible-errors"><span class="header-section-number">21.5</span> The Two Possible Errors</h2>
+<p>Here is the uncomfortable truth: we can never be completely certain. Even at the 95% confidence threshold, we will be wrong 5% of the time. And there are actually two distinct ways we can be wrong. Understanding them is crucial, because the consequences of each type of error are very different.</p>
+<section id="type-1-error-a-false-alarm" class="level3" data-number="21.5.1">
+<h3 data-number="21.5.1" class="anchored" data-anchor-id="type-1-error-a-false-alarm"><span class="header-section-number">21.5.1</span> Type 1 Error: A False Alarm</h3>
+<p>A <strong>Type 1 error</strong> occurs when we reject the null hypothesis even though it is actually true. In other words, we conclude that something interesting is happening when in fact nothing has changed.</p>
+<p>In our training programme example, a Type 1 error would mean concluding that the programme improved sales – and perhaps paying to roll it out company-wide – when in reality the improvement we saw was just random chance and the programme did nothing.</p>
+<p>This is the <em>false alarm</em> error. We have been fooled by noise into thinking there is a signal.</p>
+<p>The 5% threshold we discussed earlier is directly related to this error. When we require 95% confidence to reject the null hypothesis, we are saying: we are willing to make a Type 1 error at most 5% of the time. In fields where the cost of a false alarm is very high – such as medical research or legal decisions – researchers sometimes use a stricter threshold of 99% confidence, reducing the Type 1 error rate to 1%.</p>
+</section>
+<section id="type-2-error-a-missed-signal" class="level3" data-number="21.5.2">
+<h3 data-number="21.5.2" class="anchored" data-anchor-id="type-2-error-a-missed-signal"><span class="header-section-number">21.5.2</span> Type 2 Error: A Missed Signal</h3>
+<p>A <strong>Type 2 error</strong> occurs when we fail to reject the null hypothesis even though the alternate hypothesis is actually true. In other words, the training programme <em>did</em> work, but our data did not give us enough evidence to see it.</p>
+<p>This is the <em>missed signal</em> error. Something real was happening, but we were not able to detect it.</p>
+<p>In our training programme example, a Type 2 error would mean telling the HR director “we found no evidence that the programme works” – and perhaps abandoning a genuinely effective training initiative – when in truth the programme was improving sales all along. We simply did not have a large enough sample, or the improvement was subtle enough, that our test could not pick it up.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -726,7 +584,7 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A continuous distribution of inter-arrival times is plotted as a smooth curve. What is the probability that the next customer arrives in exactly 3.000000… minutes (to infinite decimal places)?</p>
+<p>In the training programme example, which error do you think would be more costly to the company: a Type 1 or a Type 2 error? Is there a definitive answer?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -741,83 +599,7 @@ Suggested answer
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Zero. In a continuous distribution, the probability of any single exact value is zero. Probability is only meaningful over a <em>range</em> of values (an interval), not at a single point.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="the-probability-density-function-pdf" class="level2" data-number="20.7">
-<h2 data-number="20.7" class="anchored" data-anchor-id="the-probability-density-function-pdf"><span class="header-section-number">20.7</span> The Probability Density Function (PDF)</h2>
-<p>The smooth curve that describes a continuous distribution is called a <em>probability density function</em>, or PDF. The name contains an important clue: the y-axis gives <em>density</em>, not probability.</p>
-<p>Think of density the way you think of population density in geography. A city might have a high population density – many people per square kilometre – without you being able to say exactly how many people live at one specific GPS coordinate. Similarly, a high density value at a given x-value tells you that outcomes near that x-value are relatively common, without giving you the probability of any single exact outcome.</p>
-<p>Consider the distribution of heights of adult women in the United States. Suppose the PDF has a value of 0.58 at a height of 162 cm.</p>
-<div id="fig-continuous-pdf-density-labeled" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-continuous-pdf-density-labeled-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-continuous-pdf-density-labeled.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continuous-pdf-density-labeled-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.8: Density for a height of 162 cm is 0.58
-</figcaption>
-</figure>
-</div>
-<p>This does <strong>not</strong> mean there is a 58% chance that a randomly chosen woman is <em>exactly</em> 162 cm tall. That probability is zero. What it <em>does</em> mean is that heights near 162 cm are relatively likely – specifically, they are more likely than heights where the curve is lower.</p>
-</section>
-<section id="relative-probability-what-the-density-curve-actually-tells-us" class="level2" data-number="20.8">
-<h2 data-number="20.8" class="anchored" data-anchor-id="relative-probability-what-the-density-curve-actually-tells-us"><span class="header-section-number">20.8</span> Relative Probability: What the Density Curve Actually Tells Us</h2>
-<p>The density value at a given x-value is meaningful only in comparison to the density value at other x-values. It gives you the <em>relative</em> likelihood of outcomes.</p>
-<p><a href="#fig-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.9</span></a> shows a generic normal distribution with mean -0.6 and standard deviation 0.2.</p>
-<div id="fig-normal-dist" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-normal-dist.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.9: Normal distribution with mean -0.6 and sd 0.2
-</figcaption>
-</figure>
-</div>
-<p>The distribution is <a href="#fig-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.9</span></a> has a height of 2 at x = -0.6. So clearly the height at any point cannot be a probability!</p>
-<p><a href="#fig-height-dist-with-points" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows the height distribution we saw earlier with two points labeled.</p>
-<div id="fig-height-dist-with-points" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-height-dist-with-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-height-dist-with-points.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-height-dist-with-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.10: Normal distribution with mean -0.6 and sd 0.2, with two points labeled
-</figcaption>
-</figure>
-</div>
-<p><a href="#fig-height-dist-with-points" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows that the density for a height of 63 inches is 0.15 and the density for a height of 66 inches is 0.10. These are relative densities and not probabilities. They tell us that heights close to 63 inches are 1.5 times more likely than heights close to 66 inches.</p>
-<p>This is the correct way to read a probability density function: not as absolute probabilities, but as a map of relative likelihood across the range of possible values.</p>
-<p>The y-axis can even exceed 1 in a PDF and still be perfectly valid. This confuses many people at first.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick Check
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Suppose a PDF has a value of 0.8 at <span class="math inline">\(x = 10\)</span> and a value of 0.2 at <span class="math inline">\(x = 20\)</span>. How much more likely is an outcome near <span class="math inline">\(x = 10\)</span> compared to an outcome near <span class="math inline">\(x = 20\)</span>?</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Suggested answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>An outcome near <span class="math inline">\(x = 10\)</span> is <span class="math inline">\(0.8 / 0.2 = 4\)</span> times more likely than an outcome near <span class="math inline">\(x = 20\)</span>.</p>
+<p>There is no single right answer – it depends on the costs involved. A Type 1 error means wasting money rolling out a useless programme. A Type 2 error means discarding a useful one and missing out on the sales improvement it would have delivered. In most business contexts, both errors are costly, and the right balance depends on how expensive the programme is and how large the potential sales benefit is. This trade-off is a genuine business decision, not just a statistical one.</p>
 </div>
 </div>
 </div>
@@ -827,24 +609,113 @@ Suggested answer
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The intuition behind “density”
+The two errors, side by side
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Think of the function value at any given x-value as the relative <em>density</em> of outcomes around that x-value. A high density means outcomes in that neighborhood are clustered together and likely. A low density means outcomes in that neighborhood are sparse and unlikely.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Null hypothesis is actually TRUE</th>
+<th>Null hypothesis is actually FALSE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>We reject the null</strong></td>
+<td>Type 1 Error (false alarm)</td>
+<td>Correct decision ✓</td>
+</tr>
+<tr class="even">
+<td><strong>We do not reject the null</strong></td>
+<td>Correct decision ✓</td>
+<td>Type 2 Error (missed signal)</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that we can never observe both errors at the same time – in any given situation, the null hypothesis is either true or false. The errors are possibilities, not certainties.</p>
 </div>
 </div>
 </section>
-<section id="the-normal-gaussian-distribution" class="level2" data-number="20.9">
-<h2 data-number="20.9" class="anchored" data-anchor-id="the-normal-gaussian-distribution"><span class="header-section-number">20.9</span> The Normal (Gaussian) Distribution</h2>
-<p>The normal distribution is the most important probability distribution in all of statistics. It is the bell-shaped curve that arises naturally when many independent random influences are added together – which, it turns out, describes an enormous variety of real-world phenomena.</p>
-<p>A key property of any probability density function – including the normal distribution – is that the total area under the curve is always exactly 1. This is the continuous analogue of the fact that all bar heights must sum to 1 in a discrete distribution.</p>
-<p>The normal distribution is fully described by just two numbers:</p>
-<ul>
-<li>its <strong>mean</strong> <span class="math inline">\(\mu\)</span>, which controls where the centre of the bell is located</li>
-<li>its <strong>standard deviation</strong> <span class="math inline">\(\sigma\)</span>, which controls how wide or narrow the bell is</li>
-</ul>
-<p>A larger standard deviation produces a flatter, more spread-out curve. A smaller standard deviation produces a taller, more tightly concentrated curve. Shifting the mean simply slides the whole curve left or right along the x-axis, without changing its shape.</p>
+</section>
+<section id="formulating-hypotheses-examples-across-domains" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="formulating-hypotheses-examples-across-domains"><span class="header-section-number">21.6</span> Formulating Hypotheses: Examples Across Domains</h2>
+<p>Now that we understand the framework through our running example, let us see how it applies across a wide range of situations. In each case, we will state the null and alternate hypotheses and think carefully about what Type 1 and Type 2 errors would mean in practice.</p>
+<section id="example-1-a-new-advertising-campaign-business" class="level3" data-number="21.6.1">
+<h3 data-number="21.6.1" class="anchored" data-anchor-id="example-1-a-new-advertising-campaign-business"><span class="header-section-number">21.6.1</span> Example 1: A New Advertising Campaign (Business)</h3>
+<p>A consumer goods company runs a new digital advertising campaign and wants to know whether it has increased online sales.</p>
+<p><strong>Null hypothesis:</strong> The campaign has had no effect on online sales. Average weekly sales are unchanged.</p>
+<p><strong>Alternate hypothesis:</strong> The campaign has increased online sales. Average weekly sales are now higher.</p>
+<p><strong>Type 1 error:</strong> We conclude the campaign worked and continue spending on it, when in reality the sales increase was just natural fluctuation. The company wastes its advertising budget on an ineffective campaign.</p>
+<p><strong>Type 2 error:</strong> We conclude the campaign had no effect and pull the budget, when in reality it was driving real sales growth. The company abandons a profitable marketing channel.</p>
+<p><strong>Which is worse?</strong> If the campaign is expensive, a Type 1 error is very costly. But if the potential sales uplift is large, a Type 2 error represents a significant missed opportunity. The marketing team needs to weigh these costs explicitly.</p>
+<hr>
+</section>
+<section id="example-2-quality-control-in-manufacturing-business" class="level3" data-number="21.6.2">
+<h3 data-number="21.6.2" class="anchored" data-anchor-id="example-2-quality-control-in-manufacturing-business"><span class="header-section-number">21.6.2</span> Example 2: Quality Control in Manufacturing (Business)</h3>
+<p>A factory produces components with a specified average weight of 500 grams. The quality control team periodically samples components from the production line to check whether the machinery has drifted out of calibration.</p>
+<p><strong>Null hypothesis:</strong> The machinery is working correctly. The average component weight is 500 grams.</p>
+<p><strong>Alternate hypothesis:</strong> The machinery has drifted out of calibration. The average component weight is no longer 500 grams.</p>
+<p><strong>Type 1 error:</strong> We conclude the machinery is out of calibration and halt production to recalibrate it, when it was actually working fine. The company incurs unnecessary downtime and recalibration costs.</p>
+<p><strong>Type 2 error:</strong> We conclude the machinery is fine and keep running, when it has actually drifted. The factory continues producing defective components, potentially leading to product recalls, customer complaints, and reputational damage.</p>
+<p><strong>Which is worse?</strong> In most manufacturing settings, Type 2 errors are far more costly. The consequences of shipping defective products typically far outweigh the cost of an unnecessary recalibration. This is why quality-critical industries often use very sensitive tests, accepting a higher rate of false alarms in exchange for rarely missing a real defect.</p>
+<hr>
+</section>
+<section id="example-3-loan-default-risk-finance" class="level3" data-number="21.6.3">
+<h3 data-number="21.6.3" class="anchored" data-anchor-id="example-3-loan-default-risk-finance"><span class="header-section-number">21.6.3</span> Example 3: Loan Default Risk (Finance)</h3>
+<p>A bank is developing a model to predict whether a loan applicant will default. For each applicant, the bank must decide: grant the loan or deny it?</p>
+<p><strong>Null hypothesis:</strong> The applicant will not default (they are a creditworthy borrower).</p>
+<p><strong>Alternate hypothesis:</strong> The applicant will default.</p>
+<p><strong>Type 1 error:</strong> The bank predicts the applicant will default and denies the loan, when the applicant would actually have repaid it without problems. The bank loses a profitable customer and the applicant is unfairly denied credit.</p>
+<p><strong>Type 2 error:</strong> The bank predicts the applicant will not default and approves the loan, when the applicant actually defaults. The bank loses the loaned money.</p>
+<p><strong>Which is worse?</strong> This depends on the bank’s risk appetite and economic conditions. During a financial downturn, banks tend to tighten their lending criteria – effectively accepting more Type 1 errors (rejecting good customers) to minimise Type 2 errors (approving bad ones). During a boom, the balance may shift the other way.</p>
+<hr>
+</section>
+<section id="example-4-a-new-drug-everyday-life-health" class="level3" data-number="21.6.4">
+<h3 data-number="21.6.4" class="anchored" data-anchor-id="example-4-a-new-drug-everyday-life-health"><span class="header-section-number">21.6.4</span> Example 4: A New Drug (Everyday Life / Health)</h3>
+<p>A pharmaceutical company has developed a new drug to lower blood pressure. Before it can be approved, regulators require clinical trial evidence that it actually works.</p>
+<p><strong>Null hypothesis:</strong> The drug has no effect on blood pressure compared to a placebo.</p>
+<p><strong>Alternate hypothesis:</strong> The drug lowers blood pressure more than a placebo does.</p>
+<p><strong>Type 1 error:</strong> We conclude the drug works and approve it for public use, when in reality it does not work – or worse, has side effects without any benefit. Patients take a useless or harmful drug, and the regulator’s credibility is damaged.</p>
+<p><strong>Type 2 error:</strong> We conclude the drug does not work and reject it, when in reality it does lower blood pressure effectively. Patients who could have benefited from it are denied access.</p>
+<p><strong>Which is worse?</strong> Drug regulators around the world have historically been more afraid of Type 1 errors – approving harmful drugs – than Type 2 errors. This is why clinical trials for new drugs use very strict significance thresholds and require multiple phases of testing. The tragic cases of drugs approved prematurely and later found to cause harm have shaped this culture of caution.</p>
+<hr>
+</section>
+<section id="example-5-a-sports-performance-claim-sports" class="level3" data-number="21.6.5">
+<h3 data-number="21.6.5" class="anchored" data-anchor-id="example-5-a-sports-performance-claim-sports"><span class="header-section-number">21.6.5</span> Example 5: A Sports Performance Claim (Sports)</h3>
+<p>A professional football club introduces a new sports science recovery protocol for its players. The head coach claims it reduces muscle recovery time after matches, allowing players to train harder during the week.</p>
+<p><strong>Null hypothesis:</strong> The recovery protocol has no effect. Average muscle recovery time is unchanged.</p>
+<p><strong>Alternate hypothesis:</strong> The recovery protocol reduces average muscle recovery time.</p>
+<p><strong>Type 1 error:</strong> The club concludes the protocol works and invests heavily in it – hiring specialists, restructuring training schedules – when in reality any improvement was just natural variation in player performance. The club wastes resources and disrupts a training routine that was working fine.</p>
+<p><strong>Type 2 error:</strong> The club concludes the protocol does not work and abandons it, when it actually does speed up recovery. Players train under more fatigue than necessary, increasing injury risk and reducing match performance.</p>
+<p><strong>Which is worse?</strong> In elite sport, where marginal gains can mean the difference between winning and losing a championship, Type 2 errors can be very costly. However, if the intervention is expensive or disrupts the team’s established culture, a Type 1 error also carries real consequences.</p>
+<hr>
+</section>
+<section id="example-6-employee-absenteeism-business-hr" class="level3" data-number="21.6.6">
+<h3 data-number="21.6.6" class="anchored" data-anchor-id="example-6-employee-absenteeism-business-hr"><span class="header-section-number">21.6.6</span> Example 6: Employee Absenteeism (Business / HR)</h3>
+<p>A company notices that absenteeism rates appear higher in one regional office than in others. HR wants to know whether this is a genuine pattern or just random variation across offices.</p>
+<p><strong>Null hypothesis:</strong> There is no real difference in absenteeism rates between this office and the others. The apparent difference is just chance.</p>
+<p><strong>Alternate hypothesis:</strong> This office genuinely has a higher absenteeism rate, suggesting an underlying problem (management issues, morale, working conditions, etc.).</p>
+<p><strong>Type 1 error:</strong> HR concludes there is a real problem at this office and launches an investigation – disrupting the team, potentially alienating managers – when the higher absenteeism was just statistical noise and there is no real issue. Time and goodwill are wasted.</p>
+<p><strong>Type 2 error:</strong> HR concludes the difference is just chance and takes no action, when the office genuinely does have a problem. The underlying issue – poor management, a toxic culture, inadequate facilities – goes unaddressed and worsens over time.</p>
+<p><strong>Which is worse?</strong> A Type 2 error here risks long-term damage to employee wellbeing and productivity. Most HR professionals would rather investigate a false alarm than miss a genuine culture problem, suggesting that a lower evidence threshold – and therefore accepting more Type 1 errors – might be appropriate in this context.</p>
+<hr>
+</section>
+<section id="example-7-online-checkout-redesign-business-technology" class="level3" data-number="21.6.7">
+<h3 data-number="21.6.7" class="anchored" data-anchor-id="example-7-online-checkout-redesign-business-technology"><span class="header-section-number">21.6.7</span> Example 7: Online Checkout Redesign (Business / Technology)</h3>
+<p>An e-commerce company redesigns its checkout page to reduce cart abandonment. The product team runs an A/B test: half of visitors see the old design, half see the new one. The question is whether the new design leads to a meaningfully higher conversion rate.</p>
+<p><strong>Null hypothesis:</strong> The new checkout design has no effect on conversion rates. The conversion rate is the same for both designs.</p>
+<p><strong>Alternate hypothesis:</strong> The new checkout design produces a higher conversion rate than the old one.</p>
+<p><strong>Type 1 error:</strong> The team concludes the new design is better and rolls it out to all users, when the difference in conversion rates was just random noise. Users get a new experience that offers no real benefit, and the engineering effort was wasted.</p>
+<p><strong>Type 2 error:</strong> The team concludes the designs perform equally well and keeps the old one, when the new design was genuinely better. Every future customer who abandons the cart is a missed sale that the new design could have prevented.</p>
+<p><strong>Which is worse?</strong> In A/B testing, Type 2 errors are often underappreciated. Companies sometimes run tests that are too short or on too small a sample, making them unlikely to detect real improvements. The cost of a Type 2 error here is measured in lost revenue for every day the inferior design remains in place.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -855,11 +726,11 @@ Quick Check
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Two normal distributions have the same mean but different standard deviations: one has <span class="math inline">\(\sigma = 1\)</span> and the other has <span class="math inline">\(\sigma = 5\)</span>. Which one will have a taller peak?</p>
+<p>For the online checkout A/B test example, how might the company reduce the risk of a Type 2 error without changing its confidence threshold?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -868,81 +739,21 @@ Suggested answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The one with <span class="math inline">\(\sigma = 1\)</span>. A smaller standard deviation means the distribution is more tightly concentrated around the mean, so the peak must be taller in order for the total area under the curve to remain equal to 1.</p>
+<p>The company could run the test for longer, or expose a larger proportion of its users to the test. Both approaches increase the sample size, which gives the test more statistical power – meaning it is better able to detect a real difference if one exists. In general, larger samples reduce Type 2 errors without requiring any change to the confidence threshold.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="how-do-we-calculate-probabilities-from-a-pdf" class="level2" data-number="20.10">
-<h2 data-number="20.10" class="anchored" data-anchor-id="how-do-we-calculate-probabilities-from-a-pdf"><span class="header-section-number">20.10</span> How do we calculate probabilities from a PDF?</h2>
-<p>We already know that the function value from the pdf is not a probability; it is only a relative density. So how do we calculate actual probabilities from a PDF?</p>
-<p>For continuous distributions, the probability of a value being exactly equal to anything is always 0. We can only calculate the probability that a value falls in a certain range.</p>
-<p>We do that by finding the area under the curve of the PDF over that range.</p>
-<p><a href="#fig-cust-sales-30-40-shaded" class="quarto-xref">Figure&nbsp;<span>20.11</span></a> shows the pdf of the daily sales by a customer for a store. The area under the curve between 30 and 40 is shaded. The probability that a randomly chosen customer has daily sales between 30 and 40 is equal to the area of the shaded region, which is 0.121.</p>
-<div id="fig-cust-sales-30-40-shaded" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cust-sales-30-40-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-cust-sales-30-40-shaded.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cust-sales-30-40-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.11: PDF of daily sales by a customer with the area between 30 and 40 shaded
-</figcaption>
-</figure>
-</div>
-<p><a href="#fig-cust-sales-gt-20-shaded" class="quarto-xref">Figure&nbsp;<span>20.12</span></a> shows the same PDF with the area to the right of 20 shaded. The probability that a randomly chosen customer has daily sales greater than 20 is equal to the area of the shaded region, which is 0.502.</p>
-<div id="fig-cust-sales-gt-20-shaded" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cust-sales-gt-20-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../images/fig-cust-sales-gt-20-shaded.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cust-sales-gt-20-shaded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.12: PDF of daily sales by a customer with the area to the right of 20 shaded
-</figcaption>
-</figure>
-</div>
-<p>We can also infer from <a href="#fig-cust-sales-gt-20-shaded" class="quarto-xref">Figure&nbsp;<span>20.12</span></a> that the probability of a randomly chosen customer having daily sales less than 20 is 0.498, since the total area under the curve must equal 1.</p>
 </section>
-<section id="other-important-distributions" class="level2" data-number="20.11">
-<h2 data-number="20.11" class="anchored" data-anchor-id="other-important-distributions"><span class="header-section-number">20.11</span> Other Important Distributions</h2>
-<p>Beyond the normal distribution, statistics relies on several other distributions that arise in specific contexts.</p>
-<section id="the-chi-square-distribution" class="level3" data-number="20.11.1">
-<h3 data-number="20.11.1" class="anchored" data-anchor-id="the-chi-square-distribution"><span class="header-section-number">20.11.1</span> The Chi-Square Distribution</h3>
-<p>The chi-square distribution is a family of distributions, each characterized by a single parameter called the <em>degrees of freedom</em>. As the degrees of freedom increase, the distribution shifts to the right and becomes more symmetric. It is used extensively in statistical tests – for instance, when testing whether observed counts differ from expected counts, or when comparing proportions across groups.</p>
-</section>
-<section id="the-t-distribution" class="level3" data-number="20.11.2">
-<h3 data-number="20.11.2" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">20.11.2</span> The T Distribution</h3>
-<p>The T distribution (sometimes called Student’s t-distribution) also forms a family parameterised by degrees of freedom. It looks similar to the normal distribution – bell-shaped and symmetric – but with heavier tails, meaning extreme values are more likely than under a normal distribution. As the degrees of freedom increase, the T distribution approaches the normal distribution. It is used extensively in statistics whenever we are working with small samples or when the population standard deviation is unknown.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick Check
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In what sense is the T distribution “broader” than the normal distribution, and why might that matter in practice?</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Suggested answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The T distribution has heavier tails than the normal distribution, meaning it assigns more probability to values far from the centre. This matters in practice because when we use the T distribution in hypothesis testing, we account for the extra uncertainty that comes from working with small samples. Using the normal distribution in those situations would understate that uncertainty and lead to overconfident conclusions.</p>
-</div>
-</div>
-</div>
+<section id="a-note-on-what-failing-to-reject-really-means" class="level2" data-number="21.7">
+<h2 data-number="21.7" class="anchored" data-anchor-id="a-note-on-what-failing-to-reject-really-means"><span class="header-section-number">21.7</span> A Note on What “Failing to Reject” Really Means</h2>
+<p>One of the most common misunderstandings in statistics is equating “we did not find evidence against the null hypothesis” with “the null hypothesis is true.”</p>
+<p>These are very different statements.</p>
+<p>If our training programme study found no statistically significant improvement in sales, the correct conclusion is: <em>we did not find sufficient evidence to conclude the programme works.</em> It is not: <em>the programme definitely does not work.</em></p>
+<p>The absence of evidence is not evidence of absence. Our test might have missed a real effect because our sample was too small, because the effect was subtle, or because there was too much noise in the data. This is exactly the Type 2 error we discussed above.</p>
+<p>This distinction matters enormously in business. A manager who hears “the test was not significant” and concludes “the initiative failed” may be making a Type 2 error in their reasoning – discarding something that actually works.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -954,19 +765,18 @@ Summary: Key ideas from this chapter
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>A <strong>probability distribution</strong> describes the possible outcomes of a random process and how likely each is.</li>
-<li><strong>Discrete distributions</strong> apply to variables with a countable set of outcomes; probabilities are read directly from the bar heights in a bar chart.</li>
-<li><strong>Continuous distributions</strong> apply to variables that can take any value in a range; the y-axis of the curve gives <em>density</em>, not probability.</li>
-<li>The <strong>probability density function (PDF)</strong> describes a continuous distribution; the area under the entire curve always equals 1.</li>
-<li>Density values are meaningful only in <em>relative</em> terms – they tell you how likely one outcome is compared to another.</li>
-<li>The <strong>normal distribution</strong> is the most important continuous distribution, defined by its mean and standard deviation.</li>
-<li>The <strong>chi-square</strong> and <strong>T distributions</strong> are other important distributions that appear throughout statistics.</li>
+<li>Hypothesis testing is a formal framework for deciding whether data provide sufficient evidence to believe a claim.</li>
+<li>We always start with a <strong>null hypothesis</strong> (the status quo, assumed true by default) and an <strong>alternate hypothesis</strong> (the interesting claim we are looking for evidence to support).</li>
+<li>We reject the null hypothesis only when the evidence against it is strong enough – conventionally, when we have at least 95% confidence, meaning there is less than a 5% chance we are making a mistake.</li>
+<li>A <strong>Type 1 error</strong> (false alarm) occurs when we reject a null hypothesis that is actually true. The 5% confidence threshold directly controls how often this can happen.</li>
+<li>A <strong>Type 2 error</strong> (missed signal) occurs when we fail to reject a null hypothesis that is actually false. Larger samples reduce the risk of Type 2 errors.</li>
+<li>The relative costs of Type 1 and Type 2 errors depend on context. Deciding which error is more tolerable is a business and ethical judgment, not just a statistical one.</li>
+<li>Failing to find evidence against the null hypothesis does not prove the null hypothesis is true – it may simply mean our test was not powerful enough to detect the effect.</li>
 </ol>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1371,14 +1181,11 @@ Summary: Key ideas from this chapter
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../modules/07-probability/07-overview.html" class="pagination-link" aria-label="Module 7: Population, Samples and Inference">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 7: Population, Samples and Inference</span>
+      <a href="../../modules/07-probability/probability-distributions.html" class="pagination-link" aria-label="Probability Distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Probability Distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../modules/07-probability/hypothesis-testing-new.html" class="pagination-link" aria-label="Hypothesis Testing">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
