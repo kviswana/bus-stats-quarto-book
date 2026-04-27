@@ -438,6 +438,13 @@ window.Quarto = {
   <li><a href="#example-7-online-checkout-redesign-business-technology" id="toc-example-7-online-checkout-redesign-business-technology" class="nav-link" data-scroll-target="#example-7-online-checkout-redesign-business-technology"><span class="header-section-number">21.6.7</span> Example 7: Online Checkout Redesign (Business / Technology)</a></li>
   </ul></li>
   <li><a href="#a-note-on-what-failing-to-reject-really-means" id="toc-a-note-on-what-failing-to-reject-really-means" class="nav-link" data-scroll-target="#a-note-on-what-failing-to-reject-really-means"><span class="header-section-number">21.7</span> A Note on What “Failing to Reject” Really Means</a></li>
+  <li><a href="#sec-coin-toss-example" id="toc-sec-coin-toss-example" class="nav-link" data-scroll-target="#sec-coin-toss-example"><span class="header-section-number">21.8</span> Numerical Example: Revisiting our clairvoyant coin-toss guessing friend</a>
+  <ul class="collapse">
+  <li><a href="#the-setup" id="toc-the-setup" class="nav-link" data-scroll-target="#the-setup"><span class="header-section-number">21.8.1</span> The Setup</a></li>
+  <li><a href="#the-logic" id="toc-the-logic" class="nav-link" data-scroll-target="#the-logic"><span class="header-section-number">21.8.2</span> The Logic</a></li>
+  <li><a href="#watching-the-evidence-accumulate" id="toc-watching-the-evidence-accumulate" class="nav-link" data-scroll-target="#watching-the-evidence-accumulate"><span class="header-section-number">21.8.3</span> Watching the Evidence Accumulate</a></li>
+  <li><a href="#what-this-tells-us" id="toc-what-this-tells-us" class="nav-link" data-scroll-target="#what-this-tells-us"><span class="header-section-number">21.8.4</span> What This Tells Us</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -754,6 +761,140 @@ Suggested answer
 <p>If our training programme study found no statistically significant improvement in sales, the correct conclusion is: <em>we did not find sufficient evidence to conclude the programme works.</em> It is not: <em>the programme definitely does not work.</em></p>
 <p>The absence of evidence is not evidence of absence. Our test might have missed a real effect because our sample was too small, because the effect was subtle, or because there was too much noise in the data. This is exactly the Type 2 error we discussed above.</p>
 <p>This distinction matters enormously in business. A manager who hears “the test was not significant” and concludes “the initiative failed” may be making a Type 2 error in their reasoning – discarding something that actually works.</p>
+<p>We begin with the coin-toss story from the very start of the previous chapter, because it turns out to be a perfect laboratory for the core ideas. We then move to a production-line quality problem, a staffing experiment, and finally an extended business story set inside a real company.</p>
+<hr>
+</section>
+<section id="sec-coin-toss-example" class="level2" data-number="21.8">
+<h2 data-number="21.8" class="anchored" data-anchor-id="sec-coin-toss-example"><span class="header-section-number">21.8</span> Numerical Example: Revisiting our clairvoyant coin-toss guessing friend</h2>
+<section id="the-setup" class="level3" data-number="21.8.1">
+<h3 data-number="21.8.1" class="anchored" data-anchor-id="the-setup"><span class="header-section-number">21.8.1</span> The Setup</h3>
+<p>Recall the opening of the chapter: a friend tells you they can predict the outcome of a coin flip every single time. You are skeptical. So you test them.</p>
+<p>Let us now put numbers to this story.</p>
+<p><strong>Null hypothesis:</strong> Our friend has no special ability. Each prediction is just a random guess, correct 50% of the time purely by chance.</p>
+<p><strong>Alternate hypothesis:</strong> Our friend genuinely can predict coin flips better than chance.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why did we formulate the null and alternate hypotheses the way we did?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The null hypothesis represents the status quo. Unless we have sufficient evidence, we cannot reject it in favor of the alternate hypothesis. In this case, we are very skeptical that anyone can predict coin toss outcomes at anything better than random chance. So that is the null hypothesis.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-logic" class="level3" data-number="21.8.2">
+<h3 data-number="21.8.2" class="anchored" data-anchor-id="the-logic"><span class="header-section-number">21.8.2</span> The Logic</h3>
+<p>Our approach is going to be the following, We initially assume that the null hypothesis is true — that our friend is just guessing. We then watch the evidence accumulate as they make consecutive predictions. After each prediction, we ask: <em>if the null hypothesis were true, how likely would it be to see a result at least this good purely by chance?</em> When that becomes very small (&lt; 0.05 ), we feel justified in rejecting the null hypothesis and concluding that something other than luck is at work.</p>
+<p>If the null hypothesis is true — if our friend is just guessing — then each individual prediction has a 50% chance of being correct. Getting one right by luck is as likely as a fair coin landing heads: one chance in two, or 0.5.</p>
+<p>What about getting two in a row right by pure luck? Each flip is independent, so the probability is 0.5 × 0.5 = 0.25, or 25%. Let us say the coin came up {H, T} in the two tries and our friend got them both right. What is the probability of this? Well guessing randomly the firend could have guessed {H, H}, {H, T}, {T, H}, or {T, T} with equal probability. Only one of those four possibilities would have been correct, so the probability of getting two in a row right by chance is 1 in 4, or 25%.</p>
+<p>Every additional correct prediction cuts the probability in half, because our friend would need <em>another</em> lucky guess on top of all the previous ones.</p>
+<p>The key question we ask after each flip is: <em>if our friend were just guessing, how likely is it that they would have done at least this well purely by chance?</em></p>
+</section>
+<section id="watching-the-evidence-accumulate" class="level3" data-number="21.8.3">
+<h3 data-number="21.8.3" class="anchored" data-anchor-id="watching-the-evidence-accumulate"><span class="header-section-number">21.8.3</span> Watching the Evidence Accumulate</h3>
+<p>We keep tossing the coin and watching our friend predict. After each prediction, we update our calculation of how likely it is that they are just guessing.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Consecutive correct predictions</th>
+<th style="text-align: center;">Probability of doing this well by luck alone</th>
+<th style="text-align: center;">Do we reject the null hypothesis?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">50.0%</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">25.0%</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">12.5%</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">6.25%</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>3.125%</strong></td>
+<td style="text-align: center;"><strong>Yes</strong> ✓</td>
+</tr>
+</tbody>
+</table>
+<p>After the <strong>fifth</strong> consecutive correct prediction, the probability that our friend achieved this purely by chance has fallen to 3.125% — below our 5% threshold (or, 95% confidence. At this point the result is statistically significant at the 95% confidence level. We reject the null hypothesis and are forced to conclude that something other than luck appears to be at work.</p>
+</section>
+<section id="what-this-tells-us" class="level3" data-number="21.8.4">
+<h3 data-number="21.8.4" class="anchored" data-anchor-id="what-this-tells-us"><span class="header-section-number">21.8.4</span> What This Tells Us</h3>
+<p>Notice what happened along the way. After four correct predictions the probability was 6.25% — uncomfortably close to the threshold but not quite there. We were not yet willing to abandon our skepticism. The fifth prediction was the tipping point.</p>
+<p>Notice also what we are <em>not</em> saying. Rejecting the null hypothesis does not prove our friend has supernatural powers. It says only that the result we observed is too unlikely to dismiss as coincidence at our chosen threshold. What the explanation actually is — a pattern they have spotted, a tell in how we flip the coin, extraordinary luck — is a separate question that statistics alone cannot answer.</p>
+<p>This is an intuitive illustration of what hypothesis testing always does: it tells you whether the evidence is strong enough to act on. It does not tell you <em>why</em>.</p>
+<p>We deliberately chose the simple case of a coin toss to illustrate the concepts clearly. We can calculate the probabilities easily. The evidence accumulates in a satisfying and transparent way, and the moment of rejection is clear.</p>
+<p>But real business problems are rarely this clean. We have messier data and less obvious distributions, and face considerably higher stakes than settling an argument with a friend.</p>
+<p>In the next chapter we will use the same logic: - assume initially that the null hypothesis is true - gather data - calculate how likely the observed result would be by chance - reject the null hypothesis if that probability falls below 5%,</p>
+<p>and apply it to three realistic problems drawn from operations, quality control, and digital product management.</p>
+<p>We will face slightly more involved mechanics, but the underlying question is always identical to the one we asked here: is this result too unlikely to be a coincidence?</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we used a stricter threshold of 99% confidence — meaning we would only reject the null hypothesis if the probability of the result arising by luck fell below 1%. How many consecutive correct predictions would our friend need before we rejected the null hypothesis?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We need to find how many correct predictions <span class="math inline">\(n\)</span> are needed so that <span class="math inline">\((0.5)^n &lt; 0.01\)</span>. After six correct predictions the probability is <span class="math inline">\((0.5)^6 = 1.5625\%\)</span>, which is still above 1%. After seven correct predictions the probability falls to <span class="math inline">\((0.5)^7 \approx 0.78\%\)</span>, which is below 1%. So at the 99% confidence level, our friend would need <strong>seven</strong> consecutive correct predictions. Tougher standards demand stronger evidence.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -777,6 +918,7 @@ Summary: Key ideas from this chapter
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
