@@ -761,11 +761,11 @@ Figure&nbsp;20.8: Density for a height of 162 cm is 0.058
 </figcaption>
 </figure>
 </div>
-<p>This does <strong>not</strong> mean there is a 58% chance that a randomly chosen woman is <em>exactly</em> 162 cm tall. That probability is zero. What it <em>does</em> mean is that heights near 162 cm are relatively likely – specifically, they are more likely than heights where the curve is lower.</p>
+<p>This does <strong>not</strong> mean there is a 5.8% chance that a randomly chosen woman is <em>exactly</em> 162 cm tall. That probability is zero. What it <em>does</em> mean is that heights near 162 cm are more likely than heights where the curve is lower, for example at a height of 180 cm where the function value seems close to 0.002.</p>
 </section>
 <section id="relative-probability-what-the-density-curve-actually-tells-us" class="level2" data-number="20.8">
 <h2 data-number="20.8" class="anchored" data-anchor-id="relative-probability-what-the-density-curve-actually-tells-us"><span class="header-section-number">20.8</span> Relative Probability: What the Density Curve Actually Tells Us</h2>
-<p>The density value at a given x-value is meaningful only in comparison to the density value at other x-values. It gives you the <em>relative</em> likelihood of outcomes.</p>
+<p>The density value at a given x-value is meaningful only in comparison to the density values at other x-values. It gives you the <em>relative</em> likelihood of outcomes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -790,7 +790,7 @@ Figure&nbsp;20.9: Normal distribution with mean -0.6 and sd 0.2
 </figcaption>
 </figure>
 </div>
-<p>The distribution is <a href="#fig-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.9</span></a> has a height of 2 at x = -0.6. So clearly the height at any point cannot be a probability!</p>
+<p>The distribution is <a href="#fig-normal-dist" class="quarto-xref">Figure&nbsp;<span>20.9</span></a> has a height of 2 at x = -0.6. Given that a probability value can never be greater than 1, clearly the height at any point on a probability density function cannot be a probability.</p>
 <p><a href="#fig-height-dist-with-points" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows the height distribution we saw earlier with two points labeled.</p>
 <div id="fig-height-dist-with-points" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -802,9 +802,9 @@ Figure&nbsp;20.10: Normal distribution with mean -0.6 and sd 0.2, with two point
 </figcaption>
 </figure>
 </div>
-<p><a href="#fig-height-dist-with-points" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows that the density for a height of 63 inches is 0.15 and the density for a height of 66 inches is 0.10. These are relative densities and not probabilities. They tell us that heights close to 63 inches are 1.5 times more likely than heights close to 66 inches.</p>
+<p><a href="#fig-height-dist-with-points" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows that the density for a height of 63 inches is 0.15 and the density for a height of 66 inches is 0.10. These are relative densities and not probabilities. They tell us that heights close to 63 inches are 1.5 times (or 50%) more likely than heights close to 66 inches.</p>
 <p>This is the correct way to read a probability density function: not as absolute probabilities, but as a map of relative likelihood across the range of possible values.</p>
-<p>The y-axis can even exceed 1 in a PDF and still be perfectly valid. This confuses many people at first.</p>
+<p>As we have seen earlier, the y-axis can even exceed 1 in a PDF and still be perfectly valid. This confuses many people at first.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
